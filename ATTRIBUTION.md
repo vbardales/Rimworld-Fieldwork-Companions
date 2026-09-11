@@ -11,8 +11,8 @@ could be**: it is licensed Disney material.
 The transposition is entirely RimWorld's own vocabulary. The friendship level is replaced by the
 training steps the game already tracks (`Forage` and `Dig`, added by Odyssey, three steps each) and
 by the `Bond` relation. The trigger is the vanilla master-and-follow toggle
-(`Pawn_PlayerSettings.master` plus `followFieldwork`), which the base game exposes and then leaves
-without any effect.
+(`Pawn_PlayerSettings.master` plus `followFieldwork`), which the base game exposes and acts on —
+the animal follows, wanders nearby and defends — without ever letting it bear on the work.
 
 The mod depends on Harmony (brrainz.harmony, MIT) and RimWorld 1.6. Odyssey is optional.
 
