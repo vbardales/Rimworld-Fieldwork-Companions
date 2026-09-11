@@ -6,13 +6,13 @@ using Verse;
 namespace FieldworkCompanions
 {
     /// <summary>
-    /// La récolte, cultivée comme sauvage — chez Dreamlight Valley ce sont deux rôles distincts,
-    /// jardinage et cueillette ; RimWorld n'en fait qu'un geste, donc un seul patch.
+    /// Harvesting, cultivated and wild alike - in Dreamlight Valley these are two distinct roles,
+    /// gardening and foraging; RimWorld makes one gesture of them, so one patch.
     ///
-    /// <c>PlantCollected</c> est appelé par <c>JobDriver_PlantWork</c> juste après que la récolte
-    /// a été posée au sol, et il reçoit le pion. Le filtre décisif est le job en cours :
-    /// <c>PlantDestructionMode</c> ne distingue pas une récolte d'une coupe (ses quatre valeurs
-    /// sont Smash, Flame, Chop, Cut), alors que la def du job, elle, le dit.
+    /// <c>PlantCollected</c> is called by <c>JobDriver_PlantWork</c> just after the harvest has
+    /// been dropped on the ground, and it receives the pawn. The decisive filter is the current
+    /// job: <c>PlantDestructionMode</c> does not tell a harvest from a cut (its four values are
+    /// Smash, Flame, Chop, Cut), whereas the job def does.
     /// </summary>
     [HarmonyPatch(typeof(Plant), nameof(Plant.PlantCollected))]
     internal static class Patch_Plant_PlantCollected
@@ -36,10 +36,10 @@ namespace FieldworkCompanions
             if (plant?.harvestedThingDef == null || plant.harvestYield <= 0f) return;
 
             __state.yield = plant.harvestedThingDef;
-            // Le rendement nominal de la def, arrondi sans tirage. Ni YieldNow(), qui tire au sort
-            // et serait consommé une seconde fois, ni GenMath.RoundRandom : ce préfixe tourne à
-            // chaque récolte de la partie, y compris quand aucun compagnon n'accompagne, et il ne
-            // doit rien prélever sur le générateur aléatoire du jeu.
+            // The def's nominal yield, rounded without a roll. Neither YieldNow(), which rolls and
+            // would then be consumed a second time, nor GenMath.RoundRandom: this prefix runs on
+            // every harvest of the game, companion at hand or not, and it must draw nothing from
+            // the game's random generator.
             __state.amount = Mathf.RoundToInt(plant.harvestYield);
             __state.cell = __instance.Position;
             __state.map = __instance.Map;

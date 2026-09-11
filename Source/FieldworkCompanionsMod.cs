@@ -102,8 +102,8 @@ namespace FieldworkCompanions
         }
 
         /// <summary>
-        /// Curseur affiche en pourcentage, stocke en fraction. <paramref name="decimals"/> sert
-        /// aux valeurs tres basses, comme la chance de nouer un lien.
+        /// Slider shown as a percentage, stored as a fraction. <paramref name="decimals"/> serves
+        /// the very low values, such as the chance of tying a bond.
         /// </summary>
         private static float PercentRow(Listing_Standard listing, string key, float value,
             float min, float max, string tooltipKey = null, int decimals = 0)

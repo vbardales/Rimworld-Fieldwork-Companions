@@ -5,11 +5,11 @@ using Verse;
 namespace FieldworkCompanions
 {
     /// <summary>
-    /// La traite et la tonte. <c>Gathered</c> recoit le pion qui s'en occupe et fait sortir la
-    /// ressource ; la prime se pose a cote.
+    /// Milking and shearing. <c>Gathered</c> receives the pawn seeing to it and spawns the
+    /// resource; the bonus is dropped beside it.
     ///
-    /// L'animal qu'on est en train de traire est exclu de la recherche de compagnon : il est
-    /// occupe a etre la ressource, il ne s'aide pas lui-meme.
+    /// The animal being milked is excluded from the companion search: it is busy being the
+    /// resource, and it does not help itself.
     /// </summary>
     [HarmonyPatch(typeof(CompHasGatherableBodyResource), "Gathered")]
     internal static class Patch_CompHasGatherableBodyResource_Gathered

@@ -5,12 +5,12 @@ using Verse;
 namespace FieldworkCompanions
 {
     /// <summary>
-    /// Le minage. <c>DestroyMined</c> est le point d'entree unique de « un pion vient d'abattre ce
-    /// bloc » : il fait sortir le minerai puis detruit le bloc. On patche celui-la et pas les deux
-    /// surcharges de <c>TrySpawnYield</c>, qui se relaient et feraient tirer deux fois.
+    /// Mining. <c>DestroyMined</c> is the single entry point of "a pawn has just brought this block
+    /// down": it spawns the ore, then destroys the block. That one is patched and not the two
+    /// overloads of <c>TrySpawnYield</c>, which relay each other and would fire twice.
     ///
-    /// La position, la carte et la def sont relevees en prefixe : apres l'appel, le bloc est
-    /// detruit et <c>Position</c> ne vaut plus rien.
+    /// Position, map and def are read in the prefix: after the call the block is destroyed and
+    /// <c>Position</c> is worth nothing.
     /// </summary>
     [HarmonyPatch(typeof(Mineable), nameof(Mineable.DestroyMined))]
     internal static class Patch_Mineable_DestroyMined

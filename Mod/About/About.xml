@@ -57,8 +57,8 @@ Andreas Pardeike for Harmony.</description>
     <li>Ludeon.RimWorld.Biotech</li>
     <li>Ludeon.RimWorld.Anomaly</li>
     <li>Ludeon.RimWorld.Odyssey</li>
-    <!-- Aucun patch XML, aucune def ajoutee : rien d'autre a declarer. Les deux dressages
-         d'Odyssey sont resolus au runtime par nom et de facon silencieuse, donc un mod qui les
-         retire ou un jeu sans le DLC degradent le mod au lieu de le casser. -->
+    <!-- No XML patch and no def added: there is nothing else to declare. Odyssey's two trainings
+         are resolved at runtime by name and silently, so a mod that removes them, or a game
+         without the DLC, degrades this mod instead of breaking it. -->
   </loadAfter>
 </ModMetaData>

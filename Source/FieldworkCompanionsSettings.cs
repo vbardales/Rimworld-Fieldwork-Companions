@@ -4,27 +4,27 @@ namespace FieldworkCompanions
 {
     public class FieldworkCompanionsSettings : ModSettings
     {
-        // Ce que le compagnon aide a faire.
+        // What the companion helps with.
         public bool assistMining = true;
         public bool assistHarvest = true;
         public bool assistFishing = true;
         public bool assistGathering = true;
 
-        // Le calcul de la chance.
+        // How the chance is worked out.
         public float baseChance = 0.15f;
         public float perStepBonus = 0.10f;
         public float bondBonus = 0.15f;
 
-        // Ce qu'il rapporte, en part du rendement nominal du geste.
+        // What it turns up, as a share of the gesture's nominal yield.
         public float bonusShare = 0.25f;
 
-        // A quelle distance il compte comme present.
+        // How close it counts as being at hand.
         public int radius = 8;
 
-        // Faut-il le dressage qui correspond au geste, quand il en existe un.
+        // Whether the training matching the gesture is required, when one exists.
         public bool requireSpecialty = true;
 
-        // Le lien qui se noue a force de travailler ensemble, par assistance reussie.
+        // The bond that ties from working together, per successful assist.
         public float bondChance = 0.005f;
 
         public bool showMote = true;

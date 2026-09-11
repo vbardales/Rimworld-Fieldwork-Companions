@@ -6,12 +6,12 @@ using Verse;
 namespace FieldworkCompanions
 {
     /// <summary>
-    /// La peche, ajoutee par Odyssey. <c>GetCatchesFor</c> est le meilleur crochet des quatre :
-    /// il recoit le pecheur et rend la liste des prises, donc la prime s'ajoute a la liste sans
-    /// rien poser au sol soi-meme — c'est le JobDriver qui s'en charge ensuite.
+    /// Fishing, added by Odyssey. <c>GetCatchesFor</c> is the cleanest of the four hooks: it
+    /// receives the fisher and returns the list of catches, so the bonus joins that list without
+    /// dropping anything on the ground - the JobDriver sees to that afterwards.
     ///
-    /// <c>animalFishing</c> ecarte le cas ou c'est un animal qui peche : un compagnon n'assiste
-    /// pas un autre animal.
+    /// <c>animalFishing</c> rules out the case of an animal doing the fishing: a companion does
+    /// not assist another animal.
     /// </summary>
     [HarmonyPatch(typeof(FishingUtility), nameof(FishingUtility.GetCatchesFor))]
     internal static class Patch_FishingUtility_GetCatchesFor
@@ -24,8 +24,8 @@ namespace FieldworkCompanions
             Pawn helper = Companions.TryAssist(pawn, AssistKind.Fishing);
             if (helper == null) return;
 
-            // Une prise de plus, prise au hasard parmi celles qui viennent d'etre sorties. Un
-            // poisson est deja l'unite : pas de part a calculer ici.
+            // One more catch, picked at random among those just landed. A fish is already the
+            // unit: no share to work out here.
             Thing model = __result.RandomElement();
             if (model?.def == null) return;
 

@@ -5,7 +5,7 @@ using Verse;
 
 namespace FieldworkCompanions
 {
-    /// <summary>Les quatre gestes de recolte auxquels un compagnon peut preter main-forte.</summary>
+    /// <summary>The four gathering gestures a companion can lend a hand with.</summary>
     public enum AssistKind
     {
         Mining,
@@ -15,11 +15,12 @@ namespace FieldworkCompanions
     }
 
     /// <summary>
-    /// Le coeur du mod. RimWorld sait deja qu'un animal a un maitre et qu'il le suit au travail
-    /// (<c>Pawn_PlayerSettings.master</c> + <c>followFieldwork</c>, la case « Follow master while
-    /// doing field work » de l'onglet Animaux) : il ne se passe simplement rien quand il le fait.
-    /// Cette classe repond a une seule question — « un compagnon qualifie accompagne-t-il ce
-    /// colon, et rend-il quelque chose cette fois-ci ? » — et les quatre patchs s'en servent.
+    /// The heart of the mod. RimWorld already knows that an animal has a master and follows it to
+    /// work (<c>Pawn_PlayerSettings.master</c> + <c>followFieldwork</c>, the "Follow master while
+    /// doing field work" checkbox of the Animals tab). The animal follows, wanders nearby and
+    /// defends; what it never does is bear on the work itself. This class answers the one question
+    /// that gap leaves open - "is a qualified companion at hand, and does it turn up anything this
+    /// time?" - and the four patches lean on it.
     /// </summary>
     public static class Companions
     {
@@ -28,9 +29,9 @@ namespace FieldworkCompanions
         private static TrainableDef dig;
 
         /// <summary>
-        /// Les deux dressages sont ceux d'Odyssey. Sans le DLC ils n'existent pas, et le mod se
-        /// rabat alors sur la seule obeissance : d'ou la resolution silencieuse plutot qu'un
-        /// <c>TrainableDefOf</c>, qui hurlerait au chargement.
+        /// Both trainings come from Odyssey. Without the DLC they do not exist, and the mod falls
+        /// back on obedience alone: hence the silent lookup rather than a <c>TrainableDefOf</c>,
+        /// which would scream at load time.
         /// </summary>
         private static void ResolveTrainables()
         {
@@ -50,7 +51,7 @@ namespace FieldworkCompanions
             get { ResolveTrainables(); return dig; }
         }
 
-        /// <summary>Le dressage qui correspond au geste, ou null quand le jeu n'en a pas.</summary>
+        /// <summary>The training that matches the gesture, or null when the game has none.</summary>
         public static TrainableDef SpecialtyFor(AssistKind kind)
         {
             switch (kind)
@@ -75,9 +76,9 @@ namespace FieldworkCompanions
         }
 
         /// <summary>
-        /// Le compagnon present, ou null. Volontairement strict : seul un colon humanoide est
-        /// aide. Sans ce garde, un megaparesseux dresse au creusement passerait lui-meme pour un
-        /// mineur — <c>Mineable.DestroyMined</c> ne fait pas la difference depuis Odyssey.
+        /// The companion at hand, or null. Deliberately strict: only a humanlike colonist is
+        /// helped. Without that guard a megasloth trained to dig would pass for a miner itself -
+        /// <c>Mineable.DestroyMined</c> has not told the difference since Odyssey.
         /// </summary>
         public static Pawn HelperFor(Pawn worker, AssistKind kind, Thing exclude = null)
         {
@@ -97,8 +98,8 @@ namespace FieldworkCompanions
             {
                 Pawn animal = animals[i];
 
-                // Ce test d'abord : c'est une comparaison de reference, et il elimine la quasi
-                // totalite du troupeau avant tout calcul de distance.
+                // This test first: it is a reference comparison, and it rules out nearly the whole
+                // herd before any distance is computed.
                 if (animal.playerSettings == null || animal.playerSettings.Master != worker) continue;
                 if (!animal.playerSettings.followFieldwork) continue;
                 if (animal == exclude) continue;
@@ -113,9 +114,9 @@ namespace FieldworkCompanions
         }
 
         /// <summary>
-        /// L'obeissance est le plancher, et ce n'est pas une regle du mod : le vanilla refuse deja
-        /// d'obeir a un maitre sans elle (<c>Pawn_PlayerSettings.RespectsMaster</c>). La specialite
-        /// s'y ajoute quand le geste en a une et que l'option l'exige.
+        /// Obedience is the floor, and that is not a rule of this mod: vanilla already refuses to
+        /// obey a master without it (<c>Pawn_PlayerSettings.RespectsMaster</c>). The specialty adds
+        /// to it when the gesture has one and the option asks for it.
         /// </summary>
         private static bool Qualifies(Pawn animal, TrainableDef specialty)
         {
@@ -129,9 +130,9 @@ namespace FieldworkCompanions
         }
 
         /// <summary>
-        /// La chance qu'il rende quelque chose. Transposition du calcul de Dreamlight Valley — une
-        /// base, plus un palier par niveau — sauf que le niveau d'amitie y est remplace par ce que
-        /// RimWorld sait deja mesurer : les paliers de dressage, et le lien.
+        /// The chance it turns up something. The Dreamlight Valley formula transposed - a base,
+        /// plus one step per level - except that the friendship level gives way to what RimWorld
+        /// already knows how to measure: the training steps, and the bond.
         /// </summary>
         public static float ChanceFor(Pawn worker, Pawn animal, AssistKind kind)
         {
@@ -159,8 +160,8 @@ namespace FieldworkCompanions
         }
 
         /// <summary>
-        /// Le tirage. Renvoie l'animal quand il a reussi, null sinon, et noue le lien au passage.
-        /// Le mote est laisse aux appelants : eux seuls savent combien la prime rapporte.
+        /// The roll. Returns the animal when it succeeded, null otherwise, and ties the bond on
+        /// the way. The mote is left to the callers: they alone know how much the bonus came to.
         /// </summary>
         public static Pawn TryAssist(Pawn worker, AssistKind kind, Thing exclude = null)
         {
@@ -169,8 +170,8 @@ namespace FieldworkCompanions
 
             if (!Rand.Chance(ChanceFor(worker, animal, kind))) return null;
 
-            // Chez Dreamlight Valley, travailler ensemble fait monter l'amitie ; ici ca pousse vers
-            // le lien, avec l'API que le vanilla emploie deja pour l'apprivoisement et le dressage.
+            // In Dreamlight Valley working together raises friendship; here it pushes towards the
+            // bond, through the API vanilla already uses for taming and for training.
             var settings = FieldworkCompanionsMod.Settings;
             if (settings.bondChance > 0f && !IsBonded(worker, animal))
             {
@@ -180,7 +181,7 @@ namespace FieldworkCompanions
             return animal;
         }
 
-        /// <summary>Le « +3 » qui flotte au-dessus de l'animal, pour voir qui a trouve quoi.</summary>
+        /// <summary>The "+3" floating over the animal, so you see who found what.</summary>
         public static void NoteAssist(Pawn animal, int count)
         {
             if (!FieldworkCompanionsMod.Settings.showMote) return;
@@ -191,8 +192,8 @@ namespace FieldworkCompanions
         }
 
         /// <summary>
-        /// La prime, exprimee en part de ce que le geste rend nominalement, et jamais nulle : un
-        /// compagnon qui reussit rapporte toujours au moins une unite.
+        /// The bonus, expressed as a share of what the gesture nominally yields, and never nil: a
+        /// companion that succeeds always turns up at least one unit.
         /// </summary>
         public static int BonusCount(int nominalYield)
         {
@@ -200,7 +201,7 @@ namespace FieldworkCompanions
             return Mathf.Max(1, Mathf.RoundToInt(nominalYield * share));
         }
 
-        /// <summary>Pose la prime au sol, a cote de qui l'a trouvee.</summary>
+        /// <summary>Drops the bonus on the ground, next to whoever found it.</summary>
         public static void PlaceBonus(ThingDef def, int count, IntVec3 cell, Map map)
         {
             if (def == null || count <= 0 || map == null || !cell.IsValid) return;
