@@ -1,0 +1,83 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Fieldwork Companions — showcase</title>
+<!--
+  Engraves the mod name and its summary line onto the showcase, to the repository
+  standard in STYLE_RIMWORLD.md: 896x504, title over the calm upper-left third,
+  58x3 amber rule, 21 px summary on 430 px.
+
+  Rendered by Chrome headless at the final size, so the glyphs are never
+  resampled. The background is Art/Preview-source.png, the full-resolution
+  render, never the reduced Preview.png.
+
+    chrome --headless --no-sandbox --disable-gpu --hide-scrollbars \
+      --window-size=896,504 --force-device-scale-factor=1 \
+      --screenshot=../Mod/About/Preview.png preview.html
+
+  The source is 1448x1086, which is 4:3, so it has to lose a quarter of its
+  height to reach 16:9. They are taken off both ends, hence `center`: the top
+  band is the dark rock wall the text sits on, and the bottom is empty floor.
+  Splitting the loss keeps the four subjects - lamp, jade heap, dog, miner -
+  across the middle of the frame instead of pushing them onto an edge.
+
+  The title is set on two lines. The scene is dark right across the band the
+  title occupies, so one line would not cross anything bright; two are used
+  because the name is twenty characters, and a squarer block sits better over
+  the corner than a bar reaching two thirds of the way across.
+-->
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { width: 896px; height: 504px; position: relative; overflow: hidden; }
+
+  .scene {
+    position: absolute; inset: 0;
+    background: url('../Art/Preview-source.png') center / cover no-repeat;
+  }
+
+  /*
+    Darkens the upper-left corner so the text reads, and leaves the lamp alone.
+
+    STYLE_RIMWORLD.md specifies a circle falling to nothing at 74%. On this
+    picture that circle reaches the lamp pool at (285, 292) and takes a quarter
+    of its brightness - and the pool is one of the two things allowed to be
+    vivid here, the one that makes the room a room. The veil is flattened into a
+    wide, short ellipse instead: it dies before the pool and still covers the
+    title band. The scene is already dark under the text, so it has little work
+    to do; it only has to stop the floor grid from showing through the glyphs.
+  */
+  .veil {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 760px 300px at top left,
+                rgba(6, 5, 4, .86) 0%, rgba(6, 5, 4, 0) 100%);
+  }
+
+  .plate {
+    position: absolute; left: 50px; top: 46px;
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  }
+
+  .name {
+    margin: 0; font-size: 52px; font-weight: 700; line-height: 1;
+    color: #FBF7EF; letter-spacing: -1px;
+    text-shadow: 0 2px 18px rgba(0, 0, 0, .55);
+  }
+
+  .rule {
+    width: 58px; height: 3px; margin: 18px 0 0; background: #D68F2C;
+  }
+
+  .line {
+    margin: 13px 0 0; width: 430px;
+    font-size: 21px; line-height: 29px; font-weight: 400;
+    color: rgba(251, 247, 239, .88);
+    text-shadow: 0 1px 12px rgba(0, 0, 0, .6);
+  }
+</style>
+
+<div class="scene"></div>
+<div class="veil"></div>
+<div class="plate">
+  <p class="name">Fieldwork<br>Companions</p>
+  <div class="rule"></div>
+  <p class="line">An animal that follows its master to work turns up a little extra.</p>
+</div>
