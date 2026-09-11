@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Fieldwork Companions</name>
+  <author>Nelim</author>
+  <packageId>nelim.fieldworkcompanions</packageId>
+  <url>https://github.com/vbardales/Rimworld-Fieldwork-Companions-Renew</url>
+  <modVersion>1.0.0</modVersion>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <description>RimWorld already lets you give an animal a master and tick "follow master while doing field work". The animal then walks along while your colonist mines, harvests, forages or fishes. It follows, it wanders nearby, it defends — and it never once makes the work go better. This mod makes that walk worth something.
+
+WHAT IT DOES
+
+When an obedient companion is at hand while its master works, there is a chance the work turns up more than it should: a little extra ore, a few more crops, one more fish, a bit more milk or wool. A mark appears over the animal that found it.
+
+- Mining, harvesting and foraging, fishing, milking and shearing. Each can be switched off on its own.
+- The chance rises with training. Mining asks for the "dig" training and harvesting for "forage" — both added by Odyssey, three steps each — and every step earned makes the companion better at it. Fishing, milking and shearing have no training of their own, so obedience is enough there.
+- A bonded animal is better still, and working side by side slowly draws the two together.
+- Obedience is the floor, and that is the game's own rule: without it an animal does not respect a master at all.
+
+Defaults: 15% base, +10% per training step, +15% when bonded — so a fully trained, bonded companion helps 60% of the time, and turns up a quarter of the usual yield when it does. Everything is adjustable in the mod options.
+
+Deep drills are not affected: nobody stands next to them. Cutting a plant down is not harvesting. An animal fishing on its own is never assisted, and the animal being milked never counts as its own helper.
+
+No data is added to the save: the mod can be added to or removed from a game in progress.
+
+Interface in English and French.
+
+IF I GO QUIET
+
+If I do not answer within a reasonable time after being contacted, anyone may freely update this or any other of my mods, including publishing a continuation of it. All credit must be preserved.
+
+AI-GENERATED
+
+This mod's code was written with Claude Code (Anthropic), under human direction, review and testing. Stated openly: designing with these tools is my job.
+
+THANKS
+
+The idea comes from Disney Dreamlight Valley, where a villager you take along with a matching role gives a chance of extra resources. Only the mechanic was borrowed — no asset, name or character from that game is used, and none could be.
+
+Claude Code (Anthropic).
+Andreas Pardeike for Harmony.</description>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+      <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>Ludeon.RimWorld</li>
+    <li>Ludeon.RimWorld.Royalty</li>
+    <li>Ludeon.RimWorld.Ideology</li>
+    <li>Ludeon.RimWorld.Biotech</li>
+    <li>Ludeon.RimWorld.Anomaly</li>
+    <li>Ludeon.RimWorld.Odyssey</li>
+    <!-- Aucun patch XML, aucune def ajoutee : rien d'autre a declarer. Les deux dressages
+         d'Odyssey sont resolus au runtime par nom et de facon silencieuse, donc un mod qui les
+         retire ou un jeu sans le DLC degradent le mod au lieu de le casser. -->
+  </loadAfter>
+</ModMetaData>

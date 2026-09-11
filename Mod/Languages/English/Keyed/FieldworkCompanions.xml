@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <FieldworkCompanions.Mote.Assist>+{0}</FieldworkCompanions.Mote.Assist>
+
+  <FieldworkCompanions.Settings.Intro>An animal set to follow its master while doing field work now earns its keep: when it is at hand, the work turns up a little more than it should.\n\nThe animal must have learned obedience — the game already requires that before an animal respects a master at all.</FieldworkCompanions.Settings.Intro>
+
+  <FieldworkCompanions.Settings.WorkHeader>What a companion helps with</FieldworkCompanions.Settings.WorkHeader>
+  <FieldworkCompanions.Settings.Mining>Mining</FieldworkCompanions.Settings.Mining>
+  <FieldworkCompanions.Settings.MiningTip>Rock and ore mined by hand. Deep drills are not affected: nobody stands next to them.</FieldworkCompanions.Settings.MiningTip>
+  <FieldworkCompanions.Settings.Harvest>Harvesting and foraging</FieldworkCompanions.Settings.Harvest>
+  <FieldworkCompanions.Settings.HarvestTip>Crops and wild plants alike. Cutting a plant down is not harvesting and yields no bonus.</FieldworkCompanions.Settings.HarvestTip>
+  <FieldworkCompanions.Settings.Fishing>Fishing</FieldworkCompanions.Settings.Fishing>
+  <FieldworkCompanions.Settings.FishingTip>Requires Odyssey. One extra fish, drawn from the catch that was just landed. An animal fishing on its own is never assisted.</FieldworkCompanions.Settings.FishingTip>
+  <FieldworkCompanions.Settings.Gathering>Milking and shearing</FieldworkCompanions.Settings.Gathering>
+  <FieldworkCompanions.Settings.GatheringTip>The animal being milked or sheared never counts as its own helper.</FieldworkCompanions.Settings.GatheringTip>
+
+  <FieldworkCompanions.Settings.RequireSpecialty>Require the matching training</FieldworkCompanions.Settings.RequireSpecialty>
+  <FieldworkCompanions.Settings.RequireSpecialtyTip>Mining asks for the "dig" training, harvesting for "forage" — both added by Odyssey. Fishing, milking and shearing have no training of their own, so obedience is enough for them. Turn this off and obedience is enough everywhere.</FieldworkCompanions.Settings.RequireSpecialtyTip>
+
+  <FieldworkCompanions.Settings.ChanceHeader>How often it pays off</FieldworkCompanions.Settings.ChanceHeader>
+  <FieldworkCompanions.Settings.BaseChance>Base chance: {0}%</FieldworkCompanions.Settings.BaseChance>
+  <FieldworkCompanions.Settings.BaseChanceTip>For an obedient companion with no further training.</FieldworkCompanions.Settings.BaseChanceTip>
+  <FieldworkCompanions.Settings.PerStep>Per training step: +{0}%</FieldworkCompanions.Settings.PerStep>
+  <FieldworkCompanions.Settings.PerStepTip>The "dig" and "forage" trainings have three steps each. Fishing, milking and shearing have none, so this adds nothing there.</FieldworkCompanions.Settings.PerStepTip>
+  <FieldworkCompanions.Settings.Bond>Bonded: +{0}%</FieldworkCompanions.Settings.Bond>
+  <FieldworkCompanions.Settings.BondTip>The animal is bonded to the colonist it is helping.</FieldworkCompanions.Settings.BondTip>
+  <FieldworkCompanions.Settings.Ceiling>A fully trained, bonded companion: {0}%.</FieldworkCompanions.Settings.Ceiling>
+
+  <FieldworkCompanions.Settings.RewardHeader>What it turns up</FieldworkCompanions.Settings.RewardHeader>
+  <FieldworkCompanions.Settings.Share>Share of the yield: {0}%</FieldworkCompanions.Settings.Share>
+  <FieldworkCompanions.Settings.ShareTip>A share of what the action normally produces, rounded, and never less than one. Fishing ignores this: it always adds exactly one fish.</FieldworkCompanions.Settings.ShareTip>
+
+  <FieldworkCompanions.Settings.Radius>Has to be within {0} cells</FieldworkCompanions.Settings.Radius>
+  <FieldworkCompanions.Settings.RadiusTip>How close the companion must be to count as present.</FieldworkCompanions.Settings.RadiusTip>
+
+  <FieldworkCompanions.Settings.BondChance>Chance to bond per assist: {0}%</FieldworkCompanions.Settings.BondChance>
+  <FieldworkCompanions.Settings.BondChanceTip>Working side by side draws the two together. Set to zero to leave bonding to the vanilla routes.</FieldworkCompanions.Settings.BondChanceTip>
+  <FieldworkCompanions.Settings.ShowMote>Show a mark over the companion</FieldworkCompanions.Settings.ShowMote>
+  <FieldworkCompanions.Settings.ShowMoteTip>So you can see which animal found the extra.</FieldworkCompanions.Settings.ShowMoteTip>
+
+  <FieldworkCompanions.Settings.Reset>Reset to defaults</FieldworkCompanions.Settings.Reset>
+  <FieldworkCompanions.Settings.ConfirmReset>Reset every Fieldwork Companions setting to its default?</FieldworkCompanions.Settings.ConfirmReset>
+
+</LanguageData>

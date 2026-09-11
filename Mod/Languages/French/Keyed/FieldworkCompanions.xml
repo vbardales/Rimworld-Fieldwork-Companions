@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <FieldworkCompanions.Mote.Assist>+{0}</FieldworkCompanions.Mote.Assist>
+
+  <FieldworkCompanions.Settings.Intro>Un animal réglé pour suivre son maître au travail sert enfin à quelque chose : quand il est là, le travail rend un peu plus qu'il ne devrait.\n\nIl doit avoir appris l'obéissance — le jeu l'exige déjà avant qu'un animal reconnaisse un maître.</FieldworkCompanions.Settings.Intro>
+
+  <FieldworkCompanions.Settings.WorkHeader>Ce à quoi un compagnon aide</FieldworkCompanions.Settings.WorkHeader>
+  <FieldworkCompanions.Settings.Mining>Minage</FieldworkCompanions.Settings.Mining>
+  <FieldworkCompanions.Settings.MiningTip>La roche et le minerai abattus à la main. Les forages profonds ne sont pas concernés : personne ne se tient à côté.</FieldworkCompanions.Settings.MiningTip>
+  <FieldworkCompanions.Settings.Harvest>Récolte et cueillette</FieldworkCompanions.Settings.Harvest>
+  <FieldworkCompanions.Settings.HarvestTip>Les cultures comme les plantes sauvages. Couper une plante n'est pas la récolter et ne rend rien.</FieldworkCompanions.Settings.HarvestTip>
+  <FieldworkCompanions.Settings.Fishing>Pêche</FieldworkCompanions.Settings.Fishing>
+  <FieldworkCompanions.Settings.FishingTip>Nécessite Odyssey. Un poisson de plus, pris parmi ceux qui viennent d'être sortis. Un animal qui pêche seul n'est jamais assisté.</FieldworkCompanions.Settings.FishingTip>
+  <FieldworkCompanions.Settings.Gathering>Traite et tonte</FieldworkCompanions.Settings.Gathering>
+  <FieldworkCompanions.Settings.GatheringTip>L'animal qu'on trait ou qu'on tond ne se compte jamais comme son propre assistant.</FieldworkCompanions.Settings.GatheringTip>
+
+  <FieldworkCompanions.Settings.RequireSpecialty>Exiger le dressage correspondant</FieldworkCompanions.Settings.RequireSpecialty>
+  <FieldworkCompanions.Settings.RequireSpecialtyTip>Le minage demande le dressage « creusement », la récolte le dressage « fourrage » — tous deux ajoutés par Odyssey. La pêche, la traite et la tonte n'ont pas de dressage propre : l'obéissance leur suffit. Décochez, et l'obéissance suffit partout.</FieldworkCompanions.Settings.RequireSpecialtyTip>
+
+  <FieldworkCompanions.Settings.ChanceHeader>À quelle fréquence ça paie</FieldworkCompanions.Settings.ChanceHeader>
+  <FieldworkCompanions.Settings.BaseChance>Chance de base : {0} %</FieldworkCompanions.Settings.BaseChance>
+  <FieldworkCompanions.Settings.BaseChanceTip>Pour un compagnon obéissant, sans autre dressage.</FieldworkCompanions.Settings.BaseChanceTip>
+  <FieldworkCompanions.Settings.PerStep>Par palier de dressage : +{0} %</FieldworkCompanions.Settings.PerStep>
+  <FieldworkCompanions.Settings.PerStepTip>Les dressages « creusement » et « fourrage » comptent trois paliers chacun. La pêche, la traite et la tonte n'en ont aucun : ce curseur n'y change rien.</FieldworkCompanions.Settings.PerStepTip>
+  <FieldworkCompanions.Settings.Bond>Lié : +{0} %</FieldworkCompanions.Settings.Bond>
+  <FieldworkCompanions.Settings.BondTip>L'animal est lié au colon qu'il accompagne.</FieldworkCompanions.Settings.BondTip>
+  <FieldworkCompanions.Settings.Ceiling>Un compagnon entièrement dressé et lié : {0} %.</FieldworkCompanions.Settings.Ceiling>
+
+  <FieldworkCompanions.Settings.RewardHeader>Ce qu'il rapporte</FieldworkCompanions.Settings.RewardHeader>
+  <FieldworkCompanions.Settings.Share>Part du rendement : {0} %</FieldworkCompanions.Settings.Share>
+  <FieldworkCompanions.Settings.ShareTip>Une part de ce que le geste rend normalement, arrondie, et jamais moins d'une unité. La pêche l'ignore : elle ajoute toujours exactement un poisson.</FieldworkCompanions.Settings.ShareTip>
+
+  <FieldworkCompanions.Settings.Radius>Doit se tenir à moins de {0} cases</FieldworkCompanions.Settings.Radius>
+  <FieldworkCompanions.Settings.RadiusTip>À quelle distance le compagnon compte comme présent.</FieldworkCompanions.Settings.RadiusTip>
+
+  <FieldworkCompanions.Settings.BondChance>Chance de se lier par coup de main : {0} %</FieldworkCompanions.Settings.BondChance>
+  <FieldworkCompanions.Settings.BondChanceTip>Travailler côte à côte les rapproche. À zéro, le lien ne se noue que par les voies du jeu de base.</FieldworkCompanions.Settings.BondChanceTip>
+  <FieldworkCompanions.Settings.ShowMote>Afficher une marque au-dessus du compagnon</FieldworkCompanions.Settings.ShowMote>
+  <FieldworkCompanions.Settings.ShowMoteTip>Pour voir quel animal a trouvé le supplément.</FieldworkCompanions.Settings.ShowMoteTip>
+
+  <FieldworkCompanions.Settings.Reset>Rétablir les valeurs par défaut</FieldworkCompanions.Settings.Reset>
+  <FieldworkCompanions.Settings.ConfirmReset>Rétablir tous les réglages de Fieldwork Companions ?</FieldworkCompanions.Settings.ConfirmReset>
+
+</LanguageData>
