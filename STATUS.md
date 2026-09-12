@@ -1,56 +1,70 @@
 ---
+localization: unchecked
+translation_en: unchecked
+translation_fr: unchecked
 mod:          Fieldwork Companions
 packageId:    nelim.fieldworkcompanions
 repo:         Rimworld-Fieldwork-Companions
+remote:       https://github.com/vbardales/Rimworld-Fieldwork-Companions.git
+local_path:   C:\Users\nelim\Documents\rimworld\FieldworkCompanions
 visibility:   public
 detached:     yes
 stage:        done
 licence:      original
-licence_at:   an original creation, MIT with no reservation. Nothing is reused from another mod - no code, no def, no texture, no sound - and the LICENSE is a bare MIT with no scope section, so the showcase images fall under it too. The mechanic comes from Disney Dreamlight Valley, credited in ATTRIBUTION.md and reused from none of its lines: no asset, no name, no character, and none could be.
+license_spdx: MIT
+licence_at:   Original implementation according to ATTRIBUTION.md; no third-party mod code or assets reused. Only the mechanic is inspired by Disney Dreamlight Valley. Root and distributed LICENSE grant MIT. Classification original describes provenance; MIT describes reuse permissions.
 dependencies: declared
 showcase:     complete
 tested_on:
 workshop:
+maintainer:   Codex, current local repository task
+updated:      2026-09-13
 remaining:
-  - unverified: never seen running. `_tools/Run-Functional-Tests.ps1` cuts that unknown down
-    considerably — thirteen tests against the installed game, and it found on its first run that
-    the mod needs a third non-public member nobody had named, `Pawn_TrainingTracker.GetSteps`,
-    read by the chance calculation itself. What it cannot answer is whether the mod does what it
-    says: the fifteen scenarios of `_tools/FUNCTIONAL-SCENARIOS.md` are unplayed, starting with
-    the zeroth, and until it passes the other fourteen prove nothing.
-  - unverified: eight of the thirteen tests could not be seen to fail, because they assert facts
-    about Assembly-CSharp and the shipped defs — hook signatures, the subclass sweep, the bond
-    call, the four stat caps. Mutating those would mean rewriting the game. The header names them.
-  - unverified: nothing here says anything about Mono. The suite runs under PowerShell on the
-    desktop CLR, so a red access test means the mod reaches for something it was not granted, not
-    that the mod is broken in play. The Architect Studio session saw a non-public call work in a
-    real game with no grant at all.
-session:      local_0080fea9-b65b-4cd4-9e3e-06491ff4de8c
-updated:      2026-09-12, the mod's own session
+  - Linguistic review of English and French remains unchecked; automated key/XML checks passed but do not validate translation quality.
+  - Manual scenarios 0-14 have not been played; actual RimWorld/Mono behavior remains unverified.
+  - Steam Workshop publication and visibility have not been established; public refers to GitHub.
 ---
 
 # Fieldwork Companions — status
 
-Read by a sweep across every mod, rather than by asking each thread in turn. It lives at the
-root, never inside `Mod/`, so Steam never receives it.
+This task owns and maintains this STATUS.md as work progresses. The file stays at the
+repository root, outside the distributed Mod/ folder.
 
-The fields above were read off the disk on 2026-09-12, then taken over by the session that holds
-this mod. The four the sweep could not fill:
+## Identity and publication audit — 2026-09-13
 
-- **`stage`** — `done`, prefilled and confirmed. The mod is complete, detached, its showcase is
-  made and its scenarios are written. What is missing is a run in a game, which `tested_on` and
-  `remaining` both say, and which is not a build stage.
-- **`tested_on`** — empty. Never launched, per the standing rule: the session prepares, she plays.
-- **`dependencies`** — `declared` when every mod this one needs is named in the About's
-  `modDependencies`, `to check` when a non-vanilla `loadAfter` suggests a dependency that is not
-  declared, `none` when the mod needs nothing. An undeclared dependency is not cosmetic: on
-  2026-09-11 Reequilibrage animaux took 47 vanilla animals down with it, Muffalo included, because
-  the class it injects belongs to a mod that was not declared and not loaded.
-- **`remaining`** — two lines, both true on 2026-09-12.
+- Independent local Git repository: top-level is the local_path above, git-dir and
+  common-dir are both .git, and no superproject is reported. This is not the monorepo.
+- GitHub visibility verified live with gh repo view: PUBLIC.
+- Title: Fieldwork Companions. No continuation/revival suffix is needed: this is an
+  original mod, not a takeover or update of another author's mod.
+- GitHub URL is present both in About.xml's url field and, after this audit, in its
+  visible description under SOURCE CODE.
+- Mod provenance category: original. Explicit distribution licence: MIT, identical in
+  LICENSE and Mod/LICENSE. ATTRIBUTION.md documents the inspiration and lack of reused
+  third-party code/assets. This is neither forbidden nor silent; open would describe
+  explicit permission for a reused source, whereas original identifies this mod's origin.
+- Harmony is declared; Odyssey is optional and resolved defensively at runtime.
 
-`licence` vocabulary: `open` an explicit licence, `silent` no licence and a dead source,
-`alive` no licence but a living source, `forbidden` a written refusal, `original` owing nothing
-to anyone — not a name, not an idea traceable to one mod, not a value derived from its assets.
+## Verification — 2026-09-13
+
+- Build: dotnet build Source/FieldworkCompanions.csproj -c Release --no-restore --nologo
+  succeeded, zero warnings and zero errors.
+- Automated: powershell -NoProfile -ExecutionPolicy Bypass -File _tools/Run-Functional-Tests.ps1
+  succeeded: 15/15 tests against the installed game's assemblies and data.
+- Coverage: access grants and required non-public members, four Harmony targets and
+  signatures, subclass overrides, master/follow API, bond API, trainable defs, yield caps,
+  32 English/French translation keys, all shipped XML parsing, duplicate/empty translation
+  keys, About identity, supported version, Harmony dependency and visible GitHub link.
+- No Defs or XML patches are shipped. Relevant mod XML consists of About.xml and the two
+  language files, all checked; relevant vanilla training/stat XML is also inspected.
+- The compile probe now reports infrastructure failures explicitly instead of claiming
+  that private API members are no longer needed when the SDK is inaccessible.
+- Manual: 15 scenarios (0-14) exist in _tools/FUNCTIONAL-SCENARIOS.md. Corrected setup
+  to disable the specialty requirement outside its dedicated scenario, and corrected
+  scenario 10: missing required Dig training means zero assists, not a 15% chance.
+- Limits: no game launched, no manual scenario marked passed. These automated checks
+  cover compatibility and metadata, not end-to-end gameplay or Mono behavior. Historical
+  mutation checks concern the original suite; no new mutation campaign was performed.
 
 ## What this mod taught the repository, and what outlives it
 
@@ -75,3 +89,37 @@ to anyone — not a name, not an idea traceable to one mod, not a value derived 
   `[Reflection.Assembly]::ReflectionOnlyLoadFrom(<dll>).GetCustomAttributesData()`, and the
   attribute is either in that list or it is not. No need to launch the game, or even to resolve
   the assembly's dependencies.
+
+## Preview overlay — 2026-09-13
+
+- Recomposition follows ../STYLE_RIMWORLD.md and the supplied overlay specification.
+  Existing title and summary are preserved exactly. No status tag or reduced title
+  word applies to this original public mod. Badge 1.6 is read from the highest stable
+  supportedVersions entry in Mod/About/About.xml at render time.
+- Illustration retained, not replaced: Art/Preview.png is an unmodified copy of
+  Art/Preview-source.png; that full-resolution original remains available. The centered
+  cover crop preserves the miner, dog, jade pile and lamp. No text was added to either source.
+- Final distributed image: Mod/About/Preview.png (896 x 504; 635,659 bytes, below 900 kB).
+- Composition and parameters: Art/preview.html; sole palette reference:
+  Art/preview-palette.json; reproducible renderer: Art/render-preview.cjs.
+  _tools/preview.html redirects to the maintained composition instead of retaining an
+  independent old palette. Serve the repository root over HTTP to preview the HTML.
+- Palette rationale: the veil takes the dark stone/earth surface near the upper-left
+  text area. Secondary ink is a lightened ochre from the dominant warm earth and lamp-lit
+  floor family, not an average of the pixels. The accent draws on the green jade pile,
+  a meaningful resource beside the companion, strengthened in saturation and lightness.
+  Its yellow-green hue separates it from the ochre secondary and warm brown ground.
+  Secondary ink is retained in the palette but unused here because no tag or suffix applies.
+- Actual fonts verified through Chrome CSS.getPlatformFontsForNode after document.fonts.ready:
+  Segoe UI Semibold for the title, Segoe UI for the summary, Segoe UI Bold for the version.
+  No fallback font. Text block starts at (50,54); title 46px/600, summary 21px/400;
+  standard dark radial veil and text shadow, standard rule and 80px corner badge.
+- Contrast measured across every pixel of each text bounding rectangle on a second render
+  with text hidden, not merely against the nominal veil colour: title minimum 8.58:1,
+  summary 4.86:1; badge digits on opaque accent 11.33:1. All exceed 4.5:1.
+  Tag contrast is not applicable because there is no tag.
+- Evidence: Art/preview-qa.json (fonts, bounds, contrasts, version and size),
+  Art/preview-background.png (actual text-free composited background), Art/preview-268.png.
+  Visually checked final 896 x 504 image and 268px thumbnail: title and version identifiable,
+  no clipping or overlap, rule visible; subject remains clear. Summary is designed for the
+  full image, as the guide specifies. Nothing published.

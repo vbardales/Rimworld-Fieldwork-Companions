@@ -308,7 +308,12 @@ It 'the source needs exactly the three non-public members it is known to need' {
 </Project>
 "@ | Set-Content (Join-Path $probe 'Probe.csproj') -Encoding UTF8
         $out = & dotnet build (Join-Path $probe 'Probe.csproj') -c Release -v q --nologo 2>&1 | Out-String
+        $buildExit = $LASTEXITCODE
         $errs = @([regex]::Matches($out, '(?m)error CS\d+:.*$') | ForEach-Object { $_.Value } | Sort-Object -Unique)
+        if ($buildExit -ne 0 -and $errs.Count -eq 0) {
+            "compile probe failed before C# diagnostics (exit $buildExit): $out"
+            return
+        }
 
         # Two codes are the subject here and nothing else is. CS0122 for a protected member,
         # CS1061 for an internal one, which member lookup does not even see across assemblies.
@@ -514,6 +519,34 @@ It 'every key the assembly asks for exists in English, and French matches key fo
     foreach ($k in $used) { if ($en -notcontains $k) { "$k is asked for by the code and is in no English file" } }
     foreach ($k in $en)   { if ($fr -notcontains $k) { "$k is in English and missing from French" } }
     foreach ($k in $fr)   { if ($en -notcontains $k) { "$k is in French and missing from English" } }
+}
+
+It 'all shipped XML parses and translation keys are unique and nonempty' {
+    foreach ($file in Get-ChildItem (Join-Path $ModRoot 'Mod') -Recurse -Filter '*.xml') {
+        $xml = New-Object System.Xml.XmlDocument
+        $xml.Load($file.FullName)
+        if ($file.FullName -notmatch '\\Languages\\') { continue }
+        if ($xml.DocumentElement.Name -ne 'LanguageData') { "wrong translation root: $($file.Name)" }
+        $seen = @{}
+        foreach ($node in $xml.DocumentElement.ChildNodes) {
+            if ($node.NodeType -ne 'Element') { continue }
+            if ($seen.ContainsKey($node.Name)) { "duplicate key $($node.Name) in $($file.FullName)" }
+            $seen[$node.Name] = $true
+            if ([string]::IsNullOrWhiteSpace($node.InnerText)) { "empty key $($node.Name)" }
+        }
+    }
+}
+
+It 'About declares the identity, supported game, Harmony and visible source link' {
+    $xml = New-Object System.Xml.XmlDocument
+    $xml.Load((Join-Path $ModRoot 'Mod\About\About.xml'))
+    $about = $xml.ModMetaData
+    if ($about.name -ne 'Fieldwork Companions') { 'unexpected mod title' }
+    if ($about.packageId -ne 'nelim.fieldworkcompanions') { 'unexpected packageId' }
+    if (@($about.supportedVersions.li) -notcontains '1.6') { 'RimWorld 1.6 is not declared' }
+    if (@($about.modDependencies.li.packageId) -notcontains 'brrainz.harmony') { 'Harmony dependency missing' }
+    $url = 'https://github.com/vbardales/Rimworld-Fieldwork-Companions'
+    if ($about.url -ne $url -or -not $about.description.Contains($url)) { 'GitHub link missing or inconsistent' }
 }
 
 # =============================================================================================

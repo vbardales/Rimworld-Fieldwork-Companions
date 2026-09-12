@@ -25,6 +25,9 @@ are 15% and 25%, and scenario 10 needs them back.
 Leave the mark over the animal switched on. It is the only visible sign that a given piece of work
 was assisted, and most scenarios are read from it.
 
+Turn off "require the matching training" for scenarios 0-9 and 11-14 so obedience
+alone is enough even with Odyssey. Scenario 10 explicitly tests that requirement.
+
 **The bonus is not the colonist's yield.** Mining reads `mineableYield` off the rock def and
 harvesting reads `harvestYield` off the plant def — the nominal figures, before the pawn's mining
 or plant-yield stat, before quality, before anything. A tester who expects the bonus to scale with
@@ -195,13 +198,13 @@ companion, and the exclusion is what stops a herd from paying itself.
 
 **Put the base chance back to 15% and the share back to 25% for this one.**
 
-**Do.** Read the mod options page: the ceiling line under the three sliders should say 60% with
+**Do.** With Odyssey, turn on "require the matching training". Read the mod options page: the ceiling line under the three sliders should say 60% with
 the defaults. Then mine thirty blocks with an obedient husky that has no `Dig` training, and thirty
 more with one fully trained to `Dig`.
 
-**Expect.** Roughly one block in six assisted in the first run, and far more in the second.
-Thirty swings is a small sample; the point is that the second run is visibly better, not that it
-hits a figure.
+**Expect.** No assists in the first run: the required Dig training is missing. With
+three Dig steps and no bond, the second run has a 45% chance per block. Thirty swings
+are not a statistical acceptance test; verify the exclusion first and record counts.
 
 **Then.** Turn off "require the matching training" and mine with an obedient, untrained animal.
 

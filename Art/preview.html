@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Fieldwork Companions — Preview</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 896px; height: 504px; overflow: hidden; }
+body { position: relative; font-family: "Segoe UI", system-ui, sans-serif; }
+.scene, .veil { position: absolute; inset: 0; }
+.scene { background: url('Preview.png') center / cover no-repeat; }
+.veil { background: radial-gradient(circle at 0% 0%, rgb(var(--veil-rgb) / .86) 0%, rgb(var(--veil-rgb) / 0) 74%); }
+.plate { position: absolute; left: 50px; top: 54px; color: var(--inkPrimary); text-shadow: 0 3px 10px rgb(0 0 0 / .75); }
+h1 { font-size: 46px; font-weight: 600; line-height: 1.1; letter-spacing: 0; }
+.rule { width: 58px; height: 3px; background: var(--accent); margin: 20px 0 16px; }
+.summary { width: 430px; font-size: 21px; font-weight: 400; line-height: 1.45; }
+.badge { position: absolute; top: 0; right: 0; width: 80px; height: 80px; background: var(--accent); clip-path: polygon(0 0,100% 0,100% 100%); }
+.version { position: absolute; left: 869px; top: 27px; transform: translate(-50%,-50%) rotate(45deg); color: var(--badgeInk); font-size: 26px; font-weight: 700; line-height: 1; }
+body.background-only .plate, body.background-only .version { visibility: hidden; }
+</style></head><body>
+<div class="scene"></div><div class="veil"></div>
+<div class="plate"><h1>Fieldwork<br>Companions</h1><div class="rule"></div>
+<p class="summary">An animal that follows its master to work turns up a little extra.</p></div>
+<div class="badge"></div><span class="version"></span>
+<script>
+window.ready = (async () => {
+  const palette = await (await fetch('preview-palette.json')).json();
+  for (const [key,value] of Object.entries(palette)) document.documentElement.style.setProperty('--'+key,value);
+  document.documentElement.style.setProperty('--veil-rgb', palette.veil.match(/\w\w/g).map(x=>parseInt(x,16)).join(' '));
+  const about = new DOMParser().parseFromString(await (await fetch('../Mod/About/About.xml')).text(),'text/xml');
+  const versions = [...about.querySelectorAll('supportedVersions li')].map(x=>x.textContent.trim()).filter(x=>/^\d+\.\d+$/.test(x));
+  versions.sort((a,b)=>{const aa=a.split('.').map(Number),bb=b.split('.').map(Number);return bb[0]-aa[0] || bb[1]-aa[1];});
+  if (!versions.length) throw new Error('No stable supported version');
+  document.querySelector('.version').textContent = versions[0];
+  await document.fonts.ready;
+  const img = new Image(); img.src = 'Preview.png'; await img.decode();
+})();
+</script></body></html>
