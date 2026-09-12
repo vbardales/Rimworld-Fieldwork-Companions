@@ -12,18 +12,19 @@ showcase:     complete
 tested_on:
 workshop:
 remaining:
-  - unverified: never seen running, and nothing here cuts that unknown down, this mod having no
-    out-of-game suite at all. The fifteen scenarios of `_tools/FUNCTIONAL-SCENARIOS.md` are
-    unplayed, starting with the zeroth: until it passes, the other fourteen prove nothing.
-  - feature: no out-of-game test suite, though all four hooks are public methods of
-    Assembly-CSharp and the access fault found on 2026-09-12 was exactly the kind such a suite
-    catches. It took a note left by Contented Livestock to think of looking. Three suites in the
-    repository are reusable as they stand and would be the first things in it: the token scan of
-    `FireworkStand/_tools/Run-Functional-Tests.ps1`, which finds every non-public member the
-    assembly reaches for; and tests 7 and 8 of `EntityGazing/_tools/Run-Functional-Tests.ps1`,
-    which compile the source against the game's real Assembly-CSharp and assert the invariant a
-    publiciser needs — declared and waived, or neither. Test 7 cannot be made to fail where there
-    is no publiciser; here there is one, so it means something.
+  - unverified: never seen running. `_tools/Run-Functional-Tests.ps1` cuts that unknown down
+    considerably — thirteen tests against the installed game, and it found on its first run that
+    the mod needs a third non-public member nobody had named, `Pawn_TrainingTracker.GetSteps`,
+    read by the chance calculation itself. What it cannot answer is whether the mod does what it
+    says: the fifteen scenarios of `_tools/FUNCTIONAL-SCENARIOS.md` are unplayed, starting with
+    the zeroth, and until it passes the other fourteen prove nothing.
+  - unverified: eight of the thirteen tests could not be seen to fail, because they assert facts
+    about Assembly-CSharp and the shipped defs — hook signatures, the subclass sweep, the bond
+    call, the four stat caps. Mutating those would mean rewriting the game. The header names them.
+  - unverified: nothing here says anything about Mono. The suite runs under PowerShell on the
+    desktop CLR, so a red access test means the mod reaches for something it was not granted, not
+    that the mod is broken in play. The Architect Studio session saw a non-public call work in a
+    real game with no grant at all.
 session:      local_0080fea9-b65b-4cd4-9e3e-06491ff4de8c
 updated:      2026-09-12, the mod's own session
 ---
