@@ -5,6 +5,11 @@ about that can be answered by reading the code: it takes a map, an animal with a
 colonist actually swinging a pickaxe. These are the scenarios that answer it, written so each one
 has a single thing to watch and a single way of being wrong.
 
+`Run-Functional-Tests.ps1` next door answers what the installed game can be asked directly: that
+the four patched methods still exist with the right shape, that nothing overrides them out from
+under the patch, and that the mod reaches for nothing it was not granted. It cannot answer whether
+the mod does what it says, because that takes a map, a clock and an animal. These do.
+
 The mod has never been run in a game. Until scenario 0 passes, nothing below is worth playing.
 
 ## Setup for everything here
@@ -39,9 +44,10 @@ adds an object instead.
 
 - `HarmonyException` or `Could not find method` at startup — one of the four targets has been
   renamed by a game update. `FishingUtility.GetCatchesFor` is the likeliest, being the youngest.
-- `MissingMethodException` naming `ResourceDef` or `ResourceAmount` — the publiciser did not run
-  on this build. Those two members are `protected abstract` and the milking patch needs them
-  public; the `Publicize` item in the csproj is what makes that so.
+- `MethodAccessException` naming `ResourceDef`, `ResourceAmount` or `GetSteps` — the access grant
+  is missing from the build. Those three members are not public in the game, and the mod reads
+  them; `Run-Functional-Tests.ps1` next door settles this one without a colony, and the exception
+  would fire at the first pail and at every chance roll, not at startup.
 - `NullReferenceException` inside `Patch_Plant_PlantCollected` — a modded plant with no
   `harvestedThingDef`. The prefix guards it, so a line here means the guard was lost.
 - Anything naming `TrainableDef` at load — `Forage` and `Dig` are resolved by name and silently,
