@@ -16,9 +16,14 @@ remaining:
     out-of-game suite at all. The fifteen scenarios of `_tools/FUNCTIONAL-SCENARIOS.md` are
     unplayed, starting with the zeroth: until it passes, the other fourteen prove nothing.
   - feature: no out-of-game test suite, though all four hooks are public methods of
-    Assembly-CSharp and the fault found on 2026-09-12 was exactly the kind such a suite catches.
-    It took a note left by Contented Livestock to think of looking; a suite here would have said
-    it on its own.
+    Assembly-CSharp and the access fault found on 2026-09-12 was exactly the kind such a suite
+    catches. It took a note left by Contented Livestock to think of looking. Three suites in the
+    repository are reusable as they stand and would be the first things in it: the token scan of
+    `FireworkStand/_tools/Run-Functional-Tests.ps1`, which finds every non-public member the
+    assembly reaches for; and tests 7 and 8 of `EntityGazing/_tools/Run-Functional-Tests.ps1`,
+    which compile the source against the game's real Assembly-CSharp and assert the invariant a
+    publiciser needs — declared and waived, or neither. Test 7 cannot be made to fail where there
+    is no publiciser; here there is one, so it means something.
 session:      local_0080fea9-b65b-4cd4-9e3e-06491ff4de8c
 updated:      2026-09-12, the mod's own session
 ---
