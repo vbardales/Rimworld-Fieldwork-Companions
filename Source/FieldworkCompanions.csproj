@@ -25,9 +25,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <!-- CompHasGatherableBodyResource.ResourceDef and .ResourceAmount are protected abstract:
-         without the publiciser, the milking and shearing patch does not compile. -->
-    <Publicize Include="Assembly-CSharp" />
+    <!-- Three members of the game are not public, and this mod reads all three. Naming them one
+         by one rather than opening the whole assembly is the Folding Skateboard session's form:
+         the list IS the documentation of what the mod reaches for, and a fourth name could not
+         appear without someone writing it here.
+
+         ResourceDef and ResourceAmount are protected abstract, read by the milking and shearing
+         patch. GetSteps is internal, and the chance calculation reads it for the per-training-step
+         part of the bonus - so the access grant in Source/AccessChecks.cs covers the mod's own
+         scale, not only its milking patch. _tools/Run-Functional-Tests.ps1 asserts this exact
+         list against the installed game. -->
+    <Publicize Include="Assembly-CSharp:RimWorld.CompHasGatherableBodyResource.ResourceDef" />
+    <Publicize Include="Assembly-CSharp:RimWorld.CompHasGatherableBodyResource.ResourceAmount" />
+    <Publicize Include="Assembly-CSharp:RimWorld.Pawn_TrainingTracker.GetSteps" />
   </ItemGroup>
 
 </Project>

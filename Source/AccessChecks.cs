@@ -1,7 +1,9 @@
-// Krafs.Publicizer publicises the reference assembly, which is what lets the milking patch read
-// __instance.ResourceDef and __instance.ResourceAmount at all. In the real Assembly-CSharp both
-// are protected abstract: the compiler emits a plain cross-assembly callvirt either way, and the
-// desktop CLR allows that instruction only when this assembly declares the waiver below.
+// Krafs.Publicizer opens three members of the reference assembly - the csproj names them one by
+// one - and that is what lets this mod read them at all. In the real Assembly-CSharp two are
+// protected abstract and one is internal: the compiler emits a plain cross-assembly call either
+// way, and the desktop CLR allows that instruction only when this assembly declares the waiver
+// below. Milking and shearing need two of them; the third, Pawn_TrainingTracker.GetSteps, is read
+// by the chance calculation, so this one line covers the mod's own scale as well.
 //
 // Publicizer defines the attribute type for us and normally applies it through the SDK's
 // generated AssemblyInfo — which this project switches off with GenerateAssemblyInfo=false. The
