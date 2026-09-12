@@ -53,10 +53,14 @@ to anyone — not a name, not an idea traceable to one mod, not a value derived 
   that property off embeds the attribute's type and never applies it. Here the two members the
   milking patch reads, `ResourceDef` and `ResourceAmount`, are `protected abstract` in the real
   Assembly-CSharp — checked against the game's own file, not against the publicised reference — so
-  milking and shearing threw `MethodAccessException` on the first pail, behind a startup that said
-  nothing. Contented Livestock had it on fields, this one on properties: the common factor is not
-  the kind of member, it is the switched-off property. **Every mod in the repository that switches
-  off `GenerateAssemblyInfo` and publicises deserves the same check.** Fixed in
+  the desktop CLR would refuse that access. **What it costs in the game is not established**: the
+  Architect Studio session found a non-public call of its own, outside any try/catch, in an
+  assembly with no waiver, working in a real game: RimWorld's Mono does not seem to enforce the
+  check the way the desktop CLR does, and every check we run happens under PowerShell, on the
+  desktop CLR. Treat it as a conformance fix, not as the repair of a mod seen dead. Contented
+  Livestock had it on fields, this one on properties: the common factor is the switched-off
+  property, not the kind of member, and **every mod that switches off `GenerateAssemblyInfo` and
+  publicises deserves the same check** — twelve of them, of which two are now fixed. Fixed here in
   `Source/AccessChecks.cs`.
 
 - **Searching the built assembly's bytes for `IgnoresAccessChecksTo` returns a false positive.**
