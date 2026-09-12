@@ -1,13 +1,14 @@
 ---
-mod:        Fieldwork Companions
-packageId:  nelim.fieldworkcompanions
-repo:       Rimworld-Fieldwork-Companions
-visibility: public
-detached:   yes
-stage:      done
-licence:    original
-licence_at: an original creation, MIT with no reservation. Nothing is reused from another mod - no code, no def, no texture, no sound - and the LICENSE is a bare MIT with no scope section, so the showcase images fall under it too. The mechanic comes from Disney Dreamlight Valley, credited in ATTRIBUTION.md and reused from none of its lines: no asset, no name, no character, and none could be.
-showcase:   complete
+mod:          Fieldwork Companions
+packageId:    nelim.fieldworkcompanions
+repo:         Rimworld-Fieldwork-Companions
+visibility:   public
+detached:     yes
+stage:        done
+licence:      original
+licence_at:   an original creation, MIT with no reservation. Nothing is reused from another mod - no code, no def, no texture, no sound - and the LICENSE is a bare MIT with no scope section, so the showcase images fall under it too. The mechanic comes from Disney Dreamlight Valley, credited in ATTRIBUTION.md and reused from none of its lines: no asset, no name, no character, and none could be.
+dependencies: declared
+showcase:     complete
 tested_on:
 workshop:
 remaining:
@@ -18,8 +19,8 @@ remaining:
     Assembly-CSharp and the fault found on 2026-09-12 was exactly the kind such a suite catches.
     It took a note left by Contented Livestock to think of looking; a suite here would have said
     it on its own.
-session:    local_0080fea9-b65b-4cd4-9e3e-06491ff4de8c
-updated:    2026-09-12, the mod's own session
+session:      local_0080fea9-b65b-4cd4-9e3e-06491ff4de8c
+updated:      2026-09-12, the mod's own session
 ---
 
 # Fieldwork Companions — status
@@ -34,10 +35,16 @@ this mod. The three the sweep could not fill:
   made and its scenarios are written. What is missing is a run in a game, which `tested_on` and
   `remaining` both say, and which is not a build stage.
 - **`tested_on`** — empty. Never launched, per the standing rule: the session prepares, she plays.
+- **`dependencies`** — `declared` when every mod this one needs is named in the About's
+  `modDependencies`, `to check` when a non-vanilla `loadAfter` suggests a dependency that is not
+  declared, `none` when the mod needs nothing. An undeclared dependency is not cosmetic: on
+  2026-09-11 Reequilibrage animaux took 47 vanilla animals down with it, Muffalo included, because
+  the class it injects belongs to a mod that was not declared and not loaded.
 - **`remaining`** — two lines, both true on 2026-09-12.
 
 `licence` vocabulary: `open` an explicit licence, `silent` no licence and a dead source,
-`alive` no licence but a living source, `forbidden` a written refusal, `original` nothing reused.
+`alive` no licence but a living source, `forbidden` a written refusal, `original` owing nothing
+to anyone — not a name, not an idea traceable to one mod, not a value derived from its assets.
 
 ## What this mod taught the repository, and what outlives it
 
