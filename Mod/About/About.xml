@@ -27,10 +27,6 @@ No data is added to the save: the mod can be added to or removed from a game in 
 
 Interface in English and French.
 
-SOURCE CODE
-
-https://github.com/vbardales/Rimworld-Fieldwork-Companions
-
 IF I GO QUIET
 
 If I do not answer within a reasonable time after being contacted, anyone may freely update this or any other of my mods, including publishing a continuation of it. All credit must be preserved.
@@ -44,7 +40,9 @@ THANKS
 The idea comes from Disney Dreamlight Valley, where a villager you take along with a matching role gives a chance of extra resources. Only the mechanic was borrowed — no asset, name or character from that game is used, and none could be.
 
 Claude Code (Anthropic).
-Andreas Pardeike for Harmony.</description>
+Andreas Pardeike for Harmony.
+
+[url=https://github.com/vbardales/Rimworld-Fieldwork-Companions]Source code on GitHub[/url]</description>
   <modDependencies>
     <li>
       <packageId>brrainz.harmony</packageId>
@@ -61,7 +59,7 @@ Andreas Pardeike for Harmony.</description>
     <li>Ludeon.RimWorld.Biotech</li>
     <li>Ludeon.RimWorld.Anomaly</li>
     <li>Ludeon.RimWorld.Odyssey</li>
-    <!-- No XML patch and no def added: there is nothing else to declare. Odyssey's two trainings
+    <!-- Only a settings MainButtonDef is added; no XML patches. Odyssey's two trainings
          are resolved at runtime by name and silently, so a mod that removes them, or a game
          without the DLC, degrades this mod instead of breaking it. -->
   </loadAfter>

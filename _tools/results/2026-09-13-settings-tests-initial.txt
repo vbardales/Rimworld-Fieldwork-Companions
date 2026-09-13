@@ -1,0 +1,53 @@
+
+Settings behavior and native shortcut contract
+  ok    all 12 defaults and reset agree, including radius and switches
+  ok    loaded numeric ranges reject nonfinite values and normalization is idempotent
+  ok    production probability responds immediately to base, training and bond without exceeding 100 percent
+  ok    production distance check includes the boundary at every allowed radius
+  ok    all 16 work-switch combinations affect the live dispatcher and bonus share affects actual yield
+  FAIL  real Scribe round-trips all values and omitted defaults in EN and FR cultures
+          threw: baseChance expected 0.330000013113022, got 1
+  ok    older and out-of-range files retain known values, default missing fields and normalize on load
+  ok    shortcut definition uses real native fields, is hidden and can be revealed without a second UI
+  ok    production links tested math and remaining settings to their actual consumers
+  ok    shortcut EN source and French injection cover both fields; Keyed parameters and line breaks match
+
+Fieldwork Companions - functional tests
+
+The harness itself
+  ok    the game and the mod assembly both loaded, with types in them
+
+Access: what the publiciser opened, and what the build applied
+        publiciser declared: True; access grant present: True
+  ok    the access grant and the publiciser agree: both declared, or neither
+  ok    the mod reaches for nothing in the game it is not allowed to reach for
+        non-public members needed: CompHasGatherableBodyResource.ResourceAmount, CompHasGatherableBodyResource.ResourceDef, GetSteps
+  ok    the source needs exactly the three non-public members it is known to need
+
+The four hooks
+  ok    each patched method is still there, with one overload and the expected signature
+  ok    no subclass overrides the two virtual-looking targets out from under the patch
+  ok    every HarmonyPatch attribute on the mod resolves to a real method
+
+The vanilla API the mod calls by name
+  ok    the follow-fieldwork toggle and the master are still where the mod reads them
+  ok    the bond is still developed through the call vanilla uses for taming and training
+  ok    the three defs the mod names by hand still exist
+        Forage comes from Odyssey
+        Dig comes from Odyssey
+  ok    Forage and Dig are Odyssey defs, which is why they are looked up silently
+
+Why the bonus is an object on the ground and not a StatPart
+        PlantHarvestYield maxValue: 1.5
+        AnimalGatherYield maxValue: none
+        FishingYield maxValue: none
+        MiningYield maxValue: 1.25
+  ok    the two capped yields are still capped, and the two uncapped still are not
+
+The interface
+        keys used: 33; English: 33; French: 33
+  ok    every key the assembly asks for exists in English, and French matches key for key
+  ok    all shipped XML parses and translation keys are unique and nonempty
+  ok    About declares the identity, supported game, Harmony and visible source link
+
+25 tests, 1 failed.

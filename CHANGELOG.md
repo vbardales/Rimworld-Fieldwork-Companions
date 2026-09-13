@@ -7,6 +7,11 @@ This file serves the repository and the writing of Steam patch notes; RimWorld d
 
 ### Fixed
 
+- Added an optional, default-hidden MainButtons shortcut to the native mod settings dialog, with French localization.
+- Normalize out-of-range and nonfinite stored settings on load and before saving.
+- Documented immediate global settings scope and added automated settings, persistence and shortcut checks plus manual integration scenarios.
+- Formatted the final source-code link for Workshop and added standalone Git text/binary attributes.
+
 - Made the settings category title localizable and completed the English/French source and resource audit.
 - Clarified deep-drill exclusion and French harvesting, training and radius wording.
 

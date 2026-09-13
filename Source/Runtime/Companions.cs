@@ -90,7 +90,6 @@ namespace FieldworkCompanions
 
             var settings = FieldworkCompanionsMod.Settings;
             TrainableDef specialty = SpecialtyFor(kind);
-            float radiusSquared = settings.radius * settings.radius;
             IntVec3 workerCell = worker.Position;
 
             List<Pawn> animals = worker.Map.mapPawns.SpawnedColonyAnimals;
@@ -104,7 +103,7 @@ namespace FieldworkCompanions
                 if (!animal.playerSettings.followFieldwork) continue;
                 if (animal == exclude) continue;
                 if (animal.Dead || animal.Downed || animal.InMentalState) continue;
-                if (animal.Position.DistanceToSquared(workerCell) > radiusSquared) continue;
+                if (!settings.WithinRadius(animal.Position.DistanceToSquared(workerCell))) continue;
                 if (!Qualifies(animal, specialty)) continue;
 
                 return animal;
@@ -137,20 +136,10 @@ namespace FieldworkCompanions
         public static float ChanceFor(Pawn worker, Pawn animal, AssistKind kind)
         {
             var settings = FieldworkCompanionsMod.Settings;
-            float chance = settings.baseChance;
-
             TrainableDef specialty = SpecialtyFor(kind);
-            if (specialty != null && animal.training != null)
-            {
-                chance += settings.perStepBonus * animal.training.GetSteps(specialty);
-            }
-
-            if (IsBonded(worker, animal))
-            {
-                chance += settings.bondBonus;
-            }
-
-            return Mathf.Clamp01(chance);
+            int steps = specialty != null && animal.training != null
+                ? animal.training.GetSteps(specialty) : 0;
+            return settings.AssistChance(steps, IsBonded(worker, animal));
         }
 
         public static bool IsBonded(Pawn worker, Pawn animal)

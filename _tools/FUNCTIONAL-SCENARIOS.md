@@ -10,7 +10,7 @@ the four patched methods still exist with the right shape, that nothing override
 under the patch, and that the mod reaches for nothing it was not granted. It cannot answer whether
 the mod does what it says, because that takes a map, a clock and an animal. These do.
 
-The mod has never been run in a game. Until scenario 0 passes, nothing below is worth playing.
+No in-game pass has been recorded. Until scenario 0 passes, nothing below is worth playing.
 
 ## Setup for everything here
 
@@ -243,8 +243,8 @@ appears without that message, something else is creating it.
 **Do.** Save a colony with the mod active and companions at work. Remove the mod. Load the save.
 
 **Expect.** The save loads with no missing-def warning and no red text. Nothing of this mod is
-written to a save: `ExposeData` covers the settings file only, and the mod adds no def, no comp,
-no hediff and no thing.
+written to a save: `ExposeData` covers the settings file only; its MainButtonDef is UI-only.
+The mod adds no comp, hediff or thing to the colony.
 
 **Then.** Add it back and load again. The companions work at once, with no reload dance.
 
@@ -259,3 +259,53 @@ present or not. It was written to draw nothing from the random generator for tha
 `YieldNow()`, no `GenMath.RoundRandom`. If a colony with no companions plays differently with the
 mod than without it, that discipline has been broken somewhere, and the symptom will be a seed
 that no longer reproduces.
+
+## 15. Settings, persistence and reset in both languages
+
+**Preconditions.** Back up the real mod settings file. Run with Core, Harmony and this mod,
+without any button customization mod. Repeat in English and French. Record game/mod
+versions, language, new-game/existing-save choice and Player.log with each result.
+
+**Do.** On first use, open Options -> Mod options -> Fieldwork Companions. Check the defaults:
+four work switches, specialty requirement and mote enabled; base 15%, step 10%, bond bonus
+15%, share 25%, radius 8 and bond creation 0.5%. Move every slider to both limits and
+scroll the entire page. Change all values, close and reopen, restart the game and load
+an existing colony. Then start a new colony and open the options again.
+
+**Expect.** No raw keys, fallback French, clipping, exceptions or repeated log errors.
+All custom values survive and have global scope. Base and bond bonus range 0-100%, step
+0-50%, share 5-200%, radius 2-30, bond creation 0-5%. There is no free-text numeric input.
+Cancel reset: nothing changes. Confirm reset: every default above returns and persists
+after closing/restarting. Never overwrite the backed-up user's settings as test setup.
+
+**Effects.** Use scenario 12 for all work switches and scenario 10 for specialty/step bonus.
+With specialty off and an obedient helper, set base to 0 and then 100%: no assists then
+an assist on every eligible gesture. Use equal nominal-yield ore to compare share 25%
+and 100%; fishing still adds exactly one fish. Place the helper exactly at the radius
+and one cell farther away: eligible at the boundary, excluded outside. Toggle the mote:
+bonus items continue with the mark hidden. Compare bonded and unbonded pairs using
+scenario 11, and verify the displayed chance ceiling changes with base/step/bond sliders.
+At bond chance 0 no assist-created bond is expected; at 5% record trials and any vanilla
+bond notification. A short unlucky series is not proof that bonding is broken. Restore
+all switches and repeat affected gestures to rule out stale cached settings.
+
+## 16. Optional shortcut and dependencies
+
+**Preconditions.** First use without customization mods; then repeat with RIMMSQOL, recording
+its exact version. Test any other claimed customization integration separately. Repeat
+in English and French, with and without Odyssey; the primary entry must always work.
+
+**Do.** Confirm the MainButtons bar contains no visible or greyed-out Fieldwork Companions
+button. With RIMMSQOL, find `FieldworkCompanions_Settings`, reveal it, click it, change
+settings and close. Open the primary mod options entry and verify identical values.
+Change values there and return through the shortcut. Hide the button, restart and verify
+the tool's visibility choice persists. Repeat on a new map and an existing save.
+
+**Expect.** Both routes use the same native dialog, translations and stored values. No
+empty main tab or second settings store exists. The hidden default does not get forced
+back every frame. Without Odyssey, mining/harvest fall back to obedience and fishing
+stays unavailable in vanilla; its tooltip explains the DLC requirement. No missing-def,
+Harmony or settings errors in Player.log. No customization mod becomes mandatory.
+
+These scenarios are written, not executed. The automated suite validates production math,
+scalar Scribe serialization and native API/Def contracts, not Unity interaction or RIMMSQOL.

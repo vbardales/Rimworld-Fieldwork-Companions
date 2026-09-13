@@ -57,6 +57,18 @@ does. Every number is a slider.
 - **An animal fishing on its own is never assisted**, and the animal being milked never counts as
   its own helper.
 
+## Settings
+
+Open **Options -> Mod options -> Fieldwork Companions**. Changes apply immediately to
+all saves and are saved when the settings window closes. Reset restores all defaults;
+its confirmation can be cancelled. Sliders constrain numeric values, and stored values
+outside those ranges are corrected when loaded.
+
+An optional **Fieldwork Companions** MainButton opens the same native settings dialog.
+It is hidden by default, neither visible nor greyed out. RIMMSQOL and compatible
+MainButtons customization tools can reveal its definition; no such tool is required
+for the primary settings page. Interactive RIMMSQOL compatibility has not yet been tested.
+
 ## Requirements
 
 Harmony. Odyssey is optional: without it the `Forage` and `Dig` trainings do not exist, they are

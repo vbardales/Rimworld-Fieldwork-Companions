@@ -1,0 +1,106 @@
+{
+  "date": "2026-09-13T12:56:49.9755882+02:00",
+  "revision": "928584df23c38bd76901bb9064c2587ff6f91a60",
+  "game": "1.6.4871 rev590",
+  "automated_tests": "25/25 passed",
+  "definjected": "2 checked, 0 errors",
+  "in_game": "not run",
+  "files": [
+    {
+      "path": "Source\\AccessChecks.cs",
+      "sha256": "995D8076791F5ABBE468B6F569413C581A0BBA221716727C9DFED440650A8596"
+    },
+    {
+      "path": "Source\\Directory.Build.props",
+      "sha256": "1C850F9A2847883EE40916ECBA39BBD3A66C86464A30B2A49F57A18A59E9C2CD"
+    },
+    {
+      "path": "Source\\FieldworkCompanions.csproj",
+      "sha256": "3AF3D7488A65305321F742990B92B103784CF4B5810BD4E10535FC1F05AF99F5"
+    },
+    {
+      "path": "Source\\FieldworkCompanionsMod.cs",
+      "sha256": "CF18C45C26BFF730E5AE6F9D6688A841650F6212343A97A3CF48548C2F80D802"
+    },
+    {
+      "path": "Source\\FieldworkCompanionsSettings.cs",
+      "sha256": "40DCA25305750F45C7A0B0F9C0627B84759864E79EA00F1A04A06EA046D0DD97"
+    },
+    {
+      "path": "Source\\MainButtonWorker_Settings.cs",
+      "sha256": "3C5BAFC8F369218519B8EA1561F252AA482087AF3FFB04B2BF4874A2739A3E34"
+    },
+    {
+      "path": "Source\\Patches\\Patch_CompHasGatherableBodyResource_Gathered.cs",
+      "sha256": "C3ABB60F7B6BDBD7A0AF28C6A47EBFEB06A052956169B9553F172B16752C6CE8"
+    },
+    {
+      "path": "Source\\Patches\\Patch_FishingUtility_GetCatchesFor.cs",
+      "sha256": "AA5A9D25DB5A33BF8D40E52308A8021315746B13F71634B0E1EAD93661C70F70"
+    },
+    {
+      "path": "Source\\Patches\\Patch_Mineable_DestroyMined.cs",
+      "sha256": "0C2FABF00D743EE3834E360DAA91F18CAB94FD8086B04A76ACBCD2A6A5725BC3"
+    },
+    {
+      "path": "Source\\Patches\\Patch_Plant_PlantCollected.cs",
+      "sha256": "635386D3E5DF8C73562982D1F5A793B03BB7D65861BF95EF126640BEBAFFBCDF"
+    },
+    {
+      "path": "Source\\Runtime\\Companions.cs",
+      "sha256": "8208260EDD3FE444810B993E606C1E7B9FE8981A905F2744A6CE99DA6E0DAEB9"
+    },
+    {
+      "path": "Mod\\ATTRIBUTION.md",
+      "sha256": "16EF0752C1FB875D961BDC31BE8ABB21C4B3739BD41E03EA4A4E9F12EE6C6990"
+    },
+    {
+      "path": "Mod\\LICENSE",
+      "sha256": "1A24DB0B016BF77E6D15FDA1BF27B20C76F9B14F1A21458BA36F2BB3A7D2C908"
+    },
+    {
+      "path": "Mod\\About\\About.xml",
+      "sha256": "AAD22B3289BB36CA0F996F28E7E43A5AE26F39985B318469C84D14F999DC689F"
+    },
+    {
+      "path": "Mod\\About\\ModIcon.png",
+      "sha256": "01637AFBE17E4D0FF1651E39E7048741E43CB9825F1839C85770CB1539C40925"
+    },
+    {
+      "path": "Mod\\About\\Preview.png",
+      "sha256": "1CCDC21495054273E1D150C60B0B357B7546A1BA8A60400A43F161591F36DEBD"
+    },
+    {
+      "path": "Mod\\Assemblies\\FieldworkCompanions.dll",
+      "sha256": "EF4432026EAAD0038C08F75B20AC931F131B27CF850826960D76B5AF1D2F08BC"
+    },
+    {
+      "path": "Mod\\Defs\\MainButtonDefs\\FieldworkCompanions.xml",
+      "sha256": "5AABB4E7F286AB201ED7B1EA2582B134C5360C80833C51B940F2A65A683DD7E6"
+    },
+    {
+      "path": "Mod\\Languages\\English\\Keyed\\FieldworkCompanions.xml",
+      "sha256": "248A3EBDA2CDD95BFB166D84B771D1D9E87BF5A2F31E0FB2B9EEAD6245FA2792"
+    },
+    {
+      "path": "Mod\\Languages\\French\\DefInjected\\MainButtonDef\\FieldworkCompanions.xml",
+      "sha256": "CF9A270F6475FE9BA9EC8CA1D75B3ED10432A225AA6B23A727E1EA42C3DDC4A1"
+    },
+    {
+      "path": "Mod\\Languages\\French\\Keyed\\FieldworkCompanions.xml",
+      "sha256": "C9B44A5E6F44A7B94CF0400CD5BFC755CFF6F0D2FEDD2E1DE8876E941B2CD1F5"
+    },
+    {
+      "path": "_tools\\Run-Functional-Tests.ps1",
+      "sha256": "278AEE3AA392617612A2234228EEAA441B45D9E0451D252D59E8C91D7528773A"
+    },
+    {
+      "path": "_tools\\Settings-Tests.ps1",
+      "sha256": "596470EDCB9D9B1BCBDF09BFD0A771DBDA6B54A82FB71EE9564F0816441E73C6"
+    },
+    {
+      "path": "_tools\\FUNCTIONAL-SCENARIOS.md",
+      "sha256": "DC40E797BE62B99D643711C14941569C3CE64E7FBF7ADC7B3A74FEB314E2053A"
+    }
+  ]
+}

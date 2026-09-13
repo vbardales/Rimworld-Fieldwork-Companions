@@ -4,7 +4,7 @@
 
   <FieldworkCompanions.Mote.Assist>+{0}</FieldworkCompanions.Mote.Assist>
 
-  <FieldworkCompanions.Settings.Intro>Un animal réglé pour suivre son maître au travail sert enfin à quelque chose : quand il est là, le travail rend un peu plus qu'il ne devrait.\n\nIl doit avoir appris l'obéissance — le jeu l'exige déjà avant qu'un animal reconnaisse un maître.</FieldworkCompanions.Settings.Intro>
+  <FieldworkCompanions.Settings.Intro>Un animal réglé pour suivre son maître au travail sert enfin à quelque chose : quand il est là, le travail rend un peu plus qu'il ne devrait.\n\nIl doit avoir appris l'obéissance — le jeu l'exige déjà avant qu'un animal reconnaisse un maître.\n\nLes réglages prennent effet immédiatement pour toutes les sauvegardes et sont enregistrés à la fermeture de cette fenêtre.</FieldworkCompanions.Settings.Intro>
 
   <FieldworkCompanions.Settings.WorkHeader>Travaux auxquels le compagnon participe</FieldworkCompanions.Settings.WorkHeader>
   <FieldworkCompanions.Settings.Mining>Minage</FieldworkCompanions.Settings.Mining>

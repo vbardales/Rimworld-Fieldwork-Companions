@@ -26,6 +26,12 @@ namespace FieldworkCompanions
 
         public override string SettingsCategory() => "FieldworkCompanions.Settings.Title".Translate();
 
+        public override void WriteSettings()
+        {
+            Settings.Normalize();
+            base.WriteSettings();
+        }
+
         public override void DoSettingsWindowContents(Rect inRect)
         {
             var settings = Settings;

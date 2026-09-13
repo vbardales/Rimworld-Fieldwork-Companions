@@ -1,3 +1,4 @@
+using System;
 using Verse;
 
 namespace FieldworkCompanions
@@ -28,6 +29,31 @@ namespace FieldworkCompanions
         public float bondChance = 0.005f;
 
         public bool showMote = true;
+
+        // Also validate stored values: sliders alone cannot protect an older settings file.
+        public void Normalize()
+        {
+            baseChance = Bound(baseChance, 0f, 1f, 0.15f);
+            perStepBonus = Bound(perStepBonus, 0f, 0.5f, 0.10f);
+            bondBonus = Bound(bondBonus, 0f, 1f, 0.15f);
+            bonusShare = Bound(bonusShare, 0.05f, 2f, 0.25f);
+            bondChance = Bound(bondChance, 0f, 0.05f, 0.005f);
+            radius = Math.Max(2, Math.Min(30, radius));
+        }
+
+        private static float Bound(float value, float min, float max, float fallback)
+        {
+            return float.IsNaN(value) || float.IsInfinity(value)
+                ? fallback : Math.Max(min, Math.Min(max, value));
+        }
+
+        public float AssistChance(int trainingSteps, bool bonded)
+        {
+            return Math.Max(0f, Math.Min(1f,
+                baseChance + perStepBonus * trainingSteps + (bonded ? bondBonus : 0f)));
+        }
+
+        public bool WithinRadius(int distanceSquared) => distanceSquared <= radius * radius;
 
         public void Reset()
         {
@@ -60,6 +86,7 @@ namespace FieldworkCompanions
             Scribe_Values.Look(ref requireSpecialty, "requireSpecialty", true);
             Scribe_Values.Look(ref bondChance, "bondChance", 0.005f);
             Scribe_Values.Look(ref showMote, "showMote", true);
+            if (Scribe.mode == LoadSaveMode.LoadingVars) Normalize();
         }
     }
 }

@@ -4,7 +4,7 @@
 
   <FieldworkCompanions.Mote.Assist>+{0}</FieldworkCompanions.Mote.Assist>
 
-  <FieldworkCompanions.Settings.Intro>An animal set to follow its master while doing field work now earns its keep: when it is at hand, the work turns up a little more than it should.\n\nThe animal must have learned obedience — the game already requires that before an animal respects a master at all.</FieldworkCompanions.Settings.Intro>
+  <FieldworkCompanions.Settings.Intro>An animal set to follow its master while doing field work now earns its keep: when it is at hand, the work turns up a little more than it should.\n\nThe animal must have learned obedience — the game already requires that before an animal respects a master at all.\n\nSettings apply immediately to all saves and are saved when this window closes.</FieldworkCompanions.Settings.Intro>
 
   <FieldworkCompanions.Settings.WorkHeader>What a companion helps with</FieldworkCompanions.Settings.WorkHeader>
   <FieldworkCompanions.Settings.Mining>Mining</FieldworkCompanions.Settings.Mining>

@@ -7,7 +7,7 @@
   questions that can be settled without one.
 
   This mod is four Harmony patches on four vanilla methods and a die roll inside each. It owns no
-  def, no comp and no saved data, so nothing here is about its own shape: everything is about the
+  gameplay def, no comp and no saved colony data; the original checks focus on the
   four hand-offs, and every one of them fails SILENTLY when the game moves underneath it. A
   renamed target means Harmony throws at startup, which is loud. Everything else - a subclass that
   overrides the target, a training def that stops existing, a stat that gains a cap - is quiet.
@@ -551,6 +551,8 @@ It 'About declares the identity, supported game, Harmony and visible source link
 
 # =============================================================================================
 Write-Output ''
+. (Join-Path $PSScriptRoot 'Settings-Tests.ps1')
+
 if ($script:failed -eq 0) {
     Write-Output "$($script:ran) tests, all passed."
     exit 0
