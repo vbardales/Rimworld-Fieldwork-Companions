@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
+  <FieldworkCompanions.Settings.Title>Fieldwork Companions</FieldworkCompanions.Settings.Title>
 
   <FieldworkCompanions.Mote.Assist>+{0}</FieldworkCompanions.Mote.Assist>
 
@@ -7,7 +8,7 @@
 
   <FieldworkCompanions.Settings.WorkHeader>What a companion helps with</FieldworkCompanions.Settings.WorkHeader>
   <FieldworkCompanions.Settings.Mining>Mining</FieldworkCompanions.Settings.Mining>
-  <FieldworkCompanions.Settings.MiningTip>Rock and ore mined by hand. Deep drills are not affected: nobody stands next to them.</FieldworkCompanions.Settings.MiningTip>
+  <FieldworkCompanions.Settings.MiningTip>Rock and ore mined by hand. Deep drills do not receive this bonus.</FieldworkCompanions.Settings.MiningTip>
   <FieldworkCompanions.Settings.Harvest>Harvesting and foraging</FieldworkCompanions.Settings.Harvest>
   <FieldworkCompanions.Settings.HarvestTip>Crops and wild plants alike. Cutting a plant down is not harvesting and yields no bonus.</FieldworkCompanions.Settings.HarvestTip>
   <FieldworkCompanions.Settings.Fishing>Fishing</FieldworkCompanions.Settings.Fishing>

@@ -3,6 +3,13 @@
 Format inspired by [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 This file serves the repository and the writing of Steam patch notes; RimWorld does not display it in game.
 
+## [Unreleased]
+
+### Fixed
+
+- Made the settings category title localizable and completed the English/French source and resource audit.
+- Clarified deep-drill exclusion and French harvesting, training and radius wording.
+
 ## [1.0.0] — 2026-09-07
 
 First version. RimWorld 1.6.

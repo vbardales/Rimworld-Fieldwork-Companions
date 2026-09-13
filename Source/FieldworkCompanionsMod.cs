@@ -24,7 +24,7 @@ namespace FieldworkCompanions
             HarmonyInstance.PatchAll();
         }
 
-        public override string SettingsCategory() => "Fieldwork Companions";
+        public override string SettingsCategory() => "FieldworkCompanions.Settings.Title".Translate();
 
         public override void DoSettingsWindowContents(Rect inRect)
         {
