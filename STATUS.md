@@ -61,10 +61,23 @@ validation, not `tested`: nothing here has been played.
   the features match either one of them or a step of Pickle's own vocabulary already used by other
   suites. `Mod/` and `Source/` were not touched; the shipped DLL hash is unchanged
   (`EF4432026EAAD0038C08F75B20AC931F131B27CF850826960D76B5AF1D2F08BC`).
-- **Not run.** No Pickle run was launched, no lock taken, no game started. No scenario has passed.
-  A step defined here but wrong at run time (a click that does not resolve inside a scroll view, a
-  vanilla signature) would only show in a run; these are tracked in `remaining`.
-- Working tree: `Tests/`, `TESTING.md` and this file are new or modified and uncommitted.
+- **First WSL run, pass 1 (English), 2026-09-21 17:44 local, through `Run-PickleWsl.ps1`.** It did
+  NOT complete: 19 of 32 scenarios were played (13 passed, 5 failed, 1 skipped), then the game ended
+  while loading the 20th and wrote no final report (`exitReason: in-progress`, exit 1). The cause of
+  the early end is not established. These numbers are not a verdict. What did pass: the mod loaded
+  after Harmony with no startup error, the four hooks patched by this mod, the clean-profile
+  defaults, the hidden shortcut (hidden, drawn once revealed, opens this mod's own dialog), every
+  key present in English, the shortcut text, and the settings-page captures. The gameplay scenarios
+  were not reached.
+- The 5 failures were defects of the suite, not of the mod, and are fixed in the next commit (not
+  replayed): floats are written to the settings file with round-trip digits (`0.400000006`), and
+  the game refuses `Master` for a pawn that has not learned obedience.
+- **Open, possibly a defect of the mod:** the "top" and "bottom" captures of the settings page are
+  identical, show no scrollbar, and do not show the mark checkbox or the reset button. The suite now
+  asserts the scroll position after scrolling to the bottom and reports it with `viewHeight`. Not yet
+  established whether the page cannot scroll or the step did not take effect.
+- The report of this run was in `pickle-reports-archive/0921-1748`, an archive that is rotated.
+- Passes 1 and 2 remain to be played to completion, and the `@review` captures to be looked at.
 
 ## Ordered workflow audit — 2026-09-21
 

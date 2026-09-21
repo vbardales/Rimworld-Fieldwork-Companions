@@ -77,11 +77,22 @@ namespace FieldworkCompanions.PickleSteps
             ctx.Require(animal.playerSettings != null && animal.training != null,
                 $"{name} has no player settings or training tracker: it was not generated as a player's animal");
 
-            // Both fields the vanilla "follow master while doing field work" checkbox sets.
-            animal.playerSettings.Master = master;
-            animal.playerSettings.followFieldwork = true;
+            // Obedience first: the game's own Master setter refuses a pawn that has not learned it
+            // ("Attempted to set master for non-obedient pawn", a Log.Error), which is what the first
+            // WSL run of this suite hit on 2026-09-21. The disobedient companion is a state the UI
+            // cannot produce but a lost training can, so it is built by writing the field directly.
+            if (obedient)
+            {
+                animal.training.Train(TrainableDefOf.Obedience, master, complete: true);
+                animal.playerSettings.Master = master;
+            }
+            else
+            {
+                animal.playerSettings.master = master;
+            }
 
-            if (obedient) animal.training.Train(TrainableDefOf.Obedience, master, complete: true);
+            // The field the vanilla "follow master while doing field work" checkbox sets.
+            animal.playerSettings.followFieldwork = true;
 
             ctx.Require(animal.training.HasLearned(TrainableDefOf.Obedience) == obedient,
                 $"{name} {(obedient ? "did not learn" : "already knows")} obedience");

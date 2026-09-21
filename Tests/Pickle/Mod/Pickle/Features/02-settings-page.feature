@@ -31,7 +31,8 @@ Feature: the settings page, as a player sees it
   Scenario: the bottom of the page, with the reset button
     When I open the Fieldwork Companions settings dialog
     And Fieldwork Companions scrolls its settings window to the bottom
-    And Fieldwork Companions hides the interface around the windows on screen
+    Then the Fieldwork Companions settings page has scrolled down
+    When Fieldwork Companions hides the interface around the windows on screen
     And I take a screenshot "settings page, bottom, as this pass runs it"
     And Fieldwork Companions brings the interface back
     And Fieldwork Companions scrolls its settings window back to the top

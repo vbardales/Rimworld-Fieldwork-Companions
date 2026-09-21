@@ -2,6 +2,7 @@ using System;
 using System.Globalization;
 using System.IO;
 using System.Reflection;
+using System.Text.RegularExpressions;
 using RimWorld;
 using RimWorks.Pickle;
 using UnityEngine;
@@ -53,6 +54,26 @@ namespace FieldworkCompanions.PickleSteps
         {
             SetScroll(ctx, 0f);
             await ctx.WaitFrames(3);
+        }
+
+        /// <summary>
+        /// Added after the first WSL run, whose "top" and "bottom" captures were identical: neither
+        /// showed the last two controls (the mark checkbox and the reset button) and neither showed
+        /// a scrollbar. That is either a scroll step that did nothing or a page that cannot scroll,
+        /// and a capture cannot tell the two apart. The scroll position is written back by the
+        /// game's own scroll view, clamped to what the content allows, so a value above zero after
+        /// asking for the bottom proves the page really scrolls; the message carries both numbers.
+        /// </summary>
+        [Then("the Fieldwork Companions settings page has scrolled down")]
+        public void AssertScrolled(PickleContext ctx)
+        {
+            var mod = Driver.Mod(ctx);
+            var y = ((Vector2)Driver.Field(ctx, typeof(FieldworkCompanionsMod), "scrollPosition", Driver.InstanceAny).GetValue(mod)).y;
+            var h = (float)Driver.Field(ctx, typeof(FieldworkCompanionsMod), "viewHeight", Driver.InstanceAny).GetValue(mod);
+            ctx.Assert(y > 0f,
+                $"asked to scroll to the bottom, the page is still at scrollPosition.y {y} with viewHeight {h}: "
+                + "either the page does not scroll, so the controls below the fold (the mark checkbox and "
+                + "the reset button) cannot be reached, or the step did not take effect");
         }
 
         private static void SetScroll(PickleContext ctx, float y)
@@ -117,8 +138,22 @@ namespace FieldworkCompanions.PickleSteps
         public void AssertOnDisk(PickleContext ctx, string field, string expected)
         {
             var xml = File.ReadAllText(Driver.SettingsFilePath(ctx));
-            var needle = $"<{field}>{expected}</{field}>";
-            ctx.Assert(xml.Contains(needle), $"the settings file does not contain {needle}. It holds:\n{xml}");
+            var match = Regex.Match(xml, $"<{field}>([^<]*)</{field}>");
+            ctx.Assert(match.Success, $"the settings file has no <{field}> element. It holds:\n{xml}");
+
+            // A float is written with the digits that round-trip it, so 0.4f lands in the file as
+            // 0.400000006 (the first WSL run read exactly that). Numbers are compared as numbers.
+            var actual = match.Groups[1].Value;
+            double a, e;
+            if (double.TryParse(actual, NumberStyles.Float, CultureInfo.InvariantCulture, out a)
+                && double.TryParse(expected, NumberStyles.Float, CultureInfo.InvariantCulture, out e))
+            {
+                ctx.Assert(Math.Abs(a - e) < 1e-5, $"the settings file records <{field}> as {actual}, expected {expected}");
+            }
+            else
+            {
+                ctx.Assert(actual == expected, $"the settings file records <{field}> as {actual}, expected {expected}");
+            }
         }
 
         /// <summary>
