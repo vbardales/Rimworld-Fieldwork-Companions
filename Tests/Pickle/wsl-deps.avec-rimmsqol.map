@@ -1,0 +1,20 @@
+# Pass 3, "avec-rimmsqol": RIMMSQOL, the button-customization mod MOD_SETTINGS.md names, and the shared
+# Pickle steps that drive it (PickleTools/RimmsqolSteps). Plays 09 to 12. It answers what the other passes
+# cannot: does RIMMSQOL's own interface list FieldworkCompanions_Settings, can it reveal it, does the revealed
+# button open the same page as Mod options, does hiding it again work, and does the choice survive a restart.
+#
+# RIMMSQOL is NOT a mod Fieldwork Companions declares or reads: it is the integration MOD_SETTINGS.md asks to
+# have tested and named. That is why it sits in a pass map and not in About.xml, and why no other pass stages it.
+#
+# Ids and dependencies, from PickleTools/RimmsqolSteps/README.md (read from RIMMSQOL's own About.xml and code):
+#   MalteSchulze.RIMMSqol, Workshop 1084452457. Harmony is a real dependency in 1.6 whatever its About says; the
+#   staging activates Harmony first in every pass, so it is deliberately not repeated here.
+#   nelim.pickletools.rimmsqol, a folder of the PickleTools repository, cloned as PickleTools at the root of the
+#   collection: the steps assembly. It hard-depends on Pickle and RIMMSQOL, so it goes after RIMMSQOL.
+#
+# Played with:  -DepMap wsl-deps.avec-rimmsqol.map -IncludeWip -Filter '09-rimmsqol-shortcut.feature'
+# and the restart chain, three launches under one hold of the lock:
+#               -DepMap wsl-deps.avec-rimmsqol.map -IncludeWip -Filter '10-rimmsqol-restart-reveal.feature'
+#                   -Then '11-rimmsqol-restart-hide.feature','12-rimmsqol-restart-forget.feature'
+MalteSchulze.RIMMSqol            1084452457
+nelim.pickletools.rimmsqol      path:PickleTools/RimmsqolSteps/Mod

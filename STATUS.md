@@ -23,6 +23,7 @@ maintainer:   Codex, current local repository task
 updated:      2026-09-21
 remaining:
   - unverified: Run the Pickle suite (Tests/Pickle, 8 features, written 2026-09-21, never played): pass 1 English and pass 2 French as declared in TESTING.md; check exitReason first, then scenarios played against features discovered, then open and look at every @review capture. The thresholds in 06-assists.feature come from the vanilla defs and have not been observed.
+  - unverified: Pass 3 "avec-rimmsqol" (Tests/Pickle features 09-12, written 2026-09-21 with the shared steps of PickleTools/RimmsqolSteps, never played): RIMMSQOL lists, reveals, hides and forgets the shortcut, the bar draws it, it opens this mod's dialog, and the choice survives a restart. Only RIMMSQOL is covered; its checkbox is driven through the calls it makes, not clicked; no other customization mod is tested.
   - unverified: The @wip reset-confirmation scenario (02-settings-page.feature) has never been tried; run it with -IncludeWip.
   - unverified: Fishing has no Pickle scenario (the test colony has no water); it stays manual scenario 8.
   - unverified: Execute scenarios 0-16 in game, including both settings access routes, persistence/reset, FR/EN, new-game and existing-save coverage.

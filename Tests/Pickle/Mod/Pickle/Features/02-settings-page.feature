@@ -28,6 +28,10 @@ Feature: the settings page, as a player sees it
     And Fieldwork Companions brings the interface back
     And I close all dialogs
 
+  # @film: this is the scenario that answers "does the page scroll", so it leaves a filmstrip of the
+  # steps as well as the two captures. The scroll position is also asserted, with viewHeight in the
+  # message, so the answer does not rest on a picture alone.
+  @film
   Scenario: the bottom of the page, with the reset button
     When I open the Fieldwork Companions settings dialog
     And Fieldwork Companions scrolls its settings window to the bottom

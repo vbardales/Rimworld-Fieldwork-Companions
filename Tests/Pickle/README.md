@@ -63,5 +63,9 @@ developer mode.
   restore of the live settings and of the settings file around every scenario), `SettingsSteps`,
   `ShortcutSteps`, `LanguageSteps`, `HookSteps`, `FieldworkSteps` (companions, rocks, plants, cows,
   yields, marks), `ScreenshotSteps`.
-- No `wsl-deps` map: the mod has no optional mod to stage, and Harmony, RimLogging and Pickle are
-  known to the launcher.
+- `wsl-deps.avec-rimmsqol.map`: the only pass map. The mod has no optional mod to stage (Harmony,
+  RimLogging and Pickle are known to the launcher), but RIMMSQOL is the customization integration
+  MOD_SETTINGS.md asks to have tested. The map stages it with the shared steps of
+  `PickleTools/RimmsqolSteps` (a folder of the PickleTools repository, cloned at the root of the
+  collection); features 09 to 12 are tagged `@wip @rimmsqol` and play only in that pass. Guide to the
+  launcher, the queue and the passes: `PickleTools/Headless/README.md`.
