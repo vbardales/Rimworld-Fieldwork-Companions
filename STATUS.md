@@ -9,9 +9,9 @@ remote:       https://github.com/vbardales/Rimworld-Fieldwork-Companions.git
 local_path:   C:\Users\nelim\Documents\rimworld\FieldworkCompanions
 visibility:   public
 detached:     yes
-stage:        done
+stage:        done   # workflow state names are used literally, no codes; see the 2026-09-21 sections
 settings_audit: complete
-audit_revision: 928584df23c38bd76901bb9064c2587ff6f91a60
+audit_revision: 0432fea8858be140396f832975e6dba0cd00a47b
 licence:      original
 license_spdx: MIT
 licence_at:   Original implementation according to ATTRIBUTION.md; no third-party mod code or assets reused. Only the mechanic is inspired by Disney Dreamlight Valley. Root and distributed LICENSE grant MIT. Classification original describes provenance; MIT describes reuse permissions.
@@ -20,8 +20,11 @@ showcase:     complete
 tested_on:
 workshop:
 maintainer:   Codex, current local repository task
-updated:      2026-09-13
+updated:      2026-09-21
 remaining:
+  - unverified: Run the Pickle suite (Tests/Pickle, 8 features, written 2026-09-21, never played): pass 1 English and pass 2 French as declared in TESTING.md; check exitReason first, then scenarios played against features discovered, then open and look at every @review capture. The thresholds in 06-assists.feature come from the vanilla defs and have not been observed.
+  - unverified: The @wip reset-confirmation scenario (02-settings-page.feature) has never been tried; run it with -IncludeWip.
+  - unverified: Fishing has no Pickle scenario (the test colony has no water); it stays manual scenario 8.
   - unverified: Execute scenarios 0-16 in game, including both settings access routes, persistence/reset, FR/EN, new-game and existing-save coverage.
   - unverified: RIMMSQOL reveal/open/edit/hide and visibility persistence; no customization integration has been tested interactively.
   - unverified: In-game English/French settings, tooltips, reset dialog and assist mote; check raw keys, fallback, formatting and clipping in both languages.
@@ -33,6 +36,93 @@ remaining:
 
 This task owns and maintains this STATUS.md as work progresses. The file stays at the
 repository root, outside the distributed Mod/ folder.
+
+## Pickle suites written — 2026-09-21 (after the audit below)
+
+Stage **preTest -> done**. The one blocker of the audit below is lifted: the Pickle (Gherkin)
+tests now exist and their scope is justified. `done` still means ready for the final in-game
+validation, not `tested`: nothing here has been played.
+
+- Added `Tests/Pickle/`: a companion mod `Fieldwork Companions - Pickle tests` (About.xml, 8
+  features), a steps assembly built against the shipped DLL, `Check-Steps.ps1`, and a README.
+  Added `TESTING.md` at the root: the layers, the two required passes (English and French, without
+  optional mods), why there is no pass with optional mods and none for an incompatibility (the mod
+  declares neither), which scenario covers what, and what Pickle does not cover and why.
+- Scope kept to what only a running game shows: the four patches installed on the game's real
+  runtime; the mod's reads of three non-public game members inside the actual runtime, through
+  milking and the per-step chance; the real settings dialog, captured (`@review`); the real settings
+  file written, read back and written on close; the shortcut in the game's own main bar and its
+  identity with Mod options; every key in the language of the pass; a save that holds nothing of the
+  mod. What the harness already proves (arithmetic, clamps, reset, Scribe round trip) is not
+  repeated.
+- Validated without a game: `dotnet build Tests/Pickle/Source/FieldworkCompanions.PickleSteps.csproj -c Release`
+  succeeded with 0 warnings and 0 errors; `Tests/Pickle/Check-Steps.ps1` exit 0 — 42 step patterns
+  compile with Pickle's own engine, none declared twice, none unused, and all 179 step lines of
+  the features match either one of them or a step of Pickle's own vocabulary already used by other
+  suites. `Mod/` and `Source/` were not touched; the shipped DLL hash is unchanged
+  (`EF4432026EAAD0038C08F75B20AC931F131B27CF850826960D76B5AF1D2F08BC`).
+- **Not run.** No Pickle run was launched, no lock taken, no game started. No scenario has passed.
+  A step defined here but wrong at run time (a click that does not resolve inside a scroll view, a
+  vanilla signature) would only show in a run; these are tracked in `remaining`.
+- Working tree: `Tests/`, `TESTING.md` and this file are new or modified and uncommitted.
+
+## Ordered workflow audit — 2026-09-21
+
+Previous stage: `done`. Retained stage at the time of this audit: **`preTest`** (superseded by the
+section above). Applies `rimworld/AUDIT.md` as revised
+on 2026-09-21. The `stage` field uses the workflow's own state names, so no code table is needed.
+
+The step-down is not a regression of the mod: nothing validated on 2026-09-13 has changed.
+AUDIT.md now requires, for `preTest -> done`, that Pickle (Gherkin) tests be **written** with
+their scope justified (their execution belongs to `done -> tested`). This repository has
+neither Pickle tests nor a recorded reason why none applies, so `done` is not established.
+The 2026-09-13 sections below are kept as history and were correct under the criteria of that day.
+
+### Scope and revision
+
+- Standalone repository `C:\Users\nelim\Documents\rimworld\FieldworkCompanions`; distributed
+  folder `Mod/`. Audited HEAD `0432fea8858be140396f832975e6dba0cd00a47b`
+  (`git ls-remote origin HEAD` returns the same SHA). Working tree clean before this edit.
+  Since the previous `audit_revision` (928584d) three commits landed: the hidden settings
+  shortcut and its tests, and the licence holder name. Only STATUS.md was edited by this audit.
+- No RimWorld was launched (`Get-Process RimWorldWin64`: nothing running; no WSL run attempted,
+  no lock taken, none needed). All results below are out-of-game.
+
+### Transition results
+
+| Transition | Result | Direct evidence |
+| --- | --- | --- |
+| dansMonoRepo -> horsMonoRepo | Validated | Own `.git`; origin `vbardales/Rimworld-Fieldwork-Companions`; `gh repo view` reports PUBLIC, default branch `main`, HEAD pushed. STATUS present. Licence `original` + MIT, justified in `licence_at`; root and `Mod/` LICENSE and ATTRIBUTION are byte-identical. packageId `nelim.fieldworkcompanions`, repo, folder and title coherent. README, ATTRIBUTION, LICENSE, CHANGELOG in English. |
+| horsMonoRepo -> ModIcon | Validated | Release build to a separate output (`.build/audit-20260921/`): 0 warnings, 0 errors, DLL SHA-256 `EF4432026EAAD0038C08F75B20AC931F131B27CF850826960D76B5AF1D2F08BC`, identical to the shipped DLL. `ModIcon.png` 128x128, 29,749 bytes, opened and looked at. |
+| ModIcon -> Preview | Validated | `Preview.png` 896x504 PNG, 635,659 bytes (< 1 MB), opened and looked at: overhead oblique view, tiled floor, miner, dog, jade pile, lamp; no camera defect seen. |
+| Preview -> preOptions | Validated | Accent (yellow-green rule and badge) clearly separate from the ochre secondary and the brown ground. English description; title has no prefix, suffix or linking word to style. Description ends with `[url=https://github.com/vbardales/Rimworld-Fieldwork-Companions]Source code on GitHub[/url]`, matching origin and `<url>`. |
+| preOptions -> options | Validated | Source and Defs: 12 useful settings via Mod options, hidden `MainButtonDef` (`buttonVisible=false`) opening the same `Dialog_ModSettings`, no second store. 10 settings tests green (defaults/reset, limits and non-finite values, effect on chance/radius/dispatcher/yield, real Scribe round-trip, older files, shortcut contract). In-game and RIMMSQOL checks belong to `done -> tested`. |
+| options -> l10n | Validated | 33 Keyed keys resolved in EN and FR, none missing, none duplicated; placeholders and line breaks match; all UI text goes through `.Translate()` (no literal UI string in `Source/`). Shortcut: English in the Def, French in DefInjected. `Check-DefInjected.ps1`: 2 keys, 0 errors. |
+| l10n -> preTest | Validated | Harmony is the only mandatory dependency, actually patched against, declared in `modDependencies` with `loadAfter`. Odyssey trainings are resolved silently by name, so it stays optional. `supportedVersions` 1.6; no LoadFolders and no conditional patch to reconcile. |
+| preTest -> done | **Not established** | Written and green: 15 functional scenarios (0-16), 25/25 automated checks, XML/resource checks. **Missing: Pickle tests, and any justification for having none.** See remaining. |
+| done -> tested | Not started | Scenarios 0-16 never played in game; no Pickle run. Not a defect. |
+
+### Commands and observed results
+
+- `dotnet build Source/FieldworkCompanions.csproj -c Release --no-restore --nologo -p:OutputPath=../.build/audit-20260921/`: exit 0, 0 warnings, 0 errors, hash equal to the shipped DLL.
+- `powershell -NoProfile -ExecutionPolicy Bypass -File _tools/Run-Functional-Tests.ps1`: exit 0, **25 tests, all passed**, against the delivered DLL and the installed game's assemblies and data. These are out-of-game compatibility, settings-logic and resource checks.
+- `powershell -NoProfile -ExecutionPolicy Bypass -File ../scripts/Check-DefInjected.ps1 -TransMod <repository>/Mod`: 2 keys checked, 0 errors, 11,587 Defs indexed.
+- Live `gh repo view` and `git ls-remote origin HEAD`: PUBLIC, HEAD on origin.
+- Direct inspection of `Preview.png` and `ModIcon.png`; System.Drawing size check.
+
+### Remaining for `preTest -> done`
+
+- Write the Pickle (Gherkin) suites for what only a running game can show, and justify that scope; or record explicitly why none applies. Do not duplicate what the 25 unit checks already prove. Execution is not required here.
+
+### Later transitions, not yet started (not blockers now)
+
+- `tested`: play scenarios 0-16, run Pickle in both language passes and the passes declared in a `TESTING.md` (none exists yet), open the `@review` captures, check logs, RIMMSQOL reveal/open/hide.
+- `prepublished`: no `PUBLICATION.md`, no version tag or GitHub release, no Steam release notes, no thank-you messages, no Workshop screenshots; CHANGELOG still has an `[Unreleased]` block on top of 1.0.0 dated 2026-09-07.
+- `published`: no `About/PublishedFileId.txt`; `workshop:` is empty.
+
+### Optional recommendations
+
+- `../PROMPT_FIELDWORKCOMPANIONS.md` still sits in the parent folder although the images exist; PUBLISHING.md says to delete such a note. It is outside this repository and was left alone.
 
 ## Audit fixes and revalidation — 2026-09-13
 

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Fieldwork Companions - Pickle tests</name>
+  <author>Nelim</author>
+  <packageId>nelim.fieldworkcompanions.pickletests</packageId>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <description>In-game functional tests for Fieldwork Companions, run by Pickle. Development only: never published.
+
+Eight features: loading and the four Harmony hooks, the settings page (captured, tagged @review), settings persistence through the game's own file, the hidden MainButtons shortcut, the language the pass runs, the real assists through the vanilla methods the patches hang on, the chance in a live game, and a save that holds nothing of the mod. They need the companion steps assembly built from Tests/Pickle/Source against Mod/Assemblies/FieldworkCompanions.dll. See TESTING.md at the repository root for what each pass covers and Tests/Pickle/README.md for what is deliberately left out.</description>
+  <modDependencies>
+    <li>
+      <packageId>nelim.fieldworkcompanions</packageId>
+      <displayName>Fieldwork Companions</displayName>
+    </li>
+    <li>
+      <packageId>rimworks.pickle</packageId>
+      <displayName>Pickle</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/3791648678</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>nelim.fieldworkcompanions</li>
+    <li>rimworks.pickle</li>
+  </loadAfter>
+</ModMetaData>
