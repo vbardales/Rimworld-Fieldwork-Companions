@@ -22,11 +22,11 @@ workshop:      3806133311
 maintainer:   Codex, current local repository task
 updated:      2026-09-22
 remaining:
-  - unverified: Run the Pickle suite (Tests/Pickle, 8 features, written 2026-09-21, never played): pass 1 English and pass 2 French as declared in TESTING.md; check exitReason first, then scenarios played against features discovered, then open and look at every @review capture. The thresholds in 06-assists.feature come from the vanilla defs and have not been observed.
-  - unverified: Pass 3 "avec-rimmsqol" (Tests/Pickle features 09-12, written 2026-09-21 with the shared steps of PickleTools/RimmsqolSteps, never played): RIMMSQOL lists, reveals, hides and forgets the shortcut, the bar draws it, it opens this mod's dialog, and the choice survives a restart. Only RIMMSQOL is covered; its checkbox is driven through the calls it makes, not clicked; no other customization mod is tested.
+  - unverified: Complete the Pickle suite (Tests/Pickle, 12 features; the first 8 belong to the English and French evidence passes): check exitReason first, then scenarios played against features discovered, then open and look at every @review capture. The 2026-09-21 attempt ended without a completed report. The thresholds in 06-assists.feature come from the vanilla defs and have not been observed.
+  - unverified: Complete pass 3 "avec-rimmsqol" (Tests/Pickle features 09-12 with the shared steps of PickleTools/RimmsqolSteps): RIMMSQOL lists, reveals, hides and forgets the shortcut, the bar draws it, it opens this mod's dialog, and the choice survives a restart. Only RIMMSQOL is covered; its checkbox is driven through the calls it makes, not clicked; no other customization mod is tested.
   - unverified: The @wip reset-confirmation scenario (02-settings-page.feature) has never been tried; run it with -IncludeWip.
-  - unverified: Fishing has no Pickle scenario (the test colony has no water); it stays manual scenario 8.
-  - unverified: Execute scenarios 0-16 in game, including both settings access routes, persistence/reset, FR/EN, new-game and existing-save coverage.
+  - unverified: Fishing has no Pickle scenario (the test colony has no water); scenario 8 remains an explicit coverage gap.
+  - unverified: Complete the Pickle evidence for scenarios 0-16, including both settings access routes, persistence/reset, FR/EN, new-game and existing-save coverage; record any scenario that still lacks an automated route.
   - unverified: RIMMSQOL reveal/open/edit/hide and visibility persistence; no customization integration has been tested interactively.
   - unverified: In-game English/French settings, tooltips, reset dialog and assist mote; check raw keys, fallback, formatting and clipping in both languages.
   - unverified: The remaining runtime coverage must be produced by completed Pickle passes and reviewed media; no manual gameplay procedure is accepted as a substitute.
@@ -40,6 +40,15 @@ remaining:
 This task owns and maintains this STATUS.md as work progresses. The file stays at the
 repository root, outside the distributed Mod/ folder.
 
+## Current handoff — 2026-09-22
+
+The repository is clean at `7f4c286` and matches `origin/main` at the latest checked fetch.
+The scroll fix and both rebuilt assemblies are committed in `17a0197`; their interactive
+regression is still unverified. No completed Fieldwork Companions Pickle report or reviewed
+capture has been identified. The stage remains **`done`**. The `TESTING.md` manual-only
+exceptions, especially fishing and ordinary work gestures, are coverage gaps to close before
+claiming `tested` under the maintainer's evidence policy.
+
 ## Post-tested gates reviewed without claiming `tested` — 2026-09-22
 
 `tested` is deliberately set aside: no completed Pickle/media review or own-subscription Workshop
@@ -50,9 +59,9 @@ test exists. The later gates were audited independently at `fb83402` against `or
 - **Publication record:** `PUBLICATION.md` now records Workshop item `3806133311` and the early
   0.1.0 publication instead of its obsolete “none yet” state. It retains the still-unfulfilled
   screenshot, installation-test, tag/release and message work.
-- **Prepublished remains not established:** the local tree contains the uncommitted scroll fix and
-  its rebuilt assemblies, so it is not clean; screenshots are not yet produced/reviewed; and the
-  tag/release are absent. These are prerequisites, not evidence that the published item is invalid.
+- **Prepublished remains not established:** the scroll fix and rebuilt assemblies have since been
+  committed and pushed, but screenshots are not yet produced/reviewed and the tag/release are absent.
+  These are prerequisites, not evidence that the published item is invalid.
 
 ## Publication identifier and ordered audit — 2026-09-22
 
@@ -100,7 +109,7 @@ defect or a criterion blocking this audit.
 | horsMonoRepo -> ModIcon | Validated | Current release build passed and supplied DLL is current. |
 | ModIcon -> Preview | Validated | Prior direct image inspection remains independent of this change. |
 | Preview -> preOptions | Validated | English description and final GitHub source link remain present. |
-| preOptions -> options | Validated statically | Source, definitions and 25/25 checks cover the useful settings and hidden shortcut. The uncommitted scroll fix still needs an in-game regression pass. |
+| preOptions -> options | Validated statically | Source, definitions and 25/25 checks cover the useful settings and hidden shortcut. The committed scroll fix still needs an in-game regression pass. |
 | options -> l10n | Validated statically | 33 English and French keyed entries, matching resources and passing checks. |
 | l10n -> preTest | Validated | Harmony is declared and actually used; optional Odyssey handling remains documented. |
 | preTest -> done | Validated | Written functional scenarios, green automated/XML checks and written Pickle suites with a justified runtime scope. |

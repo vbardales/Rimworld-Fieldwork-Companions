@@ -93,6 +93,6 @@ nothing.
 
 Written 2026-09-21. Validated without running the game: the steps assembly builds against the
 shipped DLL, and `Tests/Pickle/Check-Steps.ps1` compiles every step pattern with Pickle's own
-engine and matches every step line of every feature against them. **No Pickle run has been played
-yet**, so no scenario has passed, and the numbers in `06-assists.feature` are derived from the
-vanilla 1.6 defs and have not been observed.
+engine and matches every step line of every feature against them. An initial English run ended
+without a completed report. **No completed Fieldwork Companions pass has been reviewed**, so
+the numbers in `06-assists.feature` remain derived from the vanilla 1.6 defs rather than observed.

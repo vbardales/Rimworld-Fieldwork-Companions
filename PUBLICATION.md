@@ -20,11 +20,11 @@ the prettiest. Candidates, in the order I would try them once they exist:
 | 2 | The whole settings page on a clean configuration | It shows how much is adjustable |
 | 3 | The settings page in French | Only if it adds something the English one does not |
 
-**Blocker for image 2:** in the first WSL run (2026-09-21, English) the settings-page captures were
-cut off after "Chance to bond per assist" and showed neither the "Show a mark" checkbox nor the
-reset button, and no scrollbar. Whether the page cannot scroll or the capture step did nothing is
-not established (see STATUS.md). An image of a page whose last controls cannot be reached must not
-go on the Workshop page. Do not use a capture from a run that ended without a report.
+**Image 2 needs fresh evidence:** in the first WSL run (2026-09-21, English) the settings-page
+captures were cut off after "Chance to bond per assist" and showed neither the "Show a mark"
+checkbox nor the reset button. The cause was established and fixed by forcing a single listing
+column (see STATUS.md); the committed fix still needs a completed in-game regression run. Do not
+use the old capture, which came from a run that ended without a report.
 
 Every image must be opened and looked at before it is listed here: a green capture scenario proves
 the journey ran, not that the image shows anything.
@@ -61,8 +61,8 @@ screenshots are not produced yet; each one must be opened before this answer is 
 Steam comments take BBCode, and a bare Workshop URL becomes a widget, hence the link alone on the
 last line. Under 1000 characters each.
 
-**Post them once the item is public.** A link to a private item opens for nobody and the widget does
-not render. Replace `ITEM_ID` with the item's id.
+**Post them once the item is public and its installed copy has been checked.** A link to a private
+item opens for nobody and the widget does not render. The known item id is filled in below.
 
 The mechanic comes from Disney Dreamlight Valley, which is a game and not a Workshop mod, so it gets
 no message. The only mod this one depends on is Harmony.
@@ -76,7 +76,7 @@ Two of them have to remember something before the vanilla method runs, because t
 
 Thank you for the library, and for keeping it working through every RimWorld update.
 
-https://steamcommunity.com/sharedfiles/filedetails/?id=ITEM_ID
+https://steamcommunity.com/sharedfiles/filedetails/?id=3806133311
 ```
 
 ## What the upload cannot take back
