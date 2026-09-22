@@ -29,10 +29,10 @@ remaining:
   - unverified: Execute scenarios 0-16 in game, including both settings access routes, persistence/reset, FR/EN, new-game and existing-save coverage.
   - unverified: RIMMSQOL reveal/open/edit/hide and visibility persistence; no customization integration has been tested interactively.
   - unverified: In-game English/French settings, tooltips, reset dialog and assist mote; check raw keys, fallback, formatting and clipping in both languages.
-  - Manual scenarios 0-16 have not been played; actual RimWorld/Mono behavior remains unverified.
+  - unverified: The remaining runtime coverage must be produced by completed Pickle passes and reviewed media; no manual gameplay procedure is accepted as a substitute.
   - note: Workshop item 3806133311 was published by the maintainer as 0.1.0 while the local metadata and draft notes use 1.0.0. The maintainer explicitly accepts that difference for this early publication; it is tracked for the next planned update, not treated as a current audit blocker.
   - unverified: Subscribe to Workshop item 3806133311 and test the installed Workshop copy, including its visibility and the actual item page contents. The maintainer reported publication, but this audit did not access Steam.
-  - unverified: Commit e2ec8fc records PublishedFileId.txt but is one commit ahead of origin/main. Push it before the next upload so the Workshop identifier is safely retained remotely.
+  - validated: PublishedFileId `3806133311` is committed and pushed on `main` (e2ec8fc, followed by release-preparation commits).
 ---
 
 # Fieldwork Companions — status
@@ -59,7 +59,7 @@ test exists. The later gates were audited independently at `fb83402` against `or
 Previous stage: `done`. Retained stage: **`done`**. The Workshop item is real only to the
 extent directly evidenced here: the maintainer reports publishing **0.1.0**, and RimWorld wrote
 `Mod/About/PublishedFileId.txt` with `3806133311`. That file was committed alone as
-`e2ec8fc` (`Record Workshop published file ID for 0.1.0`); it has not yet been pushed.
+`e2ec8fc` (`Record Workshop published file ID for 0.1.0`); it is pushed on `main`.
 
 This is not, by itself, evidence for `prepublished` or `published`: the later gates must not be
 backfilled from the act of uploading. The current distributed `About.xml` declares `modVersion`
@@ -105,8 +105,8 @@ defect or a criterion blocking this audit.
 | l10n -> preTest | Validated | Harmony is declared and actually used; optional Odyssey handling remains documented. |
 | preTest -> done | Validated | Written functional scenarios, green automated/XML checks and written Pickle suites with a justified runtime scope. |
 | done -> tested | Not established | No complete in-game/Pickle pass with reviewed captures; current scroll fix is not yet observed in game. |
-| tested -> prepublished | Not established | Dirty tree, no pushed 0.1.0 tag/release, no reviewed screenshots and incomplete runtime validation. The accepted early-release version difference is not counted as a blocker. |
-| prepublished -> published | Not established | PublishedFileId is now committed, but not pushed; the actual Workshop page, own-subscription test, visibility and thank-you messages were not verified by this audit. |
+| tested -> prepublished | Not established | No 0.1.0 tag/release, no reviewed screenshots and incomplete runtime validation. The accepted early-release version difference is not counted as a blocker. |
+| prepublished -> published | Not established | PublishedFileId is committed and pushed; the actual Workshop page, own-subscription test, visibility and thank-you messages were not verified by this audit. |
 
 ## Settings page: the scroll question resolved, a real defect found and fixed — 2026-09-22
 
