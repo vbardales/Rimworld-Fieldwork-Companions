@@ -4,7 +4,7 @@
 # for launch 3.
 #
 # See 10-rimmsqol-restart-reveal.feature for the command and for what is left behind if the chain is cut.
-@wip @review @rimmsqol
+@review @rimmsqol @requires:nelim.pickletools.screenshotmode
 Feature: a choice made in RIMMSQOL is written for the next launch (2 of 3, hide)
 
   Scenario: the revealed shortcut survived the restart, then RIMMSQOL hides it again
@@ -16,7 +16,9 @@ Feature: a choice made in RIMMSQOL is written for the next launch (2 of 3, hide)
     And RIMMSQOL's settings file records the main button "FieldworkCompanions_Settings" as visible
     And the main bar draws the button "FieldworkCompanions_Settings"
     When RIMMSQOL's own window is opened on the main button "FieldworkCompanions_Settings"
+    And Nelim's Pickle Tools: screenshot mode is enabled around the open windows
     And I take a screenshot "rimmsqol, edit page of the fieldwork companions shortcut, revealed before this restart"
+    And Nelim's Pickle Tools: screenshot mode is disabled
     And I close all dialogs
     When RIMMSQOL hides the main button "FieldworkCompanions_Settings"
     Then the main bar does not draw the button "FieldworkCompanions_Settings"

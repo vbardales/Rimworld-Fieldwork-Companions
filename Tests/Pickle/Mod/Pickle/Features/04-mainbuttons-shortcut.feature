@@ -10,6 +10,7 @@
 # stays manual, and cannot be otherwise from here: revealing it inside RIMMSQOL's own interface, and
 # whether RIMMSQOL's visibility choice survives a restart. Both are RIMMSQOL's behaviour, and staging
 # it would mean mounting a mod to test code that is not ours.
+@requires:nelim.pickletools.screenshotmode
 Feature: the hidden MainButtons shortcut opens this mod's own settings
 
   Background:
@@ -47,7 +48,7 @@ Feature: the hidden MainButtons shortcut opens this mod's own settings
   @review
   Scenario: the settings page opened through the shortcut, for a person to look at
     When Fieldwork Companions activates its shortcut
-    And Fieldwork Companions hides the interface around the windows on screen
+    And Nelim's Pickle Tools: screenshot mode is enabled around the open windows
     And I take a screenshot "settings page opened by the MainButtons shortcut"
-    And Fieldwork Companions brings the interface back
+    And Nelim's Pickle Tools: screenshot mode is disabled
     And I close all dialogs

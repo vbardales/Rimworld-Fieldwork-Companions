@@ -13,8 +13,8 @@ From the parent folder, only through the launcher, which takes the machine lock,
 Xvfb and gives the lock back. The Windows install is never launched by a session.
 
 ```powershell
-powershell.exe -ExecutionPolicy Bypass -File scripts/Run-PickleWsl.ps1 -Mod FieldworkCompanions
-powershell.exe -ExecutionPolicy Bypass -File scripts/Run-PickleWsl.ps1 -Mod FieldworkCompanions -Language French
+powershell.exe -ExecutionPolicy Bypass -File scripts/Run-PickleWsl.ps1 -Mod FieldworkCompanions -DepMap wsl-deps.runtime-evidence.map
+powershell.exe -ExecutionPolicy Bypass -File scripts/Run-PickleWsl.ps1 -Mod FieldworkCompanions -DepMap wsl-deps.runtime-evidence.map -Language French
 ```
 
 Before any launch, check both sides (`Get-Process RimWorldWin64` and
@@ -52,7 +52,9 @@ Scenarios tagged `@review` assert nothing about their pictures. After a run, ope
 | `settings page, top / bottom, as this pass runs it` | Any control running past the window edge, any clipped label or tooltip anchor? |
 | `settings page opened by the MainButtons shortcut` | Is it the same window Mod options opens? |
 | `language, settings page top / bottom` (French pass) | Any accented gibberish (a key missing from French) or clean English among French text (a literal that never went through Translate)? |
-| `the mark over the companion` | Is the +N over the dog, readable, and not hidden behind the colonist? |
+| `the mark over the companion` and `companion-bonus-mark` film | Is the +N over the dog, readable, and not hidden behind the colonist? |
+| `settings-page-scroll` film | Does the page visibly move from its top to its bottom, ending with the reset control in view? |
+| `reset confirmation` | Is the confirmation understandable and attached to the reset action? |
 
 A capture taken without developer mode proves nothing about missing keys; every Pickle run is in
 developer mode.
@@ -62,10 +64,11 @@ developer mode.
 - `Source/` steps: `Driver` (lookups that name their own misses), `SettingsSandbox` (snapshot and
   restore of the live settings and of the settings file around every scenario), `SettingsSteps`,
   `ShortcutSteps`, `LanguageSteps`, `HookSteps`, `FieldworkSteps` (companions, rocks, plants, cows,
-  yields, marks), `ScreenshotSteps`.
-- `wsl-deps.avec-rimmsqol.map`: the only pass map. The mod has no optional mod to stage (Harmony,
+  yields, marks). Screenshot mode, diagnostic keyed clicks and tick-based films come from PickleTools.
+- `wsl-deps.runtime-evidence.map`: ScreenshotMode, ClickDiagnostics and FilmTicks for the English/French evidence passes.
+- `wsl-deps.avec-rimmsqol.map`: the RIMMSQOL pass map. The mod has no optional mod to stage (Harmony,
   RimLogging and Pickle are known to the launcher), but RIMMSQOL is the customization integration
   MOD_SETTINGS.md asks to have tested. The map stages it with the shared steps of
   `PickleTools/RimmsqolSteps` (a folder of the PickleTools repository, cloned at the root of the
-  collection); features 09 to 12 are tagged `@wip @rimmsqol` and play only in that pass. Guide to the
+  collection); features 09 to 12 are tagged `@rimmsqol` and play only in that pass. Guide to the
   launcher, the queue and the passes: `PickleTools/Headless/README.md`.

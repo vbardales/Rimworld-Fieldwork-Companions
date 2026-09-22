@@ -18,3 +18,4 @@
 #                   -Then '11-rimmsqol-restart-hide.feature','12-rimmsqol-restart-forget.feature'
 MalteSchulze.RIMMSqol            1084452457
 nelim.pickletools.rimmsqol      path:PickleTools/RimmsqolSteps/Mod
+nelim.pickletools.screenshotmode path:PickleTools/ScreenshotMode/Mod

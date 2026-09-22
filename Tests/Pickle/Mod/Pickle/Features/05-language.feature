@@ -14,7 +14,7 @@
 # hook). Accented gibberish means a missing key; clean English inside a French interface means a
 # literal that never went through Translate. The assertions catch the first, only the capture
 # catches the second, and a capture taken without developer mode proves nothing about either.
-@review
+@review @requires:nelim.pickletools.screenshotmode
 Feature: the settings page and the shortcut, in the language this pass runs
 
   Background:
@@ -36,12 +36,12 @@ Feature: the settings page and the shortcut, in the language this pass runs
 
   Scenario: the settings page, top and bottom, in this language
     When I open the Fieldwork Companions settings dialog
-    And Fieldwork Companions hides the interface around the windows on screen
+    And Nelim's Pickle Tools: screenshot mode is enabled around the open windows
     And I take a screenshot "language, settings page top"
-    And Fieldwork Companions brings the interface back
+    And Nelim's Pickle Tools: screenshot mode is disabled
     And Fieldwork Companions scrolls its settings window to the bottom
-    And Fieldwork Companions hides the interface around the windows on screen
+    And Nelim's Pickle Tools: screenshot mode is enabled around the open windows
     And I take a screenshot "language, settings page bottom"
-    And Fieldwork Companions brings the interface back
+    And Nelim's Pickle Tools: screenshot mode is disabled
     And Fieldwork Companions scrolls its settings window back to the top
     And I close all dialogs

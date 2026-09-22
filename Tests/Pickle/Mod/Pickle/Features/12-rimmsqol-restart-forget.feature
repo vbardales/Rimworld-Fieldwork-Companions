@@ -3,7 +3,7 @@
 # The teardown would do it anyway; this scenario says it and checks the file.
 #
 # See 10-rimmsqol-restart-reveal.feature for the command and for what is left behind if the chain is cut.
-@wip @rimmsqol
+@rimmsqol
 Feature: a choice made in RIMMSQOL is written for the next launch (3 of 3, forget)
 
   Scenario: hiding the shortcut survived the restart, and RIMMSQOL is put back

@@ -18,7 +18,7 @@
 #
 # Played only by pass 3, "avec-rimmsqol": without RIMMSQOL staged, the first step stops with a sentence.
 # Every scenario is followed by a teardown that puts back whatever a step changed, pass or fail.
-@wip @review @rimmsqol
+@review @rimmsqol @requires:nelim.pickletools.screenshotmode
 Feature: RIMMSQOL reveals and hides the Fieldwork Companions shortcut
 
   Background:
@@ -34,7 +34,9 @@ Feature: RIMMSQOL reveals and hides the Fieldwork Companions shortcut
     And the main bar does not draw the button "FieldworkCompanions_Settings"
     When RIMMSQOL's own window is opened on its list of main buttons
     Then RIMMSQOL's own window is open
-    When I take a screenshot "rimmsqol, its list of main buttons, with the fieldwork companions shortcut"
+    When Nelim's Pickle Tools: screenshot mode is enabled around the open windows
+    And I take a screenshot "rimmsqol, its list of main buttons, with the fieldwork companions shortcut"
+    And Nelim's Pickle Tools: screenshot mode is disabled
     And I close all dialogs
 
   Scenario: revealed in RIMMSQOL the shortcut is drawn, and it opens the same page as Mod options
@@ -44,11 +46,15 @@ Feature: RIMMSQOL reveals and hides the Fieldwork Companions shortcut
     And the main bar draws the button "FieldworkCompanions_Settings"
     When RIMMSQOL's own window is opened on the main button "FieldworkCompanions_Settings"
     Then RIMMSQOL's own window is open
-    When I take a screenshot "rimmsqol, edit page of the fieldwork companions shortcut, revealed"
+    When Nelim's Pickle Tools: screenshot mode is enabled around the open windows
+    And I take a screenshot "rimmsqol, edit page of the fieldwork companions shortcut, revealed"
+    And Nelim's Pickle Tools: screenshot mode is disabled
     And I close all dialogs
     And the main bar's button "FieldworkCompanions_Settings" is activated
     Then Fieldwork Companions sees a settings dialog open for itself
-    When I take a screenshot "fieldwork companions settings, opened by the shortcut RIMMSQOL revealed"
+    When Nelim's Pickle Tools: screenshot mode is enabled around the open windows
+    And I take a screenshot "fieldwork companions settings, opened by the shortcut RIMMSQOL revealed"
+    And Nelim's Pickle Tools: screenshot mode is disabled
     And I close all dialogs
 
   # The claim MOD_SETTINGS.md makes is "same settings, same values, same persistence": a change made through

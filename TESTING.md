@@ -9,7 +9,7 @@ game can show.
 | Out-of-game harness | `_tools/Run-Functional-Tests.ps1` (25 checks) | The four patched vanilla methods still exist with the expected shape and nothing overrides them; the three non-public members the mod reads are covered by the access waiver; the chance arithmetic, clamps, defaults, reset and real Scribe round trip; the shortcut Def; every translation key in EN and FR; About metadata | seconds |
 | Resource checks | `../scripts/Check-DefInjected.ps1` | The two DefInjected paths resolve | seconds |
 | Pickle, in game | `Tests/Pickle/` (12 features) | The patches are installed and fire on the game's real runtime; the real settings dialog draws; the real settings file; the shortcut in the real main bar; the language the pass runs; a save that holds nothing of the mod | tens of minutes |
-| Manual | `_tools/FUNCTIONAL-SCENARIOS.md` (scenarios 0-16) | Everything below the line in "What Pickle does not cover" | a play session |
+| Evidence review | Pickle screenshots and films | A human reviews the rendered result; no manual gameplay procedure is a release gate | minutes |
 
 ## The passes
 
@@ -21,8 +21,8 @@ Three passes are required, and the report must say which is which.
 
 | # | Pass | Command | Mods loaded | What it proves |
 | --- | --- | --- | --- | --- |
-| 1 | Without optional mods, English | `... -Mod FieldworkCompanions` | Core, the DLC, Harmony, RimLogging, Pickle, the companion | The mod stands alone. The only pass whose captures are clean |
-| 2 | Without optional mods, French | `... -Mod FieldworkCompanions -Language French` | Same set | Every text exists in French, and no control clips or reads as accented gibberish. The language is chosen at launch, never inside a scenario |
+| 1 | Without optional mods, English | `... -Mod FieldworkCompanions -DepMap wsl-deps.runtime-evidence.map` | Core, DLC, Harmony, RimLogging, Pickle, companion and evidence-only PickleTools | The mod stands alone and produces reviewable evidence. |
+| 2 | Without optional mods, French | `... -Mod FieldworkCompanions -DepMap wsl-deps.runtime-evidence.map -Language French` | Same set | Every text exists in French; review media for layout and literals. |
 | 3 | With RIMMSQOL | `... -Mod FieldworkCompanions -DepMap wsl-deps.avec-rimmsqol.map -IncludeWip -Filter '09-rimmsqol-shortcut.feature'`, then the restart chain `-Filter '10-rimmsqol-restart-reveal.feature' -Then '11-rimmsqol-restart-hide.feature','12-rimmsqol-restart-forget.feature'` | The same set plus RIMMSQOL (Workshop 1084452457) and `PickleTools/RimmsqolSteps` | RIMMSQOL's own list offers the shortcut, can reveal it, the bar draws it, it opens this mod's own dialog and shares its values, hiding works, and the choice survives a restart |
 
 **Passes with optional mods: only RIMMSQOL, and it is an integration, not an optional mod.** The mod
@@ -35,7 +35,7 @@ optional mods to cover.
 
 Pass 3 uses the shared steps of `PickleTools/RimmsqolSteps`, which reveals and hides the button through
 RIMMSQOL's own settings instance rather than by clicking its checkbox. Its features are tagged
-`@wip @rimmsqol` so that passes 1 and 2 skip them.
+`@rimmsqol`; passes 1 and 2 do not stage their required integration.
 
 **Passes for a declared incompatibility: none.** `About.xml` has no `incompatibleWith`, and neither
 the README nor the description names an incompatible mod. If one is ever declared, it needs its own
@@ -46,9 +46,8 @@ the number of features discovered, then the outcomes. A green run of a `@review`
 trip happened, not that the capture is right: those captures are opened and looked at, and the
 result is recorded in `STATUS.md`.
 
-`@wip` scenarios are skipped unless the launcher is given `-IncludeWip`. One is tagged so
-(`02-settings-page.feature`, the reset confirmation): it clicks a button at the bottom of a scroll
-view, which has never been tried. `@requires:Odyssey` scenarios are skipped on a game without it.
+`@requires:<packageId>` scenarios skip when the selected pass does not stage that dependency. A
+required scenario that skips is not a pass. `@requires:Odyssey` scenarios skip without Odyssey.
 
 ## Which scenario covers what
 

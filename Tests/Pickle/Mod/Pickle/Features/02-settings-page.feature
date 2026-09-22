@@ -12,7 +12,7 @@
 #
 # What the settings LOGIC does (clamps, defaults, reset, chance arithmetic) is proved out of game and
 # is not repeated here.
-@review
+@review @requires:nelim.pickletools.screenshotmode
 Feature: the settings page, as a player sees it
 
   Background:
@@ -23,33 +23,38 @@ Feature: the settings page, as a player sees it
   Scenario: the top of the page
     When I open the Fieldwork Companions settings dialog
     Then Fieldwork Companions sees a settings dialog open for itself
-    When Fieldwork Companions hides the interface around the windows on screen
+    When Nelim's Pickle Tools: screenshot mode is enabled around the open windows
     And I take a screenshot "settings page, top, as this pass runs it"
-    And Fieldwork Companions brings the interface back
+    And Nelim's Pickle Tools: screenshot mode is disabled
     And I close all dialogs
 
-  # @film: this is the scenario that answers "does the page scroll", so it leaves a filmstrip of the
-  # steps as well as the two captures. The scroll position is also asserted, with viewHeight in the
-  # message, so the answer does not rest on a picture alone.
-  @film
+  # The film, plus the asserted scroll position, answers "does the page scroll" without a person
+  # having to repeat the gesture. The capture remains for visual review of the bottom controls.
+  @requires:nelim.pickletools.filmticks
   Scenario: the bottom of the page, with the reset button
     When I open the Fieldwork Companions settings dialog
+    And game speed is normal
+    And Nelim's Pickle Tools: I film every 1 ticks as "settings-page-scroll"
     And Fieldwork Companions scrolls its settings window to the bottom
     Then the Fieldwork Companions settings page has scrolled down
-    When Fieldwork Companions hides the interface around the windows on screen
+    When Nelim's Pickle Tools: I stop filming
+    And Nelim's Pickle Tools: screenshot mode is enabled around the open windows
     And I take a screenshot "settings page, bottom, as this pass runs it"
-    And Fieldwork Companions brings the interface back
+    And Nelim's Pickle Tools: screenshot mode is disabled
     And Fieldwork Companions scrolls its settings window back to the top
     And I close all dialogs
 
-  # @wip: the reset button sits at the bottom of a scroll view, and a Pickle click needs its rect on
-  # screen and tagged. Never run; if the click does not resolve, the failure will say so and this
-  # is the scenario to correct. The confirmation is cancelled, so nothing is reset.
-  @wip
+  # The shared diagnostic click waits for the keyed control to settle, checks what window owns the
+  # pointer, and names the covering window if the click is lost. The confirmation is cancelled, so
+  # the settings sandbox never has to infer whether reset took effect.
+  @requires:nelim.pickletools.clickdiagnostics
   Scenario: the reset button asks before it resets
     When I open the Fieldwork Companions settings dialog
     And Fieldwork Companions scrolls its settings window to the bottom
-    And I click button "FieldworkCompanions.Settings.Reset"
-    Then window "Dialog_MessageBox" is open
-    When I take a screenshot "reset confirmation"
+    And Nelim's Pickle Tools: the button keyed "FieldworkCompanions.Settings.Reset" has stood still
+    And Nelim's Pickle Tools: the button keyed "FieldworkCompanions.Settings.Reset" is reachable in "Dialog_ModSettings"
+    And Nelim's Pickle Tools: I click the button keyed "FieldworkCompanions.Settings.Reset" and the window "Dialog_MessageBox" opens
+    When Nelim's Pickle Tools: screenshot mode is enabled around the open windows
+    And I take a screenshot "reset confirmation"
+    And Nelim's Pickle Tools: screenshot mode is disabled
     And I close all dialogs
