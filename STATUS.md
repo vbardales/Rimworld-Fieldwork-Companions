@@ -42,7 +42,14 @@ repository root, outside the distributed Mod/ folder.
 
 ## Current handoff — 2026-09-22
 
-The repository is clean at `7f4c286` and matches `origin/main` at the latest checked fetch.
+The maintainer rejected the cropped ModIcon and removed it. On request, the delivered
+`Mod/About/ModIcon.png` has been rebuilt by downscaling the entire unchanged
+`Art/ModIcon-source.png` to 128 × 128, without cropping. The PNG is 29,091 bytes and its
+full composition was opened and reviewed. The source SHA-256 is
+`B9611195CACD35AC6E0150987EBF1634BC7EEA376EFE0C22FE72559B6B3A94A2`.
+
+Before this icon correction, the repository was clean at `504a509` and matched
+`origin/main` at the latest checked fetch.
 The scroll fix and both rebuilt assemblies are committed in `17a0197`; their interactive
 regression is still unverified. No completed Fieldwork Companions Pickle report or reviewed
 capture has been identified. The stage remains **`done`**. The `TESTING.md` manual-only
