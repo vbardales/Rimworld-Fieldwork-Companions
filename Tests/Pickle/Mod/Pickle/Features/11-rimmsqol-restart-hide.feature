@@ -4,11 +4,13 @@
 # for launch 3.
 #
 # See 10-rimmsqol-restart-reveal.feature for the command and for what is left behind if the chain is cut.
-@review @rimmsqol @requires:nelim.pickletools.screenshotmode
+@review @rimmsqol @requires:nelim.pickletools.screenshotmode @requires:nelim.pickletools.screenshotstudio
 Feature: a choice made in RIMMSQOL is written for the next launch (2 of 3, hide)
 
   Scenario: the revealed shortcut survived the restart, then RIMMSQOL hides it again
-    Given the save "test-colony" is loaded
+    Given the save "nelim-zen-meadow-studio" is loaded
+    And game speed is paused
+    And Nelim's Pickle Tools: I frame the studio "zen"
     And I close all dialogs
     And RIMMSQOL is ready to be driven
     And the choices RIMMSQOL kept in the previous launch are in place

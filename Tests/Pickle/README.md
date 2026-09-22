@@ -47,6 +47,10 @@ healthy scenarios as `Ambiguous step`. Both are cheaper to find here.
 Scenarios tagged `@review` assert nothing about their pictures. After a run, open
 `PickleReports/screenshots/` and answer one question per image:
 
+Every review capture loads PickleTools' `nelim-zen-meadow-studio` fixture and frames its `zen`
+preset first. Functional scenarios which need the standard fixture remain separate; the studio is
+the reproducible setting for the reviewer-facing evidence.
+
 | Capture | The question |
 | --- | --- |
 | `settings page, top / bottom, as this pass runs it` | Any control running past the window edge, any clipped label or tooltip anchor? |
@@ -65,7 +69,8 @@ developer mode.
   restore of the live settings and of the settings file around every scenario), `SettingsSteps`,
   `ShortcutSteps`, `LanguageSteps`, `HookSteps`, `FieldworkSteps` (companions, rocks, plants, cows,
   yields, marks). Screenshot mode, diagnostic keyed clicks and tick-based films come from PickleTools.
-- `wsl-deps.runtime-evidence.map`: ScreenshotMode, ClickDiagnostics and FilmTicks for the English/French evidence passes.
+- `wsl-deps.runtime-evidence.map`: ScreenshotMode, ClickDiagnostics, FilmTicks and ScreenshotStudio
+  for the English/French evidence passes.
 - `wsl-deps.avec-rimmsqol.map`: the RIMMSQOL pass map. The mod has no optional mod to stage (Harmony,
   RimLogging and Pickle are known to the launcher), but RIMMSQOL is the customization integration
   MOD_SETTINGS.md asks to have tested. The map stages it with the shared steps of

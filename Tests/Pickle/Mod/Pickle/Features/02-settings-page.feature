@@ -12,11 +12,13 @@
 #
 # What the settings LOGIC does (clamps, defaults, reset, chance arithmetic) is proved out of game and
 # is not repeated here.
-@review @requires:nelim.pickletools.screenshotmode
+@review @requires:nelim.pickletools.screenshotmode @requires:nelim.pickletools.screenshotstudio
 Feature: the settings page, as a player sees it
 
   Background:
-    Given the save "test-colony" is loaded
+    Given the save "nelim-zen-meadow-studio" is loaded
+    And game speed is paused
+    And Nelim's Pickle Tools: I frame the studio "zen"
     And Fieldwork Companions settings are at their documented defaults
     And I close all dialogs
 

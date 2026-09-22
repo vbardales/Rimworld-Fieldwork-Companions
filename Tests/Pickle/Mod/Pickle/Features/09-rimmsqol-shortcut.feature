@@ -18,11 +18,13 @@
 #
 # Played only by pass 3, "avec-rimmsqol": without RIMMSQOL staged, the first step stops with a sentence.
 # Every scenario is followed by a teardown that puts back whatever a step changed, pass or fail.
-@review @rimmsqol @requires:nelim.pickletools.screenshotmode
+@review @rimmsqol @requires:nelim.pickletools.screenshotmode @requires:nelim.pickletools.screenshotstudio
 Feature: RIMMSQOL reveals and hides the Fieldwork Companions shortcut
 
   Background:
-    Given the save "test-colony" is loaded
+    Given the save "nelim-zen-meadow-studio" is loaded
+    And game speed is paused
+    And Nelim's Pickle Tools: I frame the studio "zen"
     And I close all dialogs
     Then mod "MalteSchulze.RIMMSqol" is loaded
     And RIMMSQOL is ready to be driven

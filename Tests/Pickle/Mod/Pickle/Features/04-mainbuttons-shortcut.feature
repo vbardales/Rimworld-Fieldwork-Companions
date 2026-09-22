@@ -10,11 +10,13 @@
 # stays manual, and cannot be otherwise from here: revealing it inside RIMMSQOL's own interface, and
 # whether RIMMSQOL's visibility choice survives a restart. Both are RIMMSQOL's behaviour, and staging
 # it would mean mounting a mod to test code that is not ours.
-@requires:nelim.pickletools.screenshotmode
+@requires:nelim.pickletools.screenshotmode @requires:nelim.pickletools.screenshotstudio
 Feature: the hidden MainButtons shortcut opens this mod's own settings
 
   Background:
-    Given the save "test-colony" is loaded
+    Given the save "nelim-zen-meadow-studio" is loaded
+    And game speed is paused
+    And Nelim's Pickle Tools: I frame the studio "zen"
     And Fieldwork Companions settings are at their documented defaults
     And I close all dialogs
 
