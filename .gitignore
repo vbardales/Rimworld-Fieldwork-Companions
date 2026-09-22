@@ -6,6 +6,10 @@
 Source/obj/
 Source/bin/
 
+# Local semantic-release installation and cache.
+node_modules/
+.npm/
+
 # Development environments
 .vs/
 .vscode/
