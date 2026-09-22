@@ -11,16 +11,16 @@ visibility:   public
 detached:     yes
 stage:        done   # workflow state names are used literally, no codes; see the 2026-09-21 sections
 settings_audit: complete
-audit_revision: 0432fea8858be140396f832975e6dba0cd00a47b
+audit_revision: e2ec8fc5086e24f7b324516e3f81828cd4b3cd35
 licence:      original
 license_spdx: MIT
 licence_at:   Original implementation according to ATTRIBUTION.md; no third-party mod code or assets reused. Only the mechanic is inspired by Disney Dreamlight Valley. Root and distributed LICENSE grant MIT. Classification original describes provenance; MIT describes reuse permissions.
 dependencies: declared
 showcase:     complete
 tested_on:
-workshop:
+workshop:      3806133311
 maintainer:   Codex, current local repository task
-updated:      2026-09-21
+updated:      2026-09-22
 remaining:
   - unverified: Run the Pickle suite (Tests/Pickle, 8 features, written 2026-09-21, never played): pass 1 English and pass 2 French as declared in TESTING.md; check exitReason first, then scenarios played against features discovered, then open and look at every @review capture. The thresholds in 06-assists.feature come from the vanilla defs and have not been observed.
   - unverified: Pass 3 "avec-rimmsqol" (Tests/Pickle features 09-12, written 2026-09-21 with the shared steps of PickleTools/RimmsqolSteps, never played): RIMMSQOL lists, reveals, hides and forgets the shortcut, the bar draws it, it opens this mod's dialog, and the choice survives a restart. Only RIMMSQOL is covered; its checkbox is driven through the calls it makes, not clicked; no other customization mod is tested.
@@ -30,13 +30,140 @@ remaining:
   - unverified: RIMMSQOL reveal/open/edit/hide and visibility persistence; no customization integration has been tested interactively.
   - unverified: In-game English/French settings, tooltips, reset dialog and assist mote; check raw keys, fallback, formatting and clipping in both languages.
   - Manual scenarios 0-16 have not been played; actual RimWorld/Mono behavior remains unverified.
-  - Steam Workshop publication and visibility have not been established; public refers to GitHub.
+  - note: Workshop item 3806133311 was published by the maintainer as 0.1.0 while the local metadata and draft notes use 1.0.0. The maintainer explicitly accepts that difference for this early publication; it is tracked for the next planned update, not treated as a current audit blocker.
+  - unverified: Subscribe to Workshop item 3806133311 and test the installed Workshop copy, including its visibility and the actual item page contents. The maintainer reported publication, but this audit did not access Steam.
+  - unverified: Commit e2ec8fc records PublishedFileId.txt but is one commit ahead of origin/main. Push it before the next upload so the Workshop identifier is safely retained remotely.
 ---
 
 # Fieldwork Companions — status
 
 This task owns and maintains this STATUS.md as work progresses. The file stays at the
 repository root, outside the distributed Mod/ folder.
+
+## Post-tested gates reviewed without claiming `tested` — 2026-09-22
+
+`tested` is deliberately set aside: no completed Pickle/media review or own-subscription Workshop
+test exists. The later gates were audited independently at `fb83402` against `origin/main`.
+
+- **Repository:** public `main`, with the published-file-id commits pushed. No matching Git tag and
+  no GitHub Release were returned by the live GitHub query.
+- **Publication record:** `PUBLICATION.md` now records Workshop item `3806133311` and the early
+  0.1.0 publication instead of its obsolete “none yet” state. It retains the still-unfulfilled
+  screenshot, installation-test, tag/release and message work.
+- **Prepublished remains not established:** the local tree contains the uncommitted scroll fix and
+  its rebuilt assemblies, so it is not clean; screenshots are not yet produced/reviewed; and the
+  tag/release are absent. These are prerequisites, not evidence that the published item is invalid.
+
+## Publication identifier and ordered audit — 2026-09-22
+
+Previous stage: `done`. Retained stage: **`done`**. The Workshop item is real only to the
+extent directly evidenced here: the maintainer reports publishing **0.1.0**, and RimWorld wrote
+`Mod/About/PublishedFileId.txt` with `3806133311`. That file was committed alone as
+`e2ec8fc` (`Record Workshop published file ID for 0.1.0`); it has not yet been pushed.
+
+This is not, by itself, evidence for `prepublished` or `published`: the later gates must not be
+backfilled from the act of uploading. The current distributed `About.xml` declares `modVersion`
+**1.0.0**, while the stated Workshop release is 0.1.0. The maintainer explicitly accepts that
+difference for this early publication; it is an informational note for the next update, not a
+defect or a criterion blocking this audit.
+
+### Scope and local state
+
+- Audited standalone repository `C:\Users\nelim\Documents\rimworld\FieldworkCompanions`,
+  distributed folder `Mod/`, at committed revision
+  `e2ec8fc5086e24f7b324516e3f81828cd4b3cd35`, plus pre-existing uncommitted changes in
+  `CHANGELOG.md`, `Mod/About/About.xml`, `Mod/Assemblies/FieldworkCompanions.dll`, `STATUS.md`,
+  `Source/FieldworkCompanionsMod.cs`, and
+  `Tests/Pickle/Mod/Pickle/Assemblies/FieldworkCompanions.PickleSteps.dll`, and untracked
+  `PUBLICATION.md`. These changes were preserved; this audit did not create or fix product code.
+- No RimWorld instance was launched and no Pickle run was started.
+- The published DLL currently hashes to
+  `99AEF88CEF37FAC137A6B7A7F7413DB9D08F74B5761DE544C10C9B7F2D9E772E` after the existing local
+  scroll-page fix. The release build matched the distributed DLL.
+
+### Controls run now
+
+- `dotnet build Source/FieldworkCompanions.csproj -c Release --no-restore --nologo`: passed,
+  0 warnings, 0 errors.
+- `_tools/Run-Functional-Tests.ps1`: **25/25 passed**. It checked the shipped assembly, 33/33
+  English/French keyed resources, XML/resources, 12 settings defaults and reset, normalization,
+  settings effect and persistence, plus the hidden native MainButtons shortcut contract.
+- `Tests/Pickle/Check-Steps.ps1`: passed; **43** declared patterns compiled with no duplicates,
+  covering **258** feature step lines. This validates the suite definition only, not a game run.
+- Root and distributed `LICENSE` files are byte-identical, as are the two `ATTRIBUTION.md` files.
+
+### Transition results
+
+| Transition | Result | Current evidence / limit |
+| --- | --- | --- |
+| dansMonoRepo -> horsMonoRepo | Validated | Independent repository, coherent identity and English documentation; prior remote verification retained. |
+| horsMonoRepo -> ModIcon | Validated | Current release build passed and supplied DLL is current. |
+| ModIcon -> Preview | Validated | Prior direct image inspection remains independent of this change. |
+| Preview -> preOptions | Validated | English description and final GitHub source link remain present. |
+| preOptions -> options | Validated statically | Source, definitions and 25/25 checks cover the useful settings and hidden shortcut. The uncommitted scroll fix still needs an in-game regression pass. |
+| options -> l10n | Validated statically | 33 English and French keyed entries, matching resources and passing checks. |
+| l10n -> preTest | Validated | Harmony is declared and actually used; optional Odyssey handling remains documented. |
+| preTest -> done | Validated | Written functional scenarios, green automated/XML checks and written Pickle suites with a justified runtime scope. |
+| done -> tested | Not established | No complete in-game/Pickle pass with reviewed captures; current scroll fix is not yet observed in game. |
+| tested -> prepublished | Not established | Dirty tree, no pushed 0.1.0 tag/release, no reviewed screenshots and incomplete runtime validation. The accepted early-release version difference is not counted as a blocker. |
+| prepublished -> published | Not established | PublishedFileId is now committed, but not pushed; the actual Workshop page, own-subscription test, visibility and thank-you messages were not verified by this audit. |
+
+## Settings page: the scroll question resolved, a real defect found and fixed — 2026-09-22
+
+The open question of 2026-09-21 ("Not yet established whether the page cannot scroll or the step
+did not take effect") is closed: **confirmed directly in the real Windows game, by the user, that
+the settings page does not scroll.** This was a defect of the mod, not of the suite or the capture
+step.
+
+- **Root cause, found by decompiling the installed `Assembly-CSharp.dll`** (`ilspycmd`, run with
+  `DOTNET_ROLL_FORWARD=LatestMajor` against the .NET 8 runtimes present here) rather than guessed:
+  `Verse.Listing.NewColumnIfNeeded` opens a second column once `curY` passes the height `Begin()`
+  was given, unless `maxOneColumn` is set. On the first frame `viewHeight` is 0, so that height is
+  only `inRect.height` (`Dialog_ModSettings.InitialSize` is a fixed 900x700, decompiled too, minus
+  its 40px title and its close-button row). The page's own content passes that height right before
+  the "show a mark" checkbox, so both it and "Reset to defaults" were pushed into a phantom column
+  drawn outside the clipped, visible area: invisible and unreachable, not merely scrolled past. Worse,
+  `Listing.CurHeight` after that only reflects the short second column, so `viewHeight` never grew
+  and the scrollbar this mod's own `Widgets.BeginScrollView` call depends on never had a reason to
+  appear. The bug reproduced identically every frame.
+- **Fix**: `Source/FieldworkCompanionsMod.cs`, one field on the `Listing_Standard` used by
+  `DoSettingsWindowContents`: `maxOneColumn = true`. Commented with the mechanism above.
+- **Rebuilt**: `dotnet build Source/FieldworkCompanions.csproj -c Release --no-restore --nologo`,
+  0 warnings, 0 errors. The delivered DLL hash **changes** with this fix:
+  `99AEF88CEF37FAC137A6B7A7F7413DB9D08F74B5761DE544C10C9B7F2D9E772E`
+  (was `EF4432026EAAD0038C08F75B20AC931F131B27CF850826960D76B5AF1D2F08BC`, referenced as unchanged in
+  the section below, which that reference no longer describes).
+- `_tools/Run-Functional-Tests.ps1`: 25 tests, all passed, against the rebuilt DLL. These checks
+  exercise the settings logic, not the drawn page, so they could not have caught this; they confirm
+  no regression.
+- The Pickle steps assembly was rebuilt against the fixed DLL and `Tests/Pickle/Check-Steps.ps1`
+  still passes (43 patterns). `CHANGELOG.md` records the fix under `[Unreleased]`.
+- **Not yet done**: no in-game run has confirmed the fix. The scroll assertion added to
+  `02-settings-page.feature` on 2026-09-21 (`the Fieldwork Companions settings page has scrolled
+  down`) is what will confirm it once a Pickle pass reaches that scenario, and it should now pass
+  where it previously would have failed silently-as-cut-off. Not claiming it passed: it has not run.
+
+## Towards tested and prepublished — 2026-09-21
+
+Stage stays **done**. `done -> tested` needs scenarios played in game and the Pickle suites played to
+the end with their `@review` captures opened; the only run so far ended without a report, so nothing
+can be claimed. `tested -> prepublished` cannot be reached before it. What was prepared meanwhile,
+without publishing anything:
+
+- **About.xml description**: added the line pointing to ATTRIBUTION.md and the licence that the workflow
+  places between THANKS and the source link (it was missing). Order now: body, `IF I GO QUIET`,
+  `AI-GENERATED`, `THANKS`, attribution and licence line, `[url=...]Source code on GitHub[/url]`.
+  `Run-Functional-Tests.ps1` re-run after the change: 25 tests, all passed. This changes the delivered
+  `About.xml`; the DLL is untouched.
+- **`PUBLICATION.md`** (draft, root of the repository): dependencies and DLCs checked against the sources
+  (Harmony required; Odyssey `loadAfter` only, deliberately; no DLC required), the mature-content answer
+  (none, with the two shipped images opened), a personalised thank-you message to Harmony at 644
+  characters, what the upload cannot take back, and Steam change notes for 1.0.0.
+- **Not ready, and why:** the Workshop screenshots and their order (none produced; the settings page
+  was cut off in every capture so far by the scroll defect fixed 2026-09-22, see below — a fresh
+  capture is needed before any image is chosen); the item URL for the messages;
+  `CHANGELOG.md` still has an `[Unreleased]` block above a `1.0.0` that was never released; no
+  version tag and no GitHub release; the second and third Pickle passes; the manual scenarios.
 
 ## Pickle suites written — 2026-09-21 (after the audit below)
 

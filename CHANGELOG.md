@@ -7,6 +7,7 @@ This file serves the repository and the writing of Steam patch notes; RimWorld d
 
 ### Fixed
 
+- The settings page could not scroll: past a certain height, `Listing_Standard` silently opened a second column outside the visible area, so the "show a mark" checkbox and the reset button were drawn off-screen and unreachable. Confirmed in the real game before the fix.
 - Added an optional, default-hidden MainButtons shortcut to the native mod settings dialog, with French localization.
 - Normalize out-of-range and nonfinite stored settings on load and before saving.
 - Documented immediate global settings scope and added automated settings, persistence and shortcut checks plus manual integration scenarios.

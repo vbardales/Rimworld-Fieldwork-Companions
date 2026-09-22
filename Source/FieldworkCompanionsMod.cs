@@ -38,7 +38,17 @@ namespace FieldworkCompanions
             var viewRect = new Rect(0f, 0f, inRect.width - 20f, Mathf.Max(viewHeight, inRect.height));
 
             Widgets.BeginScrollView(inRect, ref scrollPosition, viewRect);
-            var listing = new Listing_Standard();
+            // maxOneColumn stops Listing.NewColumnIfNeeded from opening a second column once curY
+            // passes listingRect.height - the height Begin() was given, which on the very first
+            // frame is only inRect.height, since viewHeight starts at 0. Without this, the page
+            // silently split in two the first time it grew past that: the last checkbox and the
+            // reset button were pushed into a phantom column at curX += ColumnWidth + 17, outside
+            // the clipped area, invisible and unreachable, and CurHeight then only ever reported
+            // that short second column, so viewHeight never grew and no scrollbar ever appeared.
+            // Confirmed by decompiling the installed Assembly-CSharp.dll's Verse.Listing and by
+            // playing the settings page in the real Windows game: no scrollbar, no way to reach
+            // either control, on 2026-09-22.
+            var listing = new Listing_Standard { maxOneColumn = true };
             listing.Begin(viewRect);
 
             listing.Label("FieldworkCompanions.Settings.Intro".Translate());
