@@ -1,0 +1,12 @@
+# Pass 4, "sans-odyssey": the game without the Odyssey DLC. Plays 17. Without it neither `Dig` nor `Forage` exists,
+# and the mod has to fall back on obedience alone (FUNCTIONAL-SCENARIOS.md scenarios 10 and 16). Odyssey is in the
+# mod's `loadAfter` and nowhere in `modDependencies`, precisely so that this pass is possible.
+#
+# The first line leaves the DLC out of the staged mod list (see PickleTools/Headless/README.md). The second stages the
+# two steps that ask ModsConfig, the list the game itself keeps, whether it is active: nothing in the staging says
+# whether the game keeps a DLC out once a save is loaded, and this pass has to establish that before anything else it
+# says is worth reading (PickleTools/ExpansionSteps/README.md).
+#
+# Played with:  -DepMap wsl-deps.sans-odyssey.map -Filter '17-without-odyssey.feature'
+!ludeon.rimworld.odyssey
+nelim.pickletools.expansions path:PickleTools/ExpansionSteps/Mod

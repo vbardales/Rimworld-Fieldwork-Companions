@@ -18,7 +18,7 @@
 #
 # Played only by pass 3, "avec-rimmsqol": without RIMMSQOL staged, the first step stops with a sentence.
 # Every scenario is followed by a teardown that puts back whatever a step changed, pass or fail.
-@review @rimmsqol @requires:nelim.pickletools.screenshotmode @requires:nelim.pickletools.screenshotstudio
+@review @rimmsqol @requires:MalteSchulze.RIMMSqol @requires:nelim.pickletools.rimmsqol @requires:nelim.pickletools.screenshotmode @requires:nelim.pickletools.screenshotstudio
 Feature: RIMMSQOL reveals and hides the Fieldwork Companions shortcut
 
   Background:

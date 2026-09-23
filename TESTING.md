@@ -8,7 +8,7 @@ game can show.
 | --- | --- | --- | --- |
 | Out-of-game harness | `_tools/Run-Functional-Tests.ps1` (25 checks) | The four patched vanilla methods still exist with the expected shape and nothing overrides them; the three non-public members the mod reads are covered by the access waiver; the chance arithmetic, clamps, defaults, reset and real Scribe round trip; the shortcut Def; every translation key in EN and FR; About metadata | seconds |
 | Resource checks | `../scripts/Check-DefInjected.ps1` | The two DefInjected paths resolve | seconds |
-| Pickle, in game | `Tests/Pickle/` (12 features) | The patches are installed and fire on the game's real runtime; the real settings dialog draws; the real settings file; the shortcut in the real main bar; the language the pass runs; a save that holds nothing of the mod | tens of minutes |
+| Pickle, in game | `Tests/Pickle/` (17 features) | The patches are installed and fire on the game's real runtime; the real settings dialog draws; the real settings file; the shortcut in the real main bar; the language the pass runs; a save that holds nothing of the mod | tens of minutes |
 | Evidence review | Pickle screenshots and films | A human reviews the rendered result; no manual gameplay procedure is a release gate | minutes |
 
 ## The passes
@@ -17,13 +17,14 @@ A run is `powershell.exe -ExecutionPolicy Bypass -File scripts/Run-PickleWsl.ps1
 from the parent folder, and only through that script: it takes the machine lock, stages, runs under
 Xvfb and gives the lock back. The Windows install is never launched.
 
-Three passes are required, and the report must say which is which.
+Four passes are required, and the report must say which is which.
 
 | # | Pass | Command | Mods loaded | What it proves |
 | --- | --- | --- | --- | --- |
 | 1 | Without optional mods, English | `... -Mod FieldworkCompanions -DepMap wsl-deps.runtime-evidence.map` | Core, DLC, Harmony, RimLogging, Pickle, companion and evidence-only PickleTools | The mod stands alone and produces reviewable evidence. |
 | 2 | Without optional mods, French | `... -Mod FieldworkCompanions -DepMap wsl-deps.runtime-evidence.map -Language French` | Same set | Every text exists in French; review media for layout and literals. |
-| 3 | With RIMMSQOL | `... -Mod FieldworkCompanions -DepMap wsl-deps.avec-rimmsqol.map -IncludeWip -Filter '09-rimmsqol-shortcut.feature'`, then the restart chain `-Filter '10-rimmsqol-restart-reveal.feature' -Then '11-rimmsqol-restart-hide.feature','12-rimmsqol-restart-forget.feature'` | The same set plus RIMMSQOL (Workshop 1084452457) and `PickleTools/RimmsqolSteps` | RIMMSQOL's own list offers the shortcut, can reveal it, the bar draws it, it opens this mod's own dialog and shares its values, hiding works, and the choice survives a restart |
+| 3 | With RIMMSQOL | `... -Mod FieldworkCompanions -DepMap wsl-deps.avec-rimmsqol.map -Filter '09-rimmsqol-shortcut.feature'`, then the restart chain `-Filter '10-rimmsqol-restart-reveal.feature' -Then '11-rimmsqol-restart-hide.feature','12-rimmsqol-restart-forget.feature'` | The same set plus RIMMSQOL (Workshop 1084452457) and `PickleTools/RimmsqolSteps` | RIMMSQOL's own list offers the shortcut, can reveal it, the bar draws it, it opens this mod's own dialog and shares its values, hiding works, and the choice survives a restart |
+| 4 | Without Odyssey | `... -Mod FieldworkCompanions -DepMap wsl-deps.sans-odyssey.map -Filter '17-without-odyssey.feature'` | The same set minus the Odyssey DLC, plus `PickleTools/ExpansionSteps` | `Dig` and `Forage` do not exist, nothing is logged, and an obedient animal still helps with the requirement ticked: the mod falls back on obedience alone |
 
 **Passes with optional mods: only RIMMSQOL, and it is an integration, not an optional mod.** The mod
 declares no optional mod of its own. Its `loadAfter` names Harmony and the Ludeon DLC, and the minimal
@@ -34,8 +35,11 @@ have tested and named, so it lives in a pass map (`Tests/Pickle/wsl-deps.avec-ri
 optional mods to cover.
 
 Pass 3 uses the shared steps of `PickleTools/RimmsqolSteps`, which reveals and hides the button through
-RIMMSQOL's own settings instance rather than by clicking its checkbox. Its features are tagged
-`@rimmsqol`; passes 1 and 2 do not stage their required integration.
+RIMMSQOL's own settings instance rather than by clicking its checkbox. Its features carry
+`@requires:MalteSchulze.RIMMSqol` and `@requires:nelim.pickletools.rimmsqol`, which is what makes passes 1 and 2
+skip them: Pickle skips only on `@requires:<packageId>`, and the `@rimmsqol` tag alone skips nothing (without the
+`@requires` tags the shared run of 2026-09-22 played them without RIMMSQOL and they failed). A new RIMMSQOL feature
+needs the same two tags.
 
 **Passes for a declared incompatibility: none.** `About.xml` has no `incompatibleWith`, and neither
 the README nor the description names an incompatible mod. If one is ever declared, it needs its own
@@ -62,33 +66,41 @@ required scenario that skips is not a pass. `@requires:Odyssey` scenarios skip w
 | `06-assists` | Mining, harvesting and milking through the real vanilla methods, with and without a companion; obedience; the training requirement; the mark over the animal | 1, 4, 5, 9, 10 |
 | `07-chance` | The chance in a live game, including the read of the internal training-step count | 10, 11 |
 | `08-save-compatibility` | After an assist, the saved game holds nothing written by the mod | 13 |
+| `13-companion-rules` | Another colonist's animal never helps; the follow box; the radius (15 cells away, then widened to 30); the extra lands at the worked cell; a tiny share still gives one; the bond forms through the game's own call, and does not at zero | 2, 3, 4, 11 |
+| `14-what-it-does-not-help` | A deep drill; cutting a plant down; an animal mining on its own (Odyssey); a cow that is its own master's companion; a colony with no companion gives only plain yields, marks nothing and leaves the random generator alone | 5, 6, 7, 9, 14 |
+| `15-switches-and-shearing` | Each work switch silences its own gesture and none other; shearing, with a companion and too far | 9, 12 |
+| `16-fishing` | A lake is built; exactly one extra fish of a landed kind; the fishing switch; an animal fishing on its own (Odyssey) | 8 |
+| `17-without-odyssey` (pass 4) | The pass leaves only Odyssey out; the mod falls back on obedience alone | 10, 16 |
 
-## What Pickle does not cover
+## What is not a gate
 
-None of this is a defect of the suite; each is either out of Pickle's reach or would cost a run for
-nothing.
+**No manual scenario remains as a gate: each is written as a Pickle feature, and none of features 13 to 17 has been
+played yet.** Every scenario of `_tools/FUNCTIONAL-SCENARIOS.md` has a Pickle feature (see the table above and the
+mapping at the top of that file). That is coverage by design, not a result: a scenario counts once its pass has
+completed (`exitReason: passed`, scenarios played equal to features discovered) and its `@review` captures have
+been opened. What follows are limits of the automated route, each recorded so that nobody reads a green run as more
+than it says; none asks for a hand-played validation.
 
-- **Fishing.** It needs a water body with fish, which the shared test colony does not have. Its hook
-  is checked out of game for existence and signature only. Manual scenario 8.
-- **The walk.** The scenarios call the vanilla method each gesture ends with, not the job that leads
-  to it: what only a live game adds is that the patch fires there, and the hours of swinging a
-  pickaxe add nothing to that. Whether a real colonist, following a real order, ends up at that call
-  is manual scenarios 4, 5 and 9.
-- **Real randomness.** Every scenario runs at 100 % chance. Whether 15 % feels right is a play
-  question, not a test.
-- **Odyssey absent.** The minimal set mounts every DLC. A game without Odyssey, where `Dig` and
-  `Forage` do not exist and the mod falls back on obedience, is manual.
-- **What RIMMSQOL's checkbox does.** Pass 3 drives RIMMSQOL through the calls its Visible checkbox
-  makes, not through a click on it: that the checkbox is wired to those calls is read from its
-  source, not shown. No other customization mod is tested.
-- **A real restart of this mod's own settings.** The settings scenarios re-read the file in the same
-  process. (RIMMSQOL's visibility choice does survive a restart in pass 3, which is a three-launch
-  chain, but that is RIMMSQOL's file, not this mod's.)
-- **Adding and removing the mod mid-game.** Pickle stages one mod set per run. The save scenario
-  checks the consequence (nothing written) instead.
-- **A window from another mod covering a click.** Only the reset-confirmation scenario clicks at all,
-  and it is `@wip`.
-
+- **The walk.** The scenarios call the vanilla method each gesture ends with (`Mineable.DestroyMined`,
+  `Plant.PlantCollected`, `CompHasGatherableBodyResource.Gathered`, `FishingUtility.GetCatchesFor`), not the
+  job that leads to it. What only a live game adds is that the patch fires there, and that is proved by
+  `01-loading` (the patches are installed by this mod) and by every scenario that shows a bonus. Whether a
+  colonist, following a real order, ends up at that call is the game's own job driver, which the mod does not touch.
+- **Real randomness.** Every gameplay scenario runs at 100 % chance. The chance arithmetic is proved out of game
+  and read in a live game by `07-chance`. Whether 15 % feels right is a play question, not a test.
+- **What RIMMSQOL's checkbox does.** Pass 3 drives RIMMSQOL through the calls its Visible checkbox makes, not
+  through a click on it: that the checkbox is wired to those calls is read from its source, not shown. No other
+  customization mod is tested.
+- **A real restart of this mod's own settings.** The settings scenarios re-read the file in the same process.
+  RIMMSQOL's visibility choice does survive a restart in pass 3, a three-launch chain, but that is RIMMSQOL's file.
+- **Adding and removing the mod mid-game (scenario 13).** Pickle stages one mod set per run, so a save made with the
+  mod cannot be loaded without it. The claim is that nothing of the mod is written to a save, and
+  `08-save-compatibility` checks exactly that on a real save written after an assist: a save holding none of the
+  mod's types loads without it, since RimWorld only complains about what a save refers to.
+- **The fishing lake is made, not found.** The shared test colony has no water body with fish, so
+  `16-fishing` builds one. The catch method is the vanilla one and the fish is the game's own; the lake is not.
+- **A window from another mod covering a click.** The only scenario that clicks at all, the reset button, goes
+  through `PickleTools/ClickDiagnostics` and would name the covering window and its assembly.
 ## Status of these tests
 
 Written 2026-09-21. Validated without running the game: the steps assembly builds against the

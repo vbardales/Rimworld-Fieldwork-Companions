@@ -12,6 +12,34 @@ the mod does what it says, because that takes a map, a clock and an animal. Thes
 
 No in-game pass has been recorded. Until scenario 0 passes, nothing below is worth playing.
 
+## Played by Pickle, not by hand
+
+**None of these scenarios is a hand-played gate any more.** Each is written for a running game by a Pickle feature
+under `Tests/Pickle/Mod/Pickle/Features/`, in the pass named in `TESTING.md`. **Written is not passed:** features 13
+to 17 have not been played, and a scenario counts once its pass has completed and its captures have been opened. The
+text below stays as the reason each one exists and the setup a person would need to reproduce a failure by hand; it
+is not a checklist to sign.
+
+| Scenario | Pickle feature | Notes |
+| --- | --- | --- |
+| 0. It loads, and the patches take | `01-loading` | The four hooks are asserted patched by this mod, through Harmony |
+| 1. Obedience is the floor | `06-assists` | Mining with and without obedience |
+| 2. This colonist's animal, and the box | `13-companion-rules` | Another colonist; the follow box unticked |
+| 3. The radius | `13-companion-rules` | 15 cells away at radius 8, then radius 30 |
+| 4. Mining, and where the ore lands | `06-assists`, `13-companion-rules` | Location within 2 cells of the worked cell; a 5 % share floors at one (rice) |
+| 5. Harvesting is not cutting | `06-assists`, `14-what-it-does-not-help` | The harvest job is really started and pays; the `CutPlant` job is really started and pays nothing |
+| 6. Deep drilling gives nothing | `14-what-it-does-not-help` | The drill's own portion is asserted to have appeared |
+| 7. An animal cannot be its own miner | `14-what-it-does-not-help` | Odyssey |
+| 8. Fishing | `16-fishing` | Odyssey; a lake is built; exactly one extra fish; the switch; an animal fishing alone |
+| 9. Milking and shearing | `06-assists`, `14-what-it-does-not-help`, `15-switches-and-shearing` | Including the cow that is its own master's companion |
+| 10. Training raises the chance | `06-assists`, `07-chance`, `17-without-odyssey` | Dig gate, the chance in a live game, and the fallback without Odyssey |
+| 11. The bond | `13-companion-rules` | Formed through the game's own call; none at zero chance |
+| 12. The four switches | `15-switches-and-shearing`, `16-fishing` | Each switch silences its own gesture only |
+| 13. Added and removed mid-game | `08-save-compatibility` | See `TESTING.md`, "What is not a gate": the claim is that nothing of the mod is written to a save |
+| 14. Nothing happens when nothing should | `14-what-it-does-not-help` | No mark anywhere, only plain yields, and the plant patch draws nothing from the random generator |
+| 15. Settings, persistence and reset in both languages | `02` to `05`, passes 1 and 2 | Both languages by two passes |
+| 16. Optional shortcut and dependencies | `04`, `09` to `12`, `17-without-odyssey` | RIMMSQOL in pass 3; Odyssey absent in pass 4 |
+
 ## Setup for everything here
 
 Development mode on. A small colony with a mountain to dig, a growing zone of rice, a river or a

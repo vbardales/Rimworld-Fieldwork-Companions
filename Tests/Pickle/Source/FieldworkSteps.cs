@@ -18,17 +18,17 @@ namespace FieldworkCompanions.PickleSteps
     /// The gesture is therefore triggered at the exact call the job driver ends with
     /// (<c>Mineable.DestroyMined</c>, <c>Plant.PlantCollected</c>, <c>CompHasGatherableBodyResource.Gathered</c>).
     ///
-    /// Fishing is left out on purpose: it needs a water body with fish in the fixture, which the
-    /// shared test colony does not have. TESTING.md says so.
+    /// Fishing goes through the same call (<c>FishingUtility.GetCatchesFor</c>) in FieldworkRulesSteps.cs, on a lake
+    /// the scenario builds, since the shared test colony has no water body with fish.
     /// </summary>
     [PickleSteps]
-    public class FieldworkSteps
+    public partial class FieldworkSteps
     {
         /// <summary>The thing a scenario is about to work on.</summary>
-        private class Target { public Thing Thing; }
+        private class Target { public Thing Thing; public IntVec3 Cell; }
 
         /// <summary>What the map held of a resource before the gesture.</summary>
-        private class Baseline { public ThingDef Def; public int Count; }
+        private class Baseline { public ThingDef Def; public int Count; public int NearCount; }
 
         private static int CountOf(Map map, ThingDef def) =>
             map.listerThings.ThingsOfDef(def).Sum(t => t.stackCount);
@@ -53,6 +53,22 @@ namespace FieldworkCompanions.PickleSteps
             return cell;
         }
 
+        /// <summary>
+        /// A player's animal of the given kind, named, standing a few cells from <paramref name="near"/>. Every
+        /// step that needs an animal goes through here, so that how a test animal is made is changed in one place.
+        /// </summary>
+        private static Pawn SpawnPlayerAnimal(PickleContext ctx, string kind, string name, Pawn near, int radius,
+            Gender? gender = null, float? biologicalAge = null)
+        {
+            var kindDef = DefDatabase<PawnKindDef>.GetNamedSilentFail(kind);
+            ctx.Require(kindDef != null, $"no PawnKindDef named '{kind}'");
+
+            var animal = PawnGenerator.GeneratePawn(new PawnGenerationRequest(
+                kindDef, Faction.OfPlayer, forceGenerateNewPawn: true, fixedGender: gender, fixedBiologicalAge: biologicalAge));
+            animal.Name = new NameSingle(name);
+            GenSpawn.Spawn(animal, CellNear(ctx, near, radius), near.Map);
+            return animal;
+        }
         // ------------------------------------------------------------ companions
 
         [Given("Fieldwork Companions: {string} is an obedient {string} that follows {string} at work")]
@@ -66,13 +82,7 @@ namespace FieldworkCompanions.PickleSteps
         private static void MakeCompanion(PickleContext ctx, string name, string kind, string masterName, bool obedient)
         {
             var master = Driver.PawnNamed(ctx, masterName);
-            var kindDef = DefDatabase<PawnKindDef>.GetNamedSilentFail(kind);
-            ctx.Require(kindDef != null, $"no PawnKindDef named '{kind}'");
-
-            var animal = PawnGenerator.GeneratePawn(new PawnGenerationRequest(
-                kindDef, Faction.OfPlayer, forceGenerateNewPawn: true));
-            animal.Name = new NameSingle(name);
-            GenSpawn.Spawn(animal, CellNear(ctx, master, 3), master.Map);
+            var animal = SpawnPlayerAnimal(ctx, kind, name, master, 3);
 
             ctx.Require(animal.playerSettings != null && animal.training != null,
                 $"{name} has no player settings or training tracker: it was not generated as a player's animal");
@@ -147,8 +157,9 @@ namespace FieldworkCompanions.PickleSteps
             var def = Def(ctx, rockDefName);
             ctx.Require(def.building?.mineableThing != null, $"'{rockDefName}' is not a mineable rock");
 
-            var rock = GenSpawn.Spawn(ThingMaker.MakeThing(def), CellNear(ctx, pawn, 4), pawn.Map);
-            ctx.Set(new Target { Thing = rock });
+            var rockCell = CellNear(ctx, pawn, 4);
+            var rock = GenSpawn.Spawn(ThingMaker.MakeThing(def), rockCell, pawn.Map);
+            ctx.Set(new Target { Thing = rock, Cell = rockCell });
         }
 
         [Given("Fieldwork Companions: a ripe {string} stands next to {string}")]
@@ -160,27 +171,22 @@ namespace FieldworkCompanions.PickleSteps
 
             var plant = (Plant)ThingMaker.MakeThing(def);
             plant.Growth = 1f;
-            GenSpawn.Spawn(plant, CellNear(ctx, pawn, 4), pawn.Map);
-            ctx.Set(new Target { Thing = plant });
+            var plantCell = CellNear(ctx, pawn, 4);
+            GenSpawn.Spawn(plant, plantCell, pawn.Map);
+            ctx.Set(new Target { Thing = plant, Cell = plantCell });
         }
 
         [Given("Fieldwork Companions: a cow {string}, full of milk, stands next to {string}")]
         public void MilkCowNextTo(PickleContext ctx, string cowName, string colonistName)
         {
             var pawn = Driver.PawnNamed(ctx, colonistName);
-            var kind = DefDatabase<PawnKindDef>.GetNamedSilentFail("Cow");
-            ctx.Require(kind != null, "no PawnKindDef named 'Cow'");
-
-            var cow = PawnGenerator.GeneratePawn(new PawnGenerationRequest(
-                kind, Faction.OfPlayer, forceGenerateNewPawn: true, fixedGender: Gender.Female, fixedBiologicalAge: 3f));
-            cow.Name = new NameSingle(cowName);
-            GenSpawn.Spawn(cow, CellNear(ctx, pawn, 3), pawn.Map);
+            var cow = SpawnPlayerAnimal(ctx, "Cow", cowName, pawn, 3, Gender.Female, 3f);
 
             var milk = cow.TryGetComp<CompMilkable>();
             ctx.Require(milk != null, "the cow has no CompMilkable");
             ctx.Require(milk.Active, $"the cow is not milkable yet: gender {cow.gender}, age {cow.ageTracker.AgeBiologicalYears}");
             milk.fullness = 1f;
-            ctx.Set(new Target { Thing = cow });
+            ctx.Set(new Target { Thing = cow, Cell = cow.Position });
         }
 
         /// <summary>For the capture: the mark lives about two seconds, so the camera is put where the
@@ -195,8 +201,23 @@ namespace FieldworkCompanions.PickleSteps
         public void NoteBaseline(PickleContext ctx, string defName)
         {
             var def = Def(ctx, defName);
-            ctx.Set(new Baseline { Def = def, Count = CountOf(Driver.Map(ctx), def) });
+            var map = Driver.Map(ctx);
+            var baseline = new Baseline { Def = def, Count = CountOf(map, def) };
+
+            // When a target is standing, also note what lies around it, for the scenarios that ask
+            // WHERE the extra landed. The cell is kept on the target because a destroyed rock has no
+            // position any more.
+            Target target = null;
+            try { target = ctx.Get<Target>(); } catch { }
+            if (target != null && target.Cell.IsValid) baseline.NearCount = CountNear(map, def, target.Cell, 2);
+
+            ctx.Set(baseline);
         }
+
+        private static int CountNear(Map map, ThingDef def, IntVec3 cell, int radius) =>
+            map.listerThings.ThingsOfDef(def)
+                .Where(t => t.Position.IsValid && t.Position.DistanceToSquared(cell) <= radius * radius)
+                .Sum(t => t.stackCount);
 
         [When("Fieldwork Companions: {string} brings down the rock next to them")]
         public void BringDownRock(PickleContext ctx, string colonistName)
