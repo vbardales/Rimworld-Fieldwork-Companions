@@ -26,3 +26,10 @@ node_modules/
 
 # Windows shortcuts dropped in the mod folder, never content.
 *.lnk
+
+# GPU texture dumps (DDS) are never content of this repository: the mod ships PNG.
+*.dds
+
+# Pickle evidence stays on disk (reports, screenshots, films: hundreds of megabytes, and a shared run can hold
+# other mods' pictures). What is kept in git is the text summary in docs/runs/.
+Tests/Pickle/Evidence/

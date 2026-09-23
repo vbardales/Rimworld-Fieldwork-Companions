@@ -22,10 +22,10 @@ workshop:      3806133311
 maintainer:   Codex, current local repository task
 updated:      2026-09-22
 remaining:
-  - unverified: Complete the Pickle suite (Tests/Pickle, 12 features; the first 8 belong to the English and French evidence passes): check exitReason first, then scenarios played against features discovered, then open and look at every @review capture. The 2026-09-21 attempt ended without a completed report. The thresholds in 06-assists.feature come from the vanilla defs and have not been observed.
+  - unverified: Complete the Pickle suite (Tests/Pickle, 17 features: 01-08 and 13-16 in the English and French passes, 09-12 in pass 3, 17 in pass 4): check exitReason first, then scenarios played against features discovered, then open and look at every @review capture. The 2026-09-21 attempt ended without a completed report. The thresholds in 06-assists.feature come from the vanilla defs and have not been observed.
   - unverified: Complete pass 3 "avec-rimmsqol" (Tests/Pickle features 09-12 with the shared steps of PickleTools/RimmsqolSteps): RIMMSQOL lists, reveals, hides and forgets the shortcut, the bar draws it, it opens this mod's dialog, and the choice survives a restart. Only RIMMSQOL is covered; its checkbox is driven through the calls it makes, not clicked; no other customization mod is tested.
-  - unverified: The @wip reset-confirmation scenario (02-settings-page.feature) has never been tried; run it with -IncludeWip.
-  - unverified: Fishing has no Pickle scenario (the test colony has no water); scenario 8 remains an explicit coverage gap.
+  - unverified: The reset-confirmation scenario (02-settings-page.feature) is no longer @wip: it goes through PickleTools/ClickDiagnostics and is played by the English and French passes. It has not been seen to pass.
+  - unverified: Fishing is written as 16-fishing.feature, on a lake the scenario builds (the test colony has no water body with fish). It has never run, and whether a lake made by setting terrain holds fish is what the first run will say.
   - unverified: Complete the Pickle evidence for scenarios 0-16, including both settings access routes, persistence/reset, FR/EN, new-game and existing-save coverage; record any scenario that still lacks an automated route.
   - unverified: RIMMSQOL reveal/open/edit/hide and visibility persistence; no customization integration has been tested interactively.
   - unverified: In-game English/French settings, tooltips, reset dialog and assist mote; check raw keys, fallback, formatting and clipping in both languages.
@@ -124,6 +124,27 @@ defect or a criterion blocking this audit.
 | tested -> prepublished | Not established | No 0.1.0 tag/release, no reviewed screenshots and incomplete runtime validation. The accepted early-release version difference is not counted as a blocker. |
 | prepublished -> published | Not established | PublishedFileId is committed and pushed; the actual Workshop page, own-subscription test, visibility and thank-you messages were not verified by this audit. |
 
+## Towards tested: every manual scenario written as a Pickle feature (2026-09-23)
+
+Stage stays **done**. The maintainer's criteria for `done -> tested` are: no scenario left in `@wip`; every conditional
+(`@requires`) scenario has run; no manual test left to validate; everything green.
+
+- **No `@wip` remains** (checked with a search of `Tests/Pickle/Mod/Pickle/Features`).
+- **Manual scenarios 2, 3, 5 (cut), 6, 7, 8, 9, 11, 12 and 14** of `_tools/FUNCTIONAL-SCENARIOS.md` are written as
+  features 13 to 16, plus feature 17 for Odyssey absent (pass 4, `wsl-deps.sans-odyssey.map`). New steps are in
+  `Tests/Pickle/Source/FieldworkRulesSteps.cs`. Scenario 13 (added and removed mid-game) is argued through
+  `08-save-compatibility`, since Pickle stages one mod set per run: **this is a decision for the maintainer to
+  accept or reject**. Fishing builds its own lake; whether that lake holds fish in the game is unknown until a run.
+- **Features 09 to 12 now carry `@requires:MalteSchulze.RIMMSqol`** (and the tool's packageId): without it they
+  played in passes that do not stage RIMMSQOL and failed, which is what the 2026-09-22 run showed
+  (`docs/runs/2026-09-22-English-shared-run.md`).
+- Validated without a game: the steps assembly builds (0 warnings, 0 errors) and `Tests/Pickle/Check-Steps.ps1`
+  passes (61 patterns compile, none declared twice, all 487 step lines resolve). **None of features 13 to 17 has
+  been played.** The numbers they assert come from the vanilla 1.6 defs.
+- Evidence policy: reports, screenshots and films stay on disk in `Tests/Pickle/Evidence/`, ignored by git;
+  a text summary per run goes to `docs/runs/`. `*.dds` is ignored as well (none was tracked).
+- A ticket for features 13 to 16 (pass 1 map) is queued with a watcher on its log; nothing has run for it yet.
+
 ## Settings page: the scroll question resolved, a real defect found and fixed — 2026-09-22
 
 The open question of 2026-09-21 ("Not yet established whether the page cannot scroll or the step
@@ -220,7 +241,7 @@ validation, not `tested`: nothing here has been played.
   identical, show no scrollbar, and do not show the mark checkbox or the reset button. The suite now
   asserts the scroll position after scrolling to the bottom and reports it with `viewHeight`. Not yet
   established whether the page cannot scroll or the step did not take effect.
-- The report of this run was in `pickle-reports-archive/0921-1748`, an archive that is rotated.
+- The report of this run is gone (rotated, then superseded); its one-line record is in `docs/runs/history.md`.
 - Passes 1 and 2 remain to be played to completion, and the `@review` captures to be looked at.
 
 ## Ordered workflow audit — 2026-09-21
