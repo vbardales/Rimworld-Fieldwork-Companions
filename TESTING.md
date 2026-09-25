@@ -17,6 +17,29 @@ A run is `powershell.exe -ExecutionPolicy Bypass -File scripts/Run-PickleWsl.ps1
 from the parent folder, and only through that script: it takes the machine lock, stages, runs under
 Xvfb and gives the lock back. The Windows install is never launched.
 
+A validation pass (first or last) plays every scenario, but as several small tickets rather than one big one, so
+that other mods are not made to wait behind an hour of lock. Pass 1 plays about 60 scenarios, many of them films
+and captures at 30 to 110 s each, and does not fit in Pickle's default deadline of 45 minutes (the third attempt,
+2026-09-24, was ended by it after 43 scenarios, `exitReason: watchdog-timeout`). Every feature therefore carries a
+`@part1`, `@part2` or `@part3` tag (01-05, 06-08, 09-17), and a pass is played as three tickets, each excluding the
+other two with the filter syntax the launcher already knows:
+
+```
+-Filter "Fieldwork Companions - Pickle tests,!@part2,!@part3"    # part 1
+-Filter "Fieldwork Companions - Pickle tests,!@part1,!@part3"    # part 2
+-Filter "Fieldwork Companions - Pickle tests,!@part1,!@part2"    # part 3
+```
+
+The pass counts as complete when the three reports each end with `exitReason: passed` and their scenarios add up to
+the whole suite. A targeted fix or an exploration is the opposite case: one ticket, one scenario, `-Filter '::<name>'`.
+
+Submit each ticket with `Rimworld-Ticket-Dispatcher/scripts/Submit-PickleRun.ps1` (`-Owner` is the session id, not a process kept in the session), always with `-EvidenceDir FieldworkCompanions/Tests/Pickle/Evidence/<date>-<pass>` (relative to the rimworld root, where the launcher lives): before giving the lock back, the launcher then copies
+this launch's report there, and, when the game wrote none (a crash at startup, a stall, the machine going to sleep),
+its `Player.log` and a `no-report.txt`. Without it the log of a run that died is left in the shared `pickle-reports/`
+and is overwritten by the next ticket; the launcher's own `pickle-reports-archive/<stamp>-nosummary` copy is pruned
+after five archives. A run with no report is no verdict, but its log is what tells a game crash from a suite defect,
+so it is kept and named in `docs/runs/history.md`.
+
 Four passes are required, and the report must say which is which.
 
 | # | Pass | Command | Mods loaded | What it proves |
@@ -53,6 +76,32 @@ result is recorded in `STATUS.md`.
 `@requires:<packageId>` scenarios skip when the selected pass does not stage that dependency. A
 required scenario that skips is not a pass. `@requires:Odyssey` scenarios skip without Odyssey.
 
+## Evidence to keep
+
+The disk is shared and full, so a report is kept only while it still proves something (root `AGENTS.md`, "Test
+evidence"). **A proof belongs to a revision**: every summary in `docs/runs/` names the commit and the SHA-256 of
+`Mod/Assemblies/FieldworkCompanions.dll` and of the steps assembly it ran against, and a report of another build
+proves nothing about the current one. Per pass, keep the latest report for the revision now in the repository,
+minified with `Tests/Pickle/Minify-Evidence.ps1`, under `Tests/Pickle/Evidence/<date>-<pass>/` (on disk, ignored
+by git), and one text line in `docs/runs/history.md`. What that report has to contain:
+
+| Proof | Where it is | Why it cannot be dropped |
+| --- | --- | --- |
+| `exitReason`, scenarios played against features discovered, outcome per scenario | `junit.xml`, `summary.md` | The first thing read; a report without them is not a verdict |
+| The numbers the gameplay scenarios asserted against (the gains of 80, 12, 16, 90 and their plain values) | failure or attachment text in `junit.xml`; copied into the run summary | The thresholds come from vanilla defs and have never been observed: the first completed run is the only place they are read |
+| No `MethodAccessException` naming `ResourceDef`, `ResourceAmount` or `GetSteps`, and no `Attempted to set master` | `Player.log` | This is the only evidence of what the access waiver costs on RimWorld's Mono; nobody has produced that log yet |
+| The settings page, top and bottom, in English (pass 1) and French (pass 2) | `02-settings-page`, `05-language` captures, opened and looked at | The scroll bar and the two last controls (the mark checkbox and the reset button) are the regression check of the `maxOneColumn` fix; the French capture is where a missing key shows as accented text |
+| The mark over the companion | `06-assists` film and capture | The one picture that shows the mod doing something; also the candidate for the Workshop |
+| RIMMSQOL's list and edit pages, the shortcut opened through the bar | pass 3 captures | The only sight of the shortcut in another mod's interface |
+| That a conditional scenario **ran** (not skipped) in a pass that met its condition | `junit.xml` (`skipped` count per feature) | `@requires:Odyssey`, `@requires:<tool>` and pass 4 are part of the `tested` gate; a skip is not a pass |
+
+Not kept: `report.html` and `messages.ndjson` (derived from `junit.xml`), captures nobody opened, reports of
+superseded builds, and the settings file and the save the scenarios read back (they are asserted in the run, not
+archived). A capture that has to be measured to the pixel keeps its original; the others are JPEG. A run that ended
+without a report gets a line in `history.md` and no folder.
+
+The summary of a run says which of these it holds, which captures were opened and what they showed, and, when a
+proof is missing, that it is missing.
 ## Which scenario covers what
 
 | Feature | Covers | `FUNCTIONAL-SCENARIOS.md` |

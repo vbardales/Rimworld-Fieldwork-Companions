@@ -14,7 +14,7 @@
 # hook). Accented gibberish means a missing key; clean English inside a French interface means a
 # literal that never went through Translate. The assertions catch the first, only the capture
 # catches the second, and a capture taken without developer mode proves nothing about either.
-@review @requires:nelim.pickletools.screenshotmode @requires:nelim.pickletools.screenshotstudio
+@review @requires:nelim.pickletools.screenshotmode @requires:nelim.pickletools.screenshotstudio @part1
 Feature: the settings page and the shortcut, in the language this pass runs
 
   Background:

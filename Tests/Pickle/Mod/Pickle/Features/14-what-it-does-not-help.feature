@@ -5,6 +5,7 @@
 # anywhere else: a deep drill that pays, a digging animal that qualifies as a miner, a cow that milks itself.
 #
 # Thresholds are those of 06-assists: 80 for a steel block, 12 for a rice plant, 16 for a milking.
+@part3
 Feature: what a companion does not help with
 
   Background:
@@ -52,7 +53,7 @@ Feature: what a companion does not help with
   # the only gesture where the subject of the work is itself a candidate, and the exclusion is what stops a herd
   # from paying itself. The plain milk is asserted to have appeared, for the same reason as the drill's portion.
   Scenario: a cow that is its master's companion does not help milk itself
-    Given Fieldwork Companions: "Bessie" is a milk cow of "Miner", granted obedience directly, following at work
+    Given Fieldwork Companions: "Bessie" is a milk cow of "Miner", its race made trainable for this scenario, following at work
     When Fieldwork Companions notes what the map holds of "Milk"
     And Fieldwork Companions: "Miner" milks the cow next to them
     Then Fieldwork Companions: the map gained at least 1 of the noted resource

@@ -10,7 +10,7 @@
 # stays manual, and cannot be otherwise from here: revealing it inside RIMMSQOL's own interface, and
 # whether RIMMSQOL's visibility choice survives a restart. Both are RIMMSQOL's behaviour, and staging
 # it would mean mounting a mod to test code that is not ours.
-@requires:nelim.pickletools.screenshotmode @requires:nelim.pickletools.screenshotstudio
+@requires:nelim.pickletools.screenshotmode @requires:nelim.pickletools.screenshotstudio @part1
 Feature: the hidden MainButtons shortcut opens this mod's own settings
 
   Background:

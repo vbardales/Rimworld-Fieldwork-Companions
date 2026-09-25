@@ -6,7 +6,7 @@ it weighs hundreds of megabytes, and a run on the shared machine can hold other 
 
 A summary says, in this order, and nothing more than the report says:
 
-1. **Which pass**, the command, the date and the machine (WSL, language, map of extra mods).
+1. **Which pass**, the command, the date and the machine (WSL, language, map of extra mods), and **the revision**: the commit and the SHA-256 of the mod DLL and of the steps assembly. A report of another build proves nothing about the current one. What a report has to hold is listed in `TESTING.md`, "Evidence to keep".
 2. **`exitReason` first**, then scenarios played against features discovered, then outcomes per feature.
 3. **Every failure with its message**, and whether the defect is the mod's, the suite's or the environment's.
 4. **Captures**: which ones were opened and looked at, and what they showed. A green `@review` scenario proves the
@@ -17,7 +17,10 @@ A run that ended without a report is a summary too: it says so, and gives no num
 
 ## Shrinking a report
 
-After a run, copy its report to `Tests/Pickle/Evidence/<date>-<pass>/` and shrink it in place:
+Submit every run with `-EvidenceDir FieldworkCompanions/Tests/Pickle/Evidence/<date>-<pass>` (relative to the rimworld root), so the report (or, when the run wrote
+none, its `Player.log`) is copied before the lock is given back. If a run was launched without it and died, take
+the log from `pickle-reports-archive/<stamp>-nosummary` at once, before the retention prunes it. Then shrink the
+folder in place:
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File Tests/Pickle/Minify-Evidence.ps1 -Folder Tests/Pickle/Evidence/<date>-<pass>

@@ -246,13 +246,40 @@ namespace FieldworkCompanions.PickleSteps
             plant.PlantCollected(pawn, PlantDestructionMode.Cut);
         }
 
+        /// <summary>
+        /// Milking and shearing throw the product away with a chance of <c>1 - AnimalGatherYield</c> (a colonist with
+        /// no Animals skill wastes 40 per cent of them), and the draw comes from a generator seeded the same way in
+        /// every run: the cow scenario milked nothing three times in a row on 2026-09-24 and 25, and raising the
+        /// skill to 10 did not change it (an Animals skill the colonist cannot use counts as level 0 whatever
+        /// <c>Level</c> says). A wasted gesture is therefore repeated, the animal refilled, until some product
+        /// lands, up to thirty times; what the scenarios assert is what the companion adds, never the waste. The
+        /// yield stat is named in the failure, should it ever come to that.
+        /// </summary>
+        private static void GatherUntilYielded(PickleContext ctx, Pawn gatherer, CompHasGatherableBodyResource comp, ThingDef product)
+        {
+            var animals = gatherer.skills.GetSkill(SkillDefOf.Animals);
+            if (animals.Level < 10) animals.Level = 10;
+
+            var map = gatherer.Map;
+            var before = CountOf(map, product);
+            for (var attempt = 0; attempt < 30; attempt++)
+            {
+                comp.fullness = 1f;
+                comp.Gathered(gatherer);
+                if (CountOf(map, product) > before) return;
+            }
+            ctx.Require(false, $"thirty gatherings of {product.defName} landed nothing; the yield stat of {gatherer.LabelShort} is " +
+                $"{gatherer.GetStatValue(StatDefOf.AnimalGatherYield):0.##}");
+        }
+
         [When("Fieldwork Companions: {string} milks the cow next to them")]
         public void MilkCow(PickleContext ctx, string colonistName)
         {
             var pawn = Driver.PawnNamed(ctx, colonistName);
             var cow = ctx.Get<Target>().Thing as Pawn;
             ctx.Require(cow != null && cow.Spawned, "no cow is standing: use 'a cow, full of milk, stands next to' first");
-            cow.TryGetComp<CompMilkable>().Gathered(pawn);
+            var milk = cow.TryGetComp<CompMilkable>();
+            GatherUntilYielded(ctx, pawn, milk, milk.Props.milkDef);
         }
 
         // ------------------------------------------------------------ what came of it

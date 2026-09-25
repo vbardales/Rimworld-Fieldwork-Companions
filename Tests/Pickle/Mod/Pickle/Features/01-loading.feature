@@ -10,6 +10,7 @@
 #
 # No save is loaded. Mods and defs are settled before a game exists, so these run at the main menu
 # in about a second, against ten to fifteen for a scenario that loads the fixture.
+@part1
 Feature: Fieldwork Companions loads, and its four hooks are live
 
   Scenario: the mod is loaded, after Harmony

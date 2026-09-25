@@ -7,6 +7,7 @@
 #
 # Thresholds, from the vanilla 1.6 defs: MineableSteel yields 40, so the bonus at the largest share is 80 and a
 # plain block gives at most 50; Plant_Rice yields 6, so the bonus is 12 and PlantCollected drops no base yield.
+@part3
 Feature: whose animal helps, how far it may stand, and where the extra lands
 
   Background:
@@ -81,6 +82,7 @@ Feature: whose animal helps, how far it may stand, and where the extra lands
   Scenario: working side by side ties the bond, through the game's own call
     Given Fieldwork Companions setting "bondChance" is set to "0.05"
     And Fieldwork Companions: "Rex" is an obedient "Husky" that follows "Miner" at work
+    And Fieldwork Companions: "Miner" may bond with "Rex"
     When Fieldwork Companions: "Miner" mines beside "Rex" until they bond, at most 3000 times
     Then Fieldwork Companions: "Miner" and "Rex" are bonded
     And no errors were logged

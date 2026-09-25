@@ -8,6 +8,7 @@
 #
 # What stays manual, and cannot be otherwise from here: loading a save made WITHOUT the mod with it
 # added, and one made WITH it with it removed. Pickle stages one mod set per run.
+@part2
 Feature: the mod leaves nothing in the save
 
   Background:

@@ -4,6 +4,7 @@
 # or that did nothing, is the failure. Mining is asserted against 80, a rice harvest against 12, a milking against
 # 16 and a shearing against 90: a sheep gives 45 wool by vanilla's defs, so the bonus at the largest share is 90.
 # The fishing switch is in 16-fishing.feature, next to the lake it needs.
+@part3
 Feature: the work switches, and shearing
 
   Background:

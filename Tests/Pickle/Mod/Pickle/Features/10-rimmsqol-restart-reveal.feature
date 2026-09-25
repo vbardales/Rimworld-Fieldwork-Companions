@@ -13,7 +13,7 @@
 # chain. If the game dies after that step, or the chain is cut, the choice stays in the WSL profile's
 # Config/Mod_1084452457_QOLMod.xml; the first scenario of the next run that stages the shared steps puts it
 # back, and PickleTools/RimmsqolSteps/README.md, "Leftovers", gives the two files to delete by hand.
-@rimmsqol @requires:MalteSchulze.RIMMSqol @requires:nelim.pickletools.rimmsqol
+@rimmsqol @requires:MalteSchulze.RIMMSqol @requires:nelim.pickletools.rimmsqol @part3
 Feature: a choice made in RIMMSQOL is written for the next launch (1 of 3, reveal)
 
   Scenario: RIMMSQOL reveals the shortcut and the choice is kept

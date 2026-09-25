@@ -8,7 +8,7 @@
 #
 # "One extra fish" is exact: one unit, of a kind that was actually landed, whatever the size of the haul. The
 # fishing switch, and an animal fishing on its own, are the two ways it must not happen.
-@requires:Odyssey
+@requires:Odyssey @part3
 Feature: a companion turns up one extra fish
 
   Background:

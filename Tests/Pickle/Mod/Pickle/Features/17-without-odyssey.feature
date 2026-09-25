@@ -8,7 +8,7 @@
 #
 # Played by the pass `sans-odyssey`, whose map leaves the DLC out and stages the two steps that read ModsConfig:
 #   -DepMap wsl-deps.sans-odyssey.map -Filter '17-without-odyssey.feature'
-@requires:nelim.pickletools.expansions
+@requires:nelim.pickletools.expansions @part3
 Feature: without Odyssey the companion falls back on obedience alone
 
   Scenario: the pass really leaves Odyssey out, and only Odyssey

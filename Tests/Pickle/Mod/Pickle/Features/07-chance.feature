@@ -7,6 +7,7 @@
 # access waiver. An answer here, with a trained animal, means that read works in the running game.
 #
 # The defaults are asserted, so this feature starts from them; the other features use the 100 % preset.
+@part2
 Feature: the chance follows the training and the bond
 
   Background:

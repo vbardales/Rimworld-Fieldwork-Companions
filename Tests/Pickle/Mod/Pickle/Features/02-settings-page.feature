@@ -12,7 +12,7 @@
 #
 # What the settings LOGIC does (clamps, defaults, reset, chance arithmetic) is proved out of game and
 # is not repeated here.
-@review @requires:nelim.pickletools.screenshotmode @requires:nelim.pickletools.screenshotstudio
+@review @requires:nelim.pickletools.screenshotmode @requires:nelim.pickletools.screenshotstudio @part1
 Feature: the settings page, as a player sees it
 
   Background:

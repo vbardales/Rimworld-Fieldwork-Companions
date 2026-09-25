@@ -7,6 +7,7 @@
 #
 # What stays manual, and cannot be otherwise from here: a real restart. The in-memory object still
 # holds the values in this process, so a restart cannot be faked by re-reading the file.
+@part1
 Feature: settings are written to the game's own file and read back
 
   Background:
