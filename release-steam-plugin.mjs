@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import { access, readFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 import steam from 'semantic-release-steam';
@@ -5,6 +6,9 @@ import { compileReadme } from 'semantic-release-steam/lib/readme.mjs';
 import { renderSteamBBCode } from 'semantic-release-steam/lib/description.mjs';
 
 const publishing = (context) => context.env.STEAM_PUBLISH === 'true';
+
+// Steam refuses a description above 8000 bytes of UTF-8.
+const DESCRIPTION_LIMIT_BYTES = 8000;
 
 async function checkMod(mod, pluginConfig, cwd, logger) {
   const modPath = resolve(cwd, mod.path);
@@ -30,7 +34,11 @@ async function checkMod(mod, pluginConfig, cwd, logger) {
     footer: pluginConfig.descriptionFooter ?? '',
     assetDirNameTransform: pluginConfig.assetDirNameTransform,
   }));
-  logger.log(`Steam description for ${mod.name}: ${description.length} characters of BBCode`);
+  const bytes = Buffer.byteLength(description, 'utf8');
+  if (bytes > DESCRIPTION_LIMIT_BYTES) throw new Error(`the Steam description of ${mod.name} is ${bytes} bytes of UTF-8, above the Steam limit of ${DESCRIPTION_LIMIT_BYTES}`);
+  logger.log(`Steam description for ${mod.name}: ${description.length} characters of BBCode (${bytes} bytes), sha256 ${createHash('sha256').update(description).digest('hex')}`);
+  // The dry-run is the only review of what will replace the page, so it prints the whole text.
+  logger.log(`Steam description as it will be sent (converted from ${mod.path}/README.template.md):\n${description}`);
 }
 
 export async function verifyConditions(pluginConfig, context) {
