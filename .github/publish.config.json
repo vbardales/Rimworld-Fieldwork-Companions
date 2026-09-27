@@ -1,0 +1,19 @@
+{
+  "templateStamp": "a8ca11cdd9a3",
+  "workshopId": "3806133311",
+  "packageId": "nelim.fieldworkcompanions",
+  "releaseTitle": "Fieldwork Companions {version}",
+  "requirePaths": [
+    "Assemblies/FieldworkCompanions.dll"
+  ],
+  "forbidPaths": [],
+  "previewFile": "About/Preview.png",
+  "aboutFromDescription": true,
+  "build": {
+    "project": "Source/FieldworkCompanions.csproj"
+  },
+  "description": {
+    "file": "Mod/README.template.md",
+    "format": "markdown"
+  }
+}
