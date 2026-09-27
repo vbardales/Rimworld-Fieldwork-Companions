@@ -5,6 +5,10 @@ This file serves the repository and the writing of Steam patch notes; RimWorld d
 
 ## [Unreleased]
 
+## [1.0.0] — 2026-09-27
+
+Reconciles the published Workshop item with the `modVersion` already declared in `Mod/About/About.xml` (see the note under [0.1.0](#010--2026-09-22)).
+
 ### Fixed
 
 - The settings page could not scroll: past a certain height, `Listing_Standard` silently opened a second column outside the visible area, so the "show a mark" checkbox and the reset button were drawn off-screen and unreachable. Confirmed in the real game before the fix; a later Pickle run drew the scroll bar with both controls reachable. The fix was committed after the 0.1.0 upload.
