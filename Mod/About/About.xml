@@ -10,8 +10,7 @@
   </supportedVersions>
   <description>RimWorld already lets you give an animal a master and tick "follow master while doing field work". The animal then walks along while your colonist mines, harvests, forages or fishes. It follows, it wanders nearby, it defends — and it never once makes the work go better. This mod makes that walk worth something.
 
-WHAT IT DOES
-
+What it does
 When an obedient companion is at hand while its master works, there is a chance the work turns up more than it should: a little extra ore, a few more crops, one more fish, a bit more milk or wool. A mark appears over the animal that found it.
 
 - Mining, harvesting and foraging, fishing, milking and shearing. Each can be switched off on its own.
@@ -27,24 +26,21 @@ No data is added to the save: the mod can be added to or removed from a game in 
 
 Interface in English and French.
 
-IF I GO QUIET
-
+If I go quiet
 If I do not answer within a reasonable time after being contacted, anyone may freely update this or any other of my mods, including publishing a continuation of it. All credit must be preserved.
 
-AI-GENERATED
-
+AI-generated
 This mod's code was written with Claude Code (Anthropic), under human direction, review and testing. Stated openly: designing with these tools is my job.
 
-THANKS
-
+Thanks
 The idea comes from Disney Dreamlight Valley, where a villager you take along with a matching role gives a chance of extra resources. Only the mechanic was borrowed — no asset, name or character from that game is used, and none could be.
 
-Claude Code (Anthropic).
-Andreas Pardeike for Harmony.
+- Claude Code (Anthropic).
+- Andreas Pardeike for Harmony.
 
 No third-party code is reused. See ATTRIBUTION.md, shipped with the mod. This mod is MIT licensed (LICENSE).
 
-[url=https://github.com/vbardales/Rimworld-Fieldwork-Companions]Source code on GitHub[/url]</description>
+Source code on GitHub (https://github.com/vbardales/Rimworld-Fieldwork-Companions)</description>
   <modDependencies>
     <li>
       <packageId>brrainz.harmony</packageId>
