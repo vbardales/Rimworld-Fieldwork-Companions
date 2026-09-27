@@ -103,18 +103,11 @@ Feature: a companion at hand makes the work turn up more, through the real hooks
     And Fieldwork Companions: "Miner" brings down the rock next to them
     Then Fieldwork Companions: the map gained at least 80 of the noted resource
 
-  # The mark lives about two seconds, so the camera is put on the companion before the gesture and
-  # the capture is taken straight after it, with nothing waited in between. For a person to look at:
-  # the +N should sit over the dog, be readable, and not be hidden behind the colonist.
-  @review @requires:nelim.pickletools.filmticks
+  # The mark is asserted here, straight after the gesture, from the map's draw manager. The picture of it for the
+  # Workshop page is 20-gallery-mark.feature, on a real mining job: a capture taken after an instantaneous gesture, with
+  # the animal wherever the random placement left it, showed no mark and no story (2026-09-24).
   Scenario: the mark over the companion that found the extra
     Given Fieldwork Companions: "Rex" is an obedient "Husky" that follows "Miner" at work
     And Fieldwork Companions: a "MineableSteel" rock stands next to "Miner"
-    When Fieldwork Companions: the camera looks at "Rex"
-    And I zoom all the way in
-    And game speed is normal
-    And Nelim's Pickle Tools: I film every 6 ticks as "companion-bonus-mark"
-    And Fieldwork Companions: "Miner" brings down the rock next to them
+    When Fieldwork Companions: "Miner" brings down the rock next to them
     Then Fieldwork Companions: a bonus mark floats over "Rex"
-    When Nelim's Pickle Tools: I stop filming
-    And I take a screenshot "the mark over the companion"

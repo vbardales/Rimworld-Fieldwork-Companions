@@ -35,7 +35,7 @@ is not a checklist to sign.
 | 10. Training raises the chance | `06-assists`, `07-chance`, `17-without-odyssey` | Dig gate, the chance in a live game, and the fallback without Odyssey |
 | 11. The bond | `13-companion-rules` | Formed through the game's own call; none at zero chance |
 | 12. The four switches | `15-switches-and-shearing`, `16-fishing` | Each switch silences its own gesture only |
-| 13. Added and removed mid-game | `08-save-compatibility` | See `TESTING.md`, "What is not a gate": the claim is that nothing of the mod is written to a save |
+| 13. Added and removed mid-game | `18-added-to-a-game-in-progress`, `19-save-for-removal` (pass 5) | Added: the shared fixture, written without the mod, loads with it. Removed: a game saved with the mod loads, runs and saves again with the mod out of the mod list |
 | 14. Nothing happens when nothing should | `14-what-it-does-not-help` | No mark anywhere, only plain yields, and the plant patch draws nothing from the random generator |
 | 15. Settings, persistence and reset in both languages | `02` to `05`, passes 1 and 2 | Both languages by two passes |
 | 16. Optional shortcut and dependencies | `04`, `09` to `12`, `17-without-odyssey` | RIMMSQOL in pass 3; Odyssey absent in pass 4 |

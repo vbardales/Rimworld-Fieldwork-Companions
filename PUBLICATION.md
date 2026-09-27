@@ -62,22 +62,18 @@ Steam comments take BBCode, and a bare Workshop URL becomes a widget, hence the 
 last line. Under 1000 characters each.
 
 **Post them once the item is public and its installed copy has been checked.** A link to a private
-item opens for nobody and the widget does not render. The known item id is filled in below.
+item opens for nobody and the widget does not render.
 
 The mechanic comes from Disney Dreamlight Valley, which is a game and not a Workshop mod, so it gets
 no message. The only mod this one depends on is Harmony.
 
-### Harmony, https://steamcommunity.com/sharedfiles/filedetails/?id=2009463077
+### Harmony (2009463077): nothing to post
 
-```
-Hello Andreas! I just released Fieldwork Companions, a small mod where an animal that follows its master at work can turn up a little extra: ore, crops, a fish, some milk. It is four Harmony patches and nothing else, and it would not exist without Harmony.
-
-Two of them have to remember something before the vanilla method runs, because the rock's position and yield are gone once it is destroyed. Passing that through __state made it a few lines instead of a tangle, and PatchAll did the rest.
-
-Thank you for the library, and for keeping it working through every RimWorld update.
-
-https://steamcommunity.com/sharedfiles/filedetails/?id=3806133311
-```
+`WORKSHOP_COMMENTS.md` is the register, keyed by the recipient's Workshop id, and it holds one main comment per
+recipient page for the whole collection. Harmony's is already `posted` (2026-09-22, covering Architect Studio, Skill
+Icons, Work Studio, PickleTools and Bill Autopilot), so this mod is added to its `Covers` column and **no second
+comment is sent**. The draft that stood here was removed on 2026-09-25 for that reason. The one line of `Covers`
+to add is `Fieldwork Companions`; the register is edited by the session that owns it or with the owner's word.
 
 ## What the upload cannot take back
 

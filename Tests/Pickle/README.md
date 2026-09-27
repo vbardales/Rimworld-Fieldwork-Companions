@@ -9,17 +9,26 @@ features and the steps assembly, so nothing test-related ships in the Workshop f
 
 ## Run
 
-From the parent folder, only through the launcher, which takes the machine lock, stages, plays under
-Xvfb and gives the lock back. The Windows install is never launched by a session.
+A session does not launch the game: it **deposits a request** with the TicketDispatcher, whose worker plays it through
+`scripts/Run-PickleWsl.ps1` (machine lock, staging, Xvfb) and wakes the session by message. One request per pass, a
+fix or an exploration plays the fewest scenarios (`-Filter '::<scenario>'`), an initial or final pass plays all of them,
+in three small tickets selected by the `@part1`, `@part2` and `@part3` tags of the features (01-05, 06-08, 09-17).
+The Windows install is never launched by a session. From `rimworld/`:
 
 ```powershell
-powershell.exe -ExecutionPolicy Bypass -File scripts/Run-PickleWsl.ps1 -Mod FieldworkCompanions -DepMap wsl-deps.runtime-evidence.map
-powershell.exe -ExecutionPolicy Bypass -File scripts/Run-PickleWsl.ps1 -Mod FieldworkCompanions -DepMap wsl-deps.runtime-evidence.map -Language French
+$id = 'local_<the session id, from get_session "self">'
+$set = 'Fieldwork Companions - Pickle tests'
+powershell.exe -ExecutionPolicy Bypass -File Rimworld-Ticket-Dispatcher/scripts/Submit-PickleRun.ps1 -Mod FieldworkCompanions -Owner $id `
+  -Filter "$set,!@part2,!@part3" -DepMap wsl-deps.runtime-evidence.map -Label "<SHA> pass 1 English, part 1 of 3" `
+  -EvidenceDir FieldworkCompanions/Tests/Pickle/Evidence/<date>-pass1-part1
+# French: add -Language French. RIMMSQOL: -DepMap wsl-deps.avec-rimmsqol.map -Filter '09-rimmsqol-shortcut.feature'
+# Without Odyssey: -DepMap wsl-deps.sans-odyssey.map -Filter '17-without-odyssey.feature'
+powershell.exe -ExecutionPolicy Bypass -File Rimworld-Ticket-Dispatcher/scripts/Submit-PickleRun.ps1 -List
 ```
 
-Before any launch, check both sides (`Get-Process RimWorldWin64` and
-`wsl.exe -- bash -lc "pgrep -fa RimWorldLinux"`), and if something runs, read whose it is before
-touching it: `scripts/Pickle-Status.ps1` says.
+The request carries no SHA and the mod is staged when its ticket is played, sometimes hours later: keep the tree on the
+revision under test until the `RUN_DONE` message, and write the SHA in `-Label`. No `Monitor`, heartbeat or cron for the
+queue. To look without launching: `powershell.exe -ExecutionPolicy Bypass -File scripts/Pickle-Status.ps1`.
 
 ## Build the steps
 

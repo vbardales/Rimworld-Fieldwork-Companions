@@ -8,7 +8,7 @@ game can show.
 | --- | --- | --- | --- |
 | Out-of-game harness | `_tools/Run-Functional-Tests.ps1` (25 checks) | The four patched vanilla methods still exist with the expected shape and nothing overrides them; the three non-public members the mod reads are covered by the access waiver; the chance arithmetic, clamps, defaults, reset and real Scribe round trip; the shortcut Def; every translation key in EN and FR; About metadata | seconds |
 | Resource checks | `../scripts/Check-DefInjected.ps1` | The two DefInjected paths resolve | seconds |
-| Pickle, in game | `Tests/Pickle/` (17 features) | The patches are installed and fire on the game's real runtime; the real settings dialog draws; the real settings file; the shortcut in the real main bar; the language the pass runs; a save that holds nothing of the mod | tens of minutes |
+| Pickle, in game | `Tests/Pickle/` (20 features) | The patches are installed and fire on the game's real runtime; the real settings dialog draws; the real settings file; the shortcut in the real main bar; the language the pass runs; a save that holds nothing of the mod | tens of minutes |
 | Evidence review | Pickle screenshots and films | A human reviews the rendered result; no manual gameplay procedure is a release gate | minutes |
 
 ## The passes
@@ -21,7 +21,7 @@ A validation pass (first or last) plays every scenario, but as several small tic
 that other mods are not made to wait behind an hour of lock. Pass 1 plays about 60 scenarios, many of them films
 and captures at 30 to 110 s each, and does not fit in Pickle's default deadline of 45 minutes (the third attempt,
 2026-09-24, was ended by it after 43 scenarios, `exitReason: watchdog-timeout`). Every feature therefore carries a
-`@part1`, `@part2` or `@part3` tag (01-05, 06-08, 09-17), and a pass is played as three tickets, each excluding the
+`@part1`, `@part2` or `@part3` tag (01-05; 06-08 and 20; 09-19), and a pass is played as three tickets, each excluding the
 other two with the filter syntax the launcher already knows:
 
 ```
@@ -40,7 +40,7 @@ and is overwritten by the next ticket; the launcher's own `pickle-reports-archiv
 after five archives. A run with no report is no verdict, but its log is what tells a game crash from a suite defect,
 so it is kept and named in `docs/runs/history.md`.
 
-Four passes are required, and the report must say which is which.
+Five passes are required, and the report must say which is which.
 
 | # | Pass | Command | Mods loaded | What it proves |
 | --- | --- | --- | --- | --- |
@@ -48,6 +48,7 @@ Four passes are required, and the report must say which is which.
 | 2 | Without optional mods, French | `... -Mod FieldworkCompanions -DepMap wsl-deps.runtime-evidence.map -Language French` | Same set | Every text exists in French; review media for layout and literals. |
 | 3 | With RIMMSQOL | `... -Mod FieldworkCompanions -DepMap wsl-deps.avec-rimmsqol.map -Filter '09-rimmsqol-shortcut.feature'`, then the restart chain `-Filter '10-rimmsqol-restart-reveal.feature' -Then '11-rimmsqol-restart-hide.feature','12-rimmsqol-restart-forget.feature'` | The same set plus RIMMSQOL (Workshop 1084452457) and `PickleTools/RimmsqolSteps` | RIMMSQOL's own list offers the shortcut, can reveal it, the bar draws it, it opens this mod's own dialog and shares its values, hiding works, and the choice survives a restart |
 | 4 | Without Odyssey | `... -Mod FieldworkCompanions -DepMap wsl-deps.sans-odyssey.map -Filter '17-without-odyssey.feature'` | The same set minus the Odyssey DLC, plus `PickleTools/ExpansionSteps` | `Dig` and `Forage` do not exist, nothing is logged, and an obedient animal still helps with the requirement ticked: the mod falls back on obedience alone |
+| 5 | Retrait: a game saved with the mod, loaded without it | `... -Mod FieldworkCompanions -DepMap wsl-deps.retrait.map -Filter '19-save-for-removal.feature' -Then 'removal-check' -ThenWithout nelim.fieldworkcompanions,nelim.fieldworkcompanions.pickletests` | The same set, plus the companion `Tests/Pickle/Removal`, which does not depend on the mod; the second launch runs with the mod and the test companion taken out of the mod list | A save made after an assist holds nothing of the mod outside its mod list, and loads, runs 250 ticks and saves again without the mod, with no error (FUNCTIONAL-SCENARIOS.md scenario 13, second half). The first half, a game saved without the mod loaded with it, is `18-added-to-a-game-in-progress`, played in every pass. |
 
 **Passes with optional mods: only RIMMSQOL, and it is an integration, not an optional mod.** The mod
 declares no optional mod of its own. Its `loadAfter` names Harmony and the Ludeon DLC, and the minimal
@@ -120,6 +121,9 @@ proof is missing, that it is missing.
 | `15-switches-and-shearing` | Each work switch silences its own gesture and none other; shearing, with a companion and too far | 9, 12 |
 | `16-fishing` | A lake is built; exactly one extra fish of a landed kind; the fishing switch; an animal fishing on its own (Odyssey) | 8 |
 | `17-without-odyssey` (pass 4) | The pass leaves only Odyssey out; the mod falls back on obedience alone | 10, 16 |
+| `18-added-to-a-game-in-progress` | The shared fixture was written without this mod; it loads with the mod, runs, and saves again | 13 |
+| `19-save-for-removal` (pass 5) | A game saved with the mod holds nothing of it outside its mod list, and is handed to the companion that the launch without the mod loads | 13 |
+| `20-gallery-mark` | For a person: a real mining job, the animal beside the colonist, the mark over the animal, taken at the right instant (the picture for the Workshop page) | 1 |
 
 ## What is not a gate
 
@@ -142,10 +146,6 @@ than it says; none asks for a hand-played validation.
   customization mod is tested.
 - **A real restart of this mod's own settings.** The settings scenarios re-read the file in the same process.
   RIMMSQOL's visibility choice does survive a restart in pass 3, a three-launch chain, but that is RIMMSQOL's file.
-- **Adding and removing the mod mid-game (scenario 13).** Pickle stages one mod set per run, so a save made with the
-  mod cannot be loaded without it. The claim is that nothing of the mod is written to a save, and
-  `08-save-compatibility` checks exactly that on a real save written after an assist: a save holding none of the
-  mod's types loads without it, since RimWorld only complains about what a save refers to.
 - **The fishing lake is made, not found.** The shared test colony has no water body with fish, so
   `16-fishing` builds one. The catch method is the vanilla one and the fish is the game's own; the lake is not.
 - **A window from another mod covering a click.** The only scenario that clicks at all, the reset button, goes

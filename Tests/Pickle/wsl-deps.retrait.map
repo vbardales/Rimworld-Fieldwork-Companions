@@ -1,0 +1,13 @@
+# Pass 5, "retrait": a game saved with the mod, loaded without it (FUNCTIONAL-SCENARIOS.md scenario 13, second half).
+# Stages the companion that does not depend on the mod; the launcher takes the mod and the test companion out of the mod
+# list for the second launch (-ThenWithout). The four evidence tools of pass 1 are staged too: the same mod set as the
+# passes that start without trouble (the first two tries of this pass, with the companion alone, both crashed at startup
+# in the Mono garbage collector, 2026-09-25 19:51 and 22:01; whether the set matters is what the third try shows).
+#
+# Played with:  -DepMap wsl-deps.retrait.map -Filter '19-save-for-removal.feature' -Then 'removal-check'
+#                 -ThenWithout nelim.fieldworkcompanions,nelim.fieldworkcompanions.pickletests
+nelim.pickletools.clickdiagnostics path:PickleTools/ClickDiagnostics/Mod
+nelim.pickletools.filmticks path:PickleTools/FilmTicks/Mod
+nelim.pickletools.screenshotmode path:PickleTools/ScreenshotMode/Mod
+nelim.pickletools.screenshotstudio path:PickleTools/ScreenshotStudio/Mod
+nelim.fieldworkcompanions.pickleremoval path:FieldworkCompanions/Tests/Pickle/Removal/Mod
