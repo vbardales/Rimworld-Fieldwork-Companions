@@ -1,16 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ModMetaData>
-  <name>Fieldwork Companions</name>
-  <author>Nelim</author>
-  <packageId>nelim.fieldworkcompanions</packageId>
-  <url>https://github.com/vbardales/Rimworld-Fieldwork-Companions</url>
-  <modVersion>1.0.0</modVersion>
-  <supportedVersions>
-    <li>1.6</li>
-  </supportedVersions>
-  <description>RimWorld already lets you give an animal a master and tick "follow master while doing field work". The animal then walks along while your colonist mines, harvests, forages or fishes. It follows, it wanders nearby, it defends — and it never once makes the work go better. This mod makes that walk worth something.
+RimWorld already lets you give an animal a master and tick "follow master while doing field work". The animal then walks along while your colonist mines, harvests, forages or fishes. It follows, it wanders nearby, it defends — and it never once makes the work go better. This mod makes that walk worth something.
 
-What it does
+# What it does
 When an obedient companion is at hand while its master works, there is a chance the work turns up more than it should: a little extra ore, a few more crops, one more fish, a bit more milk or wool. A mark appears over the animal that found it.
 
 - Mining, harvesting and foraging, fishing, milking and shearing. Each can be switched off on its own.
@@ -26,13 +16,13 @@ No data is added to the save: the mod can be added to or removed from a game in 
 
 Interface in English and French.
 
-If I go quiet
+# If I go quiet
 If I do not answer within a reasonable time after being contacted, anyone may freely update this or any other of my mods, including publishing a continuation of it. All credit must be preserved.
 
-AI-generated
+# AI-generated
 This mod's code was written with Claude Code (Anthropic), under human direction, review and testing. Stated openly: designing with these tools is my job.
 
-Thanks
+# Thanks
 The idea comes from Disney Dreamlight Valley, where a villager you take along with a matching role gives a chance of extra resources. Only the mechanic was borrowed — no asset, name or character from that game is used, and none could be.
 
 - Claude Code (Anthropic).
@@ -40,25 +30,4 @@ The idea comes from Disney Dreamlight Valley, where a villager you take along wi
 
 No third-party code is reused. See ATTRIBUTION.md, shipped with the mod. This mod is MIT licensed (LICENSE).
 
-Source code on GitHub (https://github.com/vbardales/Rimworld-Fieldwork-Companions)</description>
-  <modDependencies>
-    <li>
-      <packageId>brrainz.harmony</packageId>
-      <displayName>Harmony</displayName>
-      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
-      <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
-    </li>
-  </modDependencies>
-  <loadAfter>
-    <li>brrainz.harmony</li>
-    <li>Ludeon.RimWorld</li>
-    <li>Ludeon.RimWorld.Royalty</li>
-    <li>Ludeon.RimWorld.Ideology</li>
-    <li>Ludeon.RimWorld.Biotech</li>
-    <li>Ludeon.RimWorld.Anomaly</li>
-    <li>Ludeon.RimWorld.Odyssey</li>
-    <!-- Only a settings MainButtonDef is added; no XML patches. Odyssey's two trainings
-         are resolved at runtime by name and silently, so a mod that removes them, or a game
-         without the DLC, degrades this mod instead of breaking it. -->
-  </loadAfter>
-</ModMetaData>
+[Source code on GitHub](https://github.com/vbardales/Rimworld-Fieldwork-Companions)
