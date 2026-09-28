@@ -7,6 +7,9 @@
 # whether the game keeps a DLC out once a save is loaded, and this pass has to establish that before anything else it
 # says is worth reading (PickleTools/ExpansionSteps/README.md).
 #
-# Played with:  -DepMap wsl-deps.sans-odyssey.map -Filter '17-without-odyssey.feature'
+# Played with:  -DepMap wsl-deps.sans-odyssey.map -Filter '17-without-odyssey.feature' -Extra "-pickle-scenario-timeout=400"
+# The third line stages NewColony: the shared save holds an Orbit layer the game cannot load without Odyssey, so the
+# scenario that needs a map starts a new colony (see the header of 17-without-odyssey.feature).
 !ludeon.rimworld.odyssey
 nelim.pickletools.expansions path:PickleTools/ExpansionSteps/Mod
+nelim.pickletools.newcolony path:PickleTools/NewColony/Mod

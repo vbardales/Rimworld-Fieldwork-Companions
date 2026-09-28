@@ -13,6 +13,7 @@ Feature: a companion turns up one extra fish
 
   Background:
     Given the save "test-colony" is loaded
+    And game speed is paused
     And Fieldwork Companions always helps, at the largest share
     And a colonist "Miner" exists
     And Fieldwork Companions: "Rex" is an obedient "Husky" that follows "Miner" at work
