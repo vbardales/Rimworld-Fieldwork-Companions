@@ -9,7 +9,7 @@ remote:       https://github.com/vbardales/Rimworld-Fieldwork-Companions.git
 local_path:   C:\Users\nelim\Documents\rimworld\FieldworkCompanions
 visibility:   public
 detached:     yes
-stage:        tested   # workflow state names are used literally, no codes; see the 2026-09-29 section
+stage:        prepublished   # workflow state names are used literally, no codes; see the 2026-09-29 sections
 settings_audit: complete
 audit_revision: e2ec8fc5086e24f7b324516e3f81828cd4b3cd35
 licence:      original
@@ -38,6 +38,26 @@ remaining:
 
 This task owns and maintains this STATUS.md as work progresses. The file stays at the
 repository root, outside the distributed Mod/ folder.
+
+## `tested` -> `prepublished` — 2026-09-29
+
+Stage **tested -> prepublished**, on revision `918d1d0`. The `AUDIT.md` checklist for this gate:
+
+- Repository up to date and pushed, nothing left in the working tree (`918d1d0`, DLL of the
+  distributed folder matches the sources).
+- `CHANGELOG.md` has a dated section, `## [1.0.0] — 2026-09-29`, no longer `[Unreleased]`.
+- `PUBLICATION.md` is settled: the screenshot order and what each one shows, the mature-content
+  answer, the dependency/DLC table (re-checked against the sources), the change note, all current.
+- Description read once more: `Mod/About/About.xml`'s `<description>` is generated from
+  `Mod/README.template.md` and ends, in order, with `If I go quiet`, `AI-generated`, `Thanks`, the
+  ATTRIBUTION/licence line and the source link.
+- Thank-you message: Harmony's is already `posted`, with `Fieldwork Companions` in its `Covers`
+  list (`WORKSHOP_COMMENTS.md`) — no second comment to send.
+- No Git tag or GitHub release exist yet; for a CI publish they follow a successful upload, not the
+  other way round, so their absence here is expected, not a gap.
+
+Not done, and not required by this gate: subscribing to the Workshop item and testing the installed
+copy (`prepublished -> published`).
 
 ## `done` -> `tested` — 2026-09-29
 
