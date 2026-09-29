@@ -9,7 +9,7 @@ remote:       https://github.com/vbardales/Rimworld-Fieldwork-Companions.git
 local_path:   C:\Users\nelim\Documents\rimworld\FieldworkCompanions
 visibility:   public
 detached:     yes
-stage:        done   # workflow state names are used literally, no codes; see the 2026-09-21 sections
+stage:        tested   # workflow state names are used literally, no codes; see the 2026-09-29 section
 settings_audit: complete
 audit_revision: e2ec8fc5086e24f7b324516e3f81828cd4b3cd35
 licence:      original
@@ -18,20 +18,19 @@ licence_at:   Original implementation according to ATTRIBUTION.md; no third-part
 upstream_mod_remotes: N/A   # original mod (licence: original): no source mod ported, so no upstream repository to list. Distinct from `repo` (this mod's own repository) and `origin` (its git remote).
 dependencies: declared
 showcase:     complete
-tested_on:
+tested_on:    cd1afb7
 workshop:      3806133311
 maintainer:   Codex, current local repository task
-updated:      2026-09-25
+updated:      2026-09-29
 remaining:
-  - validated: The cow scenario (14-what-it-does-not-help, "a cow that is its master's companion does not help milk itself") was red on three runs because milking throws the product away with a chance of 1 - AnimalGatherYield (seeded draw), a defect of the suite. Replayed green on 2026-09-25 (request f529, exitReason passed, 1 of 1) with the repeat-until-product step; evidence Tests/Pickle/Evidence/2026-09-27-pass1-part3 (green again on 68a30c9).
-  - defect: The image for the Workshop gallery does not show what it is meant to show. In the film of `06-assists` "the mark over the companion" (2026-09-24, part 2) the ore is mined and the scenario asserts the mark floats over the dog, but no +N is visible in any frame of the film, the camera is wide (the zoom step did not take), and the still taken by the scenario is drawn in the bottom-left quarter of a black frame. A green scenario, an empty picture.
-  - unverified: Pass 1 (English, without optional mods) was played in three parts on 2026-09-24 (01-05: 17/17; 06-08: 13/13; 09-17: 16 passed, 4 failed, 10 skipped by requirement). Its three reports are `exitReason` passed or failed from finished runs; the four failures were suite defects, three fixed and replayed green (lake), one open (cow, above). The suite changed after those runs (steps assembly), so the three parts are to be replayed on the final build.
-  - unverified: Pass 2 (French, the same three parts), pass 3 "avec-rimmsqol" (09-12, RIMMSQOL lists, reveals, hides and forgets the shortcut, the bar draws it, it opens this mod's dialog, the choice survives a restart; only RIMMSQOL is covered) and pass 4 "sans-odyssey" (17) have not been played.
-  - validated: Scenario 13 of the functional list (mod added or removed in a game in progress) is played in both directions: `18-added-to-a-game-in-progress` (the shared fixture, written without the mod, loads with it, runs and saves again; request 9dd6) and `19-save-for-removal` then `removal-check` (a game saved with the mod, holding nothing of it outside its mod list, loads, runs and saves again with the mod out of the mod list; request 2099, pass retrait). Evidence Tests/Pickle/Evidence/2026-09-27-pass1-part3 (scenario 18, green again on 68a30c9) and 2026-09-25-retrait-3 (19 and removal-check).
-  - unverified: The @review captures of the settings page and of the reset confirmation, in English and French, have not been opened yet (the scroll bar and the two controls were seen reachable in the part 1 run of 2026-09-24, not yet reviewed as captures).
-  - unverified: The remaining runtime coverage must be produced by completed Pickle passes and reviewed media; no manual gameplay procedure is accepted as a substitute.
+  - validated: All four Pickle passes are green on revision `cd1afb7` (English, French, RIMMSQOL, without Odyssey), no `@wip` scenario remains, and every `@review` capture has been opened and looked at. See the 2026-09-29 section for the count per pass and the evidence folders.
+  - validated: The cow scenario (14-what-it-does-not-help, "a cow that is its master's companion does not help milk itself") was red on three runs because milking throws the product away with a chance of 1 - AnimalGatherYield (seeded draw), a defect of the suite. Replayed green with the repeat-until-product step, again on `68a30c9`; evidence Tests/Pickle/Evidence/2026-09-27-pass1-part3.
+  - validated: The mining gallery capture (scenario 20) now shows the companion beside the colonist, the "+N" mark readable and no overlapping tooltip; cropped into Art/WorkshopScreenshots/01-companion-at-work.png and confirmed by the maintainer, along with the three settings captures (02-04). Evidence Tests/Pickle/Evidence/2026-09-28-pass3-chain-3 and 2026-09-27-pass2-part1/2.
+  - validated: Scenario 13 of the functional list (mod added or removed in a game in progress) is played in both directions: `18-added-to-a-game-in-progress` (the shared fixture, written without the mod, loads with it, runs and saves again) and `19-save-for-removal` then `removal-check` (a game saved with the mod, holding nothing of it outside its mod list, loads, runs and saves again with the mod out of the mod list). Evidence Tests/Pickle/Evidence/2026-09-27-pass1-part3 (scenario 18) and 2026-09-25-retrait-3 (19 and removal-check).
+  - validated: RIMMSQOL's own list offers the shortcut, reveals it, the bar draws it, it opens this mod's dialog and shares its values, hiding works, and the choice survives two restarts (09, 10, 11, 12, played as one launch each in a chain). Evidence Tests/Pickle/Evidence/2026-09-27-pass3-rimmsqol/seq1 and 2026-09-28-pass3-chain-3.
+  - validated: Without Odyssey, `Dig` and `Forage` do not exist, the mod loads without error, and an obedient companion still helps at the base chance with the requirement ticked. The scenario that had no map to work on (the shared save needs Odyssey's Orbit layer) now starts a fresh colony instead of loading it. Evidence Tests/Pickle/Evidence/2026-09-28-pass4-newcolony.
   - note: Workshop item 3806133311 was published by the maintainer as 0.1.0 while the local metadata and draft notes use 1.0.0. The maintainer explicitly accepts that difference for this early publication; it is tracked for the next planned update, not treated as a current audit blocker.
-  - unverified: Subscribe to Workshop item 3806133311 and test the installed Workshop copy, including its visibility and the actual item page contents. The maintainer reported publication, but this audit did not access Steam.
+  - unverified: Subscribe to Workshop item 3806133311 and test the installed Workshop copy, including its visibility and the actual item page contents. This audit does not access Steam; `tested` does not require it, `prepublished`/publication do.
   - validated: PublishedFileId `3806133311` is committed and pushed on `main` (e2ec8fc, followed by release-preparation commits).
 ---
 
@@ -39,6 +38,34 @@ remaining:
 
 This task owns and maintains this STATUS.md as work progresses. The file stays at the
 repository root, outside the distributed Mod/ folder.
+
+## `done` -> `tested` — 2026-09-29
+
+Stage **done -> tested**. The maintainer's three criteria are met: no `@wip` scenario remains in
+`Tests/Pickle/Mod/Pickle/Features`; every conditional/`@requires` scenario has been played, at
+least once, in its declared pass; no manual test is left to validate that a completed pass could
+have covered.
+
+Four passes were run on revision `cd1afb7`, all `exitReason: passed`:
+
+- **Pass 1, English** (parts 1-3): 52 of 52 played, 0 failed. `Tests/Pickle/Evidence/2026-09-27-pass1-part1`, `-part2`, `-part3`.
+- **Pass 2, French** (parts 1-3): 51 of 51 played, 0 failed. Parts 1-2 `Tests/Pickle/Evidence/2026-09-27-pass2-part1`, `-part2`. Part 3 first failed on `16-fishing` (the mark check had nothing pausing the game between the catch and the check, so on the slower French run the mote expired before the check ran; a suite defect, fixed by pausing the Background, replayed green in both languages — `Tests/Pickle/Evidence/2026-09-28-fix-fishing-fr`, `-fix-fishing-en`); the rest of part 3 (`Tests/Pickle/Evidence/2026-09-27-pass2-part3`) was 20 of 21 played passed.
+- **Pass 3, RIMMSQOL** (09, then a restart chain 10-11-12, each in its own launch): 6 of 6 played, 0 failed, after two prior attempts hit an environment crash (exit 139) and an off-main-thread UI resource flake, neither reproducible and neither a mod defect. `Tests/Pickle/Evidence/2026-09-27-pass3-rimmsqol/seq1` (09) and `2026-09-28-pass3-chain-3/seq1`, `/seq2`, `/seq3` (10, 11, 12).
+- **Pass 4, without Odyssey**: 2 of 2 played, 0 failed. The scenario beyond the first no longer loads the shared save (it holds an Orbit layer that only Odyssey can read, which made the load hang and time out); it starts a fresh colony instead. `Tests/Pickle/Evidence/2026-09-28-pass4-newcolony`.
+
+Every `@review` capture was opened and looked at: the settings page (top, bottom, reset
+confirmation) in both languages, RIMMSQOL's list and its shortcut's edit page revealed, and the
+mining scene for the Workshop gallery (companion beside the colonist, "+N" readable, no tooltip
+overlap) — the maintainer confirmed all four gallery images
+(`Art/WorkshopScreenshots/01-companion-at-work.png` through `04-reset-confirmation.png`).
+
+Two suite defects surfaced by this pass and fixed in the suite, not the mod (Source/ untouched):
+the fishing mark check needed the game paused, and the sans-Odyssey pass needed its own colony
+instead of the Odyssey-only shared save. Both committed and replayed green; see `docs/runs/history.md`
+for the individual run entries.
+
+Not required for `tested` and not done: publishing the update, or testing the installed Workshop
+copy (`prepublished` and publication gates).
 
 ## Current handoff — 2026-09-22
 
