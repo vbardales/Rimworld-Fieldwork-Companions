@@ -3,12 +3,16 @@
 Format inspired by [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 This file serves the repository and the writing of Steam patch notes; RimWorld does not display it in game.
 
-## [Unreleased]
+## [1.0.0] — 2026-09-29
 
 ### Fixed
 
 - The settings page could not scroll: past a certain height, `Listing_Standard` silently opened a second column outside the visible area, so the "show a mark" checkbox and the reset button were drawn off-screen and unreachable. Confirmed in the real game before the fix; a later Pickle run drew the scroll bar with both controls reachable. The fix was committed after the 0.1.0 upload.
 - The ModIcon now shows the whole artwork instead of a crop.
+
+### Changed
+
+- `Preview.png` now carries a cutout of the ModIcon in its bottom-left corner, tilted, running past the frame.
 
 ## [0.1.0] — 2026-09-22
 
