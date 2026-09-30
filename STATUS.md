@@ -1,7 +1,7 @@
 ---
 localization: complete
 translation_en: complete
-translation_fr: complete
+translation_fr: partial   # session checks done 2026-09-30; complete only once Virginie has reviewed, see TRANSLATIONS.md section 3
 mod:          Fieldwork Companions
 packageId:    nelim.fieldworkcompanions
 repo:         Rimworld-Fieldwork-Companions
@@ -32,12 +32,40 @@ remaining:
   - note: Workshop item 3806133311 was published by the maintainer as 0.1.0 while the local metadata and draft notes use 1.0.0. The maintainer explicitly accepts that difference for this early publication; it is tracked for the next planned update, not treated as a current audit blocker.
   - unverified: Subscribe to Workshop item 3806133311 and test the installed Workshop copy, including its visibility and the actual item page contents. This audit does not access Steam; `tested` does not require it, `prepublished`/publication do.
   - validated: PublishedFileId `3806133311` is committed and pushed on `main` (e2ec8fc, followed by release-preparation commits).
+  - validated: Reread against the 2026-09-30 French gender-agreement rule (TRANSLATIONS.md section 3). No owned text agrees with a pawn: all 33 Keyed entries are settings labels, tooltips, the reset confirmation and the numeric assist mote (`+{0}`); the one DefInjected pair is the hidden MainButtons shortcut's label/description. None names or describes a specific colonist or animal, so no `{PAWN_gender ? ...}` switch applies or is missing. `FRENCH_REVIEW.md` regenerated (`_tools/Generate-FrenchReview.ps1`, reads the shipped XML) on revision `b836910`.
+  - unverified: French review by Virginie. Not a session check: `translation_fr` cannot be `complete` until she has read `FRENCH_REVIEW.md` and this line is updated with reviewer, date, revision and any correction, by her session, not this one.
 ---
 
 # Fieldwork Companions — status
 
 This task owns and maintains this STATUS.md as work progresses. The file stays at the
 repository root, outside the distributed Mod/ folder.
+
+## Translation audit — 2026-09-30
+
+On the peer session's notice: `TRANSLATIONS.md` gained a French gender-agreement rule and a
+systematic-French-review requirement (both 2026-09-30), and `translation_fr` was reset to
+`unchecked`. This audit redoes the French pass on revision `b836910`; nothing in `Mod/` or
+`Source/` changed, only the check and its record.
+
+- **Where the French lives:** `Mod/Languages/French/Keyed/FieldworkCompanions.xml` (33 entries:
+  the settings category title, 30 settings labels/tooltips/headers, the reset confirmation, and
+  the numeric assist mote `+{0}`) and `Mod/Languages/French/DefInjected/MainButtonDef/FieldworkCompanions.xml`
+  (2 entries: the hidden MainButtons shortcut's label and description). No grammar resource files
+  exist; the mod issues no `GrammarRequest`.
+- **Gender agreement:** read every French entry (see `FRENCH_REVIEW.md`) against the three-segment
+  switch rule. None of the 35 texts agrees with a pawn — they describe the mechanic in the
+  abstract ("le compagnon", "l'animal", "un compagnon entièrement dressé et lié") rather than a
+  specific colonist or animal at runtime, and `Source/**/*.cs` passes no `Pawn` to any `.Translate()`
+  call (`FieldworkCompanionsMod.cs`, `Runtime/Companions.cs`; grep confirms only numeric arguments:
+  chance percentages, the assist count, the radius). No `{PAWN_gender ? ...}` switch is used or
+  missing.
+- **`FRENCH_REVIEW.md`** generated at the mod root by the new `_tools/Generate-FrenchReview.ps1`
+  (reads the shipped XML, one table per file, Original/English/French columns; Original repeats
+  English since the mod is original, not ported). No row is flagged `?`. Not committed to `Mod/`,
+  so Steam never receives it.
+- Not this session's to set: `translation_fr` stays `partial`, with an `unverified: French review
+  by Virginie` line in `remaining`. Only Virginie's own session marks it reviewed.
 
 ## `tested` -> `prepublished` — 2026-09-29
 
