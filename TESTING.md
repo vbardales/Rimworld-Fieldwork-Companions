@@ -152,8 +152,30 @@ than it says; none asks for a hand-played validation.
   through `PickleTools/ClickDiagnostics` and would name the covering window and its assembly.
 ## Status of these tests
 
-Written 2026-09-21. Validated without running the game: the steps assembly builds against the
-shipped DLL, and `Tests/Pickle/Check-Steps.ps1` compiles every step pattern with Pickle's own
-engine and matches every step line of every feature against them. An initial English run ended
-without a completed report. **No completed Fieldwork Companions pass has been reviewed**, so
-the numbers in `06-assists.feature` remain derived from the vanilla 1.6 defs rather than observed.
+Written 2026-09-21; the passes were played on revision `cd1afb7` (2026-09-27/28), audited 2026-10-02. State against the
+gate `done -> tested` as the audit now states it:
+
+- **No `@wip` scenario** under `Tests/Pickle/Mod/Pickle/Features` (grep, 2026-10-02).
+- **Every conditional scenario has run, in the pass that meets its condition**: `@requires:Odyssey` in passes 1 and 2
+  (0 skipped in parts 1-2); RIMMSQOL (09-12) in pass 3; `17-without-odyssey` in pass 4; `19-save-for-removal` and
+  `removal-check` in pass 5. The 11 skips of parts 3 of passes 1 and 2 are exactly those, by design, and are not
+  counted as passed.
+- **No manual test left to validate**: see "What is not a gate". The `@review` captures were opened and looked at
+  (`STATUS.md`, 2026-09-29).
+
+Evidence folders on disk (`Tests/Pickle/Evidence/`, ignored by git, about 5.5 MB), and what each is the only proof of.
+A new report of the same scenario on the revision now in the repository replaces the line, and the folder goes once
+nothing else in it is the latest:
+
+| Folder | Scenarios it proves | Note |
+| --- | --- | --- |
+| `2026-09-27-pass1-part1` / `-part2` / `-part3` | Pass 1 (English), parts 1-3 | `-part3` holds the `16-fishing` of before the fix; `2026-09-28-fix-fishing-en` replaces that scenario only |
+| `2026-09-27-pass2-part1` / `-part2` / `-part3` | Pass 2 (French), parts 1-3 | `-part3` holds the one red (`16-fishing`); `2026-09-28-fix-fishing-fr` replaces it, the other 20 scenarios have no other report |
+| `2026-09-28-fix-fishing-en` / `-fr` | `16-fishing`, fixed | Latest for that scenario |
+| `2026-09-27-pass3-rimmsqol/seq1` | `09-rimmsqol-shortcut` | |
+| `2026-09-28-pass3-chain-3/seq1-3` | `10`, `11`, `12` (restart chain) | |
+| `2026-09-28-pass4-newcolony` | `17-without-odyssey` | The version of the scenario that starts a fresh colony |
+| `2026-09-25-retrait-3/seq1-2` | `19-save-for-removal`, `removal-check` | Played from the working tree before the feature was committed; replayed by the final non-regression pass, then this folder goes |
+
+No evidence, film, capture or `.dds` is tracked in git; `.gitignore` carries `Tests/Pickle/Evidence/`, `Evidence/` and
+`*.dds`.

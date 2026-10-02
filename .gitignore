@@ -33,3 +33,10 @@ node_modules/
 # Pickle evidence stays on disk (reports, screenshots, films: hundreds of megabytes, and a shared run can hold
 # other mods' pictures). What is kept in git is the text summary in docs/runs/.
 Tests/Pickle/Evidence/
+
+# Windows folder-icon artifacts. Steam sends Mod/ as it stands, so a desktop.ini or an .ico there would
+# reach every subscriber. The folder icon is local: Mod/desktop.ini points to ../Art/Preview.ico, which
+# stays outside Mod/ (the root desktop.ini and Art/*.ico are tracked, Mod/ never carries either).
+Mod/desktop.ini
+Mod/**/desktop.ini
+Mod/*.ico

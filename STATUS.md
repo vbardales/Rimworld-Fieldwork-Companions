@@ -10,8 +10,9 @@ local_path:   C:\Users\nelim\Documents\rimworld\FieldworkCompanions
 visibility:   public
 detached:     yes
 stage:        prepublished   # workflow state names are used literally, no codes; see the 2026-09-29 sections
+workflow_stage: prepublished
 settings_audit: complete
-audit_revision: e2ec8fc5086e24f7b324516e3f81828cd4b3cd35
+audit_revision: 85779de
 licence:      original
 license_spdx: MIT
 licence_at:   Original implementation according to ATTRIBUTION.md; no third-party mod code or assets reused. Only the mechanic is inspired by Disney Dreamlight Valley. Root and distributed LICENSE grant MIT. Classification original describes provenance; MIT describes reuse permissions.
@@ -21,11 +22,11 @@ showcase:     complete
 tested_on:    cd1afb7
 workshop:      3806133311
 maintainer:   Codex, current local repository task
-updated:      2026-09-29
+updated:      2026-10-02
 remaining:
   - validated: All four Pickle passes are green on revision `cd1afb7` (English, French, RIMMSQOL, without Odyssey), no `@wip` scenario remains, and every `@review` capture has been opened and looked at. See the 2026-09-29 section for the count per pass and the evidence folders.
   - validated: The cow scenario (14-what-it-does-not-help, "a cow that is its master's companion does not help milk itself") was red on three runs because milking throws the product away with a chance of 1 - AnimalGatherYield (seeded draw), a defect of the suite. Replayed green with the repeat-until-product step, again on `68a30c9`; evidence Tests/Pickle/Evidence/2026-09-27-pass1-part3.
-  - validated: The mining gallery capture (scenario 20) now shows the companion beside the colonist, the "+N" mark readable and no overlapping tooltip; cropped into Art/WorkshopScreenshots/01-companion-at-work.png and confirmed by the maintainer, along with the three settings captures (02-04). Evidence Tests/Pickle/Evidence/2026-09-28-pass3-chain-3 and 2026-09-27-pass2-part1/2.
+  - validated: The mining gallery capture (scenario 20) now shows the companion beside the colonist, the "+N" mark readable and no overlapping tooltip; cropped into Art/WorkshopScreenshots/1-companion-at-work.png and confirmed by the maintainer, along with the three settings captures (2-4). Evidence Tests/Pickle/Evidence/2026-09-28-pass3-chain-3 and 2026-09-27-pass2-part1/2.
   - validated: Scenario 13 of the functional list (mod added or removed in a game in progress) is played in both directions: `18-added-to-a-game-in-progress` (the shared fixture, written without the mod, loads with it, runs and saves again) and `19-save-for-removal` then `removal-check` (a game saved with the mod, holding nothing of it outside its mod list, loads, runs and saves again with the mod out of the mod list). Evidence Tests/Pickle/Evidence/2026-09-27-pass1-part3 (scenario 18) and 2026-09-25-retrait-3 (19 and removal-check).
   - validated: RIMMSQOL's own list offers the shortcut, reveals it, the bar draws it, it opens this mod's dialog and shares its values, hiding works, and the choice survives two restarts (09, 10, 11, 12, played as one launch each in a chain). Evidence Tests/Pickle/Evidence/2026-09-27-pass3-rimmsqol/seq1 and 2026-09-28-pass3-chain-3.
   - validated: Without Odyssey, `Dig` and `Forage` do not exist, the mod loads without error, and an obedient companion still helps at the base chance with the requirement ticked. The scenario that had no map to work on (the shared save needs Odyssey's Orbit layer) now starts a fresh colony instead of loading it. Evidence Tests/Pickle/Evidence/2026-09-28-pass4-newcolony.
@@ -40,6 +41,58 @@ remaining:
 
 This task owns and maintains this STATUS.md as work progresses. The file stays at the
 repository root, outside the distributed Mod/ folder.
+
+## Ordered audit — 2026-10-02
+
+Audited on revision `85779de` (working tree: the changes of this session only, no change to `Mod/` or
+`Source/`). Result: **`prepublished` confirmed**; `workflow_stage: prepublished` added (the field was missing, so
+the session title could not be built from it). The session is named `fieldworkcompanions / prepublished`.
+
+**Checked in this session**
+- `_tools/Run-Functional-Tests.ps1`: 25 tests, all passed (replayed, not read from an old report).
+- Git: `main` equals `origin/main` after a fetch; no evidence, `.dds`, film or report tracked (`git ls-files`);
+  `*.dds` already in `.gitignore` and none on disk. `Mod/Assemblies/FieldworkCompanions.dll` is the committed one
+  (SHA-256 starts `99AEF88CEF37`); `Source/` unchanged since `cd1afb7`; the only change under `Mod/` since the tested
+  revision is `Mod/About/Preview.png` (the ModIcon cutout, 2026-09-29).
+- New `done -> tested` criteria (2026-10-02): **no `@wip`** (grep over `Tests/`: none); **every conditional scenario
+  ran**: the 11 `@requires` scenarios skipped in passes 1 and 2 by design are the RIMMSQOL (09-12), without-Odyssey
+  (17) and removal (19) ones, played in passes 3, 4 and 5 (`junit.xml`: pass 3 4 + 1 + 1 + 1 tests, pass 4 2, retrait 1 + 1; 0 failed, 0 skipped);
+  `@requires:Odyssey` scenarios ran with 0 skipped in parts 1 and 2; **no manual test left** (TESTING.md, "What is not
+  a gate": limits of the automated route, none asking for a hand-played validation).
+- Evidence: 12 report folders (15 reports) under `Tests/Pickle/Evidence/`, 5.5 MB, all on disk and ignored by git, all minified
+  (no `report.html` / `messages.ndjson`, two 60 KB scroll films kept). Every folder is the latest report of at least one scenario, so none was
+  deleted; the one red (`16-fishing` in `2026-09-27-pass2-part3`) is superseded by `2026-09-28-fix-fishing-fr` and
+  kept with its part because the other 20 scenarios of that part have no other report. TESTING.md, "Evidence to
+  keep", now lists which folder proves what.
+- Upstream: original mod (`licence: original`), no source repository: `upstream_mod_remotes: N/A` stands, no fork or
+  pull request to prepare. `Mod/About/PublishedFileId.txt` (`3806133311`) is committed; the CHANGELOG already opens
+  with `0.1.0` "creation of the Workshop item" under the dated `1.0.0`.
+
+**Fixed in this session (docs and repository hygiene only)**
+- `.gitignore`: `Mod/desktop.ini`, `Mod/**/desktop.ini`, `Mod/*.ico` (Steam sends `Mod/` as it stands). The root
+  `desktop.ini`, `Art/ModIcon.ico` and `Art/Preview.ico` are tracked, as in SkillIcons and Architect Studio.
+- Gallery files renamed to the single-digit rule of PUBLISHING.md (`0-preview.png` … `4-reset-confirmation.png`);
+  `0-preview.png` is still byte for byte `Mod/About/Preview.png` (same SHA-256). `PUBLICATION.md` follows.
+- `TESTING.md`: the closing "Status of these tests" paragraph still said no pass had been reviewed and that features
+  13 to 17 had never played; replaced by the state on `cd1afb7`.
+- `docs/PROTOCOLS-READ.md`: rewritten for the versions read today, with the documents that were of no use.
+
+**Reserves (not blockers, none lowers the stage)**
+- `Art/Preview.ico` (2026-09-27) predates the new `Mod/About/Preview.png` (2026-09-29); regenerate it from the
+  current Preview if the folder icon should show the cutout. Cosmetic and local.
+- The retrait chain (pass 5, `2026-09-25-retrait-3`) ran from the working tree on 2026-09-25, two days before
+  `19-save-for-removal` and `removal-check` were committed (`16e992a`). The non-regression pass on the final revision
+  will replay it; until then the committed feature is not the one with a report.
+- The mod is still on the semantic-release path (`release.yml`, `release-steam-plugin.mjs`, `package.json`) while
+  `Rimworld-Release-Admin` is retiring it for `publish-tag.yml` (`docs/MIGRATION-TO-MANUAL.md` lists this mod). That is
+  the CI/CD session's migration, not this session's; the `1.0.0` stays on the documented-mode path agreed on 2026-09-25
+  unless Virginie decides otherwise.
+- `translation_fr: partial` until Virginie reads `FRENCH_REVIEW.md` (unchanged).
+
+**Needed for the next transition (`prepublished -> published`)**: the full-SHA dry-run and the `publish` by the
+CI/CD session, approval of `steam-production` and the visibility switch by Virginie, the gallery upload by hand in the
+order of `PUBLICATION.md`, the thank-you messages (Harmony's is already posted), then subscribing to the item to test
+the installed copy.
 
 ## Translation audit — 2026-09-30
 
@@ -105,7 +158,7 @@ Every `@review` capture was opened and looked at: the settings page (top, bottom
 confirmation) in both languages, RIMMSQOL's list and its shortcut's edit page revealed, and the
 mining scene for the Workshop gallery (companion beside the colonist, "+N" readable, no tooltip
 overlap) — the maintainer confirmed all four gallery images
-(`Art/WorkshopScreenshots/01-companion-at-work.png` through `04-reset-confirmation.png`).
+(`Art/WorkshopScreenshots/1-companion-at-work.png` through `4-reset-confirmation.png`).
 
 Two suite defects surfaced by this pass and fixed in the suite, not the mod (Source/ untouched):
 the fishing mark check needed the game paused, and the sans-Odyssey pass needed its own colony

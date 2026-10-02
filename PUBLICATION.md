@@ -3,7 +3,7 @@
 What the Workshop page needs and the rest of the repository does not hold. It serves twice: for the
 first upload, and for whoever takes the mod over.
 
-**Status: `tested`, 2026-09-29.** Workshop item `3806133311` was created as the maintainer's early
+**Status: `prepublished`, audited 2026-10-02 (reached 2026-09-29).** Workshop item `3806133311` was created as the maintainer's early
 0.1.0 publication, and its `PublishedFileId.txt` is committed and pushed. No Git tag or GitHub
 Release exists yet — for a CI publish they are created after a successful upload, not before. The
 gallery below is settled and every image has been opened, looked at and confirmed by the maintainer.
@@ -19,14 +19,14 @@ second thing seen, right where a browsing eye goes next.
 
 | File | What it shows | Why there |
 |---|---|---|
-| `Art/WorkshopScreenshots/00-preview.png` | The same image as `Mod/About/Preview.png`: the miner, the dog and the pickaxe scene, with the ModIcon cut out and composited in a bottom corner, tilted, running past the frame | Matches the page's own Preview thumbnail; the icon corner is the mod's own mark of identity, so the first screenshot doubles as a signature, not a surprise |
-| `Art/WorkshopScreenshots/01-companion-at-work.png` | A real mining job: the colonist working the rock, the dog right beside them, a readable `+N` mark over the dog, ore chunks on the ground | The only image that shows the mod *doing* something |
-| `Art/WorkshopScreenshots/02-settings-page-top.png` | The top of the settings page (English): the intro text, the four work toggles, the training requirement | Shows how much is adjustable |
-| `Art/WorkshopScreenshots/03-settings-page-bottom.png` | The bottom of the settings page: the chance and yield sliders, the scroll bar visible | Proves the scroll fix (STATUS.md, 2026-09-22) reaches every control |
-| `Art/WorkshopScreenshots/04-reset-confirmation.png` | The reset confirmation dialog over the settings page | The one destructive control on the page; worth showing it asks first |
+| `Art/WorkshopScreenshots/0-preview.png` | The same image as `Mod/About/Preview.png`: the miner, the dog and the pickaxe scene, with the ModIcon cut out and composited in a bottom corner, tilted, running past the frame | Matches the page's own Preview thumbnail; the icon corner is the mod's own mark of identity, so the first screenshot doubles as a signature, not a surprise |
+| `Art/WorkshopScreenshots/1-companion-at-work.png` | A real mining job: the colonist working the rock, the dog right beside them, a readable `+N` mark over the dog, ore chunks on the ground | The only image that shows the mod *doing* something |
+| `Art/WorkshopScreenshots/2-settings-page-top.png` | The top of the settings page (English): the intro text, the four work toggles, the training requirement | Shows how much is adjustable |
+| `Art/WorkshopScreenshots/3-settings-page-bottom.png` | The bottom of the settings page: the chance and yield sliders, the scroll bar visible | Proves the scroll fix (STATUS.md, 2026-09-22) reaches every control |
+| `Art/WorkshopScreenshots/4-reset-confirmation.png` | The reset confirmation dialog over the settings page | The one destructive control on the page; worth showing it asks first |
 
-Produced by `20-gallery-mark.feature` (00-01) and `02-settings-page.feature`/`04-mainbuttons-shortcut.feature`
-(02-04), all `@review`, on revision `cd1afb7`; evidence in `Tests/Pickle/Evidence/2026-09-27-pass2-part1`,
+Produced by `20-gallery-mark.feature` (0-1) and `02-settings-page.feature`/`04-mainbuttons-shortcut.feature`
+(2-4), all `@review`, on revision `cd1afb7`; evidence in `Tests/Pickle/Evidence/2026-09-27-pass2-part1`,
 `-part2` and `2026-09-28-pass3-chain-3`. Every image was opened and looked at before being listed here: a
 green capture scenario proves the journey ran, not that the image shows anything.
 
