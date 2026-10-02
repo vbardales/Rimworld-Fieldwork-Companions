@@ -67,6 +67,33 @@ namespace FieldworkCompanions.PickleSteps
             Find.CameraDriver.JumpToCurrentMapLoc(pawn.Position + new IntVec3(left, 0, -above));
         }
 
+        // The decor of the photograph is placed relative to the colonist, because her cell is not known in advance, and
+        // taken away again afterwards so that nothing of the set is left in the shared fixture.
+        private static readonly System.Collections.Generic.List<Thing> sceneDecor = new System.Collections.Generic.List<Thing>();
+
+        [Given("Fieldwork Companions: the scene decor {string} stands {int} cells right of and {int} cells below {string}")]
+        public void SceneDecor(PickleContext ctx, string defName, int right, int below, string colonistName)
+        {
+            var worker = Driver.PawnNamed(ctx, colonistName);
+            var def = Def(ctx, defName);
+            var cell = worker.Position + new IntVec3(right, 0, -below);
+            var map = worker.Map;
+            ctx.Require(cell.InBounds(map) && cell.Standable(map) && cell.GetEdifice(map) == null && cell.GetFirstItem(map) == null
+                        && cell.GetPlant(map) == null && !map.thingGrid.ThingsListAt(cell).Any(t => t is Pawn),
+                $"the decor cell {cell} ({right} right, {below} below {colonistName} at {worker.Position}) is not free");
+            var thing = GenSpawn.Spawn(ThingMaker.MakeThing(def, def.MadeFromStuff ? GenStuff.DefaultStuffFor(def) : null), cell, map);
+            var fuel = thing.TryGetComp<CompRefuelable>();
+            if (fuel != null) fuel.Refuel(fuel.Props.fuelCapacity);
+            sceneDecor.Add(thing);
+        }
+
+        [When("Fieldwork Companions: the scene decor is cleared")]
+        public void SceneDecorCleared(PickleContext ctx)
+        {
+            foreach (var t in sceneDecor.Where(t => !t.Destroyed)) t.Destroy();
+            sceneDecor.Clear();
+        }
+
         [When("Fieldwork Companions: {string} is ordered to mine the rock beside them")]
         public void OrderedToMine(PickleContext ctx, string colonistName)
         {
