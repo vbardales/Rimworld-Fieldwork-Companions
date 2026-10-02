@@ -9,20 +9,20 @@ nothing. The Original column repeats the English text.
 
 ### Keyed
 
-Shipped as of `342f69d`, from `Mod/Languages/English/Keyed/FieldworkCompanions.xml`.
+Shipped as of `51bc7e5`, from `Mod/Languages/English/Keyed/FieldworkCompanions.xml`.
 
 | Key or path | Original | English | French |
 |---|---|---|---|
 | `FieldworkCompanions.Settings.Title` | Fieldwork Companions | Fieldwork Companions | Fieldwork Companions |
 | `FieldworkCompanions.Mote.Assist` | +{0} | +{0} | +{0} |
-| `FieldworkCompanions.Settings.Intro` | An animal set to follow its master while doing field work now earns its keep: when it is at hand, the work turns up a little more than it should.\n\nThe animal must have learned obedience — the game already requires that before an animal respects a master at all.\n\nSettings apply immediately to all saves and are saved when this window closes. | An animal set to follow its master while doing field work now earns its keep: when it is at hand, the work turns up a little more than it should.\n\nThe animal must have learned obedience — the game already requires that before an animal respects a master at all.\n\nSettings apply immediately to all saves and are saved when this window closes. | Un animal entraîné à accompagner une personne pendant les travaux de terrain sert enfin à quelque chose : quand il est là, le travail rend un peu plus qu'il ne devrait.\n\nIl doit avoir appris l'obéissance — le jeu l’exige déjà avant qu’un animal accepte d’accompagner quelqu’un.\n\nLes réglages prennent effet immédiatement pour toutes les sauvegardes et sont enregistrés à la fermeture de cette fenêtre. |
+| `FieldworkCompanions.Settings.Intro` | An animal set to follow its master while doing field work now earns its keep: when it is at hand, the work turns up a little more than it should.\n\nThe animal must have learned obedience — the game already requires that before an animal respects a master at all.\n\nSettings apply immediately to all saves and are saved when this window closes. | An animal set to follow its master while doing field work now earns its keep: when it is at hand, the work turns up a little more than it should.\n\nThe animal must have learned obedience — the game already requires that before an animal respects a master at all.\n\nSettings apply immediately to all saves and are saved when this window closes. | Un animal entraîné à accompagner une personne pendant les travaux de terrain sert enfin à quelque chose : quand il est là, le travail permet d’obtenir un peu plus que prévu.\n\nIl doit avoir appris l'obéissance — le jeu l’exige déjà avant qu’un animal accepte d’accompagner quelqu’un.\n\nLes réglages prennent effet immédiatement pour toutes les sauvegardes et sont enregistrés à la fermeture de cette fenêtre. |
 | `FieldworkCompanions.Settings.WorkHeader` | What a companion helps with | What a companion helps with | Travaux auxquels le compagnon apporte son aide |
 | `FieldworkCompanions.Settings.Mining` | Mining | Mining | Minage |
 | `FieldworkCompanions.Settings.MiningTip` | Rock and ore mined by hand. Deep drills do not receive this bonus. | Rock and ore mined by hand. Deep drills do not receive this bonus. | La roche et le minerai abattus à la main. Les foreuses profondes ne bénéficient pas de ce bonus. |
 | `FieldworkCompanions.Settings.Harvest` | Harvesting and foraging | Harvesting and foraging | Récolte et cueillette |
 | `FieldworkCompanions.Settings.HarvestTip` | Crops and wild plants alike. Cutting a plant down is not harvesting and yields no bonus. | Crops and wild plants alike. Cutting a plant down is not harvesting and yields no bonus. | Les cultures comme les plantes sauvages. Couper une plante n'est pas la récolter et ne donne aucun bonus. |
 | `FieldworkCompanions.Settings.Fishing` | Fishing | Fishing | Pêche |
-| `FieldworkCompanions.Settings.FishingTip` | Requires Odyssey. One extra fish, drawn from the catch that was just landed. An animal fishing on its own is never assisted. | Requires Odyssey. One extra fish, drawn from the catch that was just landed. An animal fishing on its own is never assisted. | Nécessite Odyssey. Un poisson de plus, pris parmi ceux qui viennent d'être sortis. Un animal qui pêche seul ne reçoit jamais d’aide. |
+| `FieldworkCompanions.Settings.FishingTip` | Requires Odyssey. One extra fish, drawn from the catch that was just landed. An animal fishing on its own is never assisted. | Requires Odyssey. One extra fish, drawn from the catch that was just landed. An animal fishing on its own is never assisted. | Nécessite Odyssey. Un poisson supplémentaire, prélevé sur la prise tout juste remontée. Un animal qui pêche seul ne reçoit jamais d’aide. |
 | `FieldworkCompanions.Settings.Gathering` | Milking and shearing | Milking and shearing | Traite et tonte |
 | `FieldworkCompanions.Settings.GatheringTip` | The animal being milked or sheared never counts as its own helper. | The animal being milked or sheared never counts as its own helper. | L'animal qu'on trait ou qu'on tond ne peut jamais compter comme son propre assistant. |
 | `FieldworkCompanions.Settings.RequireSpecialty` | Require the matching training | Require the matching training | Exiger le dressage correspondant |
@@ -49,7 +49,7 @@ Shipped as of `342f69d`, from `Mod/Languages/English/Keyed/FieldworkCompanions.x
 
 ### DefInjected - MainButtonDef
 
-Shipped as of `342f69d`, from `Mod/Languages/French/DefInjected/MainButtonDef/FieldworkCompanions.xml`.
+Shipped as of `51bc7e5`, from `Mod/Languages/French/DefInjected/MainButtonDef/FieldworkCompanions.xml`.
 
 | Key or path | Original | English | French |
 |---|---|---|---|

@@ -1,7 +1,7 @@
 ---
 localization: complete
 translation_en: complete
-translation_fr: partial   # session checks done 2026-09-30; complete only once Virginie has reviewed, see TRANSLATIONS.md section 3
+translation_fr: complete   # reviewed by Virginie 2026-10-02, see the French review line in "Translation audit"
 mod:          Fieldwork Companions
 packageId:    nelim.fieldworkcompanions
 repo:         Rimworld-Fieldwork-Companions
@@ -33,8 +33,7 @@ remaining:
   - note: Workshop item 3806133311 was published by the maintainer as 0.1.0 while the local metadata and draft notes use 1.0.0. The maintainer explicitly accepts that difference for this early publication; it is tracked for the next planned update, not treated as a current audit blocker.
   - unverified: Subscribe to Workshop item 3806133311 and test the installed Workshop copy, including its visibility and the actual item page contents. This audit does not access Steam; `tested` does not require it, `prepublished`/publication do.
   - validated: PublishedFileId `3806133311` is committed and pushed on `main` (e2ec8fc, followed by release-preparation commits).
-  - validated: Reread against the 2026-09-30 French gender-agreement rule (TRANSLATIONS.md section 3). No owned text agrees with a pawn: all 33 Keyed entries are settings labels, tooltips, the reset confirmation and the numeric assist mote (`+{0}`); the one DefInjected pair is the hidden MainButtons shortcut's label/description. None names or describes a specific colonist or animal, so no `{PAWN_gender ? ...}` switch applies or is missing. `FRENCH_REVIEW.md` regenerated (`_tools/Generate-FrenchReview.ps1`, reads the shipped XML) on revision `b836910`.
-  - unverified: French review by Virginie. 2026-10-02: 10 corrections requested and applied (Intro, WorkHeader, FishingTip, GatheringTip, RequireSpecialtyTip, BondTip, ShareTip, Radius, RadiusTip, BondChance); validation pending on the corrected revision.  Not a session check: `translation_fr` cannot be `complete` until she has read `FRENCH_REVIEW.md` and this line is updated with reviewer, date, revision and any correction, by her session, not this one.
+  - validated: French review by Virginie, 2026-10-02: 12 corrections requested (Intro, WorkHeader, FishingTip, GatheringTip, RequireSpecialtyTip, BondTip, ShareTip, Radius, RadiusTip, BondChance, then Intro and FishingTip again), all applied; she declared the French validated linguistically at revision `342f69d` on her own statement in chat. The wording after that is the corrections listed here only (commit following 51bc7e5). Reread against the 2026-09-30 French gender-agreement rule (TRANSLATIONS.md section 3). No owned text agrees with a pawn: all 33 Keyed entries are settings labels, tooltips, the reset confirmation and the numeric assist mote (`+{0}`); the one DefInjected pair is the hidden MainButtons shortcut's label/description. None names or describes a specific colonist or animal, so no `{PAWN_gender ? ...}` switch applies or is missing. `FRENCH_REVIEW.md` regenerated (`_tools/Generate-FrenchReview.ps1`, reads the shipped XML) on revision `b836910`.
 ---
 
 # Fieldwork Companions — status

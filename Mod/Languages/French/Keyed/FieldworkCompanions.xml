@@ -4,7 +4,7 @@
 
   <FieldworkCompanions.Mote.Assist>+{0}</FieldworkCompanions.Mote.Assist>
 
-  <FieldworkCompanions.Settings.Intro>Un animal entraîné à accompagner une personne pendant les travaux de terrain sert enfin à quelque chose : quand il est là, le travail rend un peu plus qu'il ne devrait.\n\nIl doit avoir appris l'obéissance — le jeu l’exige déjà avant qu’un animal accepte d’accompagner quelqu’un.\n\nLes réglages prennent effet immédiatement pour toutes les sauvegardes et sont enregistrés à la fermeture de cette fenêtre.</FieldworkCompanions.Settings.Intro>
+  <FieldworkCompanions.Settings.Intro>Un animal entraîné à accompagner une personne pendant les travaux de terrain sert enfin à quelque chose : quand il est là, le travail permet d’obtenir un peu plus que prévu.\n\nIl doit avoir appris l'obéissance — le jeu l’exige déjà avant qu’un animal accepte d’accompagner quelqu’un.\n\nLes réglages prennent effet immédiatement pour toutes les sauvegardes et sont enregistrés à la fermeture de cette fenêtre.</FieldworkCompanions.Settings.Intro>
 
   <FieldworkCompanions.Settings.WorkHeader>Travaux auxquels le compagnon apporte son aide</FieldworkCompanions.Settings.WorkHeader>
   <FieldworkCompanions.Settings.Mining>Minage</FieldworkCompanions.Settings.Mining>
@@ -12,7 +12,7 @@
   <FieldworkCompanions.Settings.Harvest>Récolte et cueillette</FieldworkCompanions.Settings.Harvest>
   <FieldworkCompanions.Settings.HarvestTip>Les cultures comme les plantes sauvages. Couper une plante n'est pas la récolter et ne donne aucun bonus.</FieldworkCompanions.Settings.HarvestTip>
   <FieldworkCompanions.Settings.Fishing>Pêche</FieldworkCompanions.Settings.Fishing>
-  <FieldworkCompanions.Settings.FishingTip>Nécessite Odyssey. Un poisson de plus, pris parmi ceux qui viennent d'être sortis. Un animal qui pêche seul ne reçoit jamais d’aide.</FieldworkCompanions.Settings.FishingTip>
+  <FieldworkCompanions.Settings.FishingTip>Nécessite Odyssey. Un poisson supplémentaire, prélevé sur la prise tout juste remontée. Un animal qui pêche seul ne reçoit jamais d’aide.</FieldworkCompanions.Settings.FishingTip>
   <FieldworkCompanions.Settings.Gathering>Traite et tonte</FieldworkCompanions.Settings.Gathering>
   <FieldworkCompanions.Settings.GatheringTip>L'animal qu'on trait ou qu'on tond ne peut jamais compter comme son propre assistant.</FieldworkCompanions.Settings.GatheringTip>
 
