@@ -77,8 +77,8 @@ the session title could not be built from it). The session is named `fieldworkco
 - `docs/PROTOCOLS-READ.md`: rewritten for the versions read today, with the documents that were of no use.
 
 **Reserves (not blockers, none lowers the stage)**
-- `Art/Preview.ico` (2026-09-27) predates the new `Mod/About/Preview.png` (2026-09-29); regenerate it from the
-  current Preview if the folder icon should show the cutout. Cosmetic and local.
+- The Preview migration on 2026-10-02 regenerated `Art/Preview.ico` from the current Preview and
+  `Art/ModIcon.ico` from the distributed ModIcon; the former stale-folder-icon reserve is resolved.
 - The retrait chain (pass 5, `2026-09-25-retrait-3`) ran from the working tree on 2026-09-25, two days before
   `19-save-for-removal` and `removal-check` were committed (`16e992a`). The non-regression pass on the final revision
   will replay it; until then the committed feature is not the one with a report.
@@ -398,8 +398,8 @@ The 2026-09-13 sections below are kept as history and were correct under the cri
 | Transition | Result | Direct evidence |
 | --- | --- | --- |
 | dansMonoRepo -> horsMonoRepo | Validated | Own `.git`; origin `vbardales/Rimworld-Fieldwork-Companions`; `gh repo view` reports PUBLIC, default branch `main`, HEAD pushed. STATUS present. Licence `original` + MIT, justified in `licence_at`; root and `Mod/` LICENSE and ATTRIBUTION are byte-identical. packageId `nelim.fieldworkcompanions`, repo, folder and title coherent. README, ATTRIBUTION, LICENSE, CHANGELOG in English. |
-| horsMonoRepo -> ModIcon | Validated | Release build to a separate output (`.build/audit-20260921/`): 0 warnings, 0 errors, DLL SHA-256 `EF4432026EAAD0038C08F75B20AC931F131B27CF850826960D76B5AF1D2F08BC`, identical to the shipped DLL. `ModIcon.png` 128x128, 29,749 bytes, opened and looked at. |
-| ModIcon -> Preview | Validated | `Preview.png` 896x504 PNG, 635,659 bytes (< 1 MB), opened and looked at: overhead oblique view, tiled floor, miner, dog, jade pile, lamp; no camera defect seen. |
+| horsMonoRepo -> ModIcon | Validated | Release build to a separate output (`.build/audit-20260921/`): 0 warnings, 0 errors, DLL SHA-256 `EF4432026EAAD0038C08F75B20AC931F131B27CF850826960D76B5AF1D2F08BC`, identical to the shipped DLL. `ModIcon.png` 128x128, 30,094 bytes, opened and looked at. |
+| ModIcon -> Preview | Validated | `Preview.png` 896x504 PNG, 552,615 bytes (< 1 MB), opened and looked at: overhead oblique view, tiled floor, miner, dog, jade pile, lamp; no camera defect seen. |
 | Preview -> preOptions | Validated | Accent (yellow-green rule and badge) clearly separate from the ochre secondary and the brown ground. English description; title has no prefix, suffix or linking word to style. Description ends with `[url=https://github.com/vbardales/Rimworld-Fieldwork-Companions]Source code on GitHub[/url]`, matching origin and `<url>`. |
 | preOptions -> options | Validated | Source and Defs: 12 useful settings via Mod options, hidden `MainButtonDef` (`buttonVisible=false`) opening the same `Dialog_ModSettings`, no second store. 10 settings tests green (defaults/reset, limits and non-finite values, effect on chance/radius/dispatcher/yield, real Scribe round-trip, older files, shortcut contract). In-game and RIMMSQOL checks belong to `done -> tested`. |
 | options -> l10n | Validated | 33 Keyed keys resolved in EN and FR, none missing, none duplicated; placeholders and line breaks match; all UI text goes through `.Translate()` (no literal UI string in `Source/`). Shortcut: English in the Def, French in DefInjected. `Check-DefInjected.ps1`: 2 keys, 0 errors. |
@@ -691,13 +691,13 @@ gate; it is not an alias for `preTest`. Previous stage: `done`; retained stage: 
   Existing title and summary are preserved exactly. No status tag or reduced title
   word applies to this original public mod. Badge 1.6 is read from the highest stable
   supportedVersions entry in Mod/About/About.xml at render time.
-- Illustration retained, not replaced: Art/Preview.png is an unmodified copy of
-  Art/Preview-source.png; that full-resolution original remains available. The centered
+- Illustration retained, not replaced: Art/Preview-source.png remains the canonical
+  full-resolution original. The centered
   cover crop preserves the miner, dog, jade pile and lamp. No text was added to either source.
-- Final distributed image: Mod/About/Preview.png (896 x 504; 635,659 bytes, below 900 kB).
+- Final distributed image: Mod/About/Preview.png (896 x 504; 552,615 bytes, below 900 kB).
 - Composition and parameters: Art/Preview.config.json.
-  _tools/preview.html redirects to the maintained composition instead of retaining an
-  independent old palette. Serve the repository root over HTTP to preview the HTML.
+  The shared ../scripts/Render-Preview.cjs renderer consumes it directly; temporary HTML
+  and QA evidence are regenerated locally under ignored Art/.render/.
 - Palette rationale: the veil takes the dark stone/earth surface near the upper-left
   text area. Secondary ink is a lightened ochre from the dominant warm earth and lamp-lit
   floor family, not an average of the pixels. The accent draws on the green jade pile,
@@ -712,8 +712,8 @@ gate; it is not an alias for `preTest`. Previous stage: `done`; retained stage: 
   with text hidden, not merely against the nominal veil colour: title minimum 8.58:1,
   summary 4.86:1; badge digits on opaque accent 11.33:1. All exceed 4.5:1.
   Tag contrast is not applicable because there is no tag.
-- Evidence: Art/preview-qa.json (fonts, bounds, contrasts, version and size),
-  Art/preview-background.png (actual text-free composited background), Art/preview-268.png.
-  Visually checked final 896 x 504 image and 268px thumbnail: title and version identifiable,
-  no clipping or overlap, rule visible; subject remains clear. Summary is designed for the
-  full image, as the guide specifies. Nothing published.
+- Reproducible local evidence: Art/.render/preview-qa.json (fonts, bounds, version and layout)
+  and Art/.render/Preview-background-qa.png (actual text-free composited background).
+  Visually checked final 896 x 504 image: title and version identifiable, no clipping or overlap,
+  rule visible; subject remains clear. Summary is designed for the full image, as the guide
+  specifies. Nothing published.

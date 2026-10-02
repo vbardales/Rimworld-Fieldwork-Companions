@@ -34,6 +34,9 @@ node_modules/
 # other mods' pictures). What is kept in git is the text summary in docs/runs/.
 Tests/Pickle/Evidence/
 
+# Reproductible Preview diagnostics; generated locally by scripts/Render-Preview.cjs.
+Art/.render/
+
 # Windows folder-icon artifacts. Steam sends Mod/ as it stands, so a desktop.ini or an .ico there would
 # reach every subscriber. The folder icon is local: Mod/desktop.ini points to ../Art/Preview.ico, which
 # stays outside Mod/ (the root desktop.ini and Art/*.ico are tracked, Mod/ never carries either).
