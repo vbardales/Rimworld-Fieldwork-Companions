@@ -119,3 +119,28 @@ An animal that follows its master at work now earns its keep.
 
 Nothing is added to the save: the mod can be added to or removed from a game in progress.
 ```
+
+## Gallery staging plan (rule of 2026-10-02, not yet played)
+
+Only `Art/Gallery/1-companion-at-work.png` is a staged photograph. `0-` is the Preview and `2-` to `4-` are menus
+and windows: screenshots of what they are, not staged.
+
+**Story of the series (one image).** Early morning at the foot of a ridge. Mara, a miner, has her husky Rex with her:
+Rex has followed her up the slope every day since she took him in. Today the vein pays a little more than it should,
+and the first thing the camera catches is Rex, tail up, over the fresh chunks.
+
+**The shot.**
+- Subject: Mara, an adult woman of a body type chosen by the owner (`body type is` step; never a random silhouette),
+  dark copper hair so that she stands out against the grey rock and the husky's pale coat, a teal work shirt and
+  ochre trousers (teal against the rock's brown, and the husky is neutral), no tattoo (nothing to say), named
+  "Mara", not "Miner".
+- Companion: Rex, the husky, at her side, so that the `+N` mark reads above him.
+- Decor, placed then removed with StageDecor: a lantern on a post beside the vein, two or three plants at the foot of the
+  rock, a stack of steel ore. Nothing else in the frame: no filth, no other pawn, no tooltip.
+- Camera: centered on Mara and Rex, as close as the game allows, so the three of them fill the frame.
+- Sequence: place the decor, photograph, remove the decor.
+
+**Steps missing**, asked of the Pickle Tools session through the Ticket Manager on 2026-10-02: a colonist wears a
+chosen garment (then the existing dye step colours it), and a camera centered on a named pawn at a given zoom.
+`20-gallery-mark.feature` keeps the plain version until they exist; the staged version replaces it and the
+capture is retaken and opened before `Art/Gallery/1-companion-at-work.png` changes.
