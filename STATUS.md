@@ -26,7 +26,7 @@ updated:      2026-10-02
 remaining:
   - validated: All four Pickle passes are green on revision `cd1afb7` (English, French, RIMMSQOL, without Odyssey), no `@wip` scenario remains, and every `@review` capture has been opened and looked at. See the 2026-09-29 section for the count per pass and the evidence folders.
   - validated: The cow scenario (14-what-it-does-not-help, "a cow that is its master's companion does not help milk itself") was red on three runs because milking throws the product away with a chance of 1 - AnimalGatherYield (seeded draw), a defect of the suite. Replayed green with the repeat-until-product step, again on `68a30c9`; evidence Tests/Pickle/Evidence/2026-09-27-pass1-part3.
-  - validated: The mining gallery capture (scenario 20) now shows the companion beside the colonist, the "+N" mark readable and no overlapping tooltip; cropped into Art/WorkshopScreenshots/1-companion-at-work.png and confirmed by the maintainer, along with the three settings captures (2-4). Evidence Tests/Pickle/Evidence/2026-09-28-pass3-chain-3 and 2026-09-27-pass2-part1/2.
+  - validated: The mining gallery capture (scenario 20) now shows the companion beside the colonist, the "+N" mark readable and no overlapping tooltip; cropped into Art/Gallery/1-companion-at-work.png and confirmed by the maintainer, along with the three settings captures (2-4). Evidence Tests/Pickle/Evidence/2026-09-28-pass3-chain-3 and 2026-09-27-pass2-part1/2.
   - validated: Scenario 13 of the functional list (mod added or removed in a game in progress) is played in both directions: `18-added-to-a-game-in-progress` (the shared fixture, written without the mod, loads with it, runs and saves again) and `19-save-for-removal` then `removal-check` (a game saved with the mod, holding nothing of it outside its mod list, loads, runs and saves again with the mod out of the mod list). Evidence Tests/Pickle/Evidence/2026-09-27-pass1-part3 (scenario 18) and 2026-09-25-retrait-3 (19 and removal-check).
   - validated: RIMMSQOL's own list offers the shortcut, reveals it, the bar draws it, it opens this mod's dialog and shares its values, hiding works, and the choice survives two restarts (09, 10, 11, 12, played as one launch each in a chain). Evidence Tests/Pickle/Evidence/2026-09-27-pass3-rimmsqol/seq1 and 2026-09-28-pass3-chain-3.
   - validated: Without Odyssey, `Dig` and `Forage` do not exist, the mod loads without error, and an obedient companion still helps at the base chance with the requirement ticked. The scenario that had no map to work on (the shared save needs Odyssey's Orbit layer) now starts a fresh colony instead of loading it. Evidence Tests/Pickle/Evidence/2026-09-28-pass4-newcolony.
@@ -157,7 +157,7 @@ Every `@review` capture was opened and looked at: the settings page (top, bottom
 confirmation) in both languages, RIMMSQOL's list and its shortcut's edit page revealed, and the
 mining scene for the Workshop gallery (companion beside the colonist, "+N" readable, no tooltip
 overlap) — the maintainer confirmed all four gallery images
-(`Art/WorkshopScreenshots/1-companion-at-work.png` through `4-reset-confirmation.png`).
+(`Art/Gallery/1-companion-at-work.png` through `4-reset-confirmation.png`).
 
 Two suite defects surfaced by this pass and fixed in the suite, not the mod (Source/ untouched):
 the fishing mark check needed the game paused, and the sans-Odyssey pass needed its own colony
@@ -695,8 +695,7 @@ gate; it is not an alias for `preTest`. Previous stage: `done`; retained stage: 
   Art/Preview-source.png; that full-resolution original remains available. The centered
   cover crop preserves the miner, dog, jade pile and lamp. No text was added to either source.
 - Final distributed image: Mod/About/Preview.png (896 x 504; 635,659 bytes, below 900 kB).
-- Composition and parameters: Art/preview.html; sole palette reference:
-  Art/preview-palette.json; reproducible renderer: Art/render-preview.cjs.
+- Composition and parameters: Art/Preview.config.json.
   _tools/preview.html redirects to the maintained composition instead of retaining an
   independent old palette. Serve the repository root over HTTP to preview the HTML.
 - Palette rationale: the veil takes the dark stone/earth surface near the upper-left

@@ -19,11 +19,11 @@ second thing seen, right where a browsing eye goes next.
 
 | File | What it shows | Why there |
 |---|---|---|
-| `Art/WorkshopScreenshots/0-preview.png` | The same image as `Mod/About/Preview.png`: the miner, the dog and the pickaxe scene, with the ModIcon cut out and composited in a bottom corner, tilted, running past the frame | Matches the page's own Preview thumbnail; the icon corner is the mod's own mark of identity, so the first screenshot doubles as a signature, not a surprise |
-| `Art/WorkshopScreenshots/1-companion-at-work.png` | A real mining job: the colonist working the rock, the dog right beside them, a readable `+N` mark over the dog, ore chunks on the ground | The only image that shows the mod *doing* something |
-| `Art/WorkshopScreenshots/2-settings-page-top.png` | The top of the settings page (English): the intro text, the four work toggles, the training requirement | Shows how much is adjustable |
-| `Art/WorkshopScreenshots/3-settings-page-bottom.png` | The bottom of the settings page: the chance and yield sliders, the scroll bar visible | Proves the scroll fix (STATUS.md, 2026-09-22) reaches every control |
-| `Art/WorkshopScreenshots/4-reset-confirmation.png` | The reset confirmation dialog over the settings page | The one destructive control on the page; worth showing it asks first |
+| `Art/Gallery/0-preview.png` | The same image as `Mod/About/Preview.png`: the miner, the dog and the pickaxe scene, with the ModIcon cut out and composited in a bottom corner, tilted, running past the frame | Matches the page's own Preview thumbnail; the icon corner is the mod's own mark of identity, so the first screenshot doubles as a signature, not a surprise |
+| `Art/Gallery/1-companion-at-work.png` | A real mining job: the colonist working the rock, the dog right beside them, a readable `+N` mark over the dog, ore chunks on the ground | The only image that shows the mod *doing* something |
+| `Art/Gallery/2-settings-page-top.png` | The top of the settings page (English): the intro text, the four work toggles, the training requirement | Shows how much is adjustable |
+| `Art/Gallery/3-settings-page-bottom.png` | The bottom of the settings page: the chance and yield sliders, the scroll bar visible | Proves the scroll fix (STATUS.md, 2026-09-22) reaches every control |
+| `Art/Gallery/4-reset-confirmation.png` | The reset confirmation dialog over the settings page | The one destructive control on the page; worth showing it asks first |
 
 Produced by `20-gallery-mark.feature` (0-1) and `02-settings-page.feature`/`04-mainbuttons-shortcut.feature`
 (2-4), all `@review`, on revision `cd1afb7`; evidence in `Tests/Pickle/Evidence/2026-09-27-pass2-part1`,
