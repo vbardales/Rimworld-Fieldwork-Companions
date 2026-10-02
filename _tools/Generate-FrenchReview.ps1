@@ -78,7 +78,7 @@ $sections += ''
 $sections += '- No text in this mod agrees with a pawn (no `{PAWN_gender ? ...}` switch is used or'
 $sections += '  needed): every Keyed entry is a settings label, tooltip or the numeric assist mote'
 $sections += '  (`+{0}`), and the sole DefInjected entry is the hidden MainButtons shortcut''s label'
-$sections += '  and description. None names or describes a specific colonist or animal.'
+$sections += '  and description. None names a specific colonist or animal. Some speak of the person or animal in general (BondTip, FishingTip, GatheringTip): reworded without gender or the word master after the 2026-10-02 review, so no switch is needed, but the reader should check that none still agrees with a pawn.'
 $sections += '- No entry is flagged `?` below: none struck the generating session as uncertain in'
 $sections += '  terminology, tone or rewording.'
 

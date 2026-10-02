@@ -34,7 +34,7 @@ remaining:
   - unverified: Subscribe to Workshop item 3806133311 and test the installed Workshop copy, including its visibility and the actual item page contents. This audit does not access Steam; `tested` does not require it, `prepublished`/publication do.
   - validated: PublishedFileId `3806133311` is committed and pushed on `main` (e2ec8fc, followed by release-preparation commits).
   - validated: Reread against the 2026-09-30 French gender-agreement rule (TRANSLATIONS.md section 3). No owned text agrees with a pawn: all 33 Keyed entries are settings labels, tooltips, the reset confirmation and the numeric assist mote (`+{0}`); the one DefInjected pair is the hidden MainButtons shortcut's label/description. None names or describes a specific colonist or animal, so no `{PAWN_gender ? ...}` switch applies or is missing. `FRENCH_REVIEW.md` regenerated (`_tools/Generate-FrenchReview.ps1`, reads the shipped XML) on revision `b836910`.
-  - unverified: French review by Virginie. Not a session check: `translation_fr` cannot be `complete` until she has read `FRENCH_REVIEW.md` and this line is updated with reviewer, date, revision and any correction, by her session, not this one.
+  - unverified: French review by Virginie. 2026-10-02: 10 corrections requested and applied (Intro, WorkHeader, FishingTip, GatheringTip, RequireSpecialtyTip, BondTip, ShareTip, Radius, RadiusTip, BondChance); validation pending on the corrected revision.  Not a session check: `translation_fr` cannot be `complete` until she has read `FRENCH_REVIEW.md` and this line is updated with reviewer, date, revision and any correction, by her session, not this one.
 ---
 
 # Fieldwork Companions — status
@@ -107,7 +107,7 @@ systematic-French-review requirement (both 2026-09-30), and `translation_fr` was
   (2 entries: the hidden MainButtons shortcut's label and description). No grammar resource files
   exist; the mod issues no `GrammarRequest`.
 - **Gender agreement:** read every French entry (see `FRENCH_REVIEW.md`) against the three-segment
-  switch rule. None of the 35 texts agrees with a pawn — they describe the mechanic in the
+  switch rule. After Virginie’s 2026-10-02 review (BondTip said "le colon" and was corrected, "maître" removed), none of the 35 texts agrees with a pawn — they describe the mechanic in the
   abstract ("le compagnon", "l'animal", "un compagnon entièrement dressé et lié") rather than a
   specific colonist or animal at runtime, and `Source/**/*.cs` passes no `Pawn` to any `.Translate()`
   call (`FieldworkCompanionsMod.cs`, `Runtime/Companions.cs`; grep confirms only numeric arguments:
