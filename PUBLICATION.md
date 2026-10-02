@@ -144,3 +144,12 @@ and the first thing the camera catches is Rex, tail up, over the fresh chunks.
 chosen garment (then the existing dye step colours it), and a camera centered on a named pawn at a given zoom.
 `20-gallery-mark.feature` keeps the plain version until they exist; the staged version replaces it and the
 capture is retaken and opened before `Art/Gallery/1-companion-at-work.png` changes.
+
+**Choices made 2026-10-02 (owner: "pick the cute, fun, fan ones").** Mara is a round, cosy `Fat` miner with
+`Pigtails` in copper (rgb 190, 90, 40), a mustard `Apparel_Tuque` (230, 170, 40) over a teal `Apparel_BasicShirt`
+(30, 140, 150) and `Apparel_Pants`, as a girl who took her dog to work. Rex is the husky. Decor: a lit `TorchLamp`
+beside the vein, `Plant_Daylily` and `Plant_Dandelion` at the foot of the rock. Steps (delivered by the Pickle
+Tools session, written and compiled but not yet played): `wears`, `dyed rgb`, `the camera is centered on`; companions
+`nelim.pickletools.colonistrace`, `nelim.pickletools.camerazoom`, `nelim.pickletools.stagedecor`. The decor cells
+depend on where the scenario puts the rock and the animal, so a first scouting run reads them, then the decor is fixed
+and replayed.
