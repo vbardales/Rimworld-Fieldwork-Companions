@@ -1,4 +1,4 @@
-# _tools/FUNCTIONAL-SCENARIOS.md scenarios 5 (cutting), 6, 7, 9 (the cow) and 14, played by Pickle instead of by hand.
+# scripts/FUNCTIONAL-SCENARIOS.md scenarios 5 (cutting), 6, 7, 9 (the cow) and 14, played by Pickle instead of by hand.
 #
 # What a companion must NOT help with, and the promise that a colony with no companion plays as it would without
 # the mod. Every one of these is a guard that is one line of code, and a guard that is gone leaves no symptom

@@ -1,4 +1,4 @@
-# _tools/FUNCTIONAL-SCENARIOS.md scenario 13, first half: the mod added to a game that was saved without it.
+# scripts/FUNCTIONAL-SCENARIOS.md scenario 13, first half: the mod added to a game that was saved without it.
 #
 # The fixture "test-colony" comes with Pickle and was written long before this mod existed, and every scenario of this
 # suite loads it with the mod active. This one says so out loud, then checks that the game runs and saves again with the

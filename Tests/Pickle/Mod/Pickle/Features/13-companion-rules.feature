@@ -1,4 +1,4 @@
-# _tools/FUNCTIONAL-SCENARIOS.md scenarios 2, 3, 4 and 11, played by Pickle instead of by hand.
+# scripts/FUNCTIONAL-SCENARIOS.md scenarios 2, 3, 4 and 11, played by Pickle instead of by hand.
 #
 # Who counts as a companion, how far it may stand, where the extra lands, how small it can be, and how the bond
 # forms. Each rule is broken on its own with the same preset as 06-assists (always helps, largest share), so a

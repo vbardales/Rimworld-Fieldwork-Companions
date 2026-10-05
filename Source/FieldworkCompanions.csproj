@@ -33,7 +33,7 @@
          ResourceDef and ResourceAmount are protected abstract, read by the milking and shearing
          patch. GetSteps is internal, and the chance calculation reads it for the per-training-step
          part of the bonus - so the access grant in Source/AccessChecks.cs covers the mod's own
-         scale, not only its milking patch. _tools/Run-Functional-Tests.ps1 asserts this exact
+         scale, not only its milking patch. scripts/Run-Functional-Tests.ps1 asserts this exact
          list against the installed game. -->
     <Publicize Include="Assembly-CSharp:RimWorld.CompHasGatherableBodyResource.ResourceDef" />
     <Publicize Include="Assembly-CSharp:RimWorld.CompHasGatherableBodyResource.ResourceAmount" />

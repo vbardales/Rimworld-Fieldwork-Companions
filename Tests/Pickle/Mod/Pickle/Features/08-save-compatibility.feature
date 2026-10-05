@@ -1,4 +1,4 @@
-# TESTING.md, family "save": _tools/FUNCTIONAL-SCENARIOS.md scenario 13, the part a running game can
+# TESTING.md, family "save": scripts/FUNCTIONAL-SCENARIOS.md scenario 13, the part a running game can
 # settle.
 #
 # README promises that nothing is written to the save, so that the mod can be added to or removed

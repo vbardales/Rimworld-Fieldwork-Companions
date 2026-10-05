@@ -16,7 +16,7 @@ namespace FieldworkCompanions.PickleSteps
     /// mod's fields, and looking at the file the game writes.
     ///
     /// The clamps, the defaults, the reset and the Scribe round trip are already proved out of game
-    /// by _tools/Run-Functional-Tests.ps1; nothing here repeats them. What only a running game can
+    /// by scripts/Run-Functional-Tests.ps1; nothing here repeats them. What only a running game can
     /// say is that the real dialog draws, that the real file is written where the game writes it,
     /// and that the game reads it back.
     /// </summary>

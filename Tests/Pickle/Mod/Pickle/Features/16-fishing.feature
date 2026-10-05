@@ -1,4 +1,4 @@
-# _tools/FUNCTIONAL-SCENARIOS.md scenario 8, played by Pickle instead of by hand.
+# scripts/FUNCTIONAL-SCENARIOS.md scenario 8, played by Pickle instead of by hand.
 #
 # Fishing is Odyssey's, and the shared test colony has no water body with fish, so each scenario builds a lake of
 # 21 by 21 deep-water cells next to the colonist (see FieldworkRulesSteps.LakeNear). The vanilla method the mod's

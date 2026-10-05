@@ -1,4 +1,4 @@
-# _tools/FUNCTIONAL-SCENARIOS.md scenario 13, second half: the mod taken out of a game that was saved with it.
+# scripts/FUNCTIONAL-SCENARIOS.md scenario 13, second half: the mod taken out of a game that was saved with it.
 #
 # First launch (this file): a game with a companion that has just done its work, saved, checked for any trace of the
 # mod outside its mod list, and handed to the companion Tests/Pickle/Removal, which does not depend on the mod. Second

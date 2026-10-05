@@ -1,4 +1,4 @@
-# TESTING.md, family "assists": _tools/FUNCTIONAL-SCENARIOS.md scenarios 1, 4, 5 and 9, the part a
+# TESTING.md, family "assists": scripts/FUNCTIONAL-SCENARIOS.md scenarios 1, 4, 5 and 9, the part a
 # running game can play for itself.
 #
 # What this settles is not the arithmetic (proved out of game) but that the patches fire in the

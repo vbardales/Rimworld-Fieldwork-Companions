@@ -33,7 +33,7 @@ remaining:
   - note: Workshop item 3806133311 was published by the maintainer as 0.1.0 while the local metadata and draft notes use 1.0.0. The maintainer explicitly accepts that difference for this early publication; it is tracked for the next planned update, not treated as a current audit blocker.
   - unverified: Subscribe to Workshop item 3806133311 and test the installed Workshop copy, including its visibility and the actual item page contents. This audit does not access Steam; `tested` does not require it, `prepublished`/publication do.
   - validated: PublishedFileId `3806133311` is committed and pushed on `main` (e2ec8fc, followed by release-preparation commits).
-  - validated: French review by Virginie, 2026-10-02: 12 corrections requested (Intro, WorkHeader, FishingTip, GatheringTip, RequireSpecialtyTip, BondTip, ShareTip, Radius, RadiusTip, BondChance, then Intro and FishingTip again), all applied; she declared the French validated linguistically at revision `342f69d` on her own statement in chat. The wording after that is the corrections listed here only (commit following 51bc7e5). Reread against the 2026-09-30 French gender-agreement rule (TRANSLATIONS.md section 3). No owned text agrees with a pawn: all 33 Keyed entries are settings labels, tooltips, the reset confirmation and the numeric assist mote (`+{0}`); the one DefInjected pair is the hidden MainButtons shortcut's label/description. None names or describes a specific colonist or animal, so no `{PAWN_gender ? ...}` switch applies or is missing. `FRENCH_REVIEW.md` regenerated (`_tools/Generate-FrenchReview.ps1`, reads the shipped XML) on revision `b836910`.
+  - validated: French review by Virginie, 2026-10-02: 12 corrections requested (Intro, WorkHeader, FishingTip, GatheringTip, RequireSpecialtyTip, BondTip, ShareTip, Radius, RadiusTip, BondChance, then Intro and FishingTip again), all applied; she declared the French validated linguistically at revision `342f69d` on her own statement in chat. The wording after that is the corrections listed here only (commit following 51bc7e5). Reread against the 2026-09-30 French gender-agreement rule (TRANSLATIONS.md section 3). No owned text agrees with a pawn: all 33 Keyed entries are settings labels, tooltips, the reset confirmation and the numeric assist mote (`+{0}`); the one DefInjected pair is the hidden MainButtons shortcut's label/description. None names or describes a specific colonist or animal, so no `{PAWN_gender ? ...}` switch applies or is missing. `FRENCH_REVIEW.md` regenerated (`scripts/Generate-FrenchReview.ps1`, reads the shipped XML) on revision `b836910`.
 ---
 
 # Fieldwork Companions — status
@@ -48,7 +48,7 @@ Audited on revision `85779de` (working tree: the changes of this session only, n
 the session title could not be built from it). The session is named `fieldworkcompanions / prepublished`.
 
 **Checked in this session**
-- `_tools/Run-Functional-Tests.ps1`: 25 tests, all passed (replayed, not read from an old report).
+- `scripts/Run-Functional-Tests.ps1`: 25 tests, all passed (replayed, not read from an old report).
 - Git: `main` equals `origin/main` after a fetch; no evidence, `.dds`, film or report tracked (`git ls-files`);
   `*.dds` already in `.gitignore` and none on disk. `Mod/Assemblies/FieldworkCompanions.dll` is the committed one
   (SHA-256 starts `99AEF88CEF37`); `Source/` unchanged since `cd1afb7`; the only change under `Mod/` since the tested
@@ -117,7 +117,7 @@ systematic-French-review requirement (both 2026-09-30), and `translation_fr` was
   call (`FieldworkCompanionsMod.cs`, `Runtime/Companions.cs`; grep confirms only numeric arguments:
   chance percentages, the assist count, the radius). No `{PAWN_gender ? ...}` switch is used or
   missing.
-- **`FRENCH_REVIEW.md`** generated at the mod root by the new `_tools/Generate-FrenchReview.ps1`
+- **`FRENCH_REVIEW.md`** generated at the mod root by the new `scripts/Generate-FrenchReview.ps1`
   (reads the shipped XML, one table per file, Original/English/French columns; Original repeats
   English since the mod is original, not ported). No row is flagged `?`. Not committed to `Mod/`,
   so Steam never receives it.
@@ -233,7 +233,7 @@ defect or a criterion blocking this audit.
 
 - `dotnet build Source/FieldworkCompanions.csproj -c Release --no-restore --nologo`: passed,
   0 warnings, 0 errors.
-- `_tools/Run-Functional-Tests.ps1`: **25/25 passed**. It checked the shipped assembly, 33/33
+- `scripts/Run-Functional-Tests.ps1`: **25/25 passed**. It checked the shipped assembly, 33/33
   English/French keyed resources, XML/resources, 12 settings defaults and reset, normalization,
   settings effect and persistence, plus the hidden native MainButtons shortcut contract.
 - `Tests/Pickle/Check-Steps.ps1`: passed; **43** declared patterns compiled with no duplicates,
@@ -262,7 +262,7 @@ Stage stays **done**. The maintainer's criteria for `done -> tested` are: no sce
 (`@requires`) scenario has run; no manual test left to validate; everything green.
 
 - **No `@wip` remains** (checked with a search of `Tests/Pickle/Mod/Pickle/Features`).
-- **Manual scenarios 2, 3, 5 (cut), 6, 7, 8, 9, 11, 12 and 14** of `_tools/FUNCTIONAL-SCENARIOS.md` are written as
+- **Manual scenarios 2, 3, 5 (cut), 6, 7, 8, 9, 11, 12 and 14** of `scripts/FUNCTIONAL-SCENARIOS.md` are written as
   features 13 to 16, plus feature 17 for Odyssey absent (pass 4, `wsl-deps.sans-odyssey.map`). New steps are in
   `Tests/Pickle/Source/FieldworkRulesSteps.cs`. Scenario 13 (added and removed mid-game) is argued through
   `08-save-compatibility`, since Pickle stages one mod set per run: **this is a decision for the maintainer to
@@ -302,7 +302,7 @@ step.
   `99AEF88CEF37FAC137A6B7A7F7413DB9D08F74B5761DE544C10C9B7F2D9E772E`
   (was `EF4432026EAAD0038C08F75B20AC931F131B27CF850826960D76B5AF1D2F08BC`, referenced as unchanged in
   the section below, which that reference no longer describes).
-- `_tools/Run-Functional-Tests.ps1`: 25 tests, all passed, against the rebuilt DLL. These checks
+- `scripts/Run-Functional-Tests.ps1`: 25 tests, all passed, against the rebuilt DLL. These checks
   exercise the settings logic, not the drawn page, so they could not have caught this; they confirm
   no regression.
 - The Pickle steps assembly was rebuilt against the fixed DLL and `Tests/Pickle/Check-Steps.ps1`
@@ -415,7 +415,7 @@ The 2026-09-13 sections below are kept as history and were correct under the cri
 ### Commands and observed results
 
 - `dotnet build Source/FieldworkCompanions.csproj -c Release --no-restore --nologo -p:OutputPath=../.build/audit-20260921/`: exit 0, 0 warnings, 0 errors, hash equal to the shipped DLL.
-- `powershell -NoProfile -ExecutionPolicy Bypass -File _tools/Run-Functional-Tests.ps1`: exit 0, **25 tests, all passed**, against the delivered DLL and the installed game's assemblies and data. These are out-of-game compatibility, settings-logic and resource checks.
+- `powershell -NoProfile -ExecutionPolicy Bypass -File scripts/Run-Functional-Tests.ps1`: exit 0, **25 tests, all passed**, against the delivered DLL and the installed game's assemblies and data. These are out-of-game compatibility, settings-logic and resource checks.
 - `powershell -NoProfile -ExecutionPolicy Bypass -File ../scripts/Check-DefInjected.ps1 -TransMod <repository>/Mod`: 2 keys checked, 0 errors, 11,587 Defs indexed.
 - Live `gh repo view` and `git ls-remote origin HEAD`: PUBLIC, HEAD on origin.
 - Direct inspection of `Preview.png` and `ModIcon.png`; System.Drawing size check.
@@ -442,7 +442,7 @@ Stage **preOptions -> done**. `done` means ready for final functional validation
 not `tested`. The supplied workflow explicitly places interactive checks at `done -> tested`.
 
 - Based on commit `928584df23c38bd76901bb9064c2587ff6f91a60` plus the local changes
-  recorded in `_tools/results/2026-09-13-settings-manifest.json`. No commit or publication.
+  recorded in `scripts/results/2026-09-13-settings-manifest.json`. No commit or publication.
 - Added `Source/MainButtonWorker_Settings.cs` and a MainButtonDef with
   `buttonVisible=false`, `validWithoutMap=true`, and no separate tab window. The worker
   inherits native visibility, so compatible tools can reveal/hide the same definition.
@@ -466,8 +466,8 @@ not `tested`. The supplied workflow explicitly places interactive checks at `don
 - `dotnet build Source/FieldworkCompanions.csproj -c Release --no-restore --nologo`:
   passed, zero warnings/errors, updated the distributed DLL. SHA-256:
   `EF4432026EAAD0038C08F75B20AC931F131B27CF850826960D76B5AF1D2F08BC`.
-- `powershell -NoProfile -ExecutionPolicy Bypass -File _tools/Run-Functional-Tests.ps1`:
-  **25/25 passed**, exit 0. Output: `_tools/results/2026-09-13-settings-tests.txt`.
+- `powershell -NoProfile -ExecutionPolicy Bypass -File scripts/Run-Functional-Tests.ps1`:
+  **25/25 passed**, exit 0. Output: `scripts/results/2026-09-13-settings-tests.txt`.
   Ten new checks cover all defaults/reset, numeric limits/nonfinite values, probability
   effects/caps/restoration, every allowed radius, all 16 work-switch combinations, real
   BonusCount changes, real scalar Scribe round-trips, missing/older fields, normalization
@@ -478,13 +478,13 @@ not `tested`. The supplied workflow explicitly places interactive checks at `don
   Inspection of the installed Verse.Root confirmed its call to CultureInfoUtility.EnsureEnglish.
   The test now invokes that actual initializer after selecting each EN/FR host culture;
   both round-trips pass. This corrected the harness, not a diagnosed in-game defect.
-  Initial failure preserved in `_tools/results/2026-09-13-settings-tests-initial.txt`.
+  Initial failure preserved in `scripts/results/2026-09-13-settings-tests-initial.txt`.
 - Scribe uses real game saver/loader and the actual ExposeData method, with isolated files
   under .build/settings-tests. Scalar loading stops after LoadingVars; Unity's profiler and
   final scene-loading lifecycle are not executed. Real user settings are untouched.
 - `powershell -NoProfile -ExecutionPolicy Bypass -File ../scripts/Check-DefInjected.ps1
   -TransMod <repository>/Mod`: **2 keys checked, 0 errors**, 11,587 indexed Defs;
-  output `_tools/results/2026-09-13-definjected.txt`. XML/resource checks cover the two new
+  output `scripts/results/2026-09-13-definjected.txt`. XML/resource checks cover the two new
   XML files in addition to About and both Keyed resources. A final About XML comment-only
   change was parsed again; it does not invalidate functional results.
 - Native API/visibility/persistence linkage uses the installed RimWorld 1.6.4871 rev590
@@ -575,7 +575,7 @@ gate; it is not an alias for `preTest`. Previous stage: `done`; retained stage: 
   -p:OutputPath=../.build/audit-20260913/`: exit 0, zero warnings/errors.
   Rebuilt and delivered DLL SHA-256 both
   `79E47BB45C3C5A65CB13BAF84BAD52507BFFE181AF90A3967B83838C1643E120`.
-- `powershell -NoProfile -ExecutionPolicy Bypass -File _tools/Run-Functional-Tests.ps1`:
+- `powershell -NoProfile -ExecutionPolicy Bypass -File scripts/Run-Functional-Tests.ps1`:
   exit 0, **15/15 passed**, against the delivered DLL and installed game assemblies/data.
   Includes the real compile probe for three non-public members, access grants, four Harmony
   targets, subclass/API checks, vanilla trainables/yield caps, 33/33/33 keys, all three shipped
@@ -626,7 +626,7 @@ gate; it is not an alias for `preTest`. Previous stage: `done`; retained stage: 
   succeeded with zero warnings/errors and refreshed Mod/Assemblies/FieldworkCompanions.dll.
   Initial sandbox SDK access failure was resolved by rerunning with approved access.
 - Functional validation: powershell -NoProfile -ExecutionPolicy Bypass -File
-  _tools/Run-Functional-Tests.ps1 passed 15/15 against the rebuilt DLL and installed game.
+  scripts/Run-Functional-Tests.ps1 passed 15/15 against the rebuilt DLL and installed game.
 - These complete fields certify the source/resource gate only. In-game English/French
   verification remains unverified in remaining; the historical stage is preserved.
 
@@ -649,7 +649,7 @@ gate; it is not an alias for `preTest`. Previous stage: `done`; retained stage: 
 
 - Build: dotnet build Source/FieldworkCompanions.csproj -c Release --no-restore --nologo
   succeeded, zero warnings and zero errors.
-- Automated: powershell -NoProfile -ExecutionPolicy Bypass -File _tools/Run-Functional-Tests.ps1
+- Automated: powershell -NoProfile -ExecutionPolicy Bypass -File scripts/Run-Functional-Tests.ps1
   succeeded: 15/15 tests against the installed game's assemblies and data.
 - Coverage: access grants and required non-public members, four Harmony targets and
   signatures, subclass overrides, master/follow API, bond API, trainable defs, yield caps,
@@ -659,7 +659,7 @@ gate; it is not an alias for `preTest`. Previous stage: `done`; retained stage: 
   language files, all checked; relevant vanilla training/stat XML is also inspected.
 - The compile probe now reports infrastructure failures explicitly instead of claiming
   that private API members are no longer needed when the SDK is inaccessible.
-- Manual: 15 scenarios (0-14) exist in _tools/FUNCTIONAL-SCENARIOS.md. Corrected setup
+- Manual: 15 scenarios (0-14) exist in scripts/FUNCTIONAL-SCENARIOS.md. Corrected setup
   to disable the specialty requirement outside its dedicated scenario, and corrected
   scenario 10: missing required Dig training means zero assists, not a 15% chance.
 - Limits: no game launched, no manual scenario marked passed. These automated checks

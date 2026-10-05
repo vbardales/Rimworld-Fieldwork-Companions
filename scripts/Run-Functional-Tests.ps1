@@ -56,7 +56,7 @@
   Exit code 0 when everything passes, 1 otherwise.
 
 .EXAMPLE
-  powershell -NoProfile -ExecutionPolicy Bypass -File _tools/Run-Functional-Tests.ps1
+  powershell -NoProfile -ExecutionPolicy Bypass -File scripts/Run-Functional-Tests.ps1
 #>
 
 param(

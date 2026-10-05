@@ -1,4 +1,4 @@
-# _tools/FUNCTIONAL-SCENARIOS.md scenario 10, last paragraph, and scenario 16, "Odyssey is optional", played by
+# scripts/FUNCTIONAL-SCENARIOS.md scenario 10, last paragraph, and scenario 16, "Odyssey is optional", played by
 # Pickle instead of by hand: the pass that leaves Odyssey out.
 #
 # Without the DLC neither `Dig` nor `Forage` exists, so there is nothing to require: every obedient animal helps at

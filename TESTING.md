@@ -6,7 +6,7 @@ game can show.
 
 | Layer | Where | What it settles | Cost |
 | --- | --- | --- | --- |
-| Out-of-game harness | `_tools/Run-Functional-Tests.ps1` (25 checks) | The four patched vanilla methods still exist with the expected shape and nothing overrides them; the three non-public members the mod reads are covered by the access waiver; the chance arithmetic, clamps, defaults, reset and real Scribe round trip; the shortcut Def; every translation key in EN and FR; About metadata | seconds |
+| Out-of-game harness | `scripts/Run-Functional-Tests.ps1` (25 checks) | The four patched vanilla methods still exist with the expected shape and nothing overrides them; the three non-public members the mod reads are covered by the access waiver; the chance arithmetic, clamps, defaults, reset and real Scribe round trip; the shortcut Def; every translation key in EN and FR; About metadata | seconds |
 | Resource checks | `../scripts/Check-DefInjected.ps1` | The two DefInjected paths resolve | seconds |
 | Pickle, in game | `Tests/Pickle/` (20 features) | The patches are installed and fire on the game's real runtime; the real settings dialog draws; the real settings file; the shortcut in the real main bar; the language the pass runs; a save that holds nothing of the mod | tens of minutes |
 | Evidence review | Pickle screenshots and films | A human reviews the rendered result; no manual gameplay procedure is a release gate | minutes |
@@ -128,7 +128,7 @@ proof is missing, that it is missing.
 ## What is not a gate
 
 **No manual scenario remains as a gate: each is written as a Pickle feature, and none of features 13 to 17 has been
-played yet.** Every scenario of `_tools/FUNCTIONAL-SCENARIOS.md` has a Pickle feature (see the table above and the
+played yet.** Every scenario of `scripts/FUNCTIONAL-SCENARIOS.md` has a Pickle feature (see the table above and the
 mapping at the top of that file). That is coverage by design, not a result: a scenario counts once its pass has
 completed (`exitReason: passed`, scenarios played equal to features discovered) and its `@review` captures have
 been opened. What follows are limits of the automated route, each recorded so that nobody reads a green run as more

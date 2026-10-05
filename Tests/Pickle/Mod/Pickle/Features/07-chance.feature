@@ -1,4 +1,4 @@
-# TESTING.md, family "chance": _tools/FUNCTIONAL-SCENARIOS.md scenarios 10 and 11, in the one respect
+# TESTING.md, family "chance": scripts/FUNCTIONAL-SCENARIOS.md scenarios 10 and 11, in the one respect
 # a running game can add.
 #
 # The formula (base + steps * bonus + bond, capped at 100 %) is proved out of game against the

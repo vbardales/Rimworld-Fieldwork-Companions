@@ -1,4 +1,4 @@
-# _tools/FUNCTIONAL-SCENARIOS.md scenarios 9 (shearing) and 12 (the switches), played by Pickle instead of by hand.
+# scripts/FUNCTIONAL-SCENARIOS.md scenarios 9 (shearing) and 12 (the switches), played by Pickle instead of by hand.
 #
 # Each work switch turns off one gesture and leaves the others alone: a switch that also silenced its neighbours,
 # or that did nothing, is the failure. Mining is asserted against 80, a rice harvest against 12, a milking against

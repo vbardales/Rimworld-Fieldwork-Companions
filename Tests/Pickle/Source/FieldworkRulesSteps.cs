@@ -16,7 +16,7 @@ namespace FieldworkCompanions.PickleSteps
     /// mining on its own, an animal fishing), the fishing gesture itself, and the promise that a
     /// colony with no companion plays exactly as it would without the mod.
     ///
-    /// These are the manual scenarios 2, 3, 5, 6, 7, 8, 9, 11, 12 and 14 of _tools/FUNCTIONAL-SCENARIOS.md
+    /// These are the manual scenarios 2, 3, 5, 6, 7, 8, 9, 11, 12 and 14 of scripts/FUNCTIONAL-SCENARIOS.md
     /// written for a running game. They share the private helpers of <see cref="FieldworkSteps"/>, which
     /// is why this is the other half of one class.
     /// </summary>

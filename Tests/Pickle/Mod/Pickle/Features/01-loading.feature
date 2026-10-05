@@ -3,7 +3,7 @@
 # Every other scenario in this suite depends on this one. If the Harmony patches did not take, a
 # colonist simply never gets any help and every failure below would point at the wrong thing.
 #
-# _tools/Run-Functional-Tests.ps1 already proves, out of game, that each of the four targets exists
+# scripts/Run-Functional-Tests.ps1 already proves, out of game, that each of the four targets exists
 # with the expected shape and that nothing overrides it. What it cannot prove is that the patches
 # were INSTALLED, by this mod, in the runtime the game really uses (Mono, not the desktop CLR the
 # harness runs on). That is the whole point of the third scenario.
