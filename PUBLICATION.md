@@ -153,3 +153,12 @@ Tools session, written and compiled but not yet played): `wears`, `dyed rgb`, `t
 `nelim.pickletools.colonistrace`, `nelim.pickletools.camerazoom`, `nelim.pickletools.stagedecor`. The decor cells
 depend on where the scenario puts the rock and the animal, so a first scouting run reads them, then the decor is fixed
 and replayed.
+
+**Rewritten 2026-10-05 after the Pickle Tools gallery rules** (`PickleTools/docs/GALERIE.md`, not yet committed there).
+The scouting run of 2026-10-03 (`20261003-000034-402-a407`) left no report and is dropped. The scene moves to the
+fixture `Nelims-tribe` (Sanctuary, 250x250, not installed yet: nothing is submitted until Pickle Tools says "fixture
+ready"): load it with `the save "Nelims-tribe" is loaded`, frame with `I am at the sanctuary "<place>"` after looking
+at every place (`docs/SANCTUAIRE-LIEUX.md`), light a dark place with `TorchLamp` and `... is lit`, never remove a roof.
+The only colonist of the fixture is Nelim: Mara is dropped and the dressing steps (`wears`, `dyed rgb`, new
+`gender is`) apply to Nelim, or to a colonist the fixture allows. The pass map is modelled on
+`wsl-deps.sanctuary.map` plus `nelim.pickletools.colonistrace`.
