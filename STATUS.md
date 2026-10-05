@@ -76,6 +76,11 @@ the session title could not be built from it). The session is named `fieldworkco
   13 to 17 had never played; replaced by the state on `cd1afb7`.
 - `docs/PROTOCOLS-READ.md`: rewritten for the versions read today, with the documents that were of no use.
 
+**Code review since `0.1.0`, 2026-10-03.** `/code-review` (low effort, one diff pass) of `e2ec8fc` (the commit that
+added `PublishedFileId.txt`) to `278ab474d0a449da9addc635041ac123c37c362c`, tests and binaries skipped: the changes outside
+tests are `Source/FieldworkCompanionsMod.cs` (`maxOneColumn`), the French corrections and the plain-text `About.xml`
+description. No finding.
+
 **Reserves (not blockers, none lowers the stage)**
 - The Preview migration on 2026-10-02 regenerated `Art/Preview.ico` from the current Preview and
   `Art/ModIcon.ico` from the distributed ModIcon; the former stale-folder-icon reserve is resolved.
