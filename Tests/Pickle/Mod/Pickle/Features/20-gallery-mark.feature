@@ -39,8 +39,8 @@ Feature: a companion beside a colonist at work
     And Fieldwork Companions: a "MineableSteel" rock and "Rex" stand right beside "Mara"
     And Fieldwork Companions: the scene decor "Plant_Daylily" stands 0 cells right of and 3 cells below "Mara"
     And Fieldwork Companions: the scene decor "Plant_Dandelion" stands 2 cells right of and 3 cells below "Mara"
-    And Fieldwork Companions: the camera is placed so that "Mara" stands 5 cells left of and 3 cells above the pointer
-    And I zoom all the way in
+    And Nelim's Pickle Tools: I frame the animal "Rex" at zoom 5
+    And Fieldwork Companions: the camera is placed so that "Mara" stands 2 cells left of and 1 cells above the pointer
     When Fieldwork Companions: "Mara" is ordered to mine the rock beside them
     And game speed is ultrafast
     And Fieldwork Companions: the rock beside "Mara" is nearly mined within 240 seconds
