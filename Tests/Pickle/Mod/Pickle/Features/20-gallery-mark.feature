@@ -26,6 +26,7 @@ Feature: a companion beside a colonist at work
     And Nelim's Pickle Tools: I am at the sanctuary "gravel-yard"
     And Nelim's Pickle Tools: the sanctuary "gravel-yard" is emptied
     And Nelim's Pickle Tools: the animals are removed from the sanctuary "gravel-yard"
+    And Nelim's Pickle Tools: all animals are removed
     And a colonist "Mara" exists
     And Nelim's Pickle Tools: "Mara" gender is female
     And Nelim's Pickle Tools: "Mara" body type is Fat
@@ -41,13 +42,14 @@ Feature: a companion beside a colonist at work
     And Fieldwork Companions: the scene decor "Plant_Dandelion" stands 2 cells right of and 3 cells below "Mara"
     And Nelim's Pickle Tools: I frame the animal "Rex" at zoom 5
     And Fieldwork Companions: the camera is placed so that "Mara" stands 2 cells left of and 1 cells above the pointer
+    And Nelim's Pickle Tools: studio presentation mode is enabled
     When Fieldwork Companions: "Mara" is ordered to mine the rock beside them
     And game speed is ultrafast
     And Fieldwork Companions: the rock beside "Mara" is nearly mined within 240 seconds
     And game speed is normal
     Then Fieldwork Companions: a bonus mark floats over "Rex" within 120 seconds
-    When Nelim's Pickle Tools: studio presentation mode is enabled
-    And I take a screenshot "the companion at work, the mark over it"
+    And game speed is paused
+    When I take a screenshot "the companion at work, the mark over it"
     And Fieldwork Companions: the scene decor is cleared
     And I close all dialogs
     Then no errors were logged
