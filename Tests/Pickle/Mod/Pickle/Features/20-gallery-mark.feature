@@ -6,16 +6,20 @@
 # and copper pigtails, took her husky Rex to work; the vein pays a little more than it should, and the camera catches Rex
 # under the "+N". Her body, hair and clothes are chosen, never random.
 #
-# Scene: the Sanctuary of Nelim (fixture "Nelims-tribe", PickleTools/docs/GALERIE.md), place "gravel-yard": a flat 35 x 25
+# Scene: the Sanctuary of Nelim (fixture "Nelims-tribe", in the SanctuaryBacklot repository: SanctuaryBacklot/docs/GALERIE.md), place "gravel-yard": a flat 35 x 25
 # yard of gravel, the closest thing the map has to a quarry floor (the first try on "emerald-clearing", 2026-10-06, stood on
 # a viridian carpet, with the HUD drawn and horses in the frame). The place is emptied of its furniture and animals, as
 # GALERIE.md allows; no bamboo is cleared. Nelim, the only colonist of the fixture, is Virginie and is left alone: Mara is a
 # guest colonist this scenario adds. The decor (two flowers) is placed relative to Mara and taken away again.
 #
+# Step prefixes: "Nelim's Sanctuary:" steps belong to SanctuaryBacklot (the place: frame, empty, animals of a place); "Nelim's Pickle Tools:"
+# steps belong to PickleTools (NPT: pawn, interface scale, presentation mode, framing an animal); "Fieldwork Companions:" steps are
+# this suite's own. Pass map: Tests/Pickle/wsl-deps.sanctuary.map (the Backlot's minimum mod list plus three tools).
+#
 # What to look for: Mara at the rock, Rex beside her, a readable "+N" over Rex, ore chunks on the ground, flowers at
 # the foot of the scene, no HUD (presentation mode), no tooltip, no other pawn or animal in the frame, and the three
 # of them large enough to tell who is who.
-@part2 @review @requires:nelim.pickletools.interfacescale @requires:nelim.pickletools.colonistrace @requires:nelim.pickletools.screenshotstudio @timeout:240
+@part2 @review @requires:ab.vplrf @requires:nelim.pickletools.interfacescale @requires:nelim.pickletools.colonistrace @requires:nelim.pickletools.screenshotstudio @timeout:240
 Feature: a companion beside a colonist at work
 
   Scenario: a real mining job, the animal beside the colonist, the mark over the animal
@@ -23,9 +27,9 @@ Feature: a companion beside a colonist at work
     And game speed is paused
     And I close all dialogs
     And Fieldwork Companions always helps, at the largest share
-    And Nelim's Pickle Tools: I am at the sanctuary "gravel-yard"
-    And Nelim's Pickle Tools: the sanctuary "gravel-yard" is emptied
-    And Nelim's Pickle Tools: the animals are removed from the sanctuary "gravel-yard"
+    And Nelim's Sanctuary: I am at the sanctuary "gravel-yard"
+    And Nelim's Sanctuary: the sanctuary "gravel-yard" is emptied
+    And Nelim's Sanctuary: the animals are removed from the sanctuary "gravel-yard"
     And Nelim's Pickle Tools: all animals are removed
     And a colonist "Mara" exists
     And Nelim's Pickle Tools: "Mara" gender is female

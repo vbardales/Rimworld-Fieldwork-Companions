@@ -40,7 +40,7 @@ and is overwritten by the next ticket; the launcher's own `pickle-reports-archiv
 after five archives. A run with no report is no verdict, but its log is what tells a game crash from a suite defect,
 so it is kept and named in `docs/runs/history.md`.
 
-Five passes are required, and the report must say which is which.
+Six passes are required, and the report must say which is which.
 
 | # | Pass | Command | Mods loaded | What it proves |
 | --- | --- | --- | --- | --- |
@@ -49,6 +49,7 @@ Five passes are required, and the report must say which is which.
 | 3 | With RIMMSQOL | `... -Mod FieldworkCompanions -DepMap wsl-deps.avec-rimmsqol.map -Filter '09-rimmsqol-shortcut.feature'`, then the restart chain `-Filter '10-rimmsqol-restart-reveal.feature' -Then '11-rimmsqol-restart-hide.feature','12-rimmsqol-restart-forget.feature'` | The same set plus RIMMSQOL (Workshop 1084452457) and `PickleTools/RimmsqolSteps` | RIMMSQOL's own list offers the shortcut, can reveal it, the bar draws it, it opens this mod's own dialog and shares its values, hiding works, and the choice survives a restart |
 | 4 | Without Odyssey | `... -Mod FieldworkCompanions -DepMap wsl-deps.sans-odyssey.map -Filter '17-without-odyssey.feature'` | The same set minus the Odyssey DLC, plus `PickleTools/ExpansionSteps` | `Dig` and `Forage` do not exist, nothing is logged, and an obedient animal still helps with the requirement ticked: the mod falls back on obedience alone |
 | 5 | Retrait: a game saved with the mod, loaded without it | `... -Mod FieldworkCompanions -DepMap wsl-deps.retrait.map -Filter '19-save-for-removal.feature' -Then 'removal-check' -ThenWithout nelim.fieldworkcompanions,nelim.fieldworkcompanions.pickletests` | The same set, plus the companion `Tests/Pickle/Removal`, which does not depend on the mod; the second launch runs with the mod and the test companion taken out of the mod list | A save made after an assist holds nothing of the mod outside its mod list, and loads, runs 250 ticks and saves again without the mod, with no error (FUNCTIONAL-SCENARIOS.md scenario 13, second half). The first half, a game saved without the mod loaded with it, is `18-added-to-a-game-in-progress`, played in every pass. |
+| 6 | Gallery photograph, in the Sanctuary | `... -Mod FieldworkCompanions -DepMap wsl-deps.sanctuary.map -Filter '::a real mining job'` | The Backlot's minimum mod list (Female Body/Apparel Variants, WDI, AB's Visible Pants, facial animation) plus ColonistRace, InterfaceScale, ScreenshotMode; the fixture `Nelims-tribe` comes from the SanctuaryBacklot repository | `20-gallery-mark` only (`@requires:ab.vplrf` keeps it out of the other passes). Produces image 1 of the gallery; the capture is opened and looked at, a green run is not a validation |
 
 **Passes with optional mods: only RIMMSQOL, and it is an integration, not an optional mod.** The mod
 declares no optional mod of its own. Its `loadAfter` names Harmony and the Ludeon DLC, and the minimal

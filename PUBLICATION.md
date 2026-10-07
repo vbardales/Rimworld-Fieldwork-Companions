@@ -47,9 +47,9 @@ photograph, one story, chosen subject, read before accepted, anomalies reported 
 - **Cast, chosen not random.** Mara: female, `Fat` body, copper `Pigtails` (rgb 190, 90, 40), mustard `Apparel_Tuque`
   (230, 170, 40) over a teal `Apparel_BasicShirt` (30, 140, 150) and ochre `Apparel_Pants` (150, 100, 50). Rex: the husky.
   Two flowers (`Plant_Daylily`, `Plant_Dandelion`) at the foot of the rock, placed relative to Mara and cleared afterwards.
-- **Place.** The Sanctuary of Nelim, fixture `Nelims-tribe` (`PickleTools/docs/GALERIE.md`), place `gravel-yard`, emptied of its
+- **Place.** The Sanctuary of Nelim, fixture `Nelims-tribe` (SanctuaryBacklot repository, `docs/GALERIE.md`; steps `Nelim's Sanctuary:` are the Backlot's, `Nelim's Pickle Tools:` PickleTools'), place `gravel-yard`, emptied of its
   furniture and of every animal before Rex arrives; no bamboo is cleared and no roof removed. Nelim is Virginie and is left
-  alone: Mara is a guest colonist the scenario adds. Pass map: `Tests/Pickle/wsl-deps.runtime-evidence.map`.
+  alone: Mara is a guest colonist the scenario adds. Pass map: `Tests/Pickle/wsl-deps.sanctuary.map` (since 2026-10-08, the Backlot's minimum list plus three PickleTools; the run of 2026-10-07 used the old map and the old steps).
 - **Frame.** `studio presentation mode` (no HUD), `I frame the animal "Rex" at zoom 5`, the game paused as soon as the mark
   floats and a few real seconds allowed to settle before the capture.
 - **Tries (2026-10-06/07), nine runs.** Emerald-clearing (viridian carpet, HUD, horses); gravel-yard emptied; zoom 5; a blue patch
