@@ -35,7 +35,7 @@ Feature: a companion beside a colonist at work
     And Nelim's Pickle Tools: "Mara" wears "Apparel_BasicShirt" dyed rgb (30, 140, 150)
     And Nelim's Pickle Tools: "Mara" wears "Apparel_Pants" dyed rgb (150, 100, 50)
     And Nelim's Pickle Tools: "Mara" wears "Apparel_Tuque" dyed rgb (230, 170, 40)
-    And Nelim's Pickle Tools: "Mara" stands at (168, 143)
+    And Nelim's Pickle Tools: "Mara" stands at (178, 143)
     And Fieldwork Companions: "Rex" is an obedient "Husky" that follows "Mara" at work
     And Fieldwork Companions: a "MineableSteel" rock and "Rex" stand right beside "Mara"
     And Fieldwork Companions: the scene decor "Plant_Daylily" stands 0 cells right of and 3 cells below "Mara"
