@@ -49,6 +49,7 @@ Feature: a companion beside a colonist at work
     And game speed is normal
     Then Fieldwork Companions: a bonus mark floats over "Rex" within 120 seconds
     And game speed is paused
+    And Fieldwork Companions: the picture settles for 4 real seconds
     When I take a screenshot "the companion at work, the mark over it"
     And Fieldwork Companions: the scene decor is cleared
     And I close all dialogs

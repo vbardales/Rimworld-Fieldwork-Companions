@@ -87,6 +87,18 @@ namespace FieldworkCompanions.PickleSteps
             sceneDecor.Add(thing);
         }
 
+        /// <summary>
+        /// The game is paused, so nothing moves, but frames keep being drawn: waiting a few real seconds lets the picture
+        /// settle (mote text, shadows) before the capture, which a capture taken on the very frame of the pause can miss.
+        /// </summary>
+        [When("Fieldwork Companions: the picture settles for {int} real seconds", TimeoutSeconds = 30f)]
+        public async Task PictureSettles(PickleContext ctx, int seconds)
+        {
+            ctx.Require(seconds >= 1 && seconds <= 20, "ask for 1 to 20 seconds");
+            var until = Time.realtimeSinceStartup + seconds;
+            while (Time.realtimeSinceStartup < until) await ctx.WaitFrames(5);
+        }
+
         [When("Fieldwork Companions: the scene decor is cleared")]
         public void SceneDecorCleared(PickleContext ctx)
         {
