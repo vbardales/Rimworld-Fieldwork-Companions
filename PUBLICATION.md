@@ -5,8 +5,7 @@ first upload, and for whoever takes the mod over.
 
 **Status: `prepublished` (reached 2026-09-29, audited 2026-10-02).** Workshop item `3806133311` was created as the
 maintainer's early 0.1.0 publication, and its `PublishedFileId.txt` is committed and pushed. No Git tag or GitHub
-Release exists yet: for a CI publish they are created after a successful upload. The gallery photograph (image 1) is
-being retaken, see "Gallery"; the other images are settled. The Workshop item itself has not been subscribed to and
+Release exists yet: for a CI publish they are created after a successful upload. The gallery is settled: image 1 was retaken on 2026-10-07. The Workshop item itself has not been subscribed to and
 validated through its installed copy; that belongs to `prepublished -> published`, not to this file.
 
 **Publication mode: CI** (public mod). Dry-run of the exact commit, `publish` with the full 40-character SHA,
@@ -31,7 +30,7 @@ scenario; copy it again whenever the Preview is regenerated).
 | File | What it shows | Why there |
 |---|---|---|
 | `Art/Gallery/0-preview.png` | The Preview: the miner, the dog and the pickaxe scene, with the ModIcon cut out and composited in the bottom-left corner, tilted | Matches the page's own header image; the icon corner is the mod's mark |
-| `Art/Gallery/1-companion-at-work.png` | A staged photograph, being retaken (see below). Until then: a real mining job, a colonist at the rock, the dog beside, a `+N` mark, ore chunks | The only image that shows the mod *doing* something |
+| `Art/Gallery/1-companion-at-work.png` | The staged photograph (see below): Mara at the rock, Rex beside her, the `+80` mark, ore chunks, two flowers | The only image that shows the mod *doing* something |
 | `Art/Gallery/2-settings-page-top.png` | The top of the settings page (English): the intro, the four work toggles, the training requirement | Shows how much is adjustable (a menu: a screenshot, not staged) |
 | `Art/Gallery/3-settings-page-bottom.png` | The bottom of the settings page: the sliders, the scroll bar | Proves the scroll fix reaches every control |
 | `Art/Gallery/4-reset-confirmation.png` | The reset confirmation dialog over the settings page | The one destructive control; it asks first |
@@ -53,10 +52,14 @@ photograph, one story, chosen subject, read before accepted, anomalies reported 
   alone: Mara is a guest colonist the scenario adds. Pass map: `Tests/Pickle/wsl-deps.runtime-evidence.map`.
 - **Frame.** `studio presentation mode` (no HUD), `I frame the animal "Rex" at zoom 5`, the game paused as soon as the mark
   floats and a few real seconds allowed to settle before the capture.
-- **Tries so far (2026-10-06/07).** Emerald-clearing (viridian carpet, HUD, horses); gravel-yard far; zoom 5 without the
-  mark; zoom 5 with a clean frame but no `+N` and a blue painted zone at the left and a pale glow over the tuque
-  (anomalies reported to Pickle Tools on 2026-10-07, who see no zone overlay and no scene light). A fifth try adds the
-  settling wait. The photograph is accepted when it shows the mark, Rex facing the camera, no stray animal and no anomaly.
+- **Tries (2026-10-06/07), nine runs.** Emerald-clearing (viridian carpet, HUD, horses); gravel-yard emptied; zoom 5; a blue patch
+  and a stray animal (frame moved 10 cells east; `all animals are removed` before Rex); the `+N` hidden by Pickle Tools'
+  presentation mode (fixed by them in `ea4f221` and `d962e54`) and then invisible because `Mote_Text` ages in real seconds
+  (the step now sets `overrideTimeBeforeStartFadeout = 120`); too small to read (interface scale 200 percent). Accepted
+  from run `11d1` (`Tests/Pickle/Evidence/2026-10-07-gallery-scout9`, revision `20aa7b5`): the file is that capture
+  cropped to 1440x810 around the subjects and reduced to a 256-colour palette (1.0 MB). Opened and looked at: no HUD, no stray
+  animal, `+80` readable, Rex facing the camera; the pale halo over the tuque is mining dust. The mark floats beside the
+  rock, where it was made, not directly over Rex, who stepped after it.
 
 ## Dependencies and DLCs
 
