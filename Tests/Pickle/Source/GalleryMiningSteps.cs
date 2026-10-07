@@ -115,6 +115,11 @@ namespace FieldworkCompanions.PickleSteps
             ctx.Require(!worker.WorkTypeIsDisabled(WorkTypeDefOf.Mining),
                 $"{colonistName} cannot mine at all (a backstory or a trait disables the work type)");
 
+            // On the Sanctuary map the colonist found plants to cut forty cells away (run 4f85, 2026-10-08) and never came to the
+            // rock: every other kind of work is switched off for the picture, mining alone stays on.
+            foreach (var type in DefDatabase<WorkTypeDef>.AllDefsListForReading)
+                if (type != WorkTypeDefOf.Mining && !worker.WorkTypeIsDisabled(type))
+                    worker.workSettings.SetPriority(type, 0);
             worker.workSettings.SetPriority(WorkTypeDefOf.Mining, 1);
             worker.Map.designationManager.AddDesignation(new Designation(rock, DesignationDefOf.Mine));
         }
