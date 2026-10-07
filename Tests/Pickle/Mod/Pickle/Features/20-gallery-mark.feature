@@ -15,7 +15,7 @@
 # What to look for: Mara at the rock, Rex beside her, a readable "+N" over Rex, ore chunks on the ground, flowers at
 # the foot of the scene, no HUD (presentation mode), no tooltip, no other pawn or animal in the frame, and the three
 # of them large enough to tell who is who.
-@part2 @review @requires:nelim.pickletools.colonistrace @requires:nelim.pickletools.screenshotstudio @timeout:240
+@part2 @review @requires:nelim.pickletools.interfacescale @requires:nelim.pickletools.colonistrace @requires:nelim.pickletools.screenshotstudio @timeout:240
 Feature: a companion beside a colonist at work
 
   Scenario: a real mining job, the animal beside the colonist, the mark over the animal
@@ -42,6 +42,7 @@ Feature: a companion beside a colonist at work
     And Fieldwork Companions: the scene decor "Plant_Dandelion" stands 2 cells right of and 3 cells below "Mara"
     And Nelim's Pickle Tools: I frame the animal "Rex" at zoom 5
     And Fieldwork Companions: the camera is placed so that "Mara" stands 2 cells left of and 1 cells above the pointer
+    And Nelim's Pickle Tools: the interface scale is 200 percent
     And Nelim's Pickle Tools: studio presentation mode is enabled
     When Fieldwork Companions: "Mara" is ordered to mine the rock beside them
     And game speed is ultrafast
