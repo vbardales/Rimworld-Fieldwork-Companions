@@ -159,9 +159,15 @@ namespace FieldworkCompanions.PickleSteps
             while (Time.realtimeSinceStartup < until)
             {
                 KeepBeside();
-                if (map.dynamicDrawManager.DrawThings.OfType<MoteText>().Any(m => m.text != null && m.text.StartsWith("+")
-                        && (m.exactPosition - animal.DrawPos).MagnitudeHorizontalSquared() < 4f))
+                var mark = map.dynamicDrawManager.DrawThings.OfType<MoteText>().FirstOrDefault(m => m.text != null && m.text.StartsWith("+")
+                        && (m.exactPosition - animal.DrawPos).MagnitudeHorizontalSquared() < 4f);
+                if (mark != null)
+                {
+                    // Mote_Text ages in real seconds (realTime, solidTime 2.2): it is transparent about 2 s after it is
+                    // made, pause or not. The picture is taken after a settling wait, so the mark is kept opaque.
+                    mark.overrideTimeBeforeStartFadeout = 120f;
                     return;
+                }
                 await ctx.WaitFrames(2);
             }
             var marks = map.dynamicDrawManager.DrawThings.OfType<MoteText>().Where(m => m.text != null).Select(m => m.text).ToList();
