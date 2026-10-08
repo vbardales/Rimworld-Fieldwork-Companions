@@ -32,6 +32,9 @@ Feature: a companion beside a colonist at work
     And Nelim's Sanctuary: the animals are removed from the sanctuary "gravel-yard"
     And Nelim's Pickle Tools: all animals are removed
     And Nelim's Pickle Tools: "Nelim" stands at (178, 143)
+    And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (30, 140, 150)
+    And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (150, 100, 50)
+    And Nelim's Pickle Tools: "Nelim" wears "Apparel_Tuque" dyed rgb (230, 170, 40)
     And Fieldwork Companions: "Rex" is an obedient "Husky" that follows "Nelim" at work
     And Fieldwork Companions: a "MineableJade" rock and "Rex" stand right beside "Nelim"
     And Fieldwork Companions: the scene decor "ChunkSlate" stands 0 cells right of and 3 cells below "Nelim"
