@@ -4,7 +4,7 @@
 
   <FieldworkCompanions.Mote.Assist>+{0}</FieldworkCompanions.Mote.Assist>
 
-  <FieldworkCompanions.Settings.Intro>An animal set to follow its master while doing field work now earns its keep: when it is at hand, the work turns up a little more than it should.\n\nThe animal must have learned obedience — the game already requires that before an animal respects a master at all.\n\nSettings apply immediately to all saves and are saved when this window closes.</FieldworkCompanions.Settings.Intro>
+  <FieldworkCompanions.Settings.Intro>An animal set to follow its master while doing field work now earns its keep: when it is at hand, the work turns up a little more than it should.\n\nThe animal must have learned obedience — the game already requires it before an animal will follow a master at all.\n\nSettings apply immediately to all saves and are saved when this window closes.</FieldworkCompanions.Settings.Intro>
 
   <FieldworkCompanions.Settings.WorkHeader>What a companion helps with</FieldworkCompanions.Settings.WorkHeader>
   <FieldworkCompanions.Settings.Mining>Mining</FieldworkCompanions.Settings.Mining>
@@ -17,7 +17,7 @@
   <FieldworkCompanions.Settings.GatheringTip>The animal being milked or sheared never counts as its own helper.</FieldworkCompanions.Settings.GatheringTip>
 
   <FieldworkCompanions.Settings.RequireSpecialty>Require the matching training</FieldworkCompanions.Settings.RequireSpecialty>
-  <FieldworkCompanions.Settings.RequireSpecialtyTip>Mining asks for the "dig" training, harvesting for "forage" — both added by Odyssey. Fishing, milking and shearing have no training of their own, so obedience is enough for them. Turn this off and obedience is enough everywhere.</FieldworkCompanions.Settings.RequireSpecialtyTip>
+  <FieldworkCompanions.Settings.RequireSpecialtyTip>Mining requires the "dig" training, and harvesting requires "forage" — both are added by Odyssey. Fishing, milking and shearing have no training of their own, so obedience is enough for them. Turn this off and obedience is enough everywhere.</FieldworkCompanions.Settings.RequireSpecialtyTip>
 
   <FieldworkCompanions.Settings.ChanceHeader>How often it pays off</FieldworkCompanions.Settings.ChanceHeader>
   <FieldworkCompanions.Settings.BaseChance>Base chance: {0}%</FieldworkCompanions.Settings.BaseChance>
