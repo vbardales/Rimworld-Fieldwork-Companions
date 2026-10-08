@@ -2,23 +2,24 @@
 #
 # Not a functional scenario: the assertions that the extra lands and the mark floats are in 06-assists, on the
 # instantaneous call. This one is for a person, and it is STAGED (owner's rule of 2026-10-02: every gallery capture is a
-# set-up photograph except the menus). The story is in PUBLICATION.md: Nelim, a round and cosy miner in a mustard tuque
-# and copper pigtails, took her husky Rex to work; the vein pays a little more than it should, and the camera catches Rex
-# under the "+N". Her body, hair and clothes are chosen, never random.
+# set-up photograph except the menus). The story is in PUBLICATION.md: Nelim, in work clothes and a mustard tuque, took her
+# husky Rex to the jade vein; the vein pays a little more than it should, and the camera catches the "+N" as the block comes down.
 #
 # Scene: the Sanctuary of Nelim (fixture "Nelims-tribe", in the SanctuaryBacklot repository: SanctuaryBacklot/docs/GALERIE.md), place "gravel-yard": a flat 35 x 25
-# yard of gravel, the closest thing the map has to a quarry floor (the first try on "emerald-clearing", 2026-10-06, stood on
-# a viridian carpet, with the HUD drawn and horses in the frame). The place is emptied of its furniture and animals, as
-# GALERIE.md allows; no bamboo is cleared. Nelim, the only colonist of the fixture, is Virginie and is left alone: Nelim is a
-# guest colonist this scenario adds. The decor (two stone chunks) is placed relative to Nelim and taken away again.
+# yard of gravel (the first try on "emerald-clearing", 2026-10-06, stood on a viridian carpet, with the HUD drawn and horses
+# in the frame). The place is emptied of its furniture and animals, as GALERIE.md allows; no bamboo is cleared. Nelim, the
+# only colonist of the fixture, is Virginie: on her instruction of 2026-10-08 she is the colonist of the photograph. Her
+# looks are left alone except the clothes (teal shirt, ochre pants, mustard tuque); for the run only she is cured of her
+# chronic conditions (Asthma and a bad back made her too slow, run 91fa) and the map is held at 21 degrees (heat step of
+# NPT, not yet proven). The decor (a torch lamp, two stone chunks) is placed relative to Nelim and taken away again.
 #
 # Step prefixes: "Nelim's Sanctuary:" steps belong to SanctuaryBacklot (the place: frame, empty, animals of a place); "Nelim's Pickle Tools:"
-# steps belong to PickleTools (NPT: pawn, interface scale, presentation mode, framing an animal); "Fieldwork Companions:" steps are
-# this suite's own. Pass map: Tests/Pickle/wsl-deps.sanctuary.map (the Backlot's minimum mod list plus three tools).
+# steps belong to PickleTools (NPT: pawn, interface scale, presentation mode, framing an animal, temperature); "Fieldwork Companions:" steps are
+# this suite's own. Pass map: Tests/Pickle/wsl-deps.sanctuary.map (the Backlot's minimum mod list, with Show Hair Under Stuff, plus three tools).
 #
-# What to look for: Nelim at the rock, Rex beside her, a readable "+N" over Rex, ore chunks on the ground, stone chunks at
-# the foot of the scene, no HUD (presentation mode), no tooltip, no other pawn or animal in the frame, and the three
-# of them large enough to tell who is who.
+# What to look for: Nelim at the vein, Rex beside her, a readable "+N" over Rex, jade on the ground, the lamp and stone
+# chunks at the foot of the scene, hair visible under the tuque, no HUD (presentation mode), no tooltip, no other pawn or
+# animal in the frame.
 @part2 @review @requires:ab.vplrf @requires:nelim.pickletools.interfacescale @requires:nelim.pickletools.colonistrace @requires:nelim.pickletools.screenshotstudio @timeout:240
 Feature: a companion beside a colonist at work
 

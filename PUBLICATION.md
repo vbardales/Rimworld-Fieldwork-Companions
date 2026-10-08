@@ -42,16 +42,21 @@ image is opened and looked at before it is listed here.
 
 **Image 1, the staged photograph** (`20-gallery-mark.feature`, rules of 2026-10-02 to 2026-10-06 in `PUBLISHING.md`: a set-up
 photograph, one story, chosen subject, read before accepted, anomalies reported to Pickle Tools).
-- **Story.** Mara, a round and cosy miner, took her husky Rex to work; the vein pays a little more than it should, and the
-  camera catches Rex under the `+N`.
-- **Cast, chosen not random.** Mara: female, `Fat` body, copper `Pigtails` (rgb 190, 90, 40), mustard `Apparel_Tuque`
-  (230, 170, 40) over a teal `Apparel_BasicShirt` (30, 140, 150) and ochre `Apparel_Pants` (150, 100, 50). Rex: the husky.
-  Two stone chunks (`ChunkGranite`, `ChunkLimestone`, instead of the flowers of the first tries) at the foot of the rock, placed relative to Mara and cleared afterwards.
-- **Place.** The Sanctuary of Nelim, fixture `Nelims-tribe` (SanctuaryBacklot repository, `docs/GALERIE.md`; steps `Nelim's Sanctuary:` are the Backlot's, `Nelim's Pickle Tools:` PickleTools'), place `gravel-yard`, emptied of its
-  furniture and of every animal before Rex arrives; no bamboo is cleared and no roof removed. Nelim is Virginie and is left
-  alone: Mara is a guest colonist the scenario adds. Pass map: `Tests/Pickle/wsl-deps.sanctuary.map` (since 2026-10-08, the Backlot's minimum list plus three PickleTools; the run of 2026-10-07 used the old map and the old steps).
-- **Frame.** `studio presentation mode` (no HUD), `I frame the animal "Rex" at zoom 5`, the game paused as soon as the mark
-  floats and a few real seconds allowed to settle before the capture.
+- **Story.** Nelim, in work clothes and a mustard tuque, took her husky Rex to the jade vein; the vein pays a little more than
+  it should, and the camera catches the `+N` as the block comes down.
+- **Cast, chosen not random.** Nelim (the fixture's own colonist, Virginie's; her looks are left alone, by Virginie's
+  instruction of 2026-10-08) in a teal `Apparel_BasicShirt` (30, 140, 150), ochre `Apparel_Pants` (150, 100, 50) and a mustard
+  `Apparel_Tuque` (230, 170, 40), with Show Hair Under Stuff (`RaccoonCuddler.ShowHair`, not yet proven on a capture) so that her
+  hair shows under the tuque. For the run only she is cured of her chronic conditions (Asthma and a bad back made her mine too
+  slowly, run 91fa) and the map is held at 21 degrees (NPT's step, not yet proven against heat). Rex: the husky. The vein is
+  `MineableJade` (plain granite has no mineable yield: no bonus, no mark, run 8a91). Decor: a `TorchLamp` and two stone chunks
+  (`ChunkSlate`, `ChunkLimestone`) at the foot of the scene, placed relative to Nelim and cleared afterwards.
+- **Place.** The Sanctuary of Nelim, fixture `Nelims-tribe` (SanctuaryBacklot repository, `docs/GALERIE.md`; steps `Nelim's Sanctuary:`
+  are the Backlot's, `Nelim's Pickle Tools:` PickleTools'), place `gravel-yard`, emptied of its furniture and of every animal before
+  Rex arrives; no bamboo is cleared and no roof removed. Pass map: `Tests/Pickle/wsl-deps.sanctuary.map` (the Backlot's minimum
+  list plus three PickleTools and Show Hair Under Stuff).
+- **Frame.** `studio presentation mode` (no HUD), `I frame the animal "Rex" at zoom 4`, the game paused on the frame the mark is
+  found and a few real seconds allowed to settle before the capture.
 - **Tries (2026-10-06/07), nine runs.** Emerald-clearing (viridian carpet, HUD, horses); gravel-yard emptied; zoom 5; a blue patch
   and a stray animal (frame moved 10 cells east; `all animals are removed` before Rex); the `+N` hidden by Pickle Tools'
   presentation mode (fixed by them in `ea4f221` and `d962e54`) and then invisible because `Mote_Text` ages in real seconds
