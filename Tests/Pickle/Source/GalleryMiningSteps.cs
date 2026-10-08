@@ -177,7 +177,9 @@ namespace FieldworkCompanions.PickleSteps
                 await ctx.WaitFrames(2);
             }
             var marks = map.dynamicDrawManager.DrawThings.OfType<MoteText>().Where(m => m.text != null).Select(m => m.text).ToList();
-            ctx.Assert(false, $"no '+N' mark rose over {animalName} in {seconds} s; text motes on the map: " +
+            var master = animal.playerSettings?.Master;
+            var masterState = master == null ? "no master" : $"{master.LabelShort} job={(master.CurJob?.def.defName ?? "none")} downed={master.Downed} hediffs=[{string.Join(", ", master.health.hediffSet.hediffs.Select(h => h.def.defName))}] mining prio={master.workSettings?.GetPriority(WorkTypeDefOf.Mining)}";
+            ctx.Assert(false, $"no '+N' mark rose over {animalName} in {seconds} s ({masterState}); text motes on the map: " +
                 (marks.Count == 0 ? "none" : string.Join(", ", marks)) + $"; tick {Find.TickManager.TicksGame}");
         }
     }
