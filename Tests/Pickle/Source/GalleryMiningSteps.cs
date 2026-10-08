@@ -45,8 +45,9 @@ namespace FieldworkCompanions.PickleSteps
             ctx.Require(free.Count >= 2, $"fewer than two free cells around {colonistName} at {worker.Position}: {free.Count}");
 
             // The rock on one side, the animal on another: the two cells farthest apart, so that neither hides the other.
-            var rockCell = free[0];
-            var animalCell = free.OrderByDescending(c => c.DistanceToSquared(rockCell)).First();
+            var rockCell = free.FirstOrDefault(c => c == worker.Position + new IntVec3(0, 0, -1));
+            if (rockCell == IntVec3.Zero) rockCell = free[0];
+            var animalCell = free.Where(c => c != rockCell).OrderBy(c => c.z != worker.Position.z).ThenBy(c => c.x).First();
 
             if (animal.Spawned) animal.DeSpawn();
             GenSpawn.Spawn(animal, animalCell, map);
