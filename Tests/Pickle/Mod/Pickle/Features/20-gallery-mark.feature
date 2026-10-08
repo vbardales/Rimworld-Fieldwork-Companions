@@ -10,13 +10,13 @@
 # yard of gravel, the closest thing the map has to a quarry floor (the first try on "emerald-clearing", 2026-10-06, stood on
 # a viridian carpet, with the HUD drawn and horses in the frame). The place is emptied of its furniture and animals, as
 # GALERIE.md allows; no bamboo is cleared. Nelim, the only colonist of the fixture, is Virginie and is left alone: Mara is a
-# guest colonist this scenario adds. The decor (two flowers) is placed relative to Mara and taken away again.
+# guest colonist this scenario adds. The decor (two stone chunks) is placed relative to Mara and taken away again.
 #
 # Step prefixes: "Nelim's Sanctuary:" steps belong to SanctuaryBacklot (the place: frame, empty, animals of a place); "Nelim's Pickle Tools:"
 # steps belong to PickleTools (NPT: pawn, interface scale, presentation mode, framing an animal); "Fieldwork Companions:" steps are
 # this suite's own. Pass map: Tests/Pickle/wsl-deps.sanctuary.map (the Backlot's minimum mod list plus three tools).
 #
-# What to look for: Mara at the rock, Rex beside her, a readable "+N" over Rex, ore chunks on the ground, flowers at
+# What to look for: Mara at the rock, Rex beside her, a readable "+N" over Rex, ore chunks on the ground, stone chunks at
 # the foot of the scene, no HUD (presentation mode), no tooltip, no other pawn or animal in the frame, and the three
 # of them large enough to tell who is who.
 @part2 @review @requires:ab.vplrf @requires:nelim.pickletools.interfacescale @requires:nelim.pickletools.colonistrace @requires:nelim.pickletools.screenshotstudio @timeout:240
@@ -44,8 +44,8 @@ Feature: a companion beside a colonist at work
     And Nelim's Pickle Tools: "Mara" facial expression is "normal"
     And Fieldwork Companions: "Rex" is an obedient "Husky" that follows "Mara" at work
     And Fieldwork Companions: a "MineableSteel" rock and "Rex" stand right beside "Mara"
-    And Fieldwork Companions: the scene decor "Plant_Daylily" stands 0 cells right of and 3 cells below "Mara"
-    And Fieldwork Companions: the scene decor "Plant_Dandelion" stands 2 cells right of and 3 cells below "Mara"
+    And Fieldwork Companions: the scene decor "ChunkGranite" stands 0 cells right of and 3 cells below "Mara"
+    And Fieldwork Companions: the scene decor "ChunkLimestone" stands 2 cells right of and 3 cells below "Mara"
     And Nelim's Pickle Tools: I frame the animal "Rex" at zoom 5
     And Fieldwork Companions: the camera is placed so that "Mara" stands 2 cells left of and 1 cells above the pointer
     And Nelim's Pickle Tools: the interface scale is 200 percent

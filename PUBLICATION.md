@@ -30,7 +30,7 @@ scenario; copy it again whenever the Preview is regenerated).
 | File | What it shows | Why there |
 |---|---|---|
 | `Art/Gallery/0-preview.png` | The Preview: the miner, the dog and the pickaxe scene, with the ModIcon cut out and composited in the bottom-left corner, tilted | Matches the page's own header image; the icon corner is the mod's mark |
-| `Art/Gallery/1-candidate-companion-at-work.png` | The staged photograph (see below): Mara at the rock, Rex beside her, the `+80` mark, ore chunks, two flowers | The only image that shows the mod *doing* something |
+| `Art/Gallery/1-candidate-companion-at-work.png` | The staged photograph (see below): Mara at the rock, Rex beside her, the `+80` mark, ore chunks, two stone chunks as decor | The only image that shows the mod *doing* something |
 | `Art/Gallery/2-settings-page-top.png` | The top of the settings page (English): the intro, the four work toggles, the training requirement | Shows how much is adjustable (a menu: a screenshot, not staged) |
 | `Art/Gallery/3-settings-page-bottom.png` | The bottom of the settings page: the sliders, the scroll bar | Proves the scroll fix reaches every control |
 | `Art/Gallery/4-reset-confirmation.png` | The reset confirmation dialog over the settings page | The one destructive control; it asks first |
@@ -46,7 +46,7 @@ photograph, one story, chosen subject, read before accepted, anomalies reported 
   camera catches Rex under the `+N`.
 - **Cast, chosen not random.** Mara: female, `Fat` body, copper `Pigtails` (rgb 190, 90, 40), mustard `Apparel_Tuque`
   (230, 170, 40) over a teal `Apparel_BasicShirt` (30, 140, 150) and ochre `Apparel_Pants` (150, 100, 50). Rex: the husky.
-  Two flowers (`Plant_Daylily`, `Plant_Dandelion`) at the foot of the rock, placed relative to Mara and cleared afterwards.
+  Two stone chunks (`ChunkGranite`, `ChunkLimestone`, instead of the flowers of the first tries) at the foot of the rock, placed relative to Mara and cleared afterwards.
 - **Place.** The Sanctuary of Nelim, fixture `Nelims-tribe` (SanctuaryBacklot repository, `docs/GALERIE.md`; steps `Nelim's Sanctuary:` are the Backlot's, `Nelim's Pickle Tools:` PickleTools'), place `gravel-yard`, emptied of its
   furniture and of every animal before Rex arrives; no bamboo is cleared and no roof removed. Nelim is Virginie and is left
   alone: Mara is a guest colonist the scenario adds. Pass map: `Tests/Pickle/wsl-deps.sanctuary.map` (since 2026-10-08, the Backlot's minimum list plus three PickleTools; the run of 2026-10-07 used the old map and the old steps).
