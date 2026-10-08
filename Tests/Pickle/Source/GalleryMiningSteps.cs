@@ -100,6 +100,18 @@ namespace FieldworkCompanions.PickleSteps
             while (Time.realtimeSinceStartup < until) await ctx.WaitFrames(5);
         }
 
+
+        /// <summary>
+        /// Nelim of the Sanctuary fixture has Asthma and a bad back (run 91fa): she mined, but too slowly for the mark to
+        /// rise in time. For the picture she is cured of her chronic conditions, in the run only: nothing is saved.
+        /// </summary>
+        [Given("Fieldwork Companions: {string} is cured of every chronic condition")]
+        public void CuredOfChronic(PickleContext ctx, string colonistName)
+        {
+            var pawn = Driver.PawnNamed(ctx, colonistName);
+            foreach (var h in pawn.health.hediffSet.hediffs.Where(h => h.def.chronic).ToList())
+                pawn.health.RemoveHediff(h);
+        }
         [When("Fieldwork Companions: the scene decor is cleared")]
         public void SceneDecorCleared(PickleContext ctx)
         {

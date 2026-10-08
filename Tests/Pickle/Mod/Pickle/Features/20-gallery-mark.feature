@@ -33,6 +33,7 @@ Feature: a companion beside a colonist at work
     And Nelim's Pickle Tools: all animals are removed
     And Nelim's Pickle Tools: the temperature of the map is 21 degrees
     And Nelim's Pickle Tools: "Nelim" stands at (178, 143)
+    And Fieldwork Companions: "Nelim" is cured of every chronic condition
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (30, 140, 150)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (150, 100, 50)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Tuque" dyed rgb (230, 170, 40)
