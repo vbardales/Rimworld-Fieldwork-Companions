@@ -184,6 +184,9 @@ namespace FieldworkCompanions.PickleSteps
                     // Mote_Text ages in real seconds (realTime, solidTime 2.2): it is transparent about 2 s after it is
                     // made, pause or not. The picture is taken after a settling wait, so the mark is kept opaque.
                     mark.overrideTimeBeforeStartFadeout = 120f;
+                    // Paused on the very frame the mark is found: at the high speed the colonist walks away from the rock in the
+                    // frames before the next step pauses (run 761e, Nelim stood three cells from the vein).
+                    Find.TickManager.CurTimeSpeed = TimeSpeed.Paused;
                     return;
                 }
                 await ctx.WaitFrames(2);

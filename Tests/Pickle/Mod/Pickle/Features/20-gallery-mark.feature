@@ -42,7 +42,7 @@ Feature: a companion beside a colonist at work
     And Fieldwork Companions: the scene decor "ChunkSlate" stands 0 cells right of and 3 cells below "Nelim"
     And Fieldwork Companions: the scene decor "ChunkLimestone" stands 2 cells right of and 3 cells below "Nelim"
     And Fieldwork Companions: the scene decor "TorchLamp" stands 3 cells right of and 1 cells below "Nelim"
-    And Nelim's Pickle Tools: I frame the animal "Rex" at zoom 5
+    And Nelim's Pickle Tools: I frame the animal "Rex" at zoom 4
     And Fieldwork Companions: the camera is placed so that "Nelim" stands 2 cells left of and 0 cells above the pointer
     And Nelim's Pickle Tools: the interface scale is 200 percent
     And Nelim's Pickle Tools: studio presentation mode is enabled
