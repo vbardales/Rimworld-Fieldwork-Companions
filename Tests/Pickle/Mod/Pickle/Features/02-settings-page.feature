@@ -16,9 +16,9 @@
 Feature: the settings page, as a player sees it
 
   Background:
-    Given the save "nelim-zen-meadow-studio" is loaded
+    Given the save "Nelims-tribe" is loaded
     And game speed is paused
-    And Nelim's Pickle Tools: I frame the studio "zen"
+    And Nelim's Sanctuary: I am at the sanctuary "window-backdrop-for-height"
     And Fieldwork Companions settings are at their documented defaults
     And I close all dialogs
 

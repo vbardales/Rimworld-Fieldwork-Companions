@@ -22,9 +22,9 @@
 Feature: RIMMSQOL reveals and hides the Fieldwork Companions shortcut
 
   Background:
-    Given the save "nelim-zen-meadow-studio" is loaded
+    Given the save "Nelims-tribe" is loaded
     And game speed is paused
-    And Nelim's Pickle Tools: I frame the studio "zen"
+    And Nelim's Sanctuary: I am at the sanctuary "window-backdrop-for-height"
     And I close all dialogs
     Then mod "MalteSchulze.RIMMSqol" is loaded
     And RIMMSQOL is ready to be driven
