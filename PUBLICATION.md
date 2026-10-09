@@ -31,6 +31,7 @@ scenario; copy it again whenever the Preview is regenerated).
 |---|---|---|
 | `Art/Gallery/0-preview.png` | The Preview: the miner, the dog and the pickaxe scene, with the ModIcon cut out and composited in the bottom-left corner, tilted | Matches the page's own header image; the icon corner is the mod's mark |
 | `Art/Gallery/1-candidate-companion-at-work.png` | The staged photograph (see below): Nelim at the rock, Rex beside her, the `+80` mark, ore chunks, a torch lamp and two stone chunks as decor, on a vein of jade | The only image that shows the mod *doing* something |
+| `Art/Gallery/1-candidate-nelim-jade.png` | Candidate for the same place (run `47a2`, `2026-10-08-gallery-sanctuary10`, cropped 1360x765, 256 colours): Nelim in work clothes at the jade vein, Rex beside her, torch lamp and two stone chunks, dusk; the `+80` is small and floats above empty ground, her hair is not visible under the tuque | Awaiting the maintainer's choice between the two candidates for image 1 |
 | `Art/Gallery/2-settings-page-top.png` | The top of the settings page (English): the intro, the four work toggles, the training requirement | Shows how much is adjustable (a menu: a screenshot, not staged) |
 | `Art/Gallery/3-settings-page-bottom.png` | The bottom of the settings page: the sliders, the scroll bar | Proves the scroll fix reaches every control |
 | `Art/Gallery/4-reset-confirmation.png` | The reset confirmation dialog over the settings page | The one destructive control; it asks first |
