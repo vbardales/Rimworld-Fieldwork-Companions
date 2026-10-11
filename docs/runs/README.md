@@ -23,7 +23,7 @@ the log from `pickle-reports-archive/<stamp>-nosummary` at once, before the rete
 folder in place:
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File Tests/Pickle/Minify-Evidence.ps1 -Folder Tests/Pickle/Evidence/<date>-<pass>
+powershell -NoProfile -ExecutionPolicy Bypass -File ../scripts/Minify-Evidence.ps1 -Folder Tests/Pickle/Evidence/<date>-<pass>
 ```
 
 `report.html` and `messages.ndjson` (tens of megabytes each, both derived from `junit.xml`) are removed and every

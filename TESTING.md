@@ -84,7 +84,7 @@ The disk is shared and full, so a report is kept only while it still proves some
 evidence"). **A proof belongs to a revision**: every summary in `docs/runs/` names the commit and the SHA-256 of
 `Mod/Assemblies/FieldworkCompanions.dll` and of the steps assembly it ran against, and a report of another build
 proves nothing about the current one. Per pass, keep the latest report for the revision now in the repository,
-minified with `Tests/Pickle/Minify-Evidence.ps1`, under `Tests/Pickle/Evidence/<date>-<pass>/` (on disk, ignored
+minified with the shared `scripts/Minify-Evidence.ps1` (protocols repository), under `Tests/Pickle/Evidence/<date>-<pass>/` (on disk, ignored
 by git), and one text line in `docs/runs/history.md`. What that report has to contain:
 
 | Proof | Where it is | Why it cannot be dropped |
