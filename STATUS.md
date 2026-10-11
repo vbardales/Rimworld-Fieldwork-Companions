@@ -33,7 +33,7 @@ remaining:
   - note: Workshop item 3806133311 was published by the maintainer as 0.1.0 while the local metadata and draft notes use 1.0.0. The maintainer explicitly accepts that difference for this early publication; it is tracked for the next planned update, not treated as a current audit blocker.
   - unverified: Gallery image 1 (staged photograph, candidate `1-candidate-nelim-jade.png` run 47a2): Virginie accepts or refuses. Subscribe to Workshop item 3806133311 and test the installed Workshop copy, including its visibility and the actual item page contents. This audit does not access Steam; `tested` does not require it, `prepublished`/publication do.
   - validated: PublishedFileId `3806133311` is committed and pushed on `main` (e2ec8fc, followed by release-preparation commits).
-  - validated: French review by Virginie, 2026-10-02: 12 corrections requested (Intro, WorkHeader, FishingTip, GatheringTip, RequireSpecialtyTip, BondTip, ShareTip, Radius, RadiusTip, BondChance, then Intro and FishingTip again), all applied; she declared the French validated linguistically at revision `342f69d` on her own statement in chat. The wording after that is the corrections listed here only (commit following 51bc7e5). Reread against the 2026-09-30 French gender-agreement rule (TRANSLATIONS.md section 3). No owned text agrees with a pawn: all 33 Keyed entries are settings labels, tooltips, the reset confirmation and the numeric assist mote (`+{0}`); the one DefInjected pair is the hidden MainButtons shortcut's label/description. None names or describes a specific colonist or animal, so no `{PAWN_gender ? ...}` switch applies or is missing. `FRENCH_REVIEW.md` regenerated (`scripts/Generate-FrenchReview.ps1`, reads the shipped XML) on revision `7d441a6` (after the two English corrections of 6193bc0).
+  - validated: French review by Virginie, 2026-10-02: 12 corrections requested (Intro, WorkHeader, FishingTip, GatheringTip, RequireSpecialtyTip, BondTip, ShareTip, Radius, RadiusTip, BondChance, then Intro and FishingTip again), all applied; she declared the French validated linguistically at revision `342f69d` on her own statement in chat. The wording after that is the corrections listed here only (commit following 51bc7e5). Reread against the 2026-09-30 French gender-agreement rule (TRANSLATIONS.md section 3). No owned text agrees with a pawn: all 33 Keyed entries are settings labels, tooltips, the reset confirmation and the numeric assist mote (`+{0}`); the one DefInjected pair is the hidden MainButtons shortcut's label/description. None names or describes a specific colonist or animal, so no `{PAWN_gender ? ...}` switch applies or is missing. `FRENCH_REVIEW.md` regenerated (`scripts/Make-FrenchReview.ps1` (shared, protocols repository), reads the shipped XML) on revision `7d441a6` (after the two English corrections of 6193bc0).
 protocols_read_sha: 15804c0c4f9bbb36e58f92f2f18a8d9ae534fd3b
 ---
 
@@ -72,6 +72,21 @@ Audited on `e39d9ab` (working tree clean before this edit). **`prepublished` (ol
   (scenarios 19 and `removal-check`) is part of it.
 - Still the CI/CD session's: migration from semantic-release to `publish-tag.yml`.
 
+
+**Replayed today against the current protocols (AUDIT.md, section 16), on `e39d9ab`.**
+- `declareDependencies`: `About.xml` read again: Harmony the only hard dependency (id, Workshop url, download url), `loadAfter` Harmony, Core and the five DLCs including Odyssey, `supportedVersions` 1.6, no `incompatibleWith`, no `LoadFolders.xml` (one version), no XML patch (only a `MainButtonDef`); Odyssey's trainings are resolved by name at runtime and degrade silently (pass 4 played it). Harmony is used by four patches in `Source/`. Unchanged since 2026-10-02.
+- `auditSettings`: MOD_SETTINGS.md read; see "Settings audit" below.
+- `localize`: `scripts/Make-FrenchReview.ps1 -ModRoot` (the shared script, replaces the local `Generate-FrenchReview.ps1`, deleted on the Audit session's ruling of 2026-10-11) regenerated `FRENCH_REVIEW.md` at `e39d9ab`: 35 rows, none flagged. French gender rule unchanged (no text agrees with a pawn).
+- `writeTests`: `scripts/Run-Functional-Tests.ps1`: 25 tests, all passed (replayed). `Tests/Pickle/Check-Steps.ps1`: all patterns compile, none declared twice (Pickle assemblies taken from the WSL install, `-PickleAssemblies`).
+- Build: `dotnet build Source/FieldworkCompanions.csproj -c Release` 0 warnings, 0 errors. Not reproducible byte for byte any more: see ".build" below.
+- Mod root: only `.git`, `.gitattributes`, `.github`, `.gitignore` start with a dot or underscore. `.build/` was removed (see below); `_tools/` does not exist (moved to `scripts/` on 2026-10-05).
+
+**`.build` (closing pass 3).** `Source/Directory.Build.props` and `Tests/Pickle/Source/Directory.Build.props` no longer redirect `obj`/`bin`: they stay in `Source/obj`, `Source/bin` and `Tests/Pickle/Source/obj`, `bin` (gitignored, not `Mod/`); `scripts/Settings-Tests.ps1` scratch moved to `Source/obj/settings-tests`. **Cost:** the compiled DLL embeds its build path, so a rebuild gives other bytes (`1E90ED968143…` against the committed `99AEF88CEF37…`). The committed DLL was restored and stays the shipped one (sources unchanged since `cd1afb7`); the next rebuild is a `Mod/` commit and so reopens `code_review_sha`.
+
+## Settings audit
+
+Date 2026-10-11, revision `e39d9ab`. Inventory: 12 settings (4 work switches, training requirement, bond share, base chance, per-step chance, bond chance, radius, a mark switch) plus a reset; shortcut `FieldworkCompanions_Settings` MainButtonDef, hidden by default. Access: Mod options, then the hidden shortcut for RIMMSQOL, same values. Applies immediately, global (not per save). Automated: `Run-Functional-Tests.ps1` 25/25 (defaults and reset, normalization, effect of every switch combination, Scribe persistence from EN and FR hosts, older and out-of-range files, shortcut hidden and revealable). In game (Pickle, revision `cd1afb7`): settings page top, bottom and reset in both languages (01-05), persistence (03), shortcut and RIMMSQOL (04, 09-12, passes 3 and 5); evidence `Tests/Pickle/Evidence/2026-09-27-pass2-part1`, `-part2`, `2026-09-27-pass3-rimmsqol`, `2026-09-28-pass3-chain-3`. Result: `passed`. The full 2026-09-13 to 2026-09-23 detail is in `docs/runs/status-journal-to-2026-10-11.md`.
+
 ## Translation audit — 2026-09-30
 
 On the peer session's notice: `TRANSLATIONS.md` gained a French gender-agreement rule and a
@@ -91,7 +106,7 @@ systematic-French-review requirement (both 2026-09-30), and `translation_fr` was
   call (`FieldworkCompanionsMod.cs`, `Runtime/Companions.cs`; grep confirms only numeric arguments:
   chance percentages, the assist count, the radius). No `{PAWN_gender ? ...}` switch is used or
   missing.
-- **`FRENCH_REVIEW.md`** generated at the mod root by the new `scripts/Generate-FrenchReview.ps1`
+- **`FRENCH_REVIEW.md`** generated at the mod root by the new `scripts/Make-FrenchReview.ps1` (shared, protocols repository)
   (reads the shipped XML, one table per file, Original/English/French columns; Original repeats
   English since the mod is original, not ported). No row is flagged `?`. Not committed to `Mod/`,
   so Steam never receives it.

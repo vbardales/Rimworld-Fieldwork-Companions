@@ -93,7 +93,7 @@ It 'all 16 work-switch combinations affect the live dispatcher and bonus share a
 $scribe=$gameAsm.GetType('Verse.Scribe',$true)
 $saver=$scribe.GetField('saver').GetValue($null)
 $loader=$scribe.GetField('loader').GetValue($null)
-$scratch=Join-Path $ModRoot '.build/settings-tests'
+$scratch=Join-Path $ModRoot 'Source/obj/settings-tests'
 $null=New-Item -ItemType Directory -Path $scratch -Force
 function Read-TestSettings([string]$path) {
     $s=New-Settings

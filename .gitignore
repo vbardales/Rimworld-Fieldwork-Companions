@@ -1,8 +1,9 @@
 # Build intermediates.
-# Source/Directory.Build.props sends them outside the mod folder: they must never end up in it,
+# Source/obj and bin are not the published folder; nothing may be built into Mod/ except Assemblies/,
 # since RimWorld's Workshop uploader sends Mod/ as it stands, with no exclusion possible, and an
 # obj/ sitting there would ship the publicised Assembly-CSharp.dll to every subscriber.
-.build/
+Tests/Pickle/Source/obj/
+Tests/Pickle/Source/bin/
 Source/obj/
 Source/bin/
 

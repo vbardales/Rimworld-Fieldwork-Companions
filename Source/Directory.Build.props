@@ -1,15 +1,9 @@
 <Project>
 
-  <PropertyGroup>
-    <!--
-      Build intermediates are sent outside the published folder. The Workshop uploader sends
-      Mod/ as it stands (SteamUGC.SetItemContent, no exclusion possible): an obj/ sitting there
-      would ship the publicised Assembly-CSharp.dll, ~6 MB, to every subscriber.
-      This must stay in a Directory.Build.props: NuGet restore reads the property before the
-      csproj.
-    -->
-    <BaseIntermediateOutputPath>$(MSBuildThisFileDirectory)..\.build\obj\</BaseIntermediateOutputPath>
-    <BaseOutputPath>$(MSBuildThisFileDirectory)..\.build\bin\</BaseOutputPath>
-  </PropertyGroup>
+  <!--
+    No BaseIntermediateOutputPath / BaseOutputPath override: obj/ and bin/ stay in Source/, which is
+    gitignored and is not the published folder. The mod root carries no .build/ (AGENTS.md, closing pass 3).
+    Mod/ is what the Workshop uploader sends: nothing is ever built into it except Assemblies/.
+  -->
 
 </Project>
