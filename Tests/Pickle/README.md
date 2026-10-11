@@ -43,7 +43,7 @@ first if it is stale. Feature files need no build.
 ## Check before spending a run
 
 ```powershell
-powershell.exe -ExecutionPolicy Bypass -File ..scriptsCheck-Steps.ps1 -ModRoot . -PickleAssemblies <the installed Pickle Assemblies folder>
+powershell.exe -ExecutionPolicy Bypass -File ../scripts/Check-Steps.ps1 -ModRoot . -PickleAssemblies <the installed Pickle Assemblies folder>
 ```
 
 Two seconds, no game. It compiles every step pattern with Pickle's own engine and matches every step
