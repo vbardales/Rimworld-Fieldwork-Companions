@@ -19,8 +19,8 @@ upstream_mod_remotes: N/A   # original mod (licence: original): no source mod po
 dependencies: declared
 showcase:     complete
 tested_on:    cd1afb7
-code_review_sha: 771777d310f18e115e99f2c860ee4a70232627b6
-echo_review_sha: c8b040d5e551998f01aff85469d2a6693ea37c81
+code_review_sha: 6684c9558760e89038de0ffc9ccda51445e6471d
+echo_review_sha: 7d8f8e62ab7804d048051cea422d647e15668300
 social_preview_sha256: fa08f8d179ff3e06386ff039920e8f0652211ea8c01107f500040ceb0f7421b7
 workshop:      3806133311
 maintainer:   Codex, current local repository task
