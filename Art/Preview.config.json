@@ -21,15 +21,14 @@
   "echo": {
     "file": "echo-source.png",
     "preSized": true,
-    "mode": "luminance",
     "color": "var(--accent)",
-    "width": 260,
-    "height": 260,
+    "width": 140,
+    "height": 140,
     "opacity": 1,
     "veil": false,
-    "panelTop": 2,
+    "panelTop": 40,
     "panelRight": 1,
-    "panelWidth": 44,
+    "panelWidth": 27,
     "flipX": true
   },
   "iconBadge": {
