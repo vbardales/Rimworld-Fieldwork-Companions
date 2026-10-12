@@ -20,6 +20,8 @@ dependencies: declared
 showcase:     complete
 tested_on:    cd1afb7
 code_review_sha: 771777d310f18e115e99f2c860ee4a70232627b6
+echo_review_sha: c8b040d5e551998f01aff85469d2a6693ea37c81
+social_preview_sha256: fa08f8d179ff3e06386ff039920e8f0652211ea8c01107f500040ceb0f7421b7
 workshop:      3806133311
 maintainer:   Codex, current local repository task
 updated:      2026-10-11
@@ -63,7 +65,7 @@ Audited on `e39d9ab` (working tree clean before this edit). **`prepublished` (ol
 `docs/runs/status-journal-to-2026-10-11.md`. Front matter: `stage` removed, `workflow_stage` added, `protocols_read_sha` below.
 
 **Not done, and for which state.**
-- `mountPreview`: `echo_review_sha` (decide keep or redo `Art/echo.png` with the accepted gallery in hand).
+- `mountPreview` (2026-10-12, done by this session): the echo was redrawn by hand from the gallery (`Art/echo-source.png`: the miner with her pickaxe and the dog, 260x260, commit `c8b040d`), `Art/Preview.config.json` points to it (`echo.file`, 260x260), Preview regenerated (`Mod/About/Preview.png` 896x504, 543 KB, opened at full size and at 268 px: the echo is a faint green line drawing beside the title, as before), `Art/Gallery/0-preview.png` is its byte copy, `echo_review_sha` and `social_preview_sha256` recorded, GitHub social preview uploaded and checked (`og:image` file has the same sha256). `echo.png` and its renamed copy `echo-original.png` removed (identical to the committed one).
 - `writeDocs`: the description is not yet a `## Steam description` block in `PUBLICATION.md` (it is `Mod/README.template.md`,
   accepted by `OPERATIONS.md` until the migration); `publication_changelog_review_sha` (Virginie's reading); the `## [1.0.0]` section
   of the CHANGELOG is dated 2026-09-29, `[Unreleased]` must come back until the dry-run (12.e); the owner marks the review per `x.y` line.
