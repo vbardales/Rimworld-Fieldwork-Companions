@@ -11,13 +11,13 @@
 # only colonist of the fixture, is Virginie: on her instruction of 2026-10-08 she is the colonist of the photograph. Her
 # looks are left alone except the clothes (teal shirt, ochre pants, mustard tuque); for the run only she is cured of her
 # chronic conditions (Asthma and a bad back made her too slow, run 91fa) and the map is held at 21 degrees (heat step of
-# NPT, not yet proven). The decor (a torch lamp, two stone chunks) is placed relative to Nelim and taken away again.
+# NPT, not yet proven). The decor (a daylily, two stone chunks) is placed relative to Nelim and taken away again.
 #
 # Step prefixes: "Nelim's Sanctuary:" steps belong to SanctuaryBacklot (the place: frame, empty, animals of a place); "Nelim's Pickle Tools:"
 # steps belong to PickleTools (NPT: pawn, interface scale, presentation mode, framing an animal, temperature); "Fieldwork Companions:" steps are
 # this suite's own. Pass map: Tests/Pickle/wsl-deps.sanctuary.map (the Backlot's minimum mod list, with Show Hair Under Stuff, plus three tools).
 #
-# What to look for: Nelim at the vein, Rex beside her, a readable "+N" over Rex, jade on the ground, the lamp and stone
+# What to look for: Nelim at the vein, Rex beside her, a readable "+N" over Rex, jade on the ground, the daylily and stone
 # chunks at the foot of the scene, hair visible under the tuque, no HUD (presentation mode), no tooltip, no other pawn or
 # animal in the frame.
 @part2 @review @requires:ab.vplrf @requires:nelim.pickletools.interfacescale @requires:nelim.pickletools.colonistrace @requires:nelim.pickletools.screenshotstudio @timeout:240
@@ -26,6 +26,7 @@ Feature: a companion beside a colonist at work
   Scenario: a real mining job, the animal beside the colonist, the mark over the animal
     Given the save "Nelims-tribe" is loaded
     And game speed is paused
+    And I set the hour to 8
     And I close all dialogs
     And Fieldwork Companions always helps, at the largest share
     And Nelim's Sanctuary: I am at the sanctuary "gravel-yard"
@@ -42,9 +43,9 @@ Feature: a companion beside a colonist at work
     And Fieldwork Companions: a "MineableJade" rock and "Rex" stand right beside "Nelim"
     And Fieldwork Companions: the scene decor "ChunkSlate" stands 0 cells right of and 3 cells below "Nelim"
     And Fieldwork Companions: the scene decor "ChunkLimestone" stands 2 cells right of and 3 cells below "Nelim"
-    And Fieldwork Companions: the scene decor "TorchLamp" stands 3 cells right of and 1 cells below "Nelim"
-    And Nelim's Pickle Tools: I frame the animal "Rex" at zoom 4
-    And Fieldwork Companions: the camera is placed so that "Nelim" stands 2 cells left of and 0 cells above the pointer
+    And Fieldwork Companions: the scene decor "Plant_Daylily" stands 4 cells right of and 1 cells below "Nelim"
+    And Nelim's Pickle Tools: I frame the animal "Rex" at zoom 5
+    And Fieldwork Companions: the camera is placed so that "Nelim" stands 3 cells left of and 0 cells above the pointer
     And Nelim's Pickle Tools: the interface scale is 200 percent
     And Nelim's Pickle Tools: studio presentation mode is enabled
     When Fieldwork Companions: "Nelim" is ordered to mine the rock beside them
