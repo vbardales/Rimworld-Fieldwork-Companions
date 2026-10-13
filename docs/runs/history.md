@@ -35,3 +35,4 @@ disk (`Tests/Pickle/Evidence/`, ignored by git). A run that needs more than a li
 - 2026-09-28, request `6500` (pass 3 RIMMSQOL restart chain 10-11-12, one launch each, revision `68a30c9`): 3 of 3 played passed. Evidence `Tests/Pickle/Evidence/2026-09-28-pass3-chain-3`. Pass 3 is now complete and green.
 - 2026-09-29: all four Pickle passes green on revision `cd1afb7`, every @review capture opened and confirmed. Stage moved to tested (see STATUS.md).
 - 2026-09-29, cleanup: deleted `Evidence/2026-09-28-pass3-chain-2` (11 MB), the off-main-thread-flake attempt superseded by `2026-09-28-pass3-chain-3`; nothing in STATUS.md pointed to it.
+- 2026-10-13, request `6215` (gallery image 1 replay, `20-gallery-mark`, `wsl-deps.sanctuary.map`, revision `b019a52`): 1 of 1 passed, exit 0. The capture is refused by the session (bare soil, mark far from Rex, same scene as run `27fa`) and deleted. Evidence `Tests/Pickle/Evidence/2026-10-13-gallery-1`.
