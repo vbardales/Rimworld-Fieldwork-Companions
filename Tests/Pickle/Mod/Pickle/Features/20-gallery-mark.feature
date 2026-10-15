@@ -51,7 +51,6 @@ Feature: a companion beside a colonist at work
     When Fieldwork Companions: "Nelim" is ordered to mine the rock beside them
     And game speed is ultrafast
     And Fieldwork Companions: the rock beside "Nelim" is nearly mined within 240 seconds
-    And game speed is normal
     Then Fieldwork Companions: a bonus mark floats over "Rex" within 140 seconds
     And game speed is paused
     And Fieldwork Companions: the picture settles for 4 real seconds
