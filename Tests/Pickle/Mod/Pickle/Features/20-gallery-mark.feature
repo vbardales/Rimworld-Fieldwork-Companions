@@ -39,12 +39,12 @@ Feature: a companion beside a colonist at work
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (30, 140, 150)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (150, 100, 50)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Tuque" dyed rgb (230, 170, 40)
-    And Nelim's Pickle Tools: the area from (145, 124) to (153, 134) is cleared
+    And Nelim's Pickle Tools: the area from (146, 127) to (151, 133) is cleared
     And Fieldwork Companions: "Rex" is an obedient "Husky" that follows "Nelim" at work
     And Fieldwork Companions: a "MineableJade" rock and "Rex" stand right beside "Nelim"
     And Fieldwork Companions: the scene decor "ChunkSlate" stands 0 cells right of and 3 cells below "Nelim"
     And Fieldwork Companions: the scene decor "ChunkLimestone" stands 2 cells right of and 3 cells below "Nelim"
-    And Nelim's Pickle Tools: I frame the animal "Rex" at zoom 8
+    And Nelim's Pickle Tools: I frame the animal "Rex" at zoom 5
     And Fieldwork Companions: the camera is placed so that "Nelim" stands 3 cells left of and 0 cells above the pointer
     And Nelim's Pickle Tools: the interface scale is 200 percent
     And Nelim's Pickle Tools: studio presentation mode is enabled
