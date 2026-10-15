@@ -40,6 +40,9 @@ Feature: a companion beside a colonist at work
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (150, 100, 50)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Tuque" dyed rgb (230, 170, 40)
     And Nelim's Pickle Tools: the area from (146, 127) to (151, 133) is cleared
+    And Nelim's Sanctuary: Nelim has her own face
+    And Nelim's Pickle Tools: "Nelim" brows are "BrowThick"
+    And Nelim's Pickle Tools: "Nelim" mouth is "MouthNormal"
     And Fieldwork Companions: "Rex" is an obedient "Husky" that follows "Nelim" at work
     And Fieldwork Companions: a "MineableJade" rock and "Rex" stand right beside "Nelim"
     And Fieldwork Companions: the scene decor "ChunkSlate" stands 0 cells right of and 3 cells below "Nelim"
