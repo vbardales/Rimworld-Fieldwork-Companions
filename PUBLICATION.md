@@ -40,6 +40,25 @@ Images 2 to 4 were produced by `02-settings-page.feature` and `04-mainbuttons-sh
 by the maintainer on 2026-09-29. A green capture scenario proves the journey ran, not that the image shows anything: every
 image is opened and looked at before it is listed here.
 
+**The story of the series: a day on the river bank (2026-10-15).** Nelim, the Sanctuary's one colonist, spends a day with her
+husky Rex on the east bank of the river. The same shirt (teal) and trousers (ochre) all day; the light, her head covering and her
+expression change.
+- **Image 1, morning** (`20-gallery-mark.feature`, hour 8): at a jade block, in her mustard tuque for the stone dust, brows
+  squared and mouth neutral (concentrating). The block comes down, the block pays a little more than it should, and the `+N`
+  rises over Rex.
+- **Image 2, noon** (`22-gallery-fishing.feature`, hour 12): bare-headed, her hair in the light, a plain smile, on the bank
+  by the water, with a fish rack and a pile of fishing gear (Fishing Village Decor and Props, `zal.fishprops`, Workshop
+  `2902499006`). A fish is landed from the river (stocked with fish for the picture) and the `+N` rises over Rex.
+- **Image 3, evening** (`23-gallery-evening.feature`, hour 18): bare-headed, relaxed (her own face), a ripe rice plant beside
+  her in the last light; the harvest pays one more, and the `+N` rises over Rex.
+- **Images 4 to 6**: the settings page and its reset, menus, captures as they are (not staged).
+- Rex faces the camera when the animal's heading allows it (the scene does not control it); at least one image of the series
+  must show him from the front (GALLERY.md, 2026-10-14).
+- Status 2026-10-15: image 1 has been replayed five times (runs `5795`, `2be6`, `894d`, `6f57`, then `0595` red on a
+  non-existent brow); none of the three images is accepted yet. The candidates in `Art/Gallery/` are the old
+  `1-candidate-companion-at-work.png` and the new ones when the session accepts them. The numbering below follows the old
+  series until then.
+
 **Image 1, the staged photograph** (`20-gallery-mark.feature`, rules of 2026-10-02 to 2026-10-06 in `PUBLISHING.md`: a set-up
 photograph, one story, chosen subject, read before accepted, anomalies reported to Pickle Tools).
 - **Story.** Nelim, in work clothes and a mustard tuque, took her husky Rex to the jade vein; the vein pays a little more than
