@@ -317,6 +317,12 @@ namespace FieldworkCompanions.PickleSteps
             }
             ctx.Require(body != null, $"no water body exists at {center} after the terrain was set to deep water");
 
+            StockWithFish(ctx, map, body, center);
+        }
+
+        /// <summary>Gives the water body fish (see the comment inside) and remembers the cell to fish at.</summary>
+        private static void StockWithFish(PickleContext ctx, Map map, WaterBody body, IntVec3 center)
+        {
             // The shared test colony's biome has no freshwater fish to distribute (the first run, 2026-09-23: a lake of
             // 441 cells, "common fish 0, has fish False"). The fish types of another biome are borrowed for this
             // scenario, and the lake draws its fish again. A biome without any fish types would also make
@@ -340,6 +346,26 @@ namespace FieldworkCompanions.PickleSteps
             ctx.Require(map.waterBodyTracker.AnyFishPopulationAt(center),
                 $"the lake holds no fish: {DescribeLake(body, map, center)}");
             ctx.Set(new FishingSpot { Cell = center });
+        }
+
+        /// <summary>
+        /// For the gallery: the real water beside the colonist (the Sanctuary's river), not a lake built for the test. The
+        /// nearest water cell within 15 cells is found, its water body is given fish like a lake's, and it becomes the cell
+        /// the next "fishes at the lake" step casts at.
+        /// </summary>
+        [Given("Fieldwork Companions: the water beside {string} holds fish")]
+        public void WaterBesideHoldsFish(PickleContext ctx, string colonistName)
+        {
+            var pawn = Driver.PawnNamed(ctx, colonistName);
+            var map = pawn.Map;
+            ctx.Require(ModsConfig.OdysseyActive, "fishing needs Odyssey: tag the scenario @requires:Odyssey");
+            var cell = GenRadial.RadialCellsAround(pawn.Position, 15f, true)
+                .Where(c => c.InBounds(map) && c.GetTerrain(map).IsWater).OrderBy(c => c.DistanceToSquared(pawn.Position))
+                .Cast<IntVec3?>().FirstOrDefault();
+            ctx.Require(cell.HasValue, $"no water within 15 cells of {pawn.Position}");
+            WaterBody body;
+            ctx.Require(map.waterBodyTracker.TryGetWaterBodyAt(cell.Value, out body), $"no water body at {cell.Value}");
+            StockWithFish(ctx, map, body, cell.Value);
         }
 
         private static string DescribeLake(WaterBody body, Map map, IntVec3 cell) =>

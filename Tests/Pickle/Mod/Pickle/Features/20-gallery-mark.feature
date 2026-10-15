@@ -21,7 +21,7 @@
 # What to look for: Nelim at the vein, Rex beside her, a readable "+N" over Rex, jade on the ground, the stone
 # chunks at the foot of the scene, hair visible under the tuque, no HUD (presentation mode), no tooltip, no other pawn or
 # animal in the frame.
-@part2 @review @requires:ab.vplrf @requires:nelim.pickletools.interfacescale @requires:nelim.pickletools.colonistrace @requires:nelim.pickletools.screenshotstudio @timeout:240
+@part2 @review @requires:nelim.pickletools.stagedecor @requires:ab.vplrf @requires:nelim.pickletools.interfacescale @requires:nelim.pickletools.colonistrace @requires:nelim.pickletools.screenshotstudio @timeout:240
 Feature: a companion beside a colonist at work
 
   Scenario: a real mining job, the animal beside the colonist, the mark over the animal
