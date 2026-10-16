@@ -19,9 +19,10 @@ Feature: noon on the river bank, a companion beside a fishing colonist
     And Nelim's Sanctuary: the animals are removed from the sanctuary "right-bank"
     And Nelim's Pickle Tools: all animals are removed
     And Nelim's Pickle Tools: the temperature of the map is 21 degrees
-    And Nelim's Pickle Tools: "Nelim" stands at (141, 131) facing West
+    And Nelim's Pickle Tools: "Nelim" stands at (144, 131) facing West
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (30, 140, 150)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (150, 100, 50)
+    And Nelim's Pickle Tools: the area from (142, 127) to (149, 134) is cleared
     And Nelim's Sanctuary: Nelim has her own face
     And Nelim's Pickle Tools: "Nelim" mouth is "MouthSmile"
     And Fieldwork Companions: "Rex" is an obedient "Husky" that follows "Nelim" at work
