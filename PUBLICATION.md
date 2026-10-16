@@ -5,7 +5,7 @@ first upload, and for whoever takes the mod over.
 
 **Status: `prepublished` (reached 2026-09-29, audited 2026-10-02).** Workshop item `3806133311` was created as the
 maintainer's early 0.1.0 publication, and its `PublishedFileId.txt` is committed and pushed. No Git tag or GitHub
-Release exists yet: for a CI publish they are created after a successful upload. The gallery is settled: image 1 was retaken on 2026-10-07. The Workshop item itself has not been subscribed to and
+Release exists yet: for a CI publish they are created after a successful upload. The gallery is not settled: image 1 is being retaken (candidate refused 2026-10-11, see `STATUS.md`). The Workshop item itself has not been subscribed to and
 validated through its installed copy; that belongs to `prepublished -> published`, not to this file.
 
 **Publication mode: CI** (public mod). Dry-run of the exact commit, `publish` with the full 40-character SHA,
@@ -92,8 +92,8 @@ One line of English at the bottom of each staged scene (GALLERY.md, "Sous-titres
 | index | file | line |
 |---|---|---|
 | 1 | `1-morning-jade.png` | Morning at the river bank: the jade gives way, and Rex turns up a little extra. |
-| 2 | `2-noon-fishing.png` | Noon: a line in the river, Rex at her feet, one more fish than she landed. |
-| 3 | `3-evening-harvest.png` | Evening: the last rice of the day, and Rex has found one more. |
+| 2 | `2-noon-fishing.png` | Noon: a line in the river, Rex at her side, and one more fish than she caught. |
+| 3 | `3-evening-harvest.png` | Evening: the last rice of the day, and one more grain than expected. |
 
 ## Dependencies and DLCs
 

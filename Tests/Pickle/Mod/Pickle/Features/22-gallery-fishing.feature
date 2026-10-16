@@ -32,6 +32,7 @@ Feature: noon on the river bank, a companion beside a fishing colonist
     And Nelim's Pickle Tools: I frame the animal "Rex" at zoom 5
     And Nelim's Pickle Tools: the interface scale is 200 percent
     And Nelim's Pickle Tools: studio presentation mode is enabled
+    # "at the lake" is the shared fishing step's wording (16-fishing); the picture is on the river bank.
     When Fieldwork Companions: "Nelim" fishes at the lake
     Then Fieldwork Companions: a bonus mark floats over "Rex" within 20 seconds
     And game speed is paused
