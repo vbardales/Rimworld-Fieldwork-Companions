@@ -3,7 +3,7 @@
 # The story of the series is in PUBLICATION.md ("A day on the river bank"): morning at the jade (20-gallery-mark), noon fishing
 # (22-gallery-fishing), evening harvesting (this one). Nelim, bare-headed, relaxed (her own face, nothing forced), a ripe rice
 # plant beside her in the last light; Rex at her feet; the "+N" over him as the plant comes down. Same bank as the other two, the
-# same shirt and trousers: the day is one outfit, the light is what changes (hour 18).
+# same shirt and trousers: the day is one outfit, the light is what changes (hour 17).
 #
 # STAGED (GALLERY.md). The assertion that a harvest is assisted is 06-assists'; this one is for a person.
 @part2 @review @requires:nelim.pickletools.stagedecor @requires:nelim.pickletools.interfacescale @requires:nelim.pickletools.colonistrace @requires:nelim.pickletools.screenshotstudio @timeout:240

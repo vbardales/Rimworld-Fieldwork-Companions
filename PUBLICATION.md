@@ -49,7 +49,7 @@ expression change.
 - **Image 2, noon** (`22-gallery-fishing.feature`, hour 12): bare-headed, her hair in the light, a plain smile, on the bank
   by the water, with a fish rack and a pile of fishing gear (Fishing Village Decor and Props, `zal.fishprops`, Workshop
   `2902499006`). A fish is landed from the river (stocked with fish for the picture) and the `+N` rises over Rex.
-- **Image 3, evening** (`23-gallery-evening.feature`, hour 18): bare-headed, relaxed (her own face), a ripe rice plant beside
+- **Image 3, evening** (`23-gallery-evening.feature`, hour 17): bare-headed, relaxed (her own face), a ripe rice plant beside
   her in the last light; the harvest pays one more, and the `+N` rises over Rex.
 - **Images 4 to 6**: the settings page and its reset, menus, captures as they are (not staged).
 - Rex faces the camera when the animal's heading allows it (the scene does not control it); at least one image of the series
@@ -91,9 +91,9 @@ One line of English at the bottom of each staged scene (GALLERY.md, "Sous-titres
 
 | index | file | line |
 |---|---|---|
-| 1 | `1-<name>.png` | Morning: a jade block comes down, and Rex turns up a little extra. |
-| 2 | `2-<name>.png` | Noon: a fish on the line, and one more in the basket. |
-| 3 | `3-<name>.png` | Evening: the last harvest pays one more. |
+| 1 | `1-morning-jade.png` | Morning at the river bank: the jade gives way, and Rex turns up a little extra. |
+| 2 | `2-noon-fishing.png` | Noon: a line in the river, Rex at her feet, one more fish than she landed. |
+| 3 | `3-evening-harvest.png` | Evening: the last rice of the day, and Rex has found one more. |
 
 ## Dependencies and DLCs
 
