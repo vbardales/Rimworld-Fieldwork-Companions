@@ -85,6 +85,16 @@ photograph, one story, chosen subject, read before accepted, anomalies reported 
   animal, `+80` readable, Rex facing the camera; the pale halo over the tuque is mining dust. The mark floats beside the
   rock, where it was made, not directly over Rex, who stepped after it.
 
+## Gallery subtitles
+
+One line of English at the bottom of each staged scene (GALLERY.md, "Sous-titres", rule of 2026-10-15). Not on `0-` (the Preview) nor on the settings captures. The clean originals go to `Art/Gallery-clean/` under the same name; `Art/Gallery/` holds the subtitled files. The lines are applied with `scripts/Add-Subtitle.ps1` once the images are accepted and reindexed (not yet: no image of the series is accepted).
+
+| index | file | line |
+|---|---|---|
+| 1 | `1-<name>.png` | Morning: a jade block comes down, and Rex turns up a little extra. |
+| 2 | `2-<name>.png` | Noon: a fish on the line, and one more in the basket. |
+| 3 | `3-<name>.png` | Evening: the last harvest pays one more. |
+
 ## Dependencies and DLCs
 
 **No DLC is required.** `supportedVersions` declares 1.6 only, and there is no `LoadFolders.xml` and
