@@ -26,6 +26,7 @@ Feature: noon on the river bank, a companion beside a fishing colonist
     And Nelim's Sanctuary: Nelim has her own face
     And Nelim's Pickle Tools: "Nelim" mouth is "MouthSmile"
     And Fieldwork Companions: "Rex" is an obedient "Husky" that follows "Nelim" at work
+    # No step sets an animal's facing: Rex faces where he is heading. Check the capture before any verdict.
     And Fieldwork Companions: the scene decor "FishRack" stands 2 cells right of and 2 cells below "Nelim"
     And Fieldwork Companions: the scene decor "FishGear" stands 0 cells right of and 2 cells below "Nelim"
     And Fieldwork Companions: the water beside "Nelim" holds fish
