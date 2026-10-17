@@ -25,10 +25,11 @@ Feature: evening on the river bank, a companion beside a harvesting colonist
     And Nelim's Pickle Tools: the area from (146, 127) to (151, 133) is cleared
     And Nelim's Sanctuary: Nelim has her own face
     And Fieldwork Companions: "Rex" is an obedient "Husky" that follows "Nelim" at work
+    And Nelim's Pickle Tools: "Rex" faces South
     And Fieldwork Companions: a ripe "Plant_Rice" stands next to "Nelim"
     And Fieldwork Companions: the scene decor "Plant_Rice" stands 2 cells right of and 1 cell below "Nelim"
     # 2026-10-17: the harvested plant leaves the frame; this second ripe plant stays in it, so the rice shows.
-    # No step sets an animal's facing: Rex faces where he is heading. Check the capture before any verdict.
+    # 2026-10-17: Rex faces South (toward the camera) by the step above; the capture still gets read before any verdict.
     And Nelim's Pickle Tools: I frame the animal "Rex" at zoom 5
     And Fieldwork Companions: the camera is placed so that "Nelim" stands 3 cells left of and 0 cells above the pointer
     And Nelim's Pickle Tools: the interface scale is 200 percent
