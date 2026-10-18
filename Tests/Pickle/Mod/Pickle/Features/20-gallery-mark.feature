@@ -1,5 +1,9 @@
 # The photograph for the Workshop page: a companion beside a colonist at work, and the mark over it.
 #
+# STORY (criterion k, shotlist v2 in STATUS.md): Nelim, the Sanctuary's only colonist, and her husky Rex, one day on the east side.
+# Episode 1, dawn (hour 8): at a jade vein on a cleared bare patch; she wears a teal shirt, ochre trousers and a mustard tuque.
+# Next episodes: 22 at noon at the pond, 23 at evening at the rice.
+#
 # Not a functional scenario: the assertions that the extra lands and the mark floats are in 06-assists, on the
 # instantaneous call. This one is for a person, and it is STAGED (owner's rule of 2026-10-02: every gallery capture is a
 # set-up photograph except the menus). The story is in PUBLICATION.md: Nelim, in work clothes and a mustard tuque, took her

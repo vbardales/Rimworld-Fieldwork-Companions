@@ -1,5 +1,8 @@
 # The photograph for the Workshop page, image 2 of the series: noon on the river bank, Nelim fishing with Rex at her side.
 #
+# STORY (criterion k, shotlist v2 in STATUS.md): same day as 20 (dawn at the jade). Episode 2, noon (hour 12): at the pond,
+# bare-headed, a blue shirt and cream trousers; Rex at her feet. Episode 3 (23) is the evening at the rice.
+#
 # The story of the series is in PUBLICATION.md ("A day on the river bank"): morning at the jade (20-gallery-mark), noon fishing
 # (this one), evening foraging. Nelim, bare-headed this time (the tuque is for the stone dust), her hair in the light, a plain
 # smile; Rex at her feet; a fish rack and a pile of fishing gear from Fishing Village Decor and Props (zal.fishprops) on the
