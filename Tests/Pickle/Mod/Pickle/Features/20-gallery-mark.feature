@@ -9,7 +9,7 @@
 # set-up photograph except the menus). The story is in PUBLICATION.md: Nelim, in work clothes and a mustard tuque, took her
 # husky Rex to the jade vein; the vein pays a little more than it should, and the camera catches the "+N" as the block comes down.
 #
-# Scene: the Sanctuary of Nelim (fixture "Nelims-tribe", in the SanctuaryBacklot repository: SanctuaryBacklot/docs/GALERIE.md), place "right-bank": the east
+# Scene: the Sanctuary of Nelim (fixture "Nelims-tribe", in the SanctuaryBacklot repository: SanctuaryBacklot/docs/GALERIE.md), place "bare-clearing" (2026-10-18, SANCTUAIRE-LIEUX): the east
 # bank of the river, grass, bushes and a few red-leaved trees, the water and the wooden bridge in the frame (2026-10-13: the
 # "gravel-yard" take showed bare soil and no setting, and the mark drifted away from the dog). The place is NOT
 # emptied (its plants are the setting); only its animals are removed. Nelim, the
@@ -34,16 +34,17 @@ Feature: a companion beside a colonist at work
     And I set the hour to 8
     And I close all dialogs
     And Fieldwork Companions always helps, at the largest share
-    And Nelim's Sanctuary: I am at the sanctuary "right-bank"
-    And Nelim's Sanctuary: the animals are removed from the sanctuary "right-bank"
+    And Nelim's Sanctuary: I am at the sanctuary "bare-clearing"
+    And Nelim's Sanctuary: the floor of the sanctuary "bare-clearing" is bared
+    And Nelim's Sanctuary: the animals are removed from the sanctuary "bare-clearing"
     And Nelim's Pickle Tools: all animals are removed
     And Nelim's Pickle Tools: the temperature of the map is 21 degrees
-    And Nelim's Pickle Tools: "Nelim" stands at (148, 131)
+    And Nelim's Pickle Tools: "Nelim" stands at (195, 152)
     And Fieldwork Companions: "Nelim" is cured of every chronic condition
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (30, 140, 150)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (150, 100, 50)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Tuque" dyed rgb (230, 170, 40)
-    And Nelim's Pickle Tools: the area from (146, 127) to (151, 133) is cleared
+    And Nelim's Pickle Tools: the area from (191, 147) to (204, 157) is cleared
     And Nelim's Sanctuary: Nelim has her own face
     And Nelim's Pickle Tools: "Nelim" brows are "BrowSquare"
     And Nelim's Pickle Tools: "Nelim" mouth is "MouthNormal"
