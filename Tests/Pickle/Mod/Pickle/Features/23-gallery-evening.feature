@@ -25,6 +25,7 @@ Feature: evening on the river bank, a companion beside a harvesting colonist
     And Nelim's Pickle Tools: "Nelim" stands at (148, 131) facing South
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (30, 140, 150)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (150, 100, 50)
+    And "Nelim" hairstyle is "Flowy"
     And Nelim's Pickle Tools: the area from (146, 127) to (151, 133) is cleared
     And Nelim's Sanctuary: Nelim has her own face
     And Fieldwork Companions: "Rex" is an obedient "Husky" that follows "Nelim" at work
