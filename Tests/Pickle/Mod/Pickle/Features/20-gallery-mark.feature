@@ -50,7 +50,8 @@ Feature: a companion beside a colonist at work
     And Nelim's Pickle Tools: "Nelim" brows are "BrowSquare"
     And Nelim's Pickle Tools: "Nelim" mouth is "MouthNormal"
     And Fieldwork Companions: "Rex" is an obedient "Husky" that follows "Nelim" at work
-    And Nelim's Pickle Tools: "Rex" faces South
+    And Nelim's Pickle Tools: the animal "Rex" stands at (195, 150) facing South
+    And I let 10 ticks pass
     And Fieldwork Companions: a "MineableJade" rock and "Rex" stand right beside "Nelim"
     And Fieldwork Companions: the scene decor "ChunkSlate" stands 0 cells right of and 3 cells below "Nelim"
     And Fieldwork Companions: the scene decor "ChunkLimestone" stands 2 cells right of and 3 cells below "Nelim"
