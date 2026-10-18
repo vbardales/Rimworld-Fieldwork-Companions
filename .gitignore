@@ -44,3 +44,5 @@ Art/.render/
 Mod/desktop.ini
 Mod/**/desktop.ini
 Mod/*.ico
+Tests/Pickle/Inbox/
+Tests/Pickle/Parked/
