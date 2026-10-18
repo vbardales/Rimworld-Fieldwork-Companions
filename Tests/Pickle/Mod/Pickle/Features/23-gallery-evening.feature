@@ -1,5 +1,8 @@
 # The photograph for the Workshop page, image 3 of the series: evening on the river bank, Nelim gathering with Rex at her side.
 #
+# STORY (criterion k, shotlist v2 in STATUS.md): same day as 20 and 22. Episode 3, evening (hour 17): at the rice, relaxed,
+# own face, same bank; Rex at her feet. Episode 1 (20) is the dawn at the jade, episode 2 (22) the noon at the pond.
+#
 # The story of the series is in PUBLICATION.md ("A day on the river bank"): morning at the jade (20-gallery-mark), noon fishing
 # (22-gallery-fishing), evening harvesting (this one). Nelim, bare-headed, relaxed (her own face, nothing forced), a ripe rice
 # plant beside her in the last light; Rex at her feet; the "+N" over him as the plant comes down. Same bank as the other two, the
