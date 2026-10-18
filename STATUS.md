@@ -168,3 +168,9 @@ Story (k): one day on the Sanctuary's east side, Nelim (only colonist, protagoni
 Criteria left open for all three, for the record: (a) time passing between shots not yet written; (i) not a catalogue (met: one subject each); (k) story written here, not yet in each feature header.
 
 Result: no scene at 4 on the evidence; the table writes a–k, but four items depend on runs not yet done (hair `d47d`, Rex facing, the three coordinates, the exit=3 startup).
+
+## State 2026-10-18 (close-turn)
+
+- Scenes: 1 (20) at 3/5, step `the animal "Rex" stands at (195, 150) facing South` + `I let 10 ticks pass` (9eea1dd), not played. 2 (22) at 3/5, cells unknown (fishing-zone). 3 (23) at 3/5, cells unknown (rice-paddy), exit=3 startup hang (Audit owns the diagnosis).
+- Open: hair under tuque (`d47d` cancelled; bare-hair control `7f90` queued, `tests=1`); empty-place photos `20261018-113207-363-ba28` (fishing-zone) and `20261018-113212-944-6f53` (rice-paddy) queued; NPT: Rex hold to confirm on ticket `5abb`, then cells to send for SANCTUAIRE-CASES.md.
+- Protocols: `Mark-ProtocolsRead` not run; AUDIT.md, PUBLISHING.md, TRANSLATIONS.md not fully read.
