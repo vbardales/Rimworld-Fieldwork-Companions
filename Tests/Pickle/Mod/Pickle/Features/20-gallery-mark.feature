@@ -44,6 +44,7 @@ Feature: a companion beside a colonist at work
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (30, 140, 150)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (150, 100, 50)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Tuque" dyed rgb (230, 170, 40)
+    And "Nelim" hairstyle is "Flowy"
     And Nelim's Pickle Tools: the area from (191, 147) to (204, 157) is cleared
     And Nelim's Sanctuary: Nelim has her own face
     And Nelim's Pickle Tools: "Nelim" brows are "BrowSquare"
