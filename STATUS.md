@@ -52,7 +52,7 @@ remaining:
   - unverified: Gallery image 1 (staged photograph, candidate retaken: `1-candidate-nelim-jade.png` (run 47a2) refused by Virginie 2026-10-11 and deleted; replay with the updated SanctuaryBacklot and Show Hair Under Stuff checked, ticket 2026-10-11). Subscribe to Workshop item 3806133311 and test the installed Workshop copy, including its visibility and the actual item page contents. This audit does not access Steam; `tested` does not require it, `prepublished`/publication do.
   - validated: PublishedFileId `3806133311` is committed and pushed on `main` (e2ec8fc, followed by release-preparation commits).
   - validated: French review by Virginie, 2026-10-02: 12 corrections requested (Intro, WorkHeader, FishingTip, GatheringTip, RequireSpecialtyTip, BondTip, ShareTip, Radius, RadiusTip, BondChance, then Intro and FishingTip again), all applied; she declared the French validated linguistically at revision `342f69d` on her own statement in chat. The wording after that is the corrections listed here only (commit following 51bc7e5). Reread against the 2026-09-30 French gender-agreement rule (TRANSLATIONS.md section 3). No owned text agrees with a pawn: all 33 Keyed entries are settings labels, tooltips, the reset confirmation and the numeric assist mote (`+{0}`); the one DefInjected pair is the hidden MainButtons shortcut's label/description. None names or describes a specific colonist or animal, so no `{PAWN_gender ? ...}` switch applies or is missing. `FRENCH_REVIEW.md` regenerated (`scripts/Make-FrenchReview.ps1` (shared, protocols repository), reads the shipped XML) on revision `7d441a6` (after the two English corrections of 6193bc0).
-protocols_read_sha: 499bea8608ee8cbb43c4a32e9599f79a9284f466
+protocols_read_sha: 7d3b1f5a26a32c297c2c12758979e0a909f674a1
 ---
 # Fieldwork Companions — status
 
@@ -176,5 +176,5 @@ Result: no scene at 4 on the evidence; the table writes a–k, but four items de
 
 - Scenes: 1 (20) at 3/5, step `the animal "Rex" stands at (195, 150) facing South` + `I let 10 ticks pass` (9eea1dd), not played. 2 (22) at 3/5, cells unknown (fishing-zone photo `ba28` read). 3 (23) at 3/5, cells unknown (rice-paddy photo `6f53` exit=3, no photo).
 - Open: hair under tuque needs one run with the Show Hair seed (NPT's retest first); NPT: Rex hold to confirm on ticket `5abb`, then cells for SANCTUAIRE-CASES.md; exit=3 cause (memory pressure?) with Audit.
-- Evidence: `Tests/Pickle/Inbox/` and `Parked/` empty, `pickle-reports-archive/` holds nothing of ours, `Evidence/` 1,9 MB in 14 folders each with a `RELEASE.md` (checked with Prune-Evidence -Apply 2026-10-19, nothing deleted).
+- Evidence: `Tests/Pickle/Inbox/` and `Parked/` empty, `pickle-reports-archive/` re-read 2026-10-19 (20 folders, none ours), `Evidence/` 1,9 MB in 14 folders each with a `RELEASE.md` (checked with Prune-Evidence -Apply 2026-10-19, nothing deleted).
 - Protocols: `AGENTS.md` and `PICKLE.md` read 2026-10-19; `Mark-ProtocolsRead` not run (AUDIT.md, scripts.md changed, not read).
