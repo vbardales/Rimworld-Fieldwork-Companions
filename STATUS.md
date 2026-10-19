@@ -176,5 +176,5 @@ Result: no scene at 4 on the evidence; the table writes a–k, but four items de
 
 - Scenes: 1 (20) at 3/5, step `the animal "Rex" stands at (195, 150) facing South` + `I let 10 ticks pass` (9eea1dd), not played. 2 (22) at 3/5, cells unknown (fishing-zone photo `ba28` read). 3 (23) at 3/5, cells unknown (rice-paddy photo `6f53` exit=3, no photo).
 - Open: hair under tuque needs one run with the Show Hair seed (NPT's retest first); NPT: Rex hold to confirm on ticket `5abb`, then cells for SANCTUAIRE-CASES.md; exit=3 cause (memory pressure?) with Audit.
-- Evidence: `Tests/Pickle/Inbox/` and `Parked/` empty, `pickle-reports-archive/` holds nothing of ours, `Evidence/` 1,9 MB in 16 folders each with a `RELEASE.md`.
+- Evidence: `Tests/Pickle/Inbox/` and `Parked/` empty, `pickle-reports-archive/` holds nothing of ours, `Evidence/` 1,9 MB in 14 folders each with a `RELEASE.md` (checked with Prune-Evidence -Apply 2026-10-19, nothing deleted).
 - Protocols: `AGENTS.md` and `PICKLE.md` read 2026-10-19; `Mark-ProtocolsRead` not run (AUDIT.md, scripts.md changed, not read).
