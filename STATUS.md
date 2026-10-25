@@ -163,6 +163,19 @@ Director's pass (Opus sub-agent, one call): kept the hours 7 and 18 (torch at 8 
 
 Score (rate-gallery 2026-10-25, corrects the 4.5 first written): every scene 3.5, series k ok. 1: a weather not scripted, b three props on bare earth, j mark at zoom 8. 2: a weather, e Rex not held at her feet during the job, j "readable" claim has no evidence. 3: a weather, b bare soil after the clear, e "mid-cut" and "+N rises" contradict (the mark rises when the harvest ends). To reach 4: add `I set the weather to "Clear"` to 20, 22, 23; fix the instant of 23; hold Rex beside her in 22; enrich the decor of 1 and 3. Ticket eefb (20) was filed before this fix; the tree stays frozen until its RUN_DONE.
 
+### Shotlist v3.1 (2026-10-25, after rate-gallery; supersedes the Est. column above; apply to the features after the RUN_DONE of eefb, the tree stays frozen until then)
+
+Changes against v3, all scenes: `I set the weather to "Clear"` added after `I set the hour to N` (a). Scene 1: decor enriched with a `Stool` (where she rests) and a fully grown `Plant_Daylily`; check written: downscale the capture to 268 px and read the `+N`, else zoom 6. Scene 2: Rex held at her feet during the fishing job by a new own step `"Rex" is kept beside "Nelim" at (143, 131)` (sets `keptBeside`, which `MarkOverWithin` already applies every frames); the claim "readable on earlier captures" is dropped (evidence deleted): the 268 px check is done on the new capture. Scene 3: instant rewritten, no sickle and no "mid-cut": the harvest has just ended, Nelim straightens up, the plant is gone, the `+N` rises over Rex who looks East toward the second ripe plant (the next cut); the paddy sprouts are kept (clear only the 3 x 3 under Nelim and the second plant), so the soil is lived-in.
+
+| # | a | b | c | d | e (instant, how) | f | g | j | Est. |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 dawn (20) | `bare-clearing`, 7, Clear (step), job ~40 s | lit `TorchLamp`, `Stool`, `Plant_Daylily`, `Jade` item, jade rock | Rex front, daylily, flower column | tuque (230, 170, 40), teal, ochre, Flowy; neutral mouth (effort) | pickaxe just down, rock 20 %, `+N` just risen; job mine, pause on the mark frame | zoom 8 wide, Nelim left third, Rex right-front | "a little more jade than it should" | `+N` at zoom 8 doubtful: 268 px check, else zoom 6 | 4.5 |
+| 2 noon (22) | `right-bank` (144, 131), 12, Clear (step) | `FishRack`, `FishGear`, `Jade` item, stocked river | Rex profile West at her feet (kept beside), trees, river | bare-headed, teal, ochre, Flowy, `MouthSmile` + `LidCheerful` | fish just landed, `+N` rises; fishing job, pause on the mark frame | zoom 5 medium, Nelim left third, water left | "one fish more than she caught" | `+N` at zoom 5, 268 px check on the new capture | 5 |
+| 3 evening (23) | `rice-paddy` (227, 121), 18, Clear (step) | lit `TorchLamp`, second ripe `Plant_Rice`, kept sprouts, bamboo edge | Rex profile East, rice, bamboo | bare-headed, teal, ochre, Flowy, own relaxed face | harvest just ended, Nelim straightens, `+N` rises, next plant waits; harvest job, pause on the mark frame | zoom 4 tight, Nelim right of centre, Rex left | "one grain more than expected" | `+N` at zoom 4, large | 5 |
+
+k (series): ok, unchanged. Steps: 1 new own step (scene 2, `kept beside`), `Jade`/`Stool`/`Plant_Daylily` decor through the shared decor step (never tried: not counted). Unverified: cells of 2 and 3 (empty photos only), fishing job on a river, `Rex faces East/West`.
+
+
 Verdicts after the runs: none yet. Previous captures (v2): refused 2026-10-17 (tuque read as hard hat, no hair, Rex sideways, `+80` above-left; scene 2 back or profile, `+1` not over Rex).
 
 ## State 2026-10-25
