@@ -1,46 +1,27 @@
 {
-  "modIconSource": "ModIcon-source.png",
-  "title": "Fieldwork Companions",
-  "titleSize": 48,
-  "titleParts": [
-    {
-      "text": "Fieldwork Companions",
-      "scale": 1
-    }
-  ],
-  "suffix": "",
-  "tag": "",
-  "copyLines": [
-    "An animal that follows its master to work turns up a little extra."
-  ],
-  "layout": "panel",
-  "panelAnchor": "top-left",
+  "panel": {
+    "title": "Fieldwork Companions",
+    "titleSize": 48,
+    "titleParts": [
+      {
+        "text": "Fieldwork Companions",
+        "scale": 1
+      }
+    ],
+    "copyLines": [
+      "An animal that follows its master to work turns up a little extra."
+    ]
+  },
   "backgroundFile": "Preview-source.png",
-  "backgroundPosition": "center",
-  "backgroundSize": "cover",
   "echo": {
     "file": "echo-source.png",
-    "preSized": true,
     "color": "var(--accent)",
     "width": 140,
-    "height": 140,
-    "opacity": 1,
-    "veil": false,
-    "panelTop": 40,
-    "panelRight": 1,
-    "panelWidth": 27,
-    "flipX": true
+    "height": 140
   },
-  "iconBadge": {
+  "icon": {
     "file": "ModIcon-source.png",
-    "corner": "bottom-left",
-    "width": 180,
-    "translate": "-12.5%, 12.5%",
-    "outline": false,
-    "veil": "radial",
-    "veilSize": 275,
-    "veilLeft": -55,
-    "veilBottom": -61
+    "corner": "bottom-right"
   },
   "palette": {
     "veil": "#292722",

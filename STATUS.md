@@ -21,7 +21,7 @@ showcase:     complete
 tested_on:    cd1afb7
 code_review_sha: 980db5967464ec81059a1686db9fef81c26353da
 echo_review_sha: 980db5967464ec81059a1686db9fef81c26353da
-social_preview_sha256: 53a6764353fb962b3b9b8f9eba8d6dada654e38c1752edc736ee765402c9ccde
+social_preview_sha256: 219233a643b3945e2aebabce4c4b4e89d31f24823fd5ce5010a2be469a44b249
 workshop:      3806133311
 maintainer:   Codex, current local repository task
 updated:      2026-10-18
