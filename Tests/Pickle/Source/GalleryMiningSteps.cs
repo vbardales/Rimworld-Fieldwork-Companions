@@ -72,7 +72,7 @@ namespace FieldworkCompanions.PickleSteps
         // taken away again afterwards so that nothing of the set is left in the shared fixture.
         private static readonly System.Collections.Generic.List<Thing> sceneDecor = new System.Collections.Generic.List<Thing>();
 
-        [Given("Fieldwork Companions: the scene decor {string} stands {int} cells right of and {int} cells below {string}")]
+        [Given("Fieldwork Companions: the scene decor {string} stands {int} cell(s) right of and {int} cell(s) below {string}")]
         public void SceneDecor(PickleContext ctx, string defName, int right, int below, string colonistName)
         {
             var worker = Driver.PawnNamed(ctx, colonistName);
