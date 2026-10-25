@@ -1,7 +1,9 @@
 # The photograph for the Workshop page, image 2 of the series: noon on the river bank, Nelim fishing with Rex at her side.
 #
-# STORY (criterion k, shotlist v2 in STATUS.md): same day as 20 (dawn at the jade). Episode 2, noon (hour 12): at the pond,
-# bare-headed, a blue shirt and cream trousers; Rex at her feet. Episode 3 (23) is the evening at the rice.
+# STORY (criterion k, shotlist v3 in STATUS.md, 2026-10-25): same day as 20 (dawn at the jade). Episode 2, noon (hour 12), MEDIUM
+# shot (zoom 5) on the river bank: the same teal shirt and ochre trousers, long loose hair "Flowy", bare-headed (the tuque was for the
+# dawn's stone dust), a small smile. Instant: a fish has just been landed and the "+N" rises over Rex, who sits at her feet watching the
+# water (profile); one Jade item from the morning lies by the fishing gear. Episode 3 (23) is the evening at the rice.
 #
 # The story of the series is in PUBLICATION.md ("A day on the river bank"): morning at the jade (20-gallery-mark), noon fishing
 # (this one), evening foraging. Nelim, bare-headed this time (the tuque is for the stone dust), her hair in the light, a plain
@@ -25,12 +27,14 @@ Feature: noon on the river bank, a companion beside a fishing colonist
     And Nelim's Pickle Tools: "Nelim" stands at (144, 131) facing West
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (30, 140, 150)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (150, 100, 50)
+    And Nelim's Pickle Tools: "Nelim" hairstyle is "Flowy"
     And Nelim's Pickle Tools: the area from (142, 127) to (149, 134) is cleared
     And Nelim's Sanctuary: Nelim has her own face
     And Nelim's Pickle Tools: "Nelim" mouth is "MouthSmile"
     And Fieldwork Companions: "Rex" is an obedient "Husky" that follows "Nelim" at work
-    And Nelim's Pickle Tools: "Rex" faces South
-    # No step sets an animal's facing: Rex faces where he is heading. Check the capture before any verdict.
+    And Nelim's Pickle Tools: "Rex" faces West
+    # Rex watches the water (profile): the front view of the series is image 1. Check the capture before any verdict.
+    And Fieldwork Companions: the scene decor "Jade" stands -1 cells right of and 3 cells below "Nelim"
     And Fieldwork Companions: the scene decor "FishRack" stands 2 cells right of and 2 cells below "Nelim"
     And Fieldwork Companions: the scene decor "FishGear" stands 0 cells right of and 2 cells below "Nelim"
     And Fieldwork Companions: the water beside "Nelim" holds fish

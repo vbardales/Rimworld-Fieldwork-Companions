@@ -1,8 +1,11 @@
 # The photograph for the Workshop page: a companion beside a colonist at work, and the mark over it.
 #
-# STORY (criterion k, shotlist v2 in STATUS.md): Nelim, the Sanctuary's only colonist, and her husky Rex, one day on the east side.
-# Episode 1, dawn (hour 8): at a jade vein on a cleared bare patch; she wears a teal shirt, ochre trousers and a mustard tuque.
-# Next episodes: 22 at noon at the pond, 23 at evening at the rice.
+# STORY (criterion k, shotlist v3 in STATUS.md, 2026-10-25): one day for Nelim, the Sanctuary's only colonist, and her husky Rex, on the
+# east side. Same teal shirt and ochre trousers all day, long loose hair "Flowy"; the mustard tuque is for the stone dust, at dawn only.
+# Episode 1, dawn (hour 7, low light, lit TorchLamp): OPENING WIDE shot (zoom 8) at a jade vein on the cleared bare patch.
+# Instant: the pickaxe has just come down, the rock is at 20 percent, the "+N" has just risen over Rex, who looks back (faces South,
+# the one front view of the series) toward the path they came by; one Jade item is already at her feet (the haul so far).
+# Face: brows squared, mouth neutral (effort; the plan's justification for a non-smile). Next: 22 at noon on the bank, 23 at the rice.
 #
 # Not a functional scenario: the assertions that the extra lands and the mark floats are in 06-assists, on the
 # instantaneous call. This one is for a person, and it is STAGED (owner's rule of 2026-10-02: every gallery capture is a
@@ -31,7 +34,7 @@ Feature: a companion beside a colonist at work
   Scenario: a real mining job, the animal beside the colonist, the mark over the animal
     Given the save "Nelims-tribe" is loaded
     And game speed is paused
-    And I set the hour to 8
+    And I set the hour to 7
     And I close all dialogs
     And Fieldwork Companions always helps, at the largest share
     And Nelim's Sanctuary: I am at the sanctuary "bare-clearing"
@@ -44,18 +47,18 @@ Feature: a companion beside a colonist at work
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (30, 140, 150)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (150, 100, 50)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Tuque" dyed rgb (230, 170, 40)
-    And "Nelim" hairstyle is "Flowy"
+    And Nelim's Pickle Tools: "Nelim" hairstyle is "Flowy"
     And Nelim's Pickle Tools: the area from (191, 147) to (204, 157) is cleared
     And Nelim's Sanctuary: Nelim has her own face
     And Nelim's Pickle Tools: "Nelim" brows are "BrowSquare"
     And Nelim's Pickle Tools: "Nelim" mouth is "MouthNormal"
     And Fieldwork Companions: "Rex" is an obedient "Husky" that follows "Nelim" at work
     And Nelim's Pickle Tools: the animal "Rex" stands at (195, 150) facing South
-    And I let 10 ticks pass
+    And Nelim's Pickle Tools: I advance the paused game by exactly 10 ticks
     And Fieldwork Companions: a "MineableJade" rock and "Rex" stand right beside "Nelim"
-    And Fieldwork Companions: the scene decor "ChunkSlate" stands 0 cells right of and 3 cells below "Nelim"
-    And Fieldwork Companions: the scene decor "ChunkLimestone" stands 2 cells right of and 3 cells below "Nelim"
-    And Nelim's Pickle Tools: I frame the animal "Rex" at zoom 5
+    And Fieldwork Companions: the scene decor "Jade" stands 0 cells right of and 3 cells below "Nelim"
+    And Fieldwork Companions: the scene decor "TorchLamp" stands -4 cells right of and 1 cell below "Nelim"
+    And Nelim's Pickle Tools: I frame the animal "Rex" at zoom 8
     And Fieldwork Companions: the camera is placed so that "Nelim" stands 3 cells left of and 0 cells above the pointer
     And Nelim's Pickle Tools: the interface scale is 200 percent
     And Nelim's Pickle Tools: studio presentation mode is enabled
