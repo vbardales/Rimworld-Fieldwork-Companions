@@ -24,8 +24,10 @@ echo_review_sha: 980db5967464ec81059a1686db9fef81c26353da
 social_preview_sha256: 219233a643b3945e2aebabce4c4b4e89d31f24823fd5ce5010a2be469a44b249
 workshop:      3806133311
 maintainer:   Codex, current local repository task
-updated:      2026-10-18
+updated:      2026-10-30
 remaining:
+  - defect: replay-audit 2026-10-30, mod root against the closed list (`STYLE_RIMWORLD.md`, root folders of a mod): git tracks `docs/` (lowercase, the list says `Docs/`), `package.json` and `package-lock.json` (not on the list; used by `.github/scripts/sync-about-description.mjs`). Not renamed or removed here (CI): Audit to decide with Virginie. Not stage-defining before `mountPreview` (10.e).
+  - note: replay-audit 2026-10-30: sections 1 to 8 hold, weak proofs 11 (STATUS.md only: 8.c, 8.d, 8.f to 8.l; evidence of the 2026-09 passes mostly pruned). Deferred by the 2026-10-11 audit, still owed after deploy: Pickle replay of the scenarios that show the settings texts changed after `tested_on` (English `6193bc0`, French `35d848b`), small tickets. `Run-UnitTests.ps1` n/a (no `Tests/*.Tests.csproj`).
   - defect: Ticket `20261016-224545-659-4675` done exit=0, capture refused 2026-10-17: yellow hard hat (tuque not applied), no hair visible, `+80` beside the rock, not over Rex, Rex side view. Evidence deleted 2026-10-19 (same scenario kept in `2026-10-17-gallery-20-retake`).
   - defect: Ticket `20261016-231343-764-47b8` (scenario 22, noon fishing) passed, exit=0 (`Tests/Pickle/Evidence/2026-10-17-gallery-22-fishing-1`); capture refused 2026-10-17: Nelim and Rex not face camera, `+1` beside Nelim not over Rex. Recompose before replay.
   - defect: Ticket `20261016-231344-857-a2c2` (scenario 23, evening) failed, exit=3, no report (evidence deleted 2026-10-19, nothing to read). Not replayed. Recomposed 2026-10-17 (`Rex faces South` added to `23-gallery-evening.feature`, uncommitted); replay awaits owner's go. Same exit=3 startup hang as `6f53`, `7f90`, `3485`: cause open (Audit owns the diagnosis).
