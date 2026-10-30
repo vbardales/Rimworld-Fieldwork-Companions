@@ -72,6 +72,15 @@ namespace FieldworkCompanions.PickleSteps
         // taken away again afterwards so that nothing of the set is left in the shared fixture.
         private static readonly System.Collections.Generic.List<Thing> sceneDecor = new System.Collections.Generic.List<Thing>();
 
+        // Pickle's {int} takes no sign: a decor to the left or above is written with its own wording.
+        [Given("Fieldwork Companions: the scene decor {string} stands {int} cell(s) left of and {int} cell(s) below {string}")]
+        public void SceneDecorLeftBelow(PickleContext ctx, string defName, int left, int below, string colonistName)
+            => SceneDecor(ctx, defName, -left, below, colonistName);
+
+        [Given("Fieldwork Companions: the scene decor {string} stands {int} cell(s) left of and {int} cell(s) above {string}")]
+        public void SceneDecorLeftAbove(PickleContext ctx, string defName, int left, int above, string colonistName)
+            => SceneDecor(ctx, defName, -left, -above, colonistName);
+
         [Given("Fieldwork Companions: the scene decor {string} stands {int} cell(s) right of and {int} cell(s) below {string}")]
         public void SceneDecor(PickleContext ctx, string defName, int right, int below, string colonistName)
         {

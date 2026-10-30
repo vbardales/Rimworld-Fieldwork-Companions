@@ -57,7 +57,7 @@ Feature: a companion beside a colonist at work
     And Nelim's Pickle Tools: I advance the paused game by exactly 10 ticks
     And Fieldwork Companions: a "MineableJade" rock and "Rex" stand right beside "Nelim"
     And Fieldwork Companions: the scene decor "Jade" stands 0 cells right of and 3 cells below "Nelim"
-    And Fieldwork Companions: the scene decor "TorchLamp" stands -4 cells right of and 1 cell below "Nelim"
+    And Fieldwork Companions: the scene decor "TorchLamp" stands 4 cells left of and 1 cell below "Nelim"
     And Nelim's Pickle Tools: I frame the animal "Rex" at zoom 8
     And Fieldwork Companions: the camera is placed so that "Nelim" stands 3 cells left of and 0 cells above the pointer
     And Nelim's Pickle Tools: the interface scale is 200 percent

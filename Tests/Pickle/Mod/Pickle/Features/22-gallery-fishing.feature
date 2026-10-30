@@ -34,7 +34,7 @@ Feature: noon on the river bank, a companion beside a fishing colonist
     And Fieldwork Companions: "Rex" is an obedient "Husky" that follows "Nelim" at work
     And Nelim's Pickle Tools: "Rex" faces West
     # Rex watches the water (profile): the front view of the series is image 1. Check the capture before any verdict.
-    And Fieldwork Companions: the scene decor "Jade" stands -1 cells right of and 3 cells below "Nelim"
+    And Fieldwork Companions: the scene decor "Jade" stands 1 cell left of and 3 cells below "Nelim"
     And Fieldwork Companions: the scene decor "FishRack" stands 2 cells right of and 2 cells below "Nelim"
     And Fieldwork Companions: the scene decor "FishGear" stands 0 cells right of and 2 cells below "Nelim"
     And Fieldwork Companions: the water beside "Nelim" holds fish

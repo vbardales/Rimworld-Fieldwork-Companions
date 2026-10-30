@@ -32,7 +32,7 @@ Feature: evening at the rice paddy, a companion beside a harvesting colonist
     And Nelim's Pickle Tools: "Rex" faces East
     And Fieldwork Companions: a ripe "Plant_Rice" stands next to "Nelim"
     And Fieldwork Companions: the scene decor "Plant_Rice" stands 2 cells right of and 1 cell below "Nelim"
-    And Fieldwork Companions: the scene decor "TorchLamp" stands -3 cells right of and -2 cells below "Nelim"
+    And Fieldwork Companions: the scene decor "TorchLamp" stands 3 cells left of and 2 cells above "Nelim"
     # The harvested plant leaves the frame; the second ripe plant stays in it, so the rice shows.
     And Nelim's Pickle Tools: I frame the animal "Rex" at zoom 4
     And Fieldwork Companions: the camera is placed so that "Nelim" stands -3 cells left of and 0 cells above the pointer
