@@ -170,6 +170,7 @@ Plan score (score-gallery 2026-11-08, no capture of v4 yet: rating the plan; rea
 
 - Scenes: 20 (dawn), 22 (noon), 23 (evening) per shotlist v4 above; gate 2 done 2026-11-08 (features 20, 22, 23 rewritten to v4, no old capture left), gate 3 passed (`Check-ShotlistVsScenario.ps1` OK, `Check-Steps.ps1` clean). Ticket next (rate-gallery); campfire lit by the decor step, `Plant_TallGrass` etc. unverified.
 - Open: Yuki dressed through `the animal "Yuki" is dressed in "Apparel_leatherdogcollar" dyed "#D1008F"` (exists in NPT steps); Rex and Nelim properties question to Virginie (sync section below): v4 needs neither.
+- Ticket `20261109-000533-735-72b4` (`20-gallery-mark`, scene 1 v4, tree `86c4afc`, map `wsl-deps.sanctuary.map`, runner auto) queued 2026-11-09, evidence `Tests/Pickle/Inbox/gallery-1-v4`. Keep Mod, Source, Tests on `86c4afc` until `RUN_DONE`. Capture to open: Yuki front, `+N` over her at zoom 5 (268 px check), jade stack south of her, lit fire and lamp, grass, no hair or hat issue. Then 22, then 23, one by one.
 - Evidence: Inbox empty (2026-11-08), Parked absent. Protocols read a95086f2 (2026-11-08).
 
 ## NSB (sync-nsb-npt 2026-11-08; replaces any earlier section)
