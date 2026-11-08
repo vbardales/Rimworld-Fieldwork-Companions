@@ -1,25 +1,14 @@
 {
   "panel": {
     "title": "Fieldwork Companions",
-    "titleSize": 48,
     "titleParts": [
-      {
-        "text": "Fieldwork Companions",
-        "scale": 1
-      }
+      { "text": "Fieldwork Companions" }
     ],
-    "copyLines": [
-      "An animal that follows its master to work turns up a little extra."
-    ]
+    "description": "An animal that follows its master to work turns up a little extra."
   },
-  "backgroundFile": "Preview-source.png",
-  "echo": {
-    "file": "echo-source.png"
-  },
-  "icon": {
-    "file": "ModIcon-source.png",
-    "corner": "bottom-right"
-  },
+  "background": { "file": "Preview-source.png" },
+  "echo": { "file": "echo-source.png" },
+  "icon": { "file": "ModIcon-source.png" },
   "palette": {
     "veil": "#292722",
     "inkPrimary": "#F2ECE1",
