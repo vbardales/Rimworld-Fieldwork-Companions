@@ -1,14 +1,16 @@
-# The photograph for the Workshop page, image 2 of the series: noon on the river bank, Nelim fishing with Rex at her side.
+# The photograph for the Workshop page, image 2 of the series: noon on the river bank, Nelim fishing with Yuki at her side.
 #
-# STORY (criterion k, shotlist v3 in STATUS.md, 2026-10-25): same day as 20 (dawn at the jade). Episode 2, noon (hour 12), MEDIUM
-# shot (zoom 5) on the river bank: the same teal shirt and ochre trousers, long loose hair "Flowy", bare-headed (the tuque was for the
-# dawn's stone dust), a small smile. Instant: a fish has just been landed and the "+N" rises over Rex, who sits at her feet watching the
-# water (profile); one Jade item from the morning lies by the fishing gear. Episode 3 (23) is the evening at the rice.
+# STORY (criterion k, shotlist v4 in STATUS.md, 2026-11-08): same day as 20 (dawn at the jade). Episode 2, noon (hour 12, Clear), TIGHT
+# shot (zoom 4) on the right bank (NSB cell (144, 132)): the same teal shirt and ochre trousers, high ponytail, bare-headed, a small smile
+# (MouthSmile). Instant: a fish has just been landed, the "+N" rises over Yuki, who sits at her feet facing West toward the water, and
+# Nelim turns to her; the dawn's Jade stack lies by the fishing gear, a lit Campfire and a Stool near the rack. The fish is whatever
+# the fishing job drops (nothing staged). Episode 3 (23) is the evening at the rice.
 #
-# The story of the series is in PUBLICATION.md ("A day on the river bank"): morning at the jade (20-gallery-mark), noon fishing
-# (this one), evening foraging. Nelim, bare-headed this time (the tuque is for the stone dust), her hair in the light, a plain
-# smile; Rex at her feet; a fish rack and a pile of fishing gear from Fishing Village Decor and Props (zal.fishprops) on the
-# bank. The catch is cast on the Sanctuary's real river, stocked with fish like the lake of 16-fishing; the camera catches the "+N".
+# SHOOTING PLAN (shotlist v4, one story shot per file):
+#   1. workshop-2-noon: right-bank (144, 132), hour 12, Clear, zoom 4; Nelim (144, 132) teal shirt rgb (30, 140, 150), ochre pants rgb (150, 100, 50), Yuki husky, Apparel_leatherdogcollar #D1008F; FishRack, FishGear, Campfire, Stool, Plant_TallGrass, Jade.
+#
+# The bank was refused by the owner on 2026-11-08 as too empty and NPT is decorating it: recheck its photograph before the ticket.
+# Fishing Village Decor and Props (zal.fishprops) supplies FishRack and FishGear. The river is stocked like the lake of 16-fishing.
 #
 # STAGED, like image 1 (GALLERY.md). Nothing here is a functional assertion: those are in 16-fishing.
 @part2 @review @requires:Odyssey @requires:zal.fishprops @requires:nelim.pickletools.stagedecor @requires:nelim.pickletools.interfacescale @requires:nelim.pickletools.colonistrace @requires:nelim.pickletools.screenshotstudio @timeout:240
@@ -18,32 +20,37 @@ Feature: noon on the river bank, a companion beside a fishing colonist
     Given the save "Nelims-tribe" is loaded
     And game speed is paused
     And I set the hour to 12
+    And I set the weather to "Clear"
     And I close all dialogs
     And Fieldwork Companions always helps, at the largest share
     And Nelim's Sanctuary: I am at the sanctuary "right-bank"
     And Nelim's Sanctuary: the animals are removed from the sanctuary "right-bank"
     And Nelim's Pickle Tools: all animals are removed
     And Nelim's Pickle Tools: the temperature of the map is 21 degrees
-    And Nelim's Pickle Tools: "Nelim" stands at (144, 131) facing West
+    And Nelim's Pickle Tools: "Nelim" stands at (144, 132) facing West
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (30, 140, 150)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (150, 100, 50)
-    And Nelim's Pickle Tools: "Nelim" hairstyle is "Flowy"
-    And Nelim's Pickle Tools: the area from (142, 127) to (149, 134) is cleared
+    And Nelim's Pickle Tools: the area from (142, 128) to (149, 135) is cleared
     And Nelim's Sanctuary: Nelim has her own face
     And Nelim's Pickle Tools: "Nelim" mouth is "MouthSmile"
-    And Fieldwork Companions: "Rex" is an obedient "Husky" that follows "Nelim" at work
-    And Nelim's Pickle Tools: "Rex" faces West
-    # Rex watches the water (profile): the front view of the series is image 1. Check the capture before any verdict.
+    And Fieldwork Companions: "Yuki" is an obedient "Husky" that follows "Nelim" at work
+    And Nelim's Pickle Tools: the animal "Yuki" is dressed in "Apparel_leatherdogcollar" dyed "#D1008F"
+    And Nelim's Pickle Tools: "Yuki" faces West
+    # Yuki watches the water (profile): the front view of the series is image 1. Check the capture before any verdict.
     And Fieldwork Companions: the scene decor "Jade" stands 1 cell left of and 3 cells below "Nelim"
+    And Fieldwork Companions: the scene decor "Campfire" stands 3 cells right of and 3 cells below "Nelim"
+    And Fieldwork Companions: the scene decor "Stool" stands 4 cells right of and 2 cells below "Nelim"
+    And Fieldwork Companions: the scene decor "Plant_TallGrass" stands 3 cells left of and 2 cells below "Nelim"
+    And Fieldwork Companions: the scene decor "Plant_TallGrass" stands 5 cells right of and 0 cells below "Nelim"
     And Fieldwork Companions: the scene decor "FishRack" stands 2 cells right of and 2 cells below "Nelim"
     And Fieldwork Companions: the scene decor "FishGear" stands 0 cells right of and 2 cells below "Nelim"
     And Fieldwork Companions: the water beside "Nelim" holds fish
-    And Nelim's Pickle Tools: I frame the animal "Rex" at zoom 5
+    And Nelim's Pickle Tools: I frame the animal "Yuki" at zoom 4
     And Nelim's Pickle Tools: the interface scale is 200 percent
     And Nelim's Pickle Tools: studio presentation mode is enabled
     # "at the lake" is the shared fishing step's wording (16-fishing); the picture is on the river bank.
     When Fieldwork Companions: "Nelim" fishes at the lake
-    Then Fieldwork Companions: a bonus mark floats over "Rex" within 20 seconds
+    Then Fieldwork Companions: a bonus mark floats over "Yuki" within 20 seconds
     And game speed is paused
     And Fieldwork Companions: the picture settles for 4 real seconds
     When I take a screenshot "noon fishing, the mark over the companion"
