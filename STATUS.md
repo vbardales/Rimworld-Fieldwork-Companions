@@ -185,3 +185,30 @@ Verdicts after the runs: none yet. Previous captures (v2): refused 2026-10-17 (t
 - Scenes: 20 (dawn, 4.5), 22 (noon, 4.5), 23 (evening, 4.5) per shotlist v3; none replayed since the rewrite. Ticket 1577 (20) failed on undefined steps, read 2026-10-25, evidence deleted; the steps now resolve.
 - Open: file ticket for 20 alone; NPT confirmed the hairstyle step (prefix fixed) and the paused-advance step (compiled 8318f39, not played). Cells of 22 and 23 unseen (empty photos only). exit=3 cause open with Audit.
 - Evidence: Inbox empty, Parked absent (2026-10-25). Protocols read 459f037 (2026-10-25).
+
+## NSB (sync-nsb-npt 2026-11-08; replaces any earlier section)
+
+Places read: 2026-11-08 (rows and sections of the three places in `SANCTUAIRE-LIEUX.md` only; `SANCTUAIRE-CASES.md` and `EMBELLISSEMENT-LIEUX.md` not opened) Tribe read: 2026-11-08 (`NELIM-PROFIL.md`, `ATTICUS-PROFIL.md`, `VALIDE.md` animal outfits, `NSB-ROSTER.md` and `CATALOGUE-ANIMAUX.md` by search for the husky) Steps read: 2026-11-08 (NPT log since 2026-10-25 read; entries opened: put-out step, light dimmed and refreshed steps only)
+
+First sync of this mod (no earlier section). Rules said back (owner, 2026-11-05 and 2026-11-07): everything in NSB is free; a colonist or domestic animal outside NSB needs the owner's express validation (exception: an animal the mod adds or its items address); a colonist's properties change only with her express validation; every outfit is free; every animal the mod includes is in the gallery.
+
+Found: scenarios 20, 22, 23 use two things outside NSB or off the roster, no quoted validation exists for either. Nothing is played with them until she answers. Default if she says nothing: Yuki (NSB husky, Soren's) and Nelim as her sheet.
+
+| Place | Shots | Changes made for the gallery | Last read |
+|---|---|---|---|
+| `bare-clearing` (195, 152), free zone | 1 (20) | decor posed then removed (TorchLamp, Stool, Plant_Daylily, Jade item, jade rock); floor bared by NSB step | 2026-11-08 |
+| `right-bank` (NSB cell now (144, 132), our shotlist says (144, 131)), refused by owner 2026-11-08 as too empty, NPT decorating it | 2 (22) | FishRack, FishGear, Jade item; place may change under us: recheck after NPT decor, update cell | 2026-11-08 |
+| `rice-paddy` (230, 122), validated 2026-11-07, rice to replant | 3 (23) | second ripe `Plant_Rice`, TorchLamp; sprouts kept | 2026-11-08 |
+
+| Colonist | Shots | Outfit per shot | Last read | Exceptions |
+|---|---|---|---|---|
+| Nelim | 1, 2, 3 | teal shirt, ochre trousers all day (continuity, free outfit), mustard tuque in 1 only (stone dust) | 2026-11-08 | PENDING, properties changed by the scenarios: hairstyle "Flowy" (sheet: `Roo_HD_Hair_Highpony`, `Roo_Royal_LongHD` under headgear), brows `BrowSquare` (sheet `BrowNormal`), mouth `MouthNormal` in 1 and `MouthSmile` in 2 (sheet `MouthLipsSmirk`), cured of chronic conditions (sheet: asthma, bad back). No quoted validation. Without it: sheet looks, tuque with `Roo_Royal_LongHD`, bare-headed with `Roo_HD_Hair_Highpony`; the mouth reasons in the shotlist (effort, smile) are dropped. |
+
+| Animal | Shots | Outfit | Last read | Exceptions |
+|---|---|---|---|---|
+| Rex (husky) | 1, 2, 3 | none | not in NSB | outside NSB, PENDING: not a mod animal (the mod adds none), no item addresses it. Alternative: Yuki (NSB husky, Soren's bond, daily outfit leather collar fuchsia `#D1008F`, validated 2026-11-06). |
+| Yuki (husky) | none yet | alternative, as above | `VALIDE.md` row 2026-11-08 | none |
+
+| Animal the mod includes | Shots | |
+|---|---|---|
+| none: the mod adds no animal (`Mod/Defs` holds only `MainButtonDef`); any animal is the companion of the mechanic | n/a | no row MISSING |
