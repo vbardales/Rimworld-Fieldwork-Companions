@@ -33,3 +33,6 @@ RaccoonCuddler.ShowHair 3255379190
 # Hairstyles for the gallery (2026-10-17): 41 styles, Renew of the 某系列MOD hair set; Workshop 3806708754, not yet checked in game.
 nelim.acertainseriescreaturesandhair 3806708754
 zal.fishprops 2902499006
+# Yuki's collar (2026-11-09, ticket 72b4 failed: no apparel tracker): Animal Apparel Framework 3513825850 and Collars and Kit Renew, as in the Backlot animal-portraits map.
+Ingendum.AnimalApparelFramework 3513825850
+nelim.animalapparelcollarsandkit path:AnimalApparelCollarsAndKitRenew/Mod
