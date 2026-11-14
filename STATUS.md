@@ -205,3 +205,11 @@ Found: scenarios 20, 22, 23 use two things outside NSB or off the roster, no quo
 | Animal the mod includes | Shots | |
 |---|---|---|
 | none: the mod adds no animal (`Mod/Defs` holds only `MainButtonDef`); any animal is the companion of the mechanic | n/a | no row MISSING |
+
+## Ecosystem (PiI, 2026-11-14, `docs/inventory/ecosystem-steam/FieldworkCompanions.md`, protocols commit 8f5bd2e)
+
+- Duplicates and replacements: none (28 Workshop searches): no mod gives a companion animal a share of mined, harvested, fished, milked or sheared yield.
+- Look-alikes (animals working alone, no bonus to the master): Animals at Work Herding and Plowing (3766198296, 3766198499), Animals Forage Continued (3667046888), Hunt for Me (1593245720); Follow Target (3555423377) only escorts.
+- Patches and retextures: none. Translations of an original: n/a (original mod). Links: none to add.
+- Odyssey Dig and Forage are vanilla content; no mod touches their yield.
+- Verdict: niche free. Pickle checks owed at the next full pass: our share against the vanilla forage or dig output of a trained animal that also follows; Animals at Work animals that leave the master.
