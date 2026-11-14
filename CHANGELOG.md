@@ -12,7 +12,7 @@ This file serves the repository and the writing of Steam patch notes; RimWorld d
 
 ### Changed
 
-- `Preview.png` now carries a cutout of the ModIcon in its bottom-left corner, tilted, running past the frame.
+- `Preview.png` now carries a cutout of the ModIcon in its bottom-right corner, tilted, running past the frame.
 
 ## [0.1.0] — 2026-09-22
 
