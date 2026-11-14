@@ -213,3 +213,17 @@ Found: scenarios 20, 22, 23 use two things outside NSB or off the roster, no quo
 - Patches and retextures: none. Translations of an original: n/a (original mod). Links: none to add.
 - Odyssey Dig and Forage are vanilla content; no mod touches their yield.
 - Verdict: niche free. Pickle checks owed at the next full pass: our share against the vanilla forage or dig output of a trained animal that also follows; Animals at Work animals that leave the master.
+
+## Shotlist v5 (2026-11-14, write-shotlist after the refusal of capture e95c; changes v4 in zoom and composition only, story, places, hours, outfits, Yuki and decor kinds unchanged)
+
+Cause of the refusal (read 2026-11-14): the mark spawns at the animal and rises about 2 cells before the picture freezes (the step already freezes on the first frame the mark exists); Yuki stood beside Nelim with a green rock and piles between her and the mark, frame wide and empty. Director's pass (Opus, one call). **Kept:** camera centred on the pair, column above Yuki clear of rocks and piles, decor dense within 5 cells, no bare patch, series variety medium / wide / tight (rhythm close, open, closest), same outfit and collar in all three. **Not kept:** exact cells and facing of Nelim and a raised pickaxe (the mining job walks her, she is not placeable at the freeze), Nelim holding the fish (no step, unverified), fish on the Stool (the fish has no defName to stage), zoom 3 for scene 1 and zoom 2 for scene 3 (zoom 2 never tried, 268 px check unknown).
+
+| # | Zoom | Frame | Change vs v4 |
+|---|---|---|---|
+| 1 dawn (20) | 4 (was 5), medium opening | camera 1 cell right of Nelim (was 3), pair in the left third | second `MineableJade` 4 cells left (was 3); added `ChunkGranite` 2 right 1 below and 5 left 2 above, `Plant_Berry` 3 left 3 below, `Plant_TallGrass` 1 right 3 below; nothing in the cells above Yuki |
+| 2 noon (22) | 5 (was 4), wide | unchanged | water as the wide background |
+| 3 evening (23) | 3 (was 5), tight | unchanged | closest shot, `+N` read at 268 px to check on the capture |
+
+Old capture of scene 1 deleted (`Tests/Pickle/Evidence/gallery-1-v4`, not tracked). Features 20, 22, 23 edited. Unverified: zoom 3 of scene 3 frames Nelim, Yuki and the rice; where Yuki stands at the freeze (beside Nelim, west cell by `SceneBeside`, within 2 cells by `KeepBeside`).
+
+Plan score v5 (score-gallery 2026-11-14, no capture yet: rating the plan; read: this section, features 20, 22, 23 headers and steps, GALLERY.md criteria, `GalleryMiningSteps.cs` mark and placement steps): scene 1 = 5, scene 2 = 5, scene 3 = 5; k ok (one day, one pile per image, medium 4 / wide 5 / close 3, opening and closing, rhythm close-open-closest). Mean 5. Not verified: zoom 3 frames Nelim, Yuki and the rice (scene 3); where Yuki stands at the freeze (west cell, within 2 cells); the 268 px read of `+N` at zoom 4 and 3 (check on the captures); defNames `Plant_TallGrass`, `Plant_Berry`, `ChunkGranite`, `RawRice` (vanilla, not checked in game files). Verdicts after the runs: none yet.

@@ -4,12 +4,13 @@
 # ponytail, her own face, teal shirt and ochre trousers all day, no headgear) and the husky Yuki (NSB animal, Soren's bond; here she
 # follows Nelim through the mod's own step), east side of the Sanctuary. Each image leaves one more pile on the ground: Jade, then fish,
 # then rice, so the dog's extra adds up. Episode 1, dawn (hour 7, Clear, low light, lit TorchLamp and lit Campfire): the Jade vein at the
-# bare-clearing, zoom 5. Instant: one jade block has just broken and a fresh Jade stack lies south of Yuki, who looks at it (faces
+# bare-clearing, zoom 4. Instant: one jade block has just broken and a fresh Jade stack lies south of Yuki, who looks at it (faces
 # South: the one front view of the series), the "+N" has just risen over Yuki, Nelim has lowered her pickaxe and turns to a second,
 # intact MineableJade. Mouth neutral (effort, written: the plan's reason for a non-smile). Next: 22 at noon on the bank, 23 at the rice.
 #
+# v5 (2026-11-14, after the refusal of capture e95c): zoom 4 (medium opening), camera centred 1 cell right of Nelim so the pair sits in the left third, the column above Yuki kept free of piles and rocks (the "+N" rises about 2 cells over her), second rock moved to 4 cells left, decor denser within 5 cells (rubble, grass, berries), no bare patch.
 # SHOOTING PLAN (shotlist v4, one story shot per file):
-#   1. workshop-1-dawn: bare-clearing (195, 152), hour 7, Clear, zoom 5; Nelim (195, 152) teal shirt rgb (30, 140, 150), ochre pants rgb (150, 100, 50), Yuki husky, Apparel_leatherdogcollar #D1008F; TorchLamp, Campfire, Stool, MineableJade, ChunkGranite, Plant_TallGrass, Plant_Berry, Jade.
+#   1. workshop-1-dawn: bare-clearing (195, 152), hour 7, Clear, zoom 4; Nelim (195, 152) teal shirt rgb (30, 140, 150), ochre pants rgb (150, 100, 50), Yuki husky, Apparel_leatherdogcollar #D1008F; TorchLamp, Campfire, Stool, MineableJade, ChunkGranite, Plant_TallGrass, Plant_Berry, Jade.
 #
 # The yield comes when the rock breaks, so there is no 20 percent rock in this frame: the picture is taken on the tick the mark appears.
 # Place "bare-clearing" (195, 152), a free zone: the mod poses its own decor (TorchLamp, Campfire, Stool, Plant_TallGrass, Plant_Berry,
@@ -52,13 +53,17 @@ Feature: a companion beside a colonist at work
     And Fieldwork Companions: the scene decor "TorchLamp" stands 4 cells left of and 1 cell below "Nelim"
     And Fieldwork Companions: the scene decor "Campfire" stands 3 cells left of and 3 cells below "Nelim"
     And Fieldwork Companions: the scene decor "Stool" stands 4 cells left of and 4 cells below "Nelim"
-    And Fieldwork Companions: the scene decor "MineableJade" stands 3 cells left of and 1 cell above "Nelim"
+    And Fieldwork Companions: the scene decor "MineableJade" stands 4 cells left of and 1 cell above "Nelim"
     And Fieldwork Companions: the scene decor "ChunkGranite" stands 1 cell left of and 2 cells below "Nelim"
     And Fieldwork Companions: the scene decor "Plant_TallGrass" stands 2 cells left of and 2 cells below "Nelim"
     And Fieldwork Companions: the scene decor "Plant_TallGrass" stands 4 cells right of and 3 cells below "Nelim"
     And Fieldwork Companions: the scene decor "Plant_Berry" stands 5 cells right of and 2 cells below "Nelim"
-    And Nelim's Pickle Tools: I frame the animal "Yuki" at zoom 5
-    And Fieldwork Companions: the camera is placed so that "Nelim" stands 3 cells left of and 0 cells above the pointer
+    And Fieldwork Companions: the scene decor "ChunkGranite" stands 2 cells right of and 1 cell below "Nelim"
+    And Fieldwork Companions: the scene decor "ChunkGranite" stands 5 cells left of and 2 cells above "Nelim"
+    And Fieldwork Companions: the scene decor "Plant_Berry" stands 3 cells left of and 3 cells below "Nelim"
+    And Fieldwork Companions: the scene decor "Plant_TallGrass" stands 1 cell right of and 3 cells below "Nelim"
+    And Nelim's Pickle Tools: I frame the animal "Yuki" at zoom 4
+    And Fieldwork Companions: the camera is placed so that "Nelim" stands 1 cells left of and 0 cells above the pointer
     And Nelim's Pickle Tools: the interface scale is 200 percent
     And Nelim's Pickle Tools: studio presentation mode is enabled
     When Fieldwork Companions: "Nelim" is ordered to mine the rock beside them

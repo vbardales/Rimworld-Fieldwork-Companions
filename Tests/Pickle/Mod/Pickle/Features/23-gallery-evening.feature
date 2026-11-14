@@ -1,13 +1,13 @@
 # The photograph for the Workshop page, image 3 of the series: evening at the rice paddy, Nelim harvesting with Yuki at her side.
 #
 # STORY (criterion k, shotlist v4 in STATUS.md, 2026-11-08): same day as 20 and 22. Episode 3, evening (hour 18, Clear, the light low and
-# warm, a lit TorchLamp as the field lamp): CLOSING shot (zoom 5) at the edge of the paddy, east of the house. Same teal shirt and ochre
+# warm, a lit TorchLamp as the field lamp): CLOSING shot (zoom 3) at the edge of the paddy, east of the house. Same teal shirt and ochre
 # trousers as the whole day, high ponytail, bare-headed, a relaxed smile (MouthSmile). Instant: the harvest job has just cut a Plant_Rice
 # (its RawRice lies on the ground), the "+N" rises over Yuki, who heads East toward a second ripe plant (profile: the front view of the
 # series is image 1); Nelim, right of centre, steps toward that next plant; a Stool holds the day's Jade. Yuki is left.
 #
 # SHOOTING PLAN (shotlist v4, one story shot per file):
-#   1. workshop-3-evening: rice-paddy, hour 18, Clear, zoom 5; Nelim (227, 121) teal shirt rgb (30, 140, 150), ochre pants rgb (150, 100, 50), Yuki husky, Apparel_leatherdogcollar #D1008F; TorchLamp, Plant_Rice, Stool, Jade.
+#   1. workshop-3-evening: rice-paddy, hour 18, Clear, zoom 3; Nelim (227, 121) teal shirt rgb (30, 140, 150), ochre pants rgb (150, 100, 50), Yuki husky, Apparel_leatherdogcollar #D1008F; TorchLamp, Plant_Rice, Stool, Jade.
 #
 # STAGED (GALLERY.md). The assertion that a harvest is assisted is 06-assists'; this one is for a person.
 # Place "rice-paddy" (230, 122), validated by the owner 2026-11-07, rice to replant: bare brown soil between the sprouts and the bamboo
@@ -42,7 +42,7 @@ Feature: evening at the rice paddy, a companion beside a harvesting colonist
     And Fieldwork Companions: the scene decor "Stool" stands 3 cells left of and 1 cell below "Nelim"
     And Fieldwork Companions: the scene decor "Jade" stands 2 cells left of and 1 cell below "Nelim"
     # The harvested plant leaves the frame; the second ripe plant stays in it, so the rice shows.
-    And Nelim's Pickle Tools: I frame the animal "Yuki" at zoom 5
+    And Nelim's Pickle Tools: I frame the animal "Yuki" at zoom 3
     And Fieldwork Companions: the camera is placed so that "Nelim" stands -3 cells left of and 0 cells above the pointer
     And Nelim's Pickle Tools: the interface scale is 200 percent
     And Nelim's Pickle Tools: studio presentation mode is enabled

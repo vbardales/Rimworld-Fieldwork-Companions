@@ -1,13 +1,13 @@
 # The photograph for the Workshop page, image 2 of the series: noon on the river bank, Nelim fishing with Yuki at her side.
 #
-# STORY (criterion k, shotlist v4 in STATUS.md, 2026-11-08): same day as 20 (dawn at the jade). Episode 2, noon (hour 12, Clear), TIGHT
-# shot (zoom 4) on the right bank (NSB cell (144, 132)): the same teal shirt and ochre trousers, high ponytail, bare-headed, a small smile
+# STORY (criterion k, shotlist v4 in STATUS.md, 2026-11-08): same day as 20 (dawn at the jade). Episode 2, noon (hour 12, Clear), WIDE (v5, 2026-11-14: the river bank as the wide shot of the series)
+# shot (zoom 5) on the right bank (NSB cell (144, 132)): the same teal shirt and ochre trousers, high ponytail, bare-headed, a small smile
 # (MouthSmile). Instant: a fish has just been landed, the "+N" rises over Yuki, who sits at her feet facing West toward the water, and
 # Nelim turns to her; the dawn's Jade stack lies by the fishing gear, a lit Campfire and a Stool near the rack. The fish is whatever
 # the fishing job drops (nothing staged). Episode 3 (23) is the evening at the rice.
 #
 # SHOOTING PLAN (shotlist v4, one story shot per file):
-#   1. workshop-2-noon: right-bank (144, 132), hour 12, Clear, zoom 4; Nelim (144, 132) teal shirt rgb (30, 140, 150), ochre pants rgb (150, 100, 50), Yuki husky, Apparel_leatherdogcollar #D1008F; FishRack, FishGear, Campfire, Stool, Plant_TallGrass, Jade.
+#   1. workshop-2-noon: right-bank (144, 132), hour 12, Clear, zoom 5; Nelim (144, 132) teal shirt rgb (30, 140, 150), ochre pants rgb (150, 100, 50), Yuki husky, Apparel_leatherdogcollar #D1008F; FishRack, FishGear, Campfire, Stool, Plant_TallGrass, Jade.
 #
 # The bank was refused by the owner on 2026-11-08 as too empty and NPT is decorating it: recheck its photograph before the ticket.
 # Fishing Village Decor and Props (zal.fishprops) supplies FishRack and FishGear. The river is stocked like the lake of 16-fishing.
@@ -45,7 +45,7 @@ Feature: noon on the river bank, a companion beside a fishing colonist
     And Fieldwork Companions: the scene decor "FishRack" stands 2 cells right of and 2 cells below "Nelim"
     And Fieldwork Companions: the scene decor "FishGear" stands 0 cells right of and 2 cells below "Nelim"
     And Fieldwork Companions: the water beside "Nelim" holds fish
-    And Nelim's Pickle Tools: I frame the animal "Yuki" at zoom 4
+    And Nelim's Pickle Tools: I frame the animal "Yuki" at zoom 5
     And Nelim's Pickle Tools: the interface scale is 200 percent
     And Nelim's Pickle Tools: studio presentation mode is enabled
     # "at the lake" is the shared fishing step's wording (16-fishing); the picture is on the river bank.
