@@ -22,7 +22,7 @@ accepts for this mod until its migration. The description ends, in this order, w
 
 ## Gallery
 
-The folder `Art/Gallery/` holds only the images to upload, numbered on one digit in the order of the page, and nothing else.
+The folder `Art/Gallery/` holds only the images to upload, numbered with a single digit in the order of the page, and nothing else.
 Every image weighs under 2 MB and the folder under 8 MB (about 1.9 MB). Steam shows the first one large under the
 Preview, so `0-` is the byte-for-byte copy of `Mod/About/Preview.png` (written by `scripts/Render-Preview.cjs`, not by a
 scenario; copy it again whenever the Preview is regenerated).
