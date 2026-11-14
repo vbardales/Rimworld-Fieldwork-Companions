@@ -220,7 +220,7 @@ Cause of the refusal (read 2026-11-14): the mark spawns at the animal and rises 
 
 | # | Zoom | Frame | Change vs v4 |
 |---|---|---|---|
-| 1 dawn (20) | 4 (was 5), medium opening | camera 1 cell right of Nelim (was 3), pair in the left third | second `MineableJade` 4 cells left (was 3); added `ChunkGranite` 2 right 1 below and 5 left 2 above, `Plant_Berry` 3 left 3 below, `Plant_TallGrass` 1 right 3 below; nothing in the cells above Yuki |
+| 1 dawn (20) | 4 (was 5), medium opening | camera 1 cell right of Nelim (was 3), pair in the left third | second `MineableJade` 4 cells left (was 3); added `ChunkGranite` 2 right 1 below and 6 right 1 below (5 left 2 above was on an occupied cell outside the cleared area, ticket 5169), `Plant_Berry` 3 left 3 below, `Plant_TallGrass` 1 right 3 below; nothing in the cells above Yuki |
 | 2 noon (22) | 5 (was 4), wide | unchanged | water as the wide background |
 | 3 evening (23) | 3 (was 5), tight | unchanged | closest shot, `+N` read at 268 px to check on the capture |
 
