@@ -12,12 +12,12 @@
   <FieldworkCompanions.Settings.Harvest>Récolte et cueillette</FieldworkCompanions.Settings.Harvest>
   <FieldworkCompanions.Settings.HarvestTip>Les cultures comme les plantes sauvages. Couper une plante n'est pas la récolter et ne donne aucun bonus.</FieldworkCompanions.Settings.HarvestTip>
   <FieldworkCompanions.Settings.Fishing>Pêche</FieldworkCompanions.Settings.Fishing>
-  <FieldworkCompanions.Settings.FishingTip>Nécessite Odyssée. Un poisson supplémentaire, prélevé sur la prise tout juste remontée. Un animal qui pêche seul ne reçoit jamais d’aide.</FieldworkCompanions.Settings.FishingTip>
+  <FieldworkCompanions.Settings.FishingTip>Nécessite Odyssey. Un poisson supplémentaire, prélevé sur la prise tout juste remontée. Un animal qui pêche seul ne reçoit jamais d’aide.</FieldworkCompanions.Settings.FishingTip>
   <FieldworkCompanions.Settings.Gathering>Traite et tonte</FieldworkCompanions.Settings.Gathering>
   <FieldworkCompanions.Settings.GatheringTip>L'animal qu'on trait ou qu'on tond ne peut jamais compter comme son propre assistant.</FieldworkCompanions.Settings.GatheringTip>
 
   <FieldworkCompanions.Settings.RequireSpecialty>Exiger le dressage correspondant</FieldworkCompanions.Settings.RequireSpecialty>
-  <FieldworkCompanions.Settings.RequireSpecialtyTip>Le minage demande le dressage au creusement, la récolte le dressage à la cueillette — tous deux ajoutés par Odyssée. La pêche, la traite et la tonte n'ont pas de dressage propre : l'obéissance leur suffit. Une fois cette option désactivée, l’obéissance suffit partout.</FieldworkCompanions.Settings.RequireSpecialtyTip>
+  <FieldworkCompanions.Settings.RequireSpecialtyTip>Le minage demande le dressage au creusement, la récolte le dressage à la cueillette — tous deux ajoutés par Odyssey. La pêche, la traite et la tonte n'ont pas de dressage propre : l'obéissance leur suffit. Une fois cette option désactivée, l’obéissance suffit partout.</FieldworkCompanions.Settings.RequireSpecialtyTip>
 
   <FieldworkCompanions.Settings.ChanceHeader>À quelle fréquence ça paie</FieldworkCompanions.Settings.ChanceHeader>
   <FieldworkCompanions.Settings.BaseChance>Chance de base : {0} %</FieldworkCompanions.Settings.BaseChance>
