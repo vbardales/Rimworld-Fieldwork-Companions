@@ -17,7 +17,7 @@
   <FieldworkCompanions.Settings.GatheringTip>L'animal qu'on trait ou qu'on tond ne peut jamais compter comme son propre assistant.</FieldworkCompanions.Settings.GatheringTip>
 
   <FieldworkCompanions.Settings.RequireSpecialty>Exiger le dressage correspondant</FieldworkCompanions.Settings.RequireSpecialty>
-  <FieldworkCompanions.Settings.RequireSpecialtyTip>Le minage demande le dressage au creusement, la récolte le dressage à la cueillette — tous deux ajoutés par Odyssey. La pêche, la traite et la tonte n'ont pas de dressage propre : l'obéissance leur suffit. Désactivez cette option : l’obéissance suffit alors partout.</FieldworkCompanions.Settings.RequireSpecialtyTip>
+  <FieldworkCompanions.Settings.RequireSpecialtyTip>Le minage demande le dressage au creusement, la récolte le dressage à la cueillette — tous deux ajoutés par Odyssey. La pêche, la traite et la tonte n'ont pas de dressage propre : l'obéissance leur suffit. Une fois cette option désactivée, l’obéissance suffit partout.</FieldworkCompanions.Settings.RequireSpecialtyTip>
 
   <FieldworkCompanions.Settings.ChanceHeader>À quelle fréquence ça paie</FieldworkCompanions.Settings.ChanceHeader>
   <FieldworkCompanions.Settings.BaseChance>Chance de base : {0} %</FieldworkCompanions.Settings.BaseChance>

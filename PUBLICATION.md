@@ -162,7 +162,7 @@ An animal that follows its master at work now earns its keep.
 
 [b]Added[/b]
 [list]
-[*]An animal whose master is a colonist, set to follow that master while doing field work, gives a chance of extra yield when it is at hand. The vanilla toggle already made it follow; it never bore on the work.
+[*]An animal whose master is a colonist, set to follow that master while doing field work, gives a chance of extra yield when it is at hand. The vanilla toggle already made it follow; it never affected the work.
 [*]Mining, harvesting and foraging, fishing, milking and shearing, each switchable on its own.
 [*]The chance rises with the matching training (Dig for mining, Forage for harvesting, three steps each, added by Odyssey) and again when the animal is bonded to that colonist. Working together can tie the bond.
 [*]A mark over the animal that found the extra.
