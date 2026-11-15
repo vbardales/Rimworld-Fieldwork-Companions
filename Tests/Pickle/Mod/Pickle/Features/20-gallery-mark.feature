@@ -60,7 +60,7 @@ Feature: a companion beside a colonist at work
     And Fieldwork Companions: the scene decor "Plant_Berry" stands 5 cells right of and 2 cells below "Nelim"
     And Fieldwork Companions: the scene decor "ChunkGranite" stands 2 cells right of and 1 cell below "Nelim"
     And Fieldwork Companions: the scene decor "ChunkGranite" stands 6 cells right of and 1 cell below "Nelim"
-    And Fieldwork Companions: the scene decor "Plant_Berry" stands 3 cells left of and 3 cells below "Nelim"
+    And Fieldwork Companions: the scene decor "Plant_Berry" stands 1 cells left of and 4 cells below "Nelim"
     And Fieldwork Companions: the scene decor "Plant_TallGrass" stands 1 cell right of and 3 cells below "Nelim"
     And Nelim's Pickle Tools: I frame the animal "Yuki" at zoom 4
     And Fieldwork Companions: the camera is placed so that "Nelim" stands 1 cells left of and 0 cells above the pointer
