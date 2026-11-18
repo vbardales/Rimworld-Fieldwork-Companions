@@ -17,6 +17,7 @@ license_spdx: MIT
 licence_at:   Original implementation according to ATTRIBUTION.md; no third-party mod code or assets reused. Only the mechanic is inspired by Disney Dreamlight Valley. Root and distributed LICENSE grant MIT. Classification original describes provenance; MIT describes reuse permissions.
 upstream_mod_remotes: N/A   # original mod (licence: original): no source mod ported, so no upstream repository to list. Distinct from `repo` (this mod's own repository) and `origin` (its git remote).
 dependencies: declared
+workshop_required_items: n/a, not released yet   # Harmony is the only hard dependency (steamWorkshopUrl 2009463077); item 3806133311 is a 0.1.0 prepublication, 1.0.0 not released (owner rule 2026-11-10); set by hand on the Steam page at the end of writeReleaseDocs or at publish
 showcase:     complete
 tested_on:    cd1afb7
 code_review_sha: 980db5967464ec81059a1686db9fef81c26353da
