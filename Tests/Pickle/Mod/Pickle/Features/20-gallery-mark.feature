@@ -9,8 +9,10 @@
 # intact MineableJade. Mouth neutral (effort, written: the plan's reason for a non-smile). Next: 22 at noon on the bank, 23 at the rice.
 #
 # v5 (2026-11-14, after the refusal of capture e95c): zoom 4 (medium opening), camera centred 1 cell right of Nelim so the pair sits in the left third, the column above Yuki kept free of piles and rocks (the "+N" rises about 2 cells over her), second rock moved to 4 cells left, decor denser within 5 cells (rubble, grass, berries), no bare patch.
+# v6b (2026-11-15): the mark is drawn at 4 times its size (new setting markScale, mod change validated by the owner 2026-11-15) so "+N" reads at 268 px; hairstyle set to the sheet's Roo_HD_Hair_Highpony (the v5 capture showed a bun, which NELIM-PROFIL.md forbids).
+# v6 (2026-11-15, after the refusal of capture fb21, score 2.5): zoom 3, hour 6 (low warm light reads as dawn against noon and evening), Nelim 2 cells left of the camera, Campfire and Stool moved to the right half (6 and 7 cells right) so the frame has no bare half, second MineableJade 3 cells left 1 above (the rock she turns to). Known limit (director, 2026-11-15): the "+N" mote has a fixed screen size, about 3 px at 268 px wide, so criterion j rests on the pair and the Jade pile until the mark is redrawn larger.
 # SHOOTING PLAN (shotlist v4, one story shot per file):
-#   1. workshop-1-dawn: bare-clearing (195, 152), hour 7, Clear, zoom 4; Nelim (195, 152) teal shirt rgb (30, 140, 150), ochre pants rgb (150, 100, 50), Yuki husky, Apparel_leatherdogcollar #D1008F; TorchLamp, Campfire, Stool, MineableJade, ChunkGranite, Plant_TallGrass, Plant_Berry, Jade.
+#   1. workshop-1-dawn: bare-clearing (195, 152), hour 6, Clear, zoom 3; Nelim (195, 152) teal shirt rgb (30, 140, 150), ochre pants rgb (150, 100, 50), Yuki husky, Apparel_leatherdogcollar #D1008F; TorchLamp, Campfire, Stool, MineableJade, ChunkGranite, Plant_TallGrass, Plant_Berry, Jade.
 #
 # The yield comes when the rock breaks, so there is no 20 percent rock in this frame: the picture is taken on the tick the mark appears.
 # Place "bare-clearing" (195, 152), a free zone: the mod poses its own decor (TorchLamp, Campfire, Stool, Plant_TallGrass, Plant_Berry,
@@ -28,10 +30,11 @@ Feature: a companion beside a colonist at work
   Scenario: a real mining job, the animal beside the colonist, the mark over the animal
     Given the save "Nelims-tribe" is loaded
     And game speed is paused
-    And I set the hour to 7
+    And I set the hour to 6
     And I set the weather to "Clear"
     And I close all dialogs
     And Fieldwork Companions always helps, at the largest share
+    And Fieldwork Companions draws the mark at 4 times its size
     And Nelim's Sanctuary: I am at the sanctuary "bare-clearing"
     And Nelim's Sanctuary: the floor of the sanctuary "bare-clearing" is bared
     And Nelim's Sanctuary: the animals are removed from the sanctuary "bare-clearing"
@@ -42,6 +45,7 @@ Feature: a companion beside a colonist at work
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (30, 140, 150)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (150, 100, 50)
     And Nelim's Pickle Tools: the area from (191, 147) to (204, 157) is cleared
+    And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
     And Nelim's Sanctuary: Nelim has her own face
     And Nelim's Pickle Tools: "Nelim" mouth is "MouthNormal"
     And Fieldwork Companions: "Yuki" is an obedient "Husky" that follows "Nelim" at work
@@ -51,9 +55,9 @@ Feature: a companion beside a colonist at work
     And Fieldwork Companions: a "MineableJade" rock and "Yuki" stand right beside "Nelim"
     And Fieldwork Companions: the scene decor "Jade" stands 0 cells right of and 3 cells below "Nelim"
     And Fieldwork Companions: the scene decor "TorchLamp" stands 4 cells left of and 1 cell below "Nelim"
-    And Fieldwork Companions: the scene decor "Campfire" stands 3 cells left of and 3 cells below "Nelim"
-    And Fieldwork Companions: the scene decor "Stool" stands 4 cells left of and 4 cells below "Nelim"
-    And Fieldwork Companions: the scene decor "MineableJade" stands 4 cells left of and 1 cell above "Nelim"
+    And Fieldwork Companions: the scene decor "Campfire" stands 6 cells right of and 3 cells below "Nelim"
+    And Fieldwork Companions: the scene decor "Stool" stands 7 cells right of and 4 cells below "Nelim"
+    And Fieldwork Companions: the scene decor "MineableJade" stands 3 cells left of and 1 cell above "Nelim"
     And Fieldwork Companions: the scene decor "ChunkGranite" stands 1 cell left of and 2 cells below "Nelim"
     And Fieldwork Companions: the scene decor "Plant_TallGrass" stands 2 cells left of and 2 cells below "Nelim"
     And Fieldwork Companions: the scene decor "Plant_TallGrass" stands 4 cells right of and 3 cells below "Nelim"
@@ -62,8 +66,8 @@ Feature: a companion beside a colonist at work
     And Fieldwork Companions: the scene decor "ChunkGranite" stands 6 cells right of and 1 cell below "Nelim"
     And Fieldwork Companions: the scene decor "Plant_Berry" stands 1 cells left of and 4 cells below "Nelim"
     And Fieldwork Companions: the scene decor "Plant_TallGrass" stands 1 cell right of and 3 cells below "Nelim"
-    And Nelim's Pickle Tools: I frame the animal "Yuki" at zoom 4
-    And Fieldwork Companions: the camera is placed so that "Nelim" stands 1 cells left of and 0 cells above the pointer
+    And Nelim's Pickle Tools: I frame the animal "Yuki" at zoom 3
+    And Fieldwork Companions: the camera is placed so that "Nelim" stands 2 cells left of and 0 cells above the pointer
     And Nelim's Pickle Tools: the interface scale is 200 percent
     And Nelim's Pickle Tools: studio presentation mode is enabled
     When Fieldwork Companions: "Nelim" is ordered to mine the rock beside them

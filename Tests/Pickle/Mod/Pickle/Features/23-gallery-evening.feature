@@ -23,6 +23,7 @@ Feature: evening at the rice paddy, a companion beside a harvesting colonist
     And I set the weather to "Clear"
     And I close all dialogs
     And Fieldwork Companions always helps, at the largest share
+    And Fieldwork Companions draws the mark at 4 times its size
     And Nelim's Sanctuary: I am at the sanctuary "rice-paddy"
     And Nelim's Sanctuary: the animals are removed from the sanctuary "rice-paddy"
     And Nelim's Pickle Tools: all animals are removed
@@ -31,6 +32,7 @@ Feature: evening at the rice paddy, a companion beside a harvesting colonist
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (30, 140, 150)
     And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (150, 100, 50)
     And Nelim's Pickle Tools: the area from (224, 118) to (231, 124) is cleared
+    And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
     And Nelim's Sanctuary: Nelim has her own face
     And Nelim's Pickle Tools: "Nelim" mouth is "MouthSmile"
     And Fieldwork Companions: "Yuki" is an obedient "Husky" that follows "Nelim" at work

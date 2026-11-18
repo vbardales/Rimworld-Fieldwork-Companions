@@ -103,6 +103,9 @@ namespace FieldworkCompanions.PickleSteps
             s.bondChance = 0f;
         }
 
+        [Given("Fieldwork Companions draws the mark at {float} times its size")]
+        public void MarkScaleIs(PickleContext ctx, float scale) => Driver.Settings(ctx).markScale = scale;
+
         [Given("Fieldwork Companions requires the matching training")]
         public void RequireTraining(PickleContext ctx) => Driver.Settings(ctx).requireSpecialty = true;
 

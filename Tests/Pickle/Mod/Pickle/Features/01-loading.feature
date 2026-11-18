@@ -45,6 +45,7 @@ Feature: Fieldwork Companions loads, and its four hooks are live
     And Fieldwork Companions setting "radius" reads "8"
     And Fieldwork Companions setting "requireSpecialty" reads "True"
     And Fieldwork Companions setting "showMote" reads "True"
+    And Fieldwork Companions setting "markScale" reads "1"
 
   # The optional shortcut RIMMSQOL and its kind are meant to be able to reveal. Its default
   # visibility is checked in 04, in a game, because the main bar's worker has no opinion at the main
