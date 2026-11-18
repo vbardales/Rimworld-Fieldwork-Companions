@@ -176,7 +176,7 @@ namespace FieldworkCompanions
             if (!FieldworkCompanionsMod.Settings.showMote) return;
             if (animal == null || !animal.Spawned || animal.Map == null) return;
 
-            MoteMaker.ThrowText(animal.DrawPos, animal.Map,
+            AssistMark.Throw(animal.DrawPos, animal.Map,
                 "FieldworkCompanions.Mote.Assist".Translate(count), 2.5f);
         }
 

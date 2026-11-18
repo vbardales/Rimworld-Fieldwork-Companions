@@ -103,6 +103,11 @@ namespace FieldworkCompanions
             listing.CheckboxLabeled("FieldworkCompanions.Settings.ShowMote".Translate(),
                 ref settings.showMote, "FieldworkCompanions.Settings.ShowMoteTip".Translate());
 
+            settings.markScale = Mathf.Round(listing.SliderLabeled(
+                "FieldworkCompanions.Settings.MarkScale".Translate(settings.markScale.ToString("0.#")),
+                settings.markScale, 1f, 4f, 0.62f,
+                "FieldworkCompanions.Settings.MarkScaleTip".Translate()) * 4f) / 4f;
+
             listing.Gap();
             if (listing.ButtonText("FieldworkCompanions.Settings.Reset".Translate()))
             {

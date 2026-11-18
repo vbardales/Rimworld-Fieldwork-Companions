@@ -30,6 +30,9 @@ namespace FieldworkCompanions
 
         public bool showMote = true;
 
+        // Size of the mark over the companion, 1 = the game's own text size.
+        public float markScale = 1f;
+
         // Also validate stored values: sliders alone cannot protect an older settings file.
         public void Normalize()
         {
@@ -38,6 +41,7 @@ namespace FieldworkCompanions
             bondBonus = Bound(bondBonus, 0f, 1f, 0.15f);
             bonusShare = Bound(bonusShare, 0.05f, 2f, 0.25f);
             bondChance = Bound(bondChance, 0f, 0.05f, 0.005f);
+            markScale = Bound(markScale, 1f, 4f, 1f);
             radius = Math.Max(2, Math.Min(30, radius));
         }
 
@@ -69,6 +73,7 @@ namespace FieldworkCompanions
             requireSpecialty = true;
             bondChance = 0.005f;
             showMote = true;
+            markScale = 1f;
         }
 
         public override void ExposeData()
@@ -86,6 +91,7 @@ namespace FieldworkCompanions
             Scribe_Values.Look(ref requireSpecialty, "requireSpecialty", true);
             Scribe_Values.Look(ref bondChance, "bondChance", 0.005f);
             Scribe_Values.Look(ref showMote, "showMote", true);
+            Scribe_Values.Look(ref markScale, "markScale", 1f);
             if (Scribe.mode == LoadSaveMode.LoadingVars) Normalize();
         }
     }

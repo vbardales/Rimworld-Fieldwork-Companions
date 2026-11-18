@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- Same as the game's Mote_Text, with a class that can draw the text larger (setting "markScale"). -->
+  <ThingDef ParentName="MoteBase">
+    <defName>FieldworkCompanions_AssistMark</defName>
+    <graphicData>
+      <texPath>Things/Mote/Transparent</texPath>
+    </graphicData>
+    <thingClass>FieldworkCompanions.AssistMark</thingClass>
+    <drawGUIOverlay>true</drawGUIOverlay>
+    <altitudeLayer>MetaOverlays</altitudeLayer>
+    <mote>
+      <realTime>true</realTime>
+      <solidTime>2.2</solidTime>
+    </mote>
+  </ThingDef>
+</Defs>
