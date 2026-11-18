@@ -3,7 +3,11 @@
 Format inspired by [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 This file serves the repository and the writing of Steam patch notes; RimWorld does not display it in game.
 
-## [1.0.0] — 2026-09-29
+## [Unreleased]
+
+### Added
+
+- A setting for the size of the mark over the companion (slider from x1 to x4, default x1, the game's own text size, so nothing changes unless it is raised). Applies at once, global like the other settings, and is covered by the reset button; English and French texts.
 
 ### Fixed
 
