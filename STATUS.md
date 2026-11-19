@@ -17,6 +17,7 @@ license_spdx: MIT
 licence_at:   Original implementation according to ATTRIBUTION.md; no third-party mod code or assets reused. Only the mechanic is inspired by Disney Dreamlight Valley. Root and distributed LICENSE grant MIT. Classification original describes provenance; MIT describes reuse permissions.
 upstream_mod_remotes: N/A   # original mod (licence: original): no source mod ported, so no upstream repository to list. Distinct from `repo` (this mod's own repository) and `origin` (its git remote).
 dependencies: declared
+ecosystem_line: 1.0   # ecosystem search refreshed by PiI 2026-11-19 for the 1.0.0 line (AUDIT.md 2.h)
 workshop_required_items: n/a, not released yet   # Harmony is the only hard dependency (steamWorkshopUrl 2009463077); item 3806133311 is a 0.1.0 prepublication, 1.0.0 not released (owner rule 2026-11-10); set by hand on the Steam page at the end of writeReleaseDocs or at publish
 showcase:     complete
 tested_on:    cd1afb7
@@ -41,7 +42,7 @@ remaining:
   - note: Workshop item 3806133311 was published by the maintainer as 0.1.0 while the local metadata and draft notes use 1.0.0. The maintainer explicitly accepts that difference for this early publication; it is tracked for the next planned update, not treated as a current audit blocker.
   - validated: PublishedFileId `3806133311` is committed and pushed on `main` (e2ec8fc, followed by release-preparation commits).
   - validated: French review by Virginie, 2026-10-02: 12 corrections requested (Intro, WorkHeader, FishingTip, GatheringTip, RequireSpecialtyTip, BondTip, ShareTip, Radius, RadiusTip, BondChance, then Intro and FishingTip again), all applied; she declared the French validated linguistically at revision `342f69d` on her own statement in chat. The wording after that is the corrections listed here only (commit following 51bc7e5). Reread against the 2026-09-30 French gender-agreement rule (TRANSLATIONS.md section 3). No owned text agrees with a pawn: all 33 Keyed entries are settings labels, tooltips, the reset confirmation and the numeric assist mote (`+{0}`); the one DefInjected pair is the hidden MainButtons shortcut's label/description. None names or describes a specific colonist or animal, so no `{PAWN_gender ? ...}` switch applies or is missing. `FRENCH_REVIEW.md` regenerated (`scripts/Make-FrenchReview.ps1` (shared, protocols repository), reads the shipped XML) on revision `7d441a6` (after the two English corrections of 6193bc0).
-protocols_read_sha: 7558e24cf726e81c9d4a0693c59d366a273a57b2
+protocols_read_sha: 7b330dfc2caae765ee3c753582c973d24c5f3331
 ---
 # Fieldwork Companions — status
 
