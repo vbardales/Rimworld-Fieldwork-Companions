@@ -6,9 +6,9 @@ game can show.
 
 | Layer | Where | What it settles | Cost |
 | --- | --- | --- | --- |
-| Out-of-game harness | `scripts/Run-Functional-Tests.ps1` (25 checks) | Four patched vanilla methods still exist with expected shape, nothing overrides them; three non-public members mod reads covered by access waiver; chance arithmetic, clamps, defaults, reset, real Scribe round trip; shortcut Def; every translation key in EN and FR; About metadata | seconds |
+| Out-of-game rules | `Tests/Test-Mod.ps1` (generated, 6 tests: 5 shared checks, then `Tests/Rule-OwnValues.ps1`, 12 rules) | The 13 settings (documented defaults, reset, bounds, real Scribe round trip from EN and FR hosts, older and out-of-range files, effect of each switch, markScale and its mote); the hidden shortcut def; every translation key in EN and FR with the same format tokens; About metadata; consumers of each setting read in the IL; four patched vanilla methods still exist with the expected shape, access grant, and the three non-public members the source reaches (Check-HarmonyContract with the compile probe). No unit-test project (`Run-UnitTests.ps1` answers n/a): these rules are the 7.b proof | seconds |
 | Resource checks | `../scripts/Check-DefInjected.ps1` | Two DefInjected paths resolve | seconds |
-| Pickle, in game | `Tests/Pickle/` (20 features) | Patches installed and fire on game's real runtime; real settings dialog draws; real settings file; shortcut in real main bar; language pass runs; save holds nothing of mod | tens of minutes |
+| Pickle, in game | `Tests/Pickle/` (27 features) | Patches installed and fire on game's real runtime; real settings dialog draws; real settings file; shortcut in real main bar; language pass runs; save holds nothing of mod | tens of minutes |
 | Evidence review | Pickle screenshots and films | Human reviews rendered result; no manual gameplay procedure is release gate | minutes |
 
 ## The passes
@@ -106,7 +106,7 @@ Run summary says which of these it holds, which captures opened and what they sh
 proof missing, that it is missing.
 ## Which scenario covers what
 
-| Feature | Covers | `FUNCTIONAL-SCENARIOS.md` |
+| Feature | Covers | Former functional scenario number |
 | --- | --- | --- |
 | `01-loading` | Mod loaded after Harmony; no error at startup; four hooks patched by this mod; documented defaults on clean profile; shortcut Def exists | 0 |
 | `02-settings-page` | Real settings window top and bottom, captured (`@review`) | 15 |
@@ -129,8 +129,8 @@ proof missing, that it is missing.
 ## What is not a gate
 
 **No manual scenario remains as gate: each written as Pickle feature, none of features 13 to 17 played
-yet.** Every scenario of `scripts/FUNCTIONAL-SCENARIOS.md` has Pickle feature (see table above and
-mapping at top of that file). Coverage by design, not result: scenario counts once its pass has
+yet.** Every scenario of the former functional list has Pickle feature (see table above and
+the table "Which scenario covers what"). Coverage by design, not result: scenario counts once its pass has
 completed (`exitReason: passed`, scenarios played equal features discovered) and its `@review` captures
 opened. Below are limits of automated route, each recorded so nobody reads green run as more
 than it says; none asks for hand-played validation.
