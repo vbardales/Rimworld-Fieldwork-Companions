@@ -103,10 +103,14 @@ namespace FieldworkCompanions
             listing.CheckboxLabeled("FieldworkCompanions.Settings.ShowMote".Translate(),
                 ref settings.showMote, "FieldworkCompanions.Settings.ShowMoteTip".Translate());
 
+            // The size only matters while the mark is shown: grey the slider out, the tooltip says why.
+            bool wasEnabled = GUI.enabled;
+            GUI.enabled = settings.showMote;
             settings.markScale = Mathf.Round(listing.SliderLabeled(
                 "FieldworkCompanions.Settings.MarkScale".Translate(settings.markScale.ToString("0.#")),
                 settings.markScale, 1f, 4f, 0.62f,
                 "FieldworkCompanions.Settings.MarkScaleTip".Translate()) * 4f) / 4f;
+            GUI.enabled = wasEnabled;
 
             listing.Gap();
             if (listing.ButtonText("FieldworkCompanions.Settings.Reset".Translate()))

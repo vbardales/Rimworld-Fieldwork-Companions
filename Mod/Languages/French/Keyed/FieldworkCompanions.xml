@@ -40,7 +40,7 @@
   <FieldworkCompanions.Settings.ShowMote>Afficher une marque au-dessus du compagnon</FieldworkCompanions.Settings.ShowMote>
   <FieldworkCompanions.Settings.ShowMoteTip>Pour voir quel animal a trouvé le supplément.</FieldworkCompanions.Settings.ShowMoteTip>
   <FieldworkCompanions.Settings.MarkScale>Taille de la marque : x{0}</FieldworkCompanions.Settings.MarkScale>
-  <FieldworkCompanions.Settings.MarkScaleTip>Agrandit la marque au-dessus du compagnon. 1 est la taille du texte du jeu.</FieldworkCompanions.Settings.MarkScaleTip>
+  <FieldworkCompanions.Settings.MarkScaleTip>Agrandit la marque au-dessus du compagnon. 1 est la taille du texte du jeu. Grisé tant que la marque ci-dessus est désactivée.</FieldworkCompanions.Settings.MarkScaleTip>
 
   <FieldworkCompanions.Settings.Reset>Rétablir les valeurs par défaut</FieldworkCompanions.Settings.Reset>
   <FieldworkCompanions.Settings.ConfirmReset>Rétablir tous les réglages de Fieldwork Companions ?</FieldworkCompanions.Settings.ConfirmReset>

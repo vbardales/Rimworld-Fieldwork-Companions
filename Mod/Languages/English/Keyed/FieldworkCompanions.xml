@@ -40,7 +40,7 @@
   <FieldworkCompanions.Settings.ShowMote>Show a mark over the companion</FieldworkCompanions.Settings.ShowMote>
   <FieldworkCompanions.Settings.ShowMoteTip>So you can see which animal found the extra.</FieldworkCompanions.Settings.ShowMoteTip>
   <FieldworkCompanions.Settings.MarkScale>Size of the mark: x{0}</FieldworkCompanions.Settings.MarkScale>
-  <FieldworkCompanions.Settings.MarkScaleTip>Makes the mark over the companion larger. 1 is the game's own text size.</FieldworkCompanions.Settings.MarkScaleTip>
+  <FieldworkCompanions.Settings.MarkScaleTip>Makes the mark over the companion larger. 1 is the game's own text size. Greyed out while the mark above is off.</FieldworkCompanions.Settings.MarkScaleTip>
 
   <FieldworkCompanions.Settings.Reset>Reset to defaults</FieldworkCompanions.Settings.Reset>
   <FieldworkCompanions.Settings.ConfirmReset>Reset every Fieldwork Companions setting to its default?</FieldworkCompanions.Settings.ConfirmReset>
