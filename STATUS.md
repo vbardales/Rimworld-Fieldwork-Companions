@@ -9,8 +9,8 @@ remote:       https://github.com/vbardales/Rimworld-Fieldwork-Companions.git
 local_path:   C:\Users\nelim\Documents\rimworld\FieldworkCompanions
 visibility:   public
 detached:     yes
-workflow_stage: declareDependencies[1.0.0]
-settings_audit: passed
+workflow_stage: settings[1.0.0]
+settings_audit: partial   # markScale (d48ced9) not audited; back to passed at playTests after the in-game check
 audit_revision: e39d9ab
 licence:      original
 license_spdx: MIT
@@ -27,7 +27,7 @@ workshop:      3806133311
 maintainer:   Codex, current local repository task
 updated:      2026-11-19
 remaining:
-  - defect: replay-audit 2026-11-19 (ledger `../.replays/FieldworkCompanions-20261119.tsv`), first open 4.g: field `workshop_required_items` absent from the front matter (`n/a, not released yet` expected for a mod never released as 1.0.0, owner rule 2026-11-10). 3.c closed the same day (CHANGELOG `[Unreleased]` with the mark size setting, `5cdb26e`; v6b code committed `d48ced9`). Stage moved `shootGallery[1.0.0]` to `code[1.0.0]` to `declareDependencies[1.0.0]`; gallery work (ticket fb21, scene 1 v6b) waits. The owner sets the field after deciding, the audit does not write it.
+  - defect: replay-audit 2026-11-19 (ledger `../.replays/FieldworkCompanions-20261119.tsv`, 41 rows, 30 done, 0 weak), first open 5.a: the Settings audit (12 settings, revision e39d9ab) predates the 13th setting `markScale` (slider 1 to 4, d48ced9, owner validation 2026-11-15). Redo 5.a to 5.g at `settings`: inventory, usage review (label, tip, range, default, applies at once), technical tests (default and reset, bounds 1 to 4, persistence, effect on the mote scale) plus the in-game check (settings page, both languages) later at playTests; `Run-Functional-Tests.ps1` no longer exists in `scripts/`, so say how the tests run. 4.g closed (`workshop_required_items: n/a, not released yet`, 9eb14b8). Stage moved `declareDependencies[1.0.0]` to `settings[1.0.0]`.
   - unverified: further down (not replayed, stage-defining once reached): 8.m `code_review_sha` 980db596 and 8.l `tested_on` cd1afb7 stale against the v6b code (review of `code_review_sha..HEAD`, small Pickle tickets for the mark size setting); 6.f `TRANSLATION_REVIEW.md` stale (regenerate with `Make-TranslationReview.ps1`, new MoteDef and strings); 12.c `social_preview_sha256` stale (Preview.png regenerated 2026-11-08).
   - unverified: Ticket `fb21` (`gallery-1-v5`, scene 1 v5) passed, exit=0, 1/1 (run relayed 2026-11-15, evidence `Tests/Pickle/Inbox/gallery-1-v5`, read 2026-11-15). Capture: Nelim (bun, no tuque) side view facing right, the white and grey wolf front facing beside her, `+80` above both (a little left of the wolf), zoom 4, Jade item, torch, flowers column, campfire, berries and stone chunks in frame; no rock being mined visible. score-gallery 2026-11-15: image 2.5, adequacy 2.5, understanding 3, decoration 3.5 = REDO (capture deleted). 268 px thumb: pair readable, `+80` a speck (j weak). No mining gesture (Nelim stands, no rock adjacent), pair at centre not left third, right half of frame bare ground, smile not readable (side view). Next: recompose scene 1 (v6: closer zoom, Nelim at the rock, mark larger or lower, decor on the right), Check-ShotlistVsScenario, refile. No owner review before the whole gallery (GALLERY.md, one review at the end).
   - defect: replay-audit 2026-10-30, mod root against the closed list (`STYLE_RIMWORLD.md`, root folders of a mod): git tracks `docs/` (lowercase, the list says `Docs/`), `package.json` and `package-lock.json` (not on the list; used by `.github/scripts/sync-about-description.mjs`). Not renamed or removed here (CI): Audit to decide with Virginie. Not stage-defining before `mountPreview` (10.e).
