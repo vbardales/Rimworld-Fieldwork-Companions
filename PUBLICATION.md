@@ -1,6 +1,6 @@
 # Publication
 
-What the Workshop page needs and the rest of the repository does not hold. It serves twice: for the
+What the Workshop page needs and the rest of the repository does not contain. It serves twice: for the
 first upload, and for whoever takes the mod over.
 
 **Status: `prepublished` (reached 2026-09-29, audited 2026-10-02).** Workshop item `3806133311` was created as the
