@@ -38,7 +38,7 @@ this launch's report there, and, when game wrote none (crash at startup, stall, 
 its `Player.log` and `no-report.txt`. Without it, log of dead run left in shared `pickle-reports/`
 and overwritten by next ticket; launcher's own `pickle-reports-archive/<stamp>-nosummary` copy pruned
 after five archives. Run with no report = no verdict, but its log tells game crash from suite defect,
-so kept and named in `docs/runs/history.md`.
+so kept and named in `Docs/runs/pickle.md`.
 
 Six passes required, report must say which is which.
 
@@ -85,7 +85,7 @@ evidence"). **Proof belongs to revision**: every summary in `docs/runs/` names c
 `Mod/Assemblies/FieldworkCompanions.dll` and of steps assembly it ran against; report of another build
 proves nothing about current one. Per pass, keep latest report for revision now in repository,
 minified with shared `scripts/Minify-Evidence.ps1` (protocols repository), under `Tests/Pickle/Evidence/<date>-<pass>/` (on disk, ignored
-by git), and one text line in `docs/runs/history.md`. What report must contain:
+by git), and one text line in `Docs/runs/pickle.md`. What report must contain:
 
 | Proof | Where it is | Why it cannot be dropped |
 | --- | --- | --- |
