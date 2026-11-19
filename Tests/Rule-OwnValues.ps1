@@ -239,14 +239,13 @@ if (-not (Test-Path -LiteralPath $gameDll) -or -not $lib -or -not (Test-Path -Li
 
     # What the four hooks ask of the game: the shared contract check, given the mod's own facts (hook signatures, the three non-public
     # members the source needs a publiciser for). ResourceDef and ResourceAmount are protected abstract (milking), GetSteps is internal.
-    It 'Harmony contract: the four hooks resolve, the access grant holds, every injected parameter exists' {
+    It 'Harmony contract: the four hooks resolve, and the only non-public members reached are the three known ones' {
         $contract = if ($SharedDir) { Join-Path $SharedDir 'Check-HarmonyContract.ps1' }
         if (-not $contract -or -not (Test-Path -LiteralPath $contract)) { throw 'Check-HarmonyContract.ps1 not found in the shared folder' }
         $out = @(& powershell -NoProfile -ExecutionPolicy Bypass -File $contract -ModRoot $root `
             -Hooks 'CompHasGatherableBodyResource.Gathered,FishingUtility.GetCatchesFor,Mineable.DestroyMined,Plant.PlantCollected' `
-            -MinPatches 4 2>&1 | ForEach-Object { "$_" })
-        # TODO (Audit, 2026-11-19): put back `-CompileProbe -ExpectedNonPublic 'CompHasGatherableBodyResource.ResourceDef,CompHasGatherableBodyResource.ResourceAmount,Pawn_TrainingTracker.GetSteps'`
-        # once Check-HarmonyContract's probe project references UnityEngine.IMGUIModule (AssistMark uses GUI: CS0103 today, a defect of the probe, not of the mod).
+            -MinPatches 4 -CompileProbe `
+            -ExpectedNonPublic 'CompHasGatherableBodyResource.ResourceDef,CompHasGatherableBodyResource.ResourceAmount,Pawn_TrainingTracker.GetSteps' 2>&1 | ForEach-Object { "$_" })
         if ($LASTEXITCODE -ne 0) { $out | Where-Object { $_ -match '\S' } | Select-Object -Last 15 }
     }
 }
