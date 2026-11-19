@@ -1,7 +1,7 @@
 ---
 localization: complete
 translation_en: complete
-translation_fr: complete   # reviewed by Virginie 2026-10-02, see the French review line in "Translation audit"
+translation_fr: partial   # reviewed by Virginie 2026-10-02 (see "Translation audit"); MarkScale and MarkScaleTip (2026-11-15, tip extended 2026-11-19) not reviewed yet
 mod:          Fieldwork Companions
 packageId:    nelim.fieldworkcompanions
 repo:         Rimworld-Fieldwork-Companions
@@ -9,7 +9,7 @@ remote:       https://github.com/vbardales/Rimworld-Fieldwork-Companions.git
 local_path:   C:\Users\nelim\Documents\rimworld\FieldworkCompanions
 visibility:   public
 detached:     yes
-workflow_stage: settings[1.0.0]
+workflow_stage: localize[1.0.0]
 settings_audit: partial   # markScale audited 2026-11-19 (code and automated tests); in-game check owed at playTests, then passed
 audit_revision: e39d9ab
 licence:      original
@@ -28,8 +28,8 @@ maintainer:   Codex, current local repository task
 updated:      2026-11-19
 remaining:
   - unverified: markScale in game (settings audit 2026-11-19, automated tests green): slider drawn, greyed out while the mark is off, and dragged, mark drawn larger and centred at 1.25 to 4, value kept over a restart, label and tooltip not clipped in English and French; played at `playTests` with the settings-page captures (02, 05) and the gallery scenes 20, 22, 23 that set the scale to 4.
-  - unverified: texts `MarkScale` and `MarkScaleTip` (EN and FR; tip extended 2026-11-19) and the regenerated `TRANSLATION_REVIEW.md` await the ChatGPT review and Virginie's reading (6.f, 6.g at `localize`).
-  - unverified: further down (not replayed, stage-defining once reached): 8.m `code_review_sha` 980db596 and 8.l `tested_on` cd1afb7 stale against the v6b code (review of `code_review_sha..HEAD`, small Pickle tickets for the mark size setting); 6.f `TRANSLATION_REVIEW.md` stale (regenerate with `Make-TranslationReview.ps1`, new MoteDef and strings); 12.c `social_preview_sha256` stale (Preview.png regenerated 2026-11-08).
+  - defect: replay-audit 2026-11-19 (ledger `../.replays/FieldworkCompanions-20261119.tsv`, 50 rows, 41 done, 0 weak), first open 6.g: the two texts `MarkScale` and `MarkScaleTip` (EN and FR; the tip was extended on 2026-11-19) have no ChatGPT review (`/review-translation`) and no reading by Virginie; the last review (2026-11-14) predates `d48ced9`. Run `/review-translation`, apply or refuse (`Docs/review-refusals.md`), then ask Virginie to read the French. 5.a to 5.h closed the same day (settings audit redone, `Tests/Rule-OwnValues.ps1` 12 rules green). `TRANSLATION_REVIEW.md` regenerated at `d19b4f9` (`f77325e`). Stage moved `settings[1.0.0]` to `localize[1.0.0]`.
+  - unverified: further down (not replayed, stage-defining once reached): 8.m `code_review_sha` 980db596 and 8.l `tested_on` cd1afb7 stale against the v6b code (review of `code_review_sha..HEAD`, small Pickle tickets for the mark size setting); 12.c `social_preview_sha256` stale (Preview.png regenerated 2026-11-08).
   - unverified: Ticket `fb21` (`gallery-1-v5`, scene 1 v5) passed, exit=0, 1/1 (run relayed 2026-11-15, evidence `Tests/Pickle/Inbox/gallery-1-v5`, read 2026-11-15). Capture: Nelim (bun, no tuque) side view facing right, the white and grey wolf front facing beside her, `+80` above both (a little left of the wolf), zoom 4, Jade item, torch, flowers column, campfire, berries and stone chunks in frame; no rock being mined visible. score-gallery 2026-11-15: image 2.5, adequacy 2.5, understanding 3, decoration 3.5 = REDO (capture deleted). 268 px thumb: pair readable, `+80` a speck (j weak). No mining gesture (Nelim stands, no rock adjacent), pair at centre not left third, right half of frame bare ground, smile not readable (side view). Next: recompose scene 1 (v6: closer zoom, Nelim at the rock, mark larger or lower, decor on the right), Check-ShotlistVsScenario, refile. No owner review before the whole gallery (GALLERY.md, one review at the end).
   - defect: replay-audit 2026-10-30, mod root against the closed list (`STYLE_RIMWORLD.md`, root folders of a mod): git tracks `docs/` (lowercase, the list says `Docs/`), `package.json` and `package-lock.json` (not on the list; used by `.github/scripts/sync-about-description.mjs`). Not renamed or removed here (CI): Audit to decide with Virginie. Not stage-defining before `mountPreview` (10.e).
   - note: kept gallery evidence (all pre-v6 captures, prune with Prune-Evidence once the gallery is done): `Tests/Pickle/Evidence/2026-10-17-gallery-20-retake`, `2026-10-17-gallery-22-fishing-1`, `2026-10-17-tuque-blue-green`, `2026-10-18-empty-fishing-zone` (sanctuary map stages cleanly), `hair-tuque-seed`. What they taught: the yellow dome of the old captures is `Apparel_Tuque` dyed (dropped from v4); Show Hair Under Stuff shows hair under the tuque only once its settings file is seeded (`Tests/Pickle/config/sanctuary/Mod_3255379190_ShowHairMod.xml`); the `+N` mote sits over the animal, not the colonist.
@@ -41,7 +41,7 @@ remaining:
   - note: Workshop item 3806133311 was published by the maintainer as 0.1.0 while the local metadata and draft notes use 1.0.0. The maintainer explicitly accepts that difference for this early publication; it is tracked for the next planned update, not treated as a current audit blocker.
   - validated: PublishedFileId `3806133311` is committed and pushed on `main` (e2ec8fc, followed by release-preparation commits).
   - validated: French review by Virginie, 2026-10-02: 12 corrections requested (Intro, WorkHeader, FishingTip, GatheringTip, RequireSpecialtyTip, BondTip, ShareTip, Radius, RadiusTip, BondChance, then Intro and FishingTip again), all applied; she declared the French validated linguistically at revision `342f69d` on her own statement in chat. The wording after that is the corrections listed here only (commit following 51bc7e5). Reread against the 2026-09-30 French gender-agreement rule (TRANSLATIONS.md section 3). No owned text agrees with a pawn: all 33 Keyed entries are settings labels, tooltips, the reset confirmation and the numeric assist mote (`+{0}`); the one DefInjected pair is the hidden MainButtons shortcut's label/description. None names or describes a specific colonist or animal, so no `{PAWN_gender ? ...}` switch applies or is missing. `FRENCH_REVIEW.md` regenerated (`scripts/Make-FrenchReview.ps1` (shared, protocols repository), reads the shipped XML) on revision `7d441a6` (after the two English corrections of 6193bc0).
-protocols_read_sha: e09c9aa13725b637e0d5f59b643cc2c06a6f7fcb
+protocols_read_sha: 76c4b480788e0583cac3f19acc2174d65f16edcb
 ---
 # Fieldwork Companions — status
 
